@@ -1,0 +1,40 @@
+var:
+  url-repo: https://github.com/ludo2ne/ENSAI-tools   # to call this value : {{< meta var.url-repo >}}
+
+project:
+  type: website
+
+
+website:
+  title: "ENSAI tools"
+  repo-url: "{{< meta var.url-repo >}}"
+  repo-branch: main
+  reader-mode: true
+  navbar:
+    background: "#447099"
+    left:
+      - icon: house
+        href: index.qmd
+        text: Home
+      - text: Quarto
+        menu:
+          - href: doc/quarto/quarto-rstudio.qmd
+            text: "Using RStudio"
+    right:
+      - icon: github
+        href: "{{< meta var.url-repo >}}"
+        target: "_blank"
+  page-footer:
+    right: |
+      Website built with [Quarto](https://quarto.org/){.external target="_blank"} <br>
+      [Code source]({{< meta var.url-repo >}}){.external target="_blank"}
+
+execute:
+  freeze: auto  # re-render only when source changes
+
+format:
+  html:
+    theme:
+      dark: solar
+      light: cosmo
+    css: styles.css

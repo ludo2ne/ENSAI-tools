@@ -1,0 +1,481 @@
+---
+title: "Quarto avec Rstudio"
+description: "Construire et déployer avec RStudio"
+author: "Ludovic Deneuville"
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+    code-tools: true
+from: markdown+emoji
+number-sections: true
+lightbox: true
+---
+
+
+## Créer un dépôt distant
+
+- [ ] Connectez-vous à [GitHub](https://github.com/){target="_blank"}
+- [ ] Vérifiez que vous avez un [token actif](https://github.com/settings/tokens){target="_blank"}
+- [ ] Créer un nouveau Repository
+  - Public :arrow_right: obligatoire si vous voulez ensuite déployer un site Quarto
+  - Cochez Add README
+- [ ] Copiez l'url https du dépôt
+
+::: {.callout-tip title="Si vous n'avez pas de token actif" collapse="true"}
+- [ ] Generate a [new classic token](https://github.com/settings/tokens/new){target="_blank"}
+  - Fill in:
+    - token name: SSPCloud
+    - expiration date :arrow_right: Custom :arrow_right: 31 July
+  - :white_check_mark: Tick repo and workflow boxes
+  - Click on [Generate token]{.green-button}
+- [ ] Copy the token starting with `ghp_` and keep it safe for a few minutes
+- [ ] Once you're logged in to SSPCloud, go to My Account > Settings > Git and paste it there
+:::
+
+## Lancer le service RStudio
+
+- [ ] Connectez-vous au [SSPCloud](https://datalab.sspcloud.fr){target="_blank"}
+- [ ] Dans le catalogue, cliquez une fois sur `Lancer` pour le service RStudio
+
+Il y a quelques paramètrages à faire avant de lancer définitivement:
+
+- [ ] Onglet *Git*
+  - Collez *Repository url*
+  - Vérifiez que vous avez un token renseigné
+- [ ] Onglet *Network access*
+  - Cliquez sur `Enable access to your service through specific ports`
+  - Port numbers to expose: 5000
+- [ ] Lancez
+
+::: {.callout-tip title="À quoi ça sert ?"}
+En renseignant l'url du dépôt Git, celui-ci sera automatiquement cloné dans RStudio en y injectant le token. Ainsi vous pourrez communiquer aisément avec le dépôt distant (GitHub) sans avoir besoin de vous authentifier (i.e. sans avoir à renseigner identifiant et mot de passe GitHub à chaque push).
+
+L'ouverture du port 5000 va permettre de diffuser au monde extérieur les pages générées par Quarto. Si ce n'était pas fait, les pages html générées par Quarto ne seraient accessible que lorsque vous êtes connecté au service RStudio
+:::
+
+## Ouvrir le service RStudio
+
+Si tout s'est bien passé, un clone local a été créé.
+
+::: {.callout-tip title="Dans le cas contraire"}
+Il faut créer manuellement en injectant le token
+
+Dans un terminal :
+
+- [ ] `git clone https://$GIT_PERSONAL_ACCESS_TOKEN@<url-remote>`
+  - url-remote: `https://github.com/<user-name>/<repository-name>.git`
+:::
+
+Ouvrez un terminal :
+
+- [ ] Positionnez-vous dans le dépôt
+  - `cd <repository-name>`
+- [ ] Vérifiez que vous êtes branchés sur le dépôt distant avec le token
+  - `git remote -v`
+
+## Créer un projet Quarto
+
+Vous allez créer un projet Quarto qui va générer des pages html que vous pourrez ensuite déployer sur internet (i.e. créer un site internet).
+
+- [ ] `quarto create project`
+  - Type: website
+
+Cette commande crée les fichiers indispensables pour tout projet Quarto :
+
+- `_quarto.yml` : métadonnées pour décrire le projet, gérer le rendu et la barre de navigation
+- `index.qmd` : la page d'accueil du site qui sera généré 
+- `style.css` : pour gérer la mise en forme des pages html
+  - ce fichier est obligatoire mais vous pouvez le laisser vide si vous n'en avez pas besoin
+
+Comme vous êtes dans RStudio, un fichier `.Rproj` est également créé : il centralise les options RStudio du projet.
+
+Il y a également un fichier nommé *about.qmd*, qui permet de créer une page du même nom (optionnel, peut-être supprimé).
+
+
+### Build and Preview
+
+Vous avez un projet minimal avec deux pages. Demandons maintenant à Quarto de construire les pages html à partir de ces fichiers.
+
+- [ ] Modifiez le fichier *_quarto.yml*, pour ajouter la partie *preview* disant que la prévisualisation du site se fera en déployant sur l'url `http://0.0.0.0:5000/` qui sera accessible depuis l'extérieur du service
+
+```{.yml filename="_quarto.yml"}
+project:
+  type: website
+  preview:
+    host: 0.0.0.0
+    port: 5000
+```
+
+- [ ] `quarto preview`
+- [ ] Ouvrez la page de votre site Quarto
+  - Retournez sur le SSPCloud, puis cliquez sur *Ouvrir* votre service, puis sur le lien relié au port 5000
+
+La fonctionnalité *preview* vous permet de rpaidement modifier et visualiser votre projet.
+
+
+### Ajout de nouvelles pages
+
+Nous allons maintenant créer de nouvelles pages pour notre site. Mais plutôt que de laisser trainer les fichiers à la racine du dépôt, rangeons-les dans un dossier :
+
+- [ ] Créez un dossier doc
+- [ ] Dans ce dossier créer les fichiers *pages1.qmd* et *dashboard.qmd*
+
+Si vous voulez pouvoir ensuite accéder à ces pages depuis la page d'accueil du site, il peut être judicieux de les ajouter à la barre de navigation. 
+
+- [ ] Modifiez la partie *navbar* du fichier *_quarto.yml* pour avoir des liens vers ces deux nouvelles pages
+
+### Une page classique
+
+Commençons par éditer le fichier *pages1.qmd* qui contiendra un mix en texte et code R
+
+Chaque fichier qmd commence par une entête au format yml pour décrire les propriétés de la page.
+
+```{.yml}
+---
+title: "First page using R"
+description: "My description"
+author: "Your name"
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+---
+```
+
+En déclarant ces métadonnées, quarto générera :
+
+- Une page au format html (nombreux autres formats possibles : pdf, doc, ppt...)
+- avec une table des matières positionnée à gauche
+- le langage utilisé pour écrire le fichier sera markdown incluant les emojis
+- des sections numérotées
+
+::: {.callout-tip title="Métadonnées"}
+Vous remarquerez que le format de ces métadonnées (yaml) est le même que celui du fichier *_quarto.yml*.
+
+Vous pouvez définir :
+
+- des métadonnées globales dans *_quarto.yml*
+  - i.e. qui s'appliquent à tous les fichiers .qmd du projet
+- des métadonnées locale (en entête des fichier .qmd) pour compléter et/ou supplanter les métadonnées globales
+:::
+
+- [ ] Insérer l'entête de votre page
+- [ ] Collez ensuite le contenu ci-dessous
+- [ ] Vérifier le rendu
+
+````{.txt}
+Nous allons simuler 100 lancers d'une pièce à pile ou face.
+
+## Librairie utilisées
+
+Une bonne pratique est de lister au début toutes les librairies utilisées.
+
+```{r}
+library(ggplot2)
+```
+
+
+## Simulation
+
+```{r}
+set.seed(1986)
+
+n <- 100
+p <- 0.5
+
+X <- rbinom(n, 1, prob = p)
+```
+
+
+## Stats desc
+
+Quelques statistiques descriptives sur les résultats obtenus.
+
+```{r}
+prop.table(table(X))
+mean(X)
+var(X)
+```
+
+Il est aussi possible d'appeler du code en mode inline : la moyenne est de `r mean(X)`.
+
+## Un graph
+
+Ajoutons ici une option `#| echo: false` pour ne pas afficher le code.
+
+```{r}
+#| echo: false
+df <- data.frame(X = factor(X))
+
+ggplot(df, aes(x = X, fill = X)) +
+  geom_bar(width = 0.6) +
+  labs(
+    title = "Simulation binomiale (n = 100, p = 0.5)",
+    x = "Valeur (0 = échec, 1 = succès)",
+    y = "Fréquence"
+  ) +
+  theme_minimal()
+```
+````
+
+### Librairies et Reprodutibilité
+
+C'est trés bien de lister les librairies nécessaires, mais ce serait encore mieux d'avoir un outil pour les installer si elles ne sont pas là (et si possible dans la bonne version).
+
+C'est ici qu'entrent en jeu :
+
+*DESCRIPTION* : un fichier qui va lister les librairies utilisées dans le projet
+*renv* : outil qui va permettre de facilement figer/installer les librairies dans les bonnes versions
+
+- [ ] Créez à la racine du projet un fichier `DESCRIPTION`
+  - exemple ci-dessous
+
+```{.txt}
+Package: quartotuto
+Type: website
+Title: Quarto tuto
+Description: Used to declare R dependencies
+Version: 1.0
+Authors@R: c(
+    person("Ludovic", "DENEUVILLE",role = c("aut", "cre"), email = "ludovic.deneuville@ensai.fr"))
+URL: https://ludo2ne.github.io/Quarto-tuto
+License: MIT
+Imports:
+    dplyr,
+    DT,
+    ggplot2,
+    leaflet,
+    lubridate,
+    rmarkdown,
+    stringr,
+    tidyverse,
+    tidygeocoder
+Encoding: UTF-8
+```
+
+- [ ] renv::install()
+  - lit le fichier DESCRIPTION et installe les librairies
+
+### Un dashboard
+
+````{.txt}
+---
+title: "Chess Analytics" 
+format:
+  dashboard:
+    theme: pulse
+    orientation: columns
+from: markdown+emoji
+lightbox: true
+---
+
+```{r}}
+#| label: load-packages
+library(DT)
+library(leaflet)
+library(lubridate)
+library(tidyverse)
+library(tidygeocoder)
+```
+
+```{{r}}
+#| label: load-data
+df_raw <- read_csv("data/chess_games.csv")
+```
+
+```{{r}}
+#| label: prep-data
+df <- df_raw |>
+  mutate(
+    result_simple = case_when(
+      result == "1 - 0" ~ "White",
+      result == "0 - 1" ~ "Black",
+      TRUE ~ "Draw"
+    )
+  )
+```
+
+## Column 1 {width=65%}
+
+### Colum 1.1 {height=40%}
+
+#### Top openings
+
+```{{r}}
+#| fig-width: 4
+#| fig-asp: 0.6
+opening_results <- df |>
+  count(opening, result_simple) |>
+  group_by(opening) |>
+  mutate(total = sum(n)) |>
+  ungroup()
+
+top_openings <- opening_results |>
+  distinct(opening, total) |>
+  arrange(desc(total)) |>
+  slice_head(n = 5)
+
+plot_data <- opening_results |>
+  filter(opening %in% top_openings$opening)
+
+ggplot(plot_data, aes(x = reorder(opening, total), y = n, fill = result_simple)) +
+  geom_col(width = 0.7) +
+  geom_text(
+    aes(label = n),
+    position = position_stack(vjust = 0.5),
+    color = "white",
+    size = 3.5
+  ) +
+  coord_flip() +
+  scale_fill_manual(
+    values = c(
+      "White" = "#6BAED6",
+      "Draw"  = "#2171B5",
+      "Black" = "#08306B"
+    ),
+    breaks = c("White", "Draw", "Black")
+  ) +
+  labs(
+    title = "Top 5 Openings",
+    x = "",
+    y = "Game count",
+    fill = "Winner"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "top",
+    plot.title = element_text(face = "bold"),
+    plot.margin = margin(5, 5, 5, 5)
+  ) +
+  guides(fill = guide_legend(nrow = 1))
+```
+
+
+#### Simple card
+
+::: {.card title="Games" }
+`r nrow(df)` games played.
+:::
+
+
+
+### Top ten players winrate {height=60%}
+
+```{{r}}
+#| title: "Top 10 players by win rate"
+players <- df |>
+  mutate(
+    White_win = result_simple == "White",
+    Black_win = result_simple == "Black",
+    Draw = result_simple == "Draw"
+  ) |>
+  pivot_longer(
+    cols = c(white, black),
+    names_to = "color",
+    values_to = "player"
+  ) |>
+  mutate(
+    win = case_when(
+      color == "white" & result_simple == "White" ~ 1,
+      color == "black" & result_simple == "Black" ~ 1,
+      TRUE ~ 0
+    ),
+    loss = case_when(
+      color == "white" & result_simple == "Black" ~ 1,
+      color == "black" & result_simple == "White" ~ 1,
+      TRUE ~ 0
+    ),
+    Draw = if_else(result_simple == "Draw", 1, 0),
+    elo = if_else(color == "white", elo_white, elo_black)
+  )
+
+ranking <- players |>
+  group_by(player) |>
+  summarise(
+    elo = round(mean(elo, na.rm = TRUE)),
+    wins = sum(win),
+    losses = sum(loss),
+    Draws = sum(Draw),
+    total = n(),
+    winrate = round(wins / total, 2)
+  ) |>
+  arrange(desc(winrate)) |>
+  slice_head(n = 10)
+
+datatable(ranking)
+```
+
+
+## Column 2 {width=35%}
+
+### Win rates {height=30%}
+
+```{{r}}
+win_rates <- df |>
+  count(result_simple) |>
+  mutate(pct = n / sum(n))
+```
+
+
+```{{r}}
+#| content: valuebox
+#| title: "White"
+#| icon: circle
+#| color: light
+list(value=win_rates |>
+  filter(result_simple == "White") |>
+  pull(pct))
+```
+
+```{{r}}
+#| content: valuebox
+#| title: "Black"
+#| icon: circle-fill
+#| color: dark
+list(value=win_rates |>
+  filter(result_simple == "Black") |>
+  pull(pct))
+```
+
+```{{r}}
+#| content: valuebox
+#| title: "Draw"
+#| icon: circle-half
+#| color: secondary
+list(value=win_rates |>
+  filter(result_simple == "Draw") |>
+  pull(pct))
+```
+
+
+
+### Cities tournament map 
+
+
+```{{r}}
+#| title: Cities tournament map
+cities <- df |>
+  filter(!is.na(city), city != "NA") |>
+  distinct(city) |>
+  geocode(city, method = "osm")
+
+df_map <- df |>
+  left_join(cities, by = "city")
+
+leaflet(df_map) |>
+  addTiles() |>
+  addCircleMarkers(
+    lng = ~long,
+    lat = ~lat,
+    popup = ~city,
+    radius = 2
+  )
+```
+````
+
+  
