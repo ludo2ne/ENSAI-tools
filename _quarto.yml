@@ -35,6 +35,12 @@ execute:
 format:
   html:
     theme:
-      dark: solar
       light: cosmo
+      dark: solar
+    toc: true
+    toc-location: left
+    toc-depth: 2
     css: styles.css
+
+from: markdown+emoji
+lightbox: true

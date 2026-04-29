@@ -2,15 +2,8 @@
 title: "Quarto avec Rstudio"
 description: "Construire et déployer avec RStudio"
 author: "Ludovic Deneuville"
-format:
-  html:
-    toc: true
-    toc-location: left
-    toc-expand: 3
-    code-tools: true
-from: markdown+emoji
+format: html
 number-sections: true
-lightbox: true
 ---
 
 
@@ -229,8 +222,10 @@ C'est trés bien de lister les librairies nécessaires, mais ce serait encore mi
 
 C'est ici qu'entrent en jeu :
 
-*DESCRIPTION* : un fichier qui va lister les librairies utilisées dans le projet
-*renv* : outil qui va permettre de facilement figer/installer les librairies dans les bonnes versions
+- *DESCRIPTION* : un fichier qui va lister les librairies utilisées dans le projet
+- *renv* : outil qui va permettre de facilement figer/installer les librairies dans les bonnes versions
+
+---
 
 - [ ] Créez à la racine du projet un fichier `DESCRIPTION`
   - exemple ci-dessous
@@ -260,6 +255,75 @@ Encoding: UTF-8
 
 - [ ] renv::install()
   - lit le fichier DESCRIPTION et installe les librairies
+
+
+### Déploiement
+
+On a un joli site, mais ce serait bien de le déployer sur internet.
+
+GitHub propose une fonctionnalité pour créer un site statique, pour cela :
+
+- [ ] Créez à la racine du projet ces dossiers et ce fichier
+
+```{.txt}
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+```
+
+Ce fichier va permettre de lister les étapes nécessaires pour déployer.
+
+- [ ] Collez-y le contenu ci-dessous
+
+```{.yml filename="ci.yml}
+on:
+  workflow_dispatch:
+  push:
+    branches: main
+
+name: Quarto Publish
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render and Publish
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+Vous remarquerez que le déploiement se fait sur la branche git nommée *gh_pages*.
+
+- [ ] Sur la page du dépôt GitHub, créez cette branche
+
+:::{.callout-important}
+Avant d'envoyer notre code vers le dépôt distant, il faut s'assurer d'envoyer un dépôt propre.
+
+Par exemple, nous ne voulons pas envoyer les dossiers *_site* ou encore *_freeze* qui sont générés par Quarto et qu'il n'est pas nécessaire de versionner.
+:::
+
+- [ ] Ajoutez ces deux dosssiers au *.gitignore*
+
+Vérifions que tout est ok avant d'envoyer vers le dépôt distant
+
+- [ ] `git status`
+  - vérifiez que seuls les fichiers utiles sont versionnés
+- [ ] `git add .`
+- [ ] `git commit -m "init repo"`
+- [ ] `git push`
+
+
 
 ### Un dashboard
 
