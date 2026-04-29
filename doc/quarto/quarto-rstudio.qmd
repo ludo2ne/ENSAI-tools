@@ -175,14 +175,14 @@ Nous allons simuler 100 lancers d'une pièce à pile ou face.
 
 Une bonne pratique est de lister au début toutes les librairies utilisées.
 
-```{r}
+```{{r}}
 library(ggplot2)
 ```
 
 
 ## Simulation
 
-```{r}
+```{{r}}
 set.seed(1986)
 
 n <- 100
@@ -196,7 +196,7 @@ X <- rbinom(n, 1, prob = p)
 
 Quelques statistiques descriptives sur les résultats obtenus.
 
-```{r}
+```{{r}}
 prop.table(table(X))
 mean(X)
 var(X)
@@ -208,7 +208,7 @@ Il est aussi possible d'appeler du code en mode inline : la moyenne est de `r me
 
 Ajoutons ici une option `#| echo: false` pour ne pas afficher le code.
 
-```{r}
+```{{r}}
 #| echo: false
 df <- data.frame(X = factor(X))
 
