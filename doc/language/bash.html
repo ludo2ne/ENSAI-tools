@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Ludovic Deneuville">
+<meta name="description" content="Utiliser un terminal Unix">
 
-<title>Outils pour les élèves et enseignants de l’ENSAI – ENSAI tools</title>
+<title>Les commandes Bash – ENSAI tools</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,30 +25,68 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-91544e611bd0e83221240cde35fa504f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-8fe479874ca0985b39699dca03e940ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-91544e611bd0e83221240cde35fa504f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-91544e611bd0e83221240cde35fa504f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-8fe479874ca0985b39699dca03e940ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-91544e611bd0e83221240cde35fa504f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,7 +114,39 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -248,7 +320,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">ENSAI tools</span>
     </a>
   </div>
@@ -259,7 +331,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> <i class="bi bi-house" role="img">
+    <a class="nav-link" href="../../index.html"> <i class="bi bi-house" role="img">
 </i> 
 <span class="menu-text">Home</span></a>
   </li>  
@@ -269,15 +341,15 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-formats">    
         <li>
-    <a class="dropdown-item" href="./doc/format/markdown.html">
+    <a class="dropdown-item" href="../../doc/format/markdown.html">
  <span class="dropdown-text">Markdown</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/format/json.html">
+    <a class="dropdown-item" href="../../doc/format/json.html">
  <span class="dropdown-text">JSON</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/format/yaml.html">
+    <a class="dropdown-item" href="../../doc/format/yaml.html">
  <span class="dropdown-text">YAML</span></a>
   </li>  
     </ul>
@@ -288,7 +360,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-langages">    
         <li>
-    <a class="dropdown-item" href="./doc/language/bash.html">
+    <a class="dropdown-item" href="../../doc/language/bash.html">
  <span class="dropdown-text">Bash</span></a>
   </li>  
     </ul>
@@ -299,7 +371,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-git">    
         <li>
-    <a class="dropdown-item" href="./doc/git/basics.html">
+    <a class="dropdown-item" href="../../doc/git/basics.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
     </ul>
@@ -310,19 +382,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-datalab">    
         <li>
-    <a class="dropdown-item" href="./doc/datalab/intro.html">
+    <a class="dropdown-item" href="../../doc/datalab/intro.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/datalab/basics.html">
+    <a class="dropdown-item" href="../../doc/datalab/basics.html">
  <span class="dropdown-text">Usage basique</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/datalab/advanced.html">
+    <a class="dropdown-item" href="../../doc/datalab/advanced.html">
  <span class="dropdown-text">Usage avancé</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/datalab/vscode-python.html">
+    <a class="dropdown-item" href="../../doc/datalab/vscode-python.html">
  <span class="dropdown-text">VSCode Python</span></a>
   </li>  
     </ul>
@@ -333,19 +405,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-quarto">    
         <li>
-    <a class="dropdown-item" href="./doc/quarto/basics.html">
+    <a class="dropdown-item" href="../../doc/quarto/basics.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/quarto/site.html">
+    <a class="dropdown-item" href="../../doc/quarto/site.html">
  <span class="dropdown-text">Site statique</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/quarto/report.html">
+    <a class="dropdown-item" href="../../doc/quarto/report.html">
  <span class="dropdown-text">Rapport de projet</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/quarto/rstudio.html">
+    <a class="dropdown-item" href="../../doc/quarto/rstudio.html">
  <span class="dropdown-text">Using RStudio</span></a>
   </li>  
     </ul>
@@ -374,7 +446,17 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#principales-commandes" id="toc-principales-commandes" class="nav-link" data-scroll-target="#principales-commandes"><span class="header-section-number">2</span> Principales commandes</a></li>
+  <li><a href="#les-touches-magiques" id="toc-les-touches-magiques" class="nav-link" data-scroll-target="#les-touches-magiques"><span class="header-section-number">3</span> Les touches magiques</a></li>
+  <li><a href="#caractères-spéciaux" id="toc-caractères-spéciaux" class="nav-link" data-scroll-target="#caractères-spéciaux"><span class="header-section-number">4</span> Caractères spéciaux</a></li>
+  <li><a href="#variables-denvironnement" id="toc-variables-denvironnement" class="nav-link" data-scroll-target="#variables-denvironnement"><span class="header-section-number">5</span> Variables d’environnement</a></li>
+  </ul>
+</nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -386,13 +468,24 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Outils pour les élèves et enseignants de l’ENSAI</h1>
+<h1 class="title">Les commandes Bash</h1>
 </div>
 
+<div>
+  <div class="description">
+    Utiliser un terminal Unix
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ludovic Deneuville </p>
+          </div>
+  </div>
     
   
     
@@ -404,15 +497,472 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><span class="emoji" data-emoji="construction">🚧</span></p>
+<div class="notes">
+<p><a href="https://ludo2ne.github.io/Git-tuto/" class="uri">https://ludo2ne.github.io/Git-tuto/</a></p>
+<p><a href="https://ludo2ne.github.io/ENSAI-2A-remise-a-niveau/doc/outils/Bash.html" class="uri">https://ludo2ne.github.io/ENSAI-2A-remise-a-niveau/doc/outils/Bash.html</a></p>
+</div>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>Il y a peu, dans un monde proche — très proche — la ligne de commande était le principal moyen de communiquer avec un ordinateur. Pas de souris, pas de bureau avec des icônes : simplement un clavier et un terminal.</p>
+<p>Aujourd’hui encore, dans de nombreux domaines de l’informatique, les instructions se donnent en ligne de commande. En effet, les interfaces graphiques sont souvent plus coûteuses à développer, plus lourdes et plus difficiles à maintenir.</p>
+<p>Nous allons ici présenter quelques commandes simples, connues et utilisées par la majorité des informaticiens. Il existe plusieurs shells, sous Unix comme sous Windows. Nous nous intéresserons principalement au shell Bash sous Unix : <a href="https://fr.wikipedia.org/wiki/Bourne-Again_shell">Bash</a>.</p>
+<p>En tant que Data Scientist, on ne vous demandera pas de pirater la CIA avec une calculatrice Casio. En revanche, connaître les bases du terminal est un véritable must-have qui vous servira très souvent.</p>
+<section id="glossaire" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="glossaire"><span class="header-section-number">1.1</span> Glossaire</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 73%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Terme</th>
+<th>Définition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Terminal</td>
+<td>Interface texte permettant d’interagir avec l’ordinateur</td>
+</tr>
+<tr class="even">
+<td>Ligne de commande</td>
+<td>Texte saisi par l’utilisateur pour demander une action</td>
+</tr>
+<tr class="odd">
+<td>Shell</td>
+<td>Programme qui interprète les commandes</td>
+</tr>
+<tr class="even">
+<td>Bash</td>
+<td>Shell Unix très répandu</td>
+</tr>
+<tr class="odd">
+<td>Script</td>
+<td>Fichier contenant plusieurs commandes automatisées</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="un-terminal" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="un-terminal"><span class="header-section-number">1.2</span> Un terminal</h3>
+<p><a href="./img/terminal.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="./img/terminal.jpg" class="img-fluid"></a></p>
+<p>Voici un premier exemple de terminal. Vous avez :</p>
 <ul>
-<li>SSPCloud</li>
-<li>Git</li>
-<li>Quarto</li>
-<li>VSCode</li>
-<li>RStudio</li>
+<li>le prompt : <span style="color: #4ec9b0"><strong>onyxia@vscode-python-413726-0</strong></span>:<span style="color: #569cd6"><strong>~/work/ENSAI-2A-projet-info-template</strong></span>$
+<ul>
+<li>vous êtes connecté avec l’utilisateur <em>onyxia</em></li>
+<li>sur la machine virutelle <em>vscode-python-413726-0</em></li>
+<li>vous êtes positionné dans le dossier <span style="color: #569cd6">~/work/ENSAI-2A-projet-info-template</span>$</li>
+<li><em>~</em> est le dossier personnel de l’utilisateur</li>
+<li>il se termine par un <code>$</code> (utilisateur normal, <code>#</code> pour root)</li>
+</ul></li>
+<li>à droite du prompt, vous pouvez écrire une commande
+<ul>
+<li>ici <code>ls -l</code></li>
+<li><em>ls</em> pour lister les éléments du dossier courant</li>
+<li>option <em>-l</em> pour avoir un affichage détaillé</li>
+</ul></li>
+<li>en dessous, vous avez le résultat de la commande
+<ul>
+<li>la liste des dossiers et fichiers</li>
+</ul></li>
+</ul>
+</section>
+<section id="fonctionnement" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="fonctionnement"><span class="header-section-number">1.3</span> Fonctionnement</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+
+    U[Utilisateur]
+
+    %% CLI
+    U --&gt;|commande clavier| TERM[Terminal]
+    TERM --&gt; SHELL[Shell]
+    SHELL --&gt;|appels système| OS[OS]
+
+    %% GUI
+    U --&gt;|clic souris | GUI[Interface graphique]
+    GUI --&gt;|événements GUI| APP[Application]
+    APP --&gt;|appels système| OS
+
+    %% Hardware
+    OS --&gt; Matériel
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="principales-commandes" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="principales-commandes"><span class="header-section-number">2</span> Principales commandes</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>&lt;...&gt;</code> : texte à remplacer</li>
+<li><code>[...]</code> : élément optionnel</li>
+</ul>
+</div>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 24%">
+<col style="width: 47%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Commande</th>
+<th>Signification</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>pwd</code></td>
+<td>print working directory</td>
+<td>Affiche le répertoire courant</td>
+</tr>
+<tr class="even">
+<td><code>cd &lt;directory&gt;</code></td>
+<td>change directory</td>
+<td>Change le répertoire de travail courant</td>
+</tr>
+<tr class="odd">
+<td><code>ls</code> (ou <code>ll</code>)</td>
+<td>list</td>
+<td>Liste les fichiers et dossiers</td>
+</tr>
+<tr class="even">
+<td><code>mv &lt;src_file&gt; &lt;dest_file&gt;</code></td>
+<td>move</td>
+<td>Déplace des fichiers ou des répertoires</td>
+</tr>
+<tr class="odd">
+<td><code>cp &lt;src_file&gt; &lt;dest_file&gt;</code></td>
+<td>copy</td>
+<td>Copie un fichier ou un répertoire</td>
+</tr>
+<tr class="even">
+<td><code>mkdir &lt;directory&gt;</code></td>
+<td>make directory</td>
+<td>Crée un nouveau répertoire</td>
+</tr>
+<tr class="odd">
+<td><code>rm [-r] &lt;file&gt;</code></td>
+<td>remove</td>
+<td>Supprime des fichiers (<code>-r</code> pour répertoires)</td>
+</tr>
+<tr class="even">
+<td><code>touch &lt;filename&gt;</code></td>
+<td></td>
+<td>Crée un nouveau fichier vide</td>
+</tr>
+<tr class="odd">
+<td><code>cat &lt;filename&gt;</code></td>
+<td>concatenate</td>
+<td>Affiche le contenu d’un fichier</td>
+</tr>
+<tr class="even">
+<td><code>grep &lt;text&gt; &lt;filename&gt;</code></td>
+<td>global regex print</td>
+<td>Rechercher dans un fichier</td>
+</tr>
+</tbody>
+</table>
+<section id="cd" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="cd"><span class="header-section-number">2.1</span> cd</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> backend         <span class="co"># Aller dans le dossier backend</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> backend/src     <span class="co"># Aller dans le dossier backend/src</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..              <span class="co"># Aller dans le dossier parent</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /               <span class="co"># Aller à la racine de la machine</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~               <span class="co"># Aller dans votre dossier personnel</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="ls" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="ls"><span class="header-section-number">2.2</span> ls</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>                 <span class="co"># Afficher les fichiers du dossier courant</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span>              <span class="co"># Affichage détaillé</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-a</span>              <span class="co"># Afficher les fichiers cachés</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> backend         <span class="co"># Afficher le contenu du dossier backend</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>.py            <span class="co"># Afficher tous les fichiers Python</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Souvent la commande <code>ll</code> (alias de <code>ls -al</code>) est définie et permet d’avoir un affichage plus joli.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="les-touches-magiques" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="les-touches-magiques"><span class="header-section-number">3</span> Les touches magiques</h2>
+<div class="callout callout-style-default callout-important callout-titled" title="La plus utile">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>La plus utile
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La touche Tabulation <strong>⇄</strong></p>
+<ul>
+<li>Elle sert à faire de l’autocomplétion. Elle complète automatiquement les commandes.</li>
+<li><code>cd bac</code> + TAB <span class="emoji" data-emoji="arrow_right">➡️</span> <code>cd backend</code></li>
+</ul>
+</div>
+</div>
+<p>Autres touches utiles :</p>
+<ul>
+<li>ENTREE : Pour exécuter la commande</li>
+<li>CTRL + C : stopper la commande en cours</li>
+<li>Double TAB : affiche toutes les possibilités
+<ul>
+<li>pratique si plusieurs dossiers commencent par <em>bac</em></li>
+</ul></li>
+<li>↑ : Accéder à l’historique des commandes exécutées
+<ul>
+<li>↓ : pour naviguer également dans l’historique</li>
+<li><code>history</code> : historique des commandes exécutées</li>
+</ul></li>
+<li>CTRL + A : Début de ligne
+<ul>
+<li>CTRL + ← (ou →) : Se déplacer de mot en mot</li>
+</ul></li>
+<li>MAJ + INSER : Coller
+<ul>
+<li>ou <strong>Clic Droit</strong></li>
+</ul></li>
+</ul>
+</section>
+<section id="caractères-spéciaux" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="caractères-spéciaux"><span class="header-section-number">4</span> Caractères spéciaux</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 18%">
+<col style="width: 48%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Symbole</th>
+<th>Nom / idée</th>
+<th>Signification</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>.</code></td>
+<td>dossier courant</td>
+<td>représente le répertoire actuel</td>
+<td><code>./script.sh</code></td>
+</tr>
+<tr class="even">
+<td><code>..</code></td>
+<td>dossier parent</td>
+<td>représente le dossier au-dessus</td>
+<td><code>cd ..</code></td>
+</tr>
+<tr class="odd">
+<td><code>~</code></td>
+<td>home utilisateur</td>
+<td>dossier personnel de l’utilisateur</td>
+<td><code>cd ~</code></td>
+</tr>
+<tr class="even">
+<td><code>/</code></td>
+<td>racine / séparateur</td>
+<td>sépare les dossiers dans un chemin</td>
+<td><code>/home/user</code></td>
+</tr>
+<tr class="odd">
+<td><code>*</code></td>
+<td>wildcard</td>
+<td>remplace n’importe quelle suite de caractères</td>
+<td><code>ls *.py</code></td>
+</tr>
+<tr class="even">
+<td><code>?</code></td>
+<td>wildcard simple</td>
+<td>remplace un seul caractère</td>
+<td><code>ls file?.txt</code></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled" title="Autres caractères spéciaux">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Autres caractères spéciaux
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 18%">
+<col style="width: 48%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Symbole</th>
+<th>Nom / idée</th>
+<th>Signification</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>-</code></td>
+<td>option</td>
+<td>introduit une option de commande</td>
+<td><code>ls -l</code></td>
+</tr>
+<tr class="even">
+<td><code>--</code></td>
+<td>option longue</td>
+<td>option longue lisible</td>
+<td><code>ls --help</code></td>
+</tr>
+<tr class="odd">
+<td><code>&gt;</code></td>
+<td>redirection</td>
+<td>écrit la sortie dans un fichier</td>
+<td><code>ls &gt; fichiers.txt</code></td>
+</tr>
+<tr class="even">
+<td><code>&gt;&gt;</code></td>
+<td>ajout</td>
+<td>ajoute à un fichier</td>
+<td><code>echo test &gt;&gt; log.txt</code></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;</code></td>
+<td>entrée</td>
+<td>lit depuis un fichier</td>
+<td><code>python &lt; script.py</code></td>
+</tr>
+<tr class="even">
+<td><code>|</code></td>
+<td>pipe</td>
+<td>envoie la sortie vers une autre commande</td>
+<td><code>cat f.txt | grep erreur</code></td>
+</tr>
+<tr class="odd">
+<td><code>&amp;</code></td>
+<td>arrière-plan</td>
+<td>lance une commande en tâche de fond</td>
+<td><code>python app.py &amp;</code></td>
+</tr>
+<tr class="even">
+<td><code>&amp;&amp;</code></td>
+<td>ET logique</td>
+<td>exécute la seconde commande si la première réussit</td>
+<td><code>mkdir test &amp;&amp; cd test</code></td>
+</tr>
+<tr class="odd">
+<td><code>;</code></td>
+<td>séparateur</td>
+<td>enchaîne plusieurs commandes</td>
+<td><code>pwd ; ls</code></td>
+</tr>
+<tr class="even">
+<td><code>#</code></td>
+<td>commentaire</td>
+<td>commentaire dans un script shell</td>
+<td><code># ceci est un commentaire</code></td>
+</tr>
+<tr class="odd">
+<td><code>$</code></td>
+<td>variable shell</td>
+<td>accès à une variable</td>
+<td><code>echo $HOME</code></td>
+</tr>
+<tr class="even">
+<td><code>$?</code></td>
+<td>code retour</td>
+<td>statut de la dernière commande</td>
+<td><code>echo $?</code></td>
+</tr>
+<tr class="odd">
+<td><code>!</code></td>
+<td>historique</td>
+<td>rappelle une commande précédente</td>
+<td><code>!!</code></td>
+</tr>
+<tr class="even">
+<td><code>"</code></td>
+<td>guillemets doubles</td>
+<td>protège du découpage mais garde les variables</td>
+<td><code>echo "$HOME"</code></td>
+</tr>
+<tr class="odd">
+<td><code>'</code></td>
+<td>guillemets simples</td>
+<td>texte littéral</td>
+<td><code>echo '$HOME'</code></td>
+</tr>
+<tr class="even">
+<td><code>\</code></td>
+<td>échappement</td>
+<td>neutralise un caractère spécial</td>
+<td><code>Mes\ Documents</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="variables-denvironnement" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="variables-denvironnement"><span class="header-section-number">5</span> Variables d’environnement</h2>
+<p>Les variables d’environnement sont des paires clé=valeur utilisées par le shell et les programmes.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">export</span> <span class="va">MA_CLE</span><span class="op">=</span><span class="st">"ma valeur"</span>  <span class="co"># Creer ou Modifier une variable dans le terminal courant</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$MA_CLE</span>                      <span class="co"># Afficher la valeur (vide si la cle n existe pas)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">env</span>                               <span class="co"># Lister toutes les variables</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">env</span> <span class="kw">|</span> <span class="fu">grep</span> GIT                    <span class="co"># Liste des variables contenant GIT</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Dans la dernière commande le pipe (<code>|</code>) permet d’envoyer la sortie de la commande <code>env</code> comme paramètre d’entrée de la commande grep.</p>
+<blockquote class="blockquote">
+<p><code>f(x) | g</code> <span class="emoji" data-emoji="arrow_right">➡️</span> traduit en langage matheux signifie : <span class="math inline">\(g(f(x))\)</span></p>
+</blockquote>
+<p>Variables courantes :</p>
+<ul>
+<li><code>echo $HOME</code> : dossier personnel de l’utilisateur</li>
+<li><code>echo $PATH</code> : liste des dossiers où Bash cherche les commandes</li>
 </ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -842,6 +1392,38 @@ ul.task-list li input[type="checkbox"] {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

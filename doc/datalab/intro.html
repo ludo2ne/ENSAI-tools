@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Ludovic Deneuville">
+<meta name="description" content="Présentation du Datalab">
 
-<title>Outils pour les élèves et enseignants de l’ENSAI – ENSAI tools</title>
+<title>Datalab SSPCloud – ENSAI tools</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,27 +28,27 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-91544e611bd0e83221240cde35fa504f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-8fe479874ca0985b39699dca03e940ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-91544e611bd0e83221240cde35fa504f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-91544e611bd0e83221240cde35fa504f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-8fe479874ca0985b39699dca03e940ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-91544e611bd0e83221240cde35fa504f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -248,7 +250,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">ENSAI tools</span>
     </a>
   </div>
@@ -259,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> <i class="bi bi-house" role="img">
+    <a class="nav-link" href="../../index.html"> <i class="bi bi-house" role="img">
 </i> 
 <span class="menu-text">Home</span></a>
   </li>  
@@ -269,15 +271,15 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-formats">    
         <li>
-    <a class="dropdown-item" href="./doc/format/markdown.html">
+    <a class="dropdown-item" href="../../doc/format/markdown.html">
  <span class="dropdown-text">Markdown</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/format/json.html">
+    <a class="dropdown-item" href="../../doc/format/json.html">
  <span class="dropdown-text">JSON</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/format/yaml.html">
+    <a class="dropdown-item" href="../../doc/format/yaml.html">
  <span class="dropdown-text">YAML</span></a>
   </li>  
     </ul>
@@ -288,7 +290,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-langages">    
         <li>
-    <a class="dropdown-item" href="./doc/language/bash.html">
+    <a class="dropdown-item" href="../../doc/language/bash.html">
  <span class="dropdown-text">Bash</span></a>
   </li>  
     </ul>
@@ -299,7 +301,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-git">    
         <li>
-    <a class="dropdown-item" href="./doc/git/basics.html">
+    <a class="dropdown-item" href="../../doc/git/basics.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
     </ul>
@@ -310,19 +312,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-datalab">    
         <li>
-    <a class="dropdown-item" href="./doc/datalab/intro.html">
+    <a class="dropdown-item" href="../../doc/datalab/intro.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/datalab/basics.html">
+    <a class="dropdown-item" href="../../doc/datalab/basics.html">
  <span class="dropdown-text">Usage basique</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/datalab/advanced.html">
+    <a class="dropdown-item" href="../../doc/datalab/advanced.html">
  <span class="dropdown-text">Usage avancé</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/datalab/vscode-python.html">
+    <a class="dropdown-item" href="../../doc/datalab/vscode-python.html">
  <span class="dropdown-text">VSCode Python</span></a>
   </li>  
     </ul>
@@ -333,19 +335,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-quarto">    
         <li>
-    <a class="dropdown-item" href="./doc/quarto/basics.html">
+    <a class="dropdown-item" href="../../doc/quarto/basics.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/quarto/site.html">
+    <a class="dropdown-item" href="../../doc/quarto/site.html">
  <span class="dropdown-text">Site statique</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/quarto/report.html">
+    <a class="dropdown-item" href="../../doc/quarto/report.html">
  <span class="dropdown-text">Rapport de projet</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/quarto/rstudio.html">
+    <a class="dropdown-item" href="../../doc/quarto/rstudio.html">
  <span class="dropdown-text">Using RStudio</span></a>
   </li>  
     </ul>
@@ -374,7 +376,13 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  </ul>
+</nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -386,13 +394,30 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Outils pour les élèves et enseignants de l’ENSAI</h1>
-</div>
+<h1 class="title">Datalab SSPCloud</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Onyxia</div>
+    <div class="quarto-category">Cloud</div>
+    <div class="quarto-category">Docker</div>
+    <div class="quarto-category">Kubernetes</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Présentation du Datalab
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ludovic Deneuville </p>
+          </div>
+  </div>
     
   
     
@@ -403,16 +428,126 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><span class="emoji" data-emoji="construction">🚧</span></p>
+<p><a href="https://github.com/ludo2ne/ENSAI-1A-SQL/blob/main/doc/outils/tp-datalab.qmd" class="uri">https://github.com/ludo2ne/ENSAI-1A-SQL/blob/main/doc/outils/tp-datalab.qmd</a></p>
+<section id="introduction" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Le Datalab permet aux statisticiens de découvrir, d’expérimenter, d’apprendre, de se former aux outils de la data.</p>
+<section id="pourquoi-un-datalab" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="pourquoi-un-datalab">Pourquoi un Datalab ?</h3>
+<p>Dans le monde professionnel, plusieurs problèmes se posent au statisticien :</p>
 <ul>
-<li>SSPCloud</li>
-<li>Git</li>
-<li>Quarto</li>
-<li>VSCode</li>
-<li>RStudio</li>
+<li><span class="emoji" data-emoji="turtle">🐢</span> sa machine n’est pas assez puissante</li>
+<li><span class="emoji" data-emoji="no_entry">⛔</span> installer certains logiciels est parfois interdit et bloqué par le système</li>
+<li><span class="emoji" data-emoji="lock">🔒</span> il doit analyser des données sensibles en toute sécurité</li>
 </ul>
+<p>À l’INSEE, un projet est né pour pallier à ce besoin : <a href="https://www.onyxia.sh/" target="_blank">Onyxia</a> porté par le <a href="https://github.com/InseeFrLab" target="_blank">lab de l’INSEE</a>.</p>
+<p>La première étape fut de créer une infrastructure Cloud avec des CPUs, des GPUs, de la RAM et du stockage.</p>
+<p>Ensuite, avoir plein de ressources c’est très bien, mais encore faut-il savoir les utiliser. Or lancer des services dans le cloud nécessite quelques compétences spécifiques (Docker, Kubernetes, Helm, S3…) qui ne sont pas à la portée de tous.</p>
+<p>D’où l’idée de créer une interface graphique pour pouvoir lancer des services en quelques clics. Onyxia s’appuie sur des technologies sous-jacentes (Kubernetes, Helm, S3…) pour proposer une IHM agréable pour le datascientist. Cependant, la philosophie du projet Onyxia est d’être une brique qui facilite le travail sans se rendre indispensable. L’idée est d’éviter que les utilisateurs ne s’enferment dans un choix technologique et qu’il soit couteux d’en sortir.</p>
+<p>À l’INSEE, une instance de ce logiciel a été installée sur le <a href="https://datalab.sspcloud.fr/" target="_blank">Datalab SSP Cloud</a>, ouverte à tous les agents publics. Vous pouvez y créer un compte car c’est également ouvert à tous les élèves de l’ENSAI (en utilisant votre mail ENSAI).</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ne déposez pas de données sensibles sur cette instance, ni sur celle du GENES.</p>
+<p>Pour celles et ceux qui iront à l’INSEE, une autre instance nommée LS3 n’est accessible qu’en interne et autorise l’utilisation de données sensibles.</p>
+</div>
+</div>
+<p>Onyxia est un logiciel Libre et Open Source. Chacun peut installer sa propre instance sur son infra. C’est ce qu’ont fait de nombreux organismes, ainsi que le GENES.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/FvpNfVrxBFM" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="les-services" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="les-services">Les services</h3>
+<p>Le principe est d’offrir aux utilisateurs la possibilité de lancer de nombreux services à la demande (Jupyter, Rstudio, VSCode, PostgreSQL…) avec une puissance de calcul adaptée aux besoins.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ces services sont éphémères, car si les ressources sont importantes, il faut savoir les partager !</p>
+<p>Le principe général est le suivant :</p>
+<ul>
+<li>Vous lancez votre service en réservant des ressources (CPU, GPU, RAM, Stockage)</li>
+<li>Vous effectuez votre travail</li>
+<li>Vous sauvegardez votre code (git) et vos résultats (MinIO)</li>
+<li>Vous supprimez votre service et libérez les ressources</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Ce qu'il se passe sous le capot">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Ce qu’il se passe sous le capot
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Pour plus de détails, vous pouvez consulter la vidéo en bas de la page.</p>
+<p>Prenons l’exemple de ce qu’il se passe en arrière plan lorsque vous lancez un service <code>Vscode-python</code> :</p>
+<section id="construction-de-limage-docker" class="level4" data-number="0.0.1">
+<h4 data-number="0.0.1" class="anchored" data-anchor-id="construction-de-limage-docker"><span class="header-section-number">0.0.1</span> Construction de l’image Docker</h4>
+<p>Une image <a href="https://www.docker.com/" target="_blank">Docker</a> est un paquet léger et autonome qui contient tout le nécessaire pour exécuter une application : le code, les bibliothèques, les dépendances, les variables d’environnement et les fichiers de configuration.</p>
+<p>Les images Docker permettent de créer des environnements isolés et cohérents, garantissant ainsi la portabilité et la reproductibilité des applications.</p>
+<ol type="1">
+<li>Nous partons de l’<a href="https://github.com/InseeFrLab/images-datascience/blob/main/base/Dockerfile" target="_blank">image de base d’Onyxia</a>
+<ul>
+<li>ubuntu:22.04 et quelques éléments de config</li>
+</ul></li>
+<li>Nous ajoutons la couche <a href="https://github.com/InseeFrLab/images-datascience/blob/main/python-minimal/Dockerfile" target="_blank">python-minimal</a>
+<ul>
+<li>installation de python et quelques packages classiques</li>
+</ul></li>
+<li>Nous ajoutons la couche <a href="https://github.com/InseeFrLab/images-datascience/blob/main/python-datascience/Dockerfile" target="_blank">python-datascience</a>
+<ul>
+<li>Julia, Quarto et des packages de datascience (numpy, pandas…)</li>
+</ul></li>
+<li>Nous ajoutons la couche <a href="https://github.com/InseeFrLab/images-datascience/blob/main/vscode/Dockerfile" target="_blank">vscode</a>
+<ul>
+<li>Installation de Visual Studio Code et configuration</li>
+</ul></li>
+</ol>
+<p>Vous avez maintenant une image Docker avec tout ce qu’il faut pour bien travailler.</p>
+</section>
+<section id="dockerhub" class="level4" data-number="0.0.2">
+<h4 data-number="0.0.2" class="anchored" data-anchor-id="dockerhub"><span class="header-section-number">0.0.2</span> DockerHub</h4>
+<p>Cette image est construite et déposée sur DockerHub <a href="https://hub.docker.com/r/inseefrlab/onyxia-vscode-python" target="_blank">onyxia-vscode-python</a>.</p>
+<p>Nous allons ensuite lancer une instance de cette image : un conteneur.</p>
+<p>Une image est comme un moule, et un conteneur est un objet fabriqué à partir de ce moule. L’image contient les instructions, et le conteneur est l’instance concrète créée à partir de ce modèle. Vous verrez le même principe dans le cours de POO avec les classes (modèles) et les objets (instances)</p>
+<p>Pour gérer tous les conteneurs lancés sur le datalab, nous avons besoin d’un orchestrateur : Kubernetes.</p>
+</section>
+<section id="chart-helm" class="level4" data-number="0.0.3">
+<h4 data-number="0.0.3" class="anchored" data-anchor-id="chart-helm"><span class="header-section-number">0.0.3</span> Chart Helm</h4>
+<p>Cependant, nous allons d’abord utiliser <a href="https://helm.sh/" target="_blank">Helm</a> pour faciliter le déploiement.</p>
+<p>Helm simplifie le processus de déploiement d’applications sur Kubernetes en automatisant les tâches répétitives et en fournissant une gestion centralisée des configurations.</p>
+<p>Le <a href="https://github.com/InseeFrLab/helm-charts-interactive-services/tree/main/charts/vscode-python" target="_blank">chart Helm vscode-python</a> est un ensemble de fichiers de configuration qui facilite le déploiement d’application dans un envrionnement Kubernetes.</p>
+</section>
+<section id="déploiement-sur-kube" class="level4" data-number="0.0.4">
+<h4 data-number="0.0.4" class="anchored" data-anchor-id="déploiement-sur-kube"><span class="header-section-number">0.0.4</span> Déploiement sur Kube</h4>
+<p><a href="https://kubernetes.io/" target="_blank">Kubernetes</a> (K8s) est un système open-source qui automatise le déploiement, la mise à l’échelle et la gestion d’applications conteneurisées. C’est un orchestrateur de conteneurs.</p>
+<p>K8s récupére via le chart Helm toutes les infos nécessaires et déploie le conteneur (créé à partir de l’image Docker) sur l’infra du datalab.</p>
+</section>
+</div>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
