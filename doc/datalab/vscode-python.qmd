@@ -1,0 +1,20 @@
+---
+title: "VSCode python"
+description: "Utilisation du service vscode-python"
+author: "Ludovic Deneuville"
+---
+
+
+## Ouverture port
+
+
+
+
+## Extensions
+
+
+
+
+## Assistant IA
+
+

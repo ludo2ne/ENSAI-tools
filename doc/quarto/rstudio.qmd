@@ -2,8 +2,6 @@
 title: "Quarto avec Rstudio"
 description: "Construire et déployer avec RStudio"
 author: "Ludovic Deneuville"
-format: html
-number-sections: true
 ---
 
 

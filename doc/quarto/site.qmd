@@ -1,0 +1,13 @@
+---
+title: "Site statique"
+description: "Créer et déployer un site statique avec Quarto"
+author: "Ludovic Deneuville"
+---
+
+:construction:
+
+## Créer un projet
+
+
+
+## Déployer

@@ -1,0 +1,22 @@
+---
+title: "Quarto"
+description: "Introduction à Quarto"
+author: "Ludovic Deneuville"
+---
+
+:construction:
+
+## Pourquoi Quarto
+
+historique  :
+
+- R avec commentaire
+- Copier coller les figures
+- Rmd
+
+## Fichier qmd
+
+
+### Métadonnées Yaml
+
+

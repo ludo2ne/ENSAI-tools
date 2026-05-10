@@ -1,0 +1,112 @@
+---
+title: "Datalab SSPCloud"
+description: "Présentation du Datalab"
+author: "Ludovic Deneuville"
+categories:
+  - Onyxia
+  - Cloud
+  - Docker
+  - Kubernetes
+---
+
+<https://github.com/ludo2ne/ENSAI-1A-SQL/blob/main/doc/outils/tp-datalab.qmd>
+
+
+## Introduction {.unnumbered}
+
+Le Datalab permet aux statisticiens de découvrir, d'expérimenter, d'apprendre, de se former aux outils de la data.
+
+### Pourquoi un Datalab ?  {.unnumbered}
+
+Dans le monde professionnel, plusieurs problèmes se posent au statisticien :
+
+- :turtle: sa machine n'est pas assez puissante
+- :no_entry: installer certains logiciels est parfois interdit et bloqué par le système
+- :lock: il doit analyser des données sensibles en toute sécurité
+
+À l'INSEE, un projet est né pour pallier à ce besoin : [Onyxia](https://www.onyxia.sh/){target="_blank"} porté par le [lab de l'INSEE](https://github.com/InseeFrLab){target="_blank"}.
+
+La première étape fut de créer une infrastructure Cloud avec des CPUs, des GPUs, de la RAM et du stockage.
+
+Ensuite, avoir plein de ressources c'est très bien, mais encore faut-il savoir les utiliser. Or lancer des services dans le cloud nécessite quelques compétences spécifiques (Docker, Kubernetes, Helm, S3...) qui ne sont pas à la portée de tous.
+
+D'où l'idée de créer une interface graphique pour pouvoir lancer des services en quelques clics. Onyxia s'appuie sur des technologies sous-jacentes (Kubernetes, Helm, S3...) pour proposer une IHM agréable pour le datascientist. Cependant, la philosophie du projet Onyxia est d'être une brique qui facilite le travail sans se rendre indispensable. L'idée est d'éviter que les utilisateurs ne s'enferment dans un choix technologique et qu'il soit couteux d'en sortir.
+
+À l'INSEE, une instance de ce logiciel a été installée sur le [Datalab SSP Cloud](https://datalab.sspcloud.fr/){target="_blank"}, ouverte à tous les agents publics. Vous pouvez y créer un compte car c'est également ouvert à tous les élèves de l'ENSAI (en utilisant votre mail ENSAI).
+
+::: {.callout-warning}
+Ne déposez pas de données sensibles sur cette instance, ni sur celle du GENES.
+
+Pour celles et ceux qui iront à l'INSEE, une autre instance nommée LS3 n'est accessible qu'en interne et autorise l'utilisation de données sensibles.
+:::
+
+Onyxia est un logiciel Libre et Open Source. Chacun peut installer sa propre instance sur son infra. C'est ce qu'ont fait de nombreux organismes, ainsi que le GENES.
+
+{{< video https://www.youtube.com/watch?v=FvpNfVrxBFM >}}
+
+### Les services {.unnumbered}
+
+Le principe est d'offrir aux utilisateurs la possibilité de lancer de nombreux services à la demande (Jupyter, Rstudio, VSCode, PostgreSQL...) avec une puissance de calcul adaptée aux besoins.
+
+::: {.callout-caution}
+Ces services sont éphémères, car si les ressources sont importantes, il faut savoir les partager !
+
+Le principe général est le suivant :
+
+- Vous lancez votre service en réservant des ressources (CPU, GPU, RAM, Stockage)
+- Vous effectuez votre travail
+- Vous sauvegardez votre code (git) et vos résultats (MinIO)
+- Vous supprimez votre service et libérez les ressources 
+:::
+
+
+
+
+::: {.callout-note collapse="true" title="Ce qu'il se passe sous le capot"}
+
+Pour plus de détails, vous pouvez consulter la vidéo en bas de la page.
+
+Prenons l'exemple de ce qu'il se passe en arrière plan lorsque vous lancez un service `Vscode-python` :
+
+#### Construction de l'image Docker
+
+Une image [Docker](https://www.docker.com/){target="_blank"} est un paquet léger et autonome qui contient tout le nécessaire pour exécuter une application : le code, les bibliothèques, les dépendances, les variables d'environnement et les fichiers de configuration.
+
+Les images Docker permettent de créer des environnements isolés et cohérents, garantissant ainsi la portabilité et la reproductibilité des applications.
+
+1. Nous partons de l'[image de base d'Onyxia](https://github.com/InseeFrLab/images-datascience/blob/main/base/Dockerfile){target="_blank"}
+    - ubuntu:22.04 et quelques éléments de config
+2. Nous ajoutons la couche [python-minimal](https://github.com/InseeFrLab/images-datascience/blob/main/python-minimal/Dockerfile){target="_blank"}
+    - installation de python et quelques packages classiques
+3. Nous ajoutons la couche [python-datascience](https://github.com/InseeFrLab/images-datascience/blob/main/python-datascience/Dockerfile){target="_blank"}
+    - Julia, Quarto et des packages de datascience (numpy, pandas...)
+4. Nous ajoutons la couche [vscode](https://github.com/InseeFrLab/images-datascience/blob/main/vscode/Dockerfile){target="_blank"}
+    - Installation de Visual Studio Code et configuration
+
+Vous avez maintenant une image Docker avec tout ce qu'il faut pour bien travailler.
+
+#### DockerHub
+
+Cette image est construite et déposée sur DockerHub [onyxia-vscode-python](https://hub.docker.com/r/inseefrlab/onyxia-vscode-python){target="_blank"}.
+
+Nous allons ensuite lancer une instance de cette image : un conteneur. 
+
+Une image est comme un moule, et un conteneur est un objet fabriqué à partir de ce moule. L'image contient les instructions, et le conteneur est l'instance concrète créée à partir de ce modèle. Vous verrez le même principe dans le cours de POO avec les classes (modèles) et les objets (instances)
+
+Pour gérer tous les conteneurs lancés sur le datalab, nous avons besoin d'un orchestrateur : Kubernetes. 
+
+#### Chart Helm
+
+Cependant, nous allons d'abord utiliser [Helm](https://helm.sh/){target="_blank"} pour faciliter le déploiement.
+
+Helm simplifie le processus de déploiement d'applications sur Kubernetes en automatisant les tâches répétitives et en fournissant une gestion centralisée des configurations.
+
+Le [chart Helm vscode-python](https://github.com/InseeFrLab/helm-charts-interactive-services/tree/main/charts/vscode-python){target="_blank"} est un ensemble de fichiers de configuration qui facilite le déploiement d'application dans un envrionnement Kubernetes.
+
+#### Déploiement sur Kube
+
+[Kubernetes](https://kubernetes.io/){target="_blank"} (K8s) est un système open-source qui automatise le déploiement, la mise à l'échelle et la gestion d'applications conteneurisées. C'est un orchestrateur de conteneurs.
+
+K8s récupére via le chart Helm toutes les infos nécessaires et déploie le conteneur (créé à partir de l'image Docker) sur l'infra du datalab.
+
+:::

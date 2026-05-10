@@ -16,9 +16,41 @@ website:
       - icon: house
         href: index.qmd
         text: Home
+      - text: Formats
+        menu:
+          - href: doc/format/markdown.qmd
+            text: "Markdown"
+          - href: doc/format/json.qmd
+            text: "JSON"
+          - href: doc/format/yaml.qmd
+            text: "YAML"
+      - text: Langages
+        menu:
+          - href: doc/language/bash.qmd
+            text: "Bash"
+      - text: Git
+        menu:
+          - href: doc/git/basics.qmd
+            text: "Introduction"
+      - text: Datalab
+        menu:
+          - href: doc/datalab/intro.qmd
+            text: "Introduction"
+          - href: doc/datalab/basics.qmd
+            text: "Usage basique"
+          - href: doc/datalab/advanced.qmd
+            text: "Usage avancé"
+          - href: doc/datalab/vscode-python.qmd
+            text: "VSCode Python"
       - text: Quarto
         menu:
-          - href: doc/quarto/quarto-rstudio.qmd
+          - href: doc/quarto/basics.qmd
+            text: "Introduction"
+          - href: doc/quarto/site.qmd
+            text: "Site statique"
+          - href: doc/quarto/report.qmd
+            text: "Rapport de projet"
+          - href: doc/quarto/rstudio.qmd
             text: "Using RStudio"
     right:
       - icon: github
@@ -43,4 +75,5 @@ format:
     css: styles.css
 
 from: markdown+emoji
+number-sections: true
 lightbox: true
