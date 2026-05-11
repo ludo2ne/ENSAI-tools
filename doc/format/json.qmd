@@ -1,0 +1,71 @@
+---
+title: "JSON"
+description: "Le format JSON pour l'échange de données"
+author: "Ludovic Deneuville"
+---
+
+## Introduction
+
+JSON (JavaScript Object Notation) est un format de sérialisation de données textuel, léger et indépendant du langage.
+
+Il est aujourd'hui utilisé pour l'échange de données entre un client et un serveur. Il est à la fois :
+
+- Lisible par les humains
+- Léger
+- Structuré de manière hiérarchique
+
+### Utilisation
+
+vous rencontrerez le format JSON dans :
+
+1. Fichiers de Configuration : De nombreux outils modernes utilisent le JSON pour stocker des réglages (ex: `settings.json` de Visual Studio Code).
+2. Les API REST : Lorsqu'une application demande des données à un serveur
+
+
+## Syntaxe
+
+Un fichier JSON repose sur deux structures de données fondamentales :
+
+- L'Objet `{ }` : Un ensemble de paires `clé: valeur`
+- Le Tableau `[ ]` : Une liste ordonnée de valeurs
+
+Les types de données autorisés
+
+- String : `"Texte"` (obligatoirement entre doubles guillemets)
+- Number : `20` ou `3.14`
+- Boolean : `true` ou `false`
+- Object : `{ "sous_cle": "valeur" }`
+- Array : `[1, 2, 3]`
+- Null : `null`
+
+
+### Exemple
+
+Voici comment représenter des objets complexes :
+
+```{.json}
+[
+  {
+    "id": 876,
+    "nom": "Couvert",
+    "prenom": "Armelle",
+    "est_adulte": true,
+    "notes": [15.5, 18, 12],
+    "adresse": {
+      "ville": "Rennes",
+      "code_postal": 35000
+    },
+    "projets": null
+  },
+  {
+    "id": 875,
+    "nom": "Golo",
+    "prenom": "Thierry"
+  }
+]
+```
+
+
+::: {.callout-note title="Remarque"}
+Contrairement à un tableau SQL où chaque ligne doit respecter la même structure de colonnes, le JSON permet une structure hétérogène. Chaque objet peut posséder un nombre de propriétés différent.
+:::

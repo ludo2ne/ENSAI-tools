@@ -4,13 +4,7 @@ description: "Utiliser un terminal Unix"
 author: "Ludovic Deneuville"
 ---
 
-:construction:
 
-:::{.notes}
-<https://ludo2ne.github.io/Git-tuto/>
-
-<https://ludo2ne.github.io/ENSAI-2A-remise-a-niveau/doc/outils/Bash.html>
-:::
 
 ## Introduction
 
@@ -55,6 +49,8 @@ Voici un premier exemple de terminal. Vous avez :
 
 ### Fonctionnement
 
+Le terminal est une manière simple de donner des instructions à la machine.
+
 ```{mermaid}
 flowchart TD
 
@@ -76,7 +72,7 @@ flowchart TD
 
 ## Principales commandes
 
-::: {.callout-warning}
+::: {.callout-caution}
 - `<...>` : texte à remplacer
 - `[...]` : élément optionnel
 :::
@@ -87,13 +83,13 @@ flowchart TD
 | `pwd`                         | print working directory   | Affiche le répertoire courant                      |
 | `cd <directory>`              | change directory          | Change le répertoire de travail courant            |
 | `ls` (ou `ll`)                | list                      | Liste les fichiers et dossiers                     |
-| `mv <src_file> <dest_file>`   | move                      | Déplace des fichiers ou des répertoires            |
-| `cp <src_file> <dest_file>`   | copy                      | Copie un fichier ou un répertoire                  |
+| `mv <src> <dest>`             | move                      | Déplace un fichier ou un répertoire                |
+| `cp <src> <dest>`             | copy                      | Copie un fichier ou un répertoire                  |
 | `mkdir <directory>`           | make directory            | Crée un nouveau répertoire                         |
-| `rm [-r] <file>`              | remove                    | Supprime des fichiers (`-r` pour répertoires)      |
-| `touch <filename>`            |                           | Crée un nouveau fichier vide                       |
-| `cat <filename>`              | concatenate               | Affiche le contenu d'un fichier                    |
-| `grep <text> <filename>`      | global regex print        | Rechercher dans un fichier                         |
+| `rm [-r] <file>`              | remove                    | Supprime un fichier (`-r` pour répertoire)         |
+| `touch <file>`                |                           | Crée un nouveau fichier vide                       |
+| `cat <file>`                  | concatenate               | Affiche le contenu d'un fichier                    |
+| `grep <text> <file>`          | global regex print        | Rechercher dans un fichier                         |
 
 ### cd
 
@@ -201,3 +197,71 @@ Variables courantes :
 
 - `echo $HOME` : dossier personnel de l’utilisateur
 - `echo $PATH` : liste des dossiers où Bash cherche les commandes
+
+## Scripts
+
+Il est possible d'écrire un fichier qui va enchainer les commandes les unes après les autres.
+
+```{.bash filename="setup.sh"}
+mkdir depots
+cd depots
+git clone https://github.com/ludo2ne/ENSAI-2A-projet-info-template.git
+cd ENSAI-2A-projet-info-template
+
+code-server .
+
+uv sync --project backend --all-extras
+uv sync --project frontend --all-extras
+```
+
+Par exemple le script ci-dessus va :
+
+- créer un dossier *depots*, puis se postionner dedans
+- cloner un repository et se positionner dedans
+- ouvrir VSCode dans le dossier courant
+- installer les dépendances avec l'utilitaire *uv*
+
+### Droit d'exécution
+
+Imaginons que vous avez créé le fichier *setup.sh* ci-dessus, et que vous souhaitez le lancer.
+
+Avant cela il faut avoir le droit d'exéctuer le fichier.
+
+La commande `chmod +x <filename>` autorise tout le monde a exécuter ce fichier.
+
+
+::: {.callout-tip title="En savoir un peu plus sur les droits" collapse="true"}
+Commencez par lister les fichiers d'un dossier avec `ls -l`.
+
+La première colonne affiche une suite de 10 caractères, par exemple `drwxr-xr--`.
+
+Le premier caractère représente le type d'élément :
+
+- `-` : Fichier
+- `d` : Répertoire
+- `l` : Lien symbolique
+
+Les 9 caractères suivants :arrow_right: Les permissions(divisées en 3 groupes de 3)
+
+- `rwx` (les 2-4) : Droits du Propriétaire
+- `r-x` (les 5-7) : Droits du Groupe
+- `r--` (les 8-10) : Droits des Autres
+
+La signification des lettres : r, w, x
+
+| Lettre  | Nom        | Sur un Fichier | Sur un Dossier |
+| :------ | :--------- | :------------- | :------------- |
+| **`r`** | *Read*     | Lire le contenu du fichier. | Lister les fichiers du dossier (`ls`). |
+| **`w`** | *Write*    | Modifier le contenu du fichier. | Créer, supprimer ou renommer des fichiers dedans. |
+| **`x`** | *Execute*  | Lancer le fichier (ex: un script). | Entrer dans le dossier (`cd`). |
+:::
+
+### Lancer le script
+
+Simplement avec `./<filename.sh>`.
+
+
+
+## Ressources {.unnumbered}
+
+- <https://ensae-reproductibilite.github.io/website/chapters/linux101.html>{target="_blank"}

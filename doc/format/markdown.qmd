@@ -1,7 +1,10 @@
 ---
 title: "Mardown"
-description: "Construire et déployer avec RStudio"
+description: "Pour une mise en forme simple et rapide"
 author: "Ludovic Deneuville"
+format:
+  html:
+    code-tools: true
 ---
 
 

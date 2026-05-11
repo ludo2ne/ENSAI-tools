@@ -1,11 +1,61 @@
 ---
 title: Outils pour les élèves et enseignants de l'ENSAI
+number-sections: false
+listing:
+  - id: others-listing
+    type: table
+    fields: [title, categories]
+    contents: 
+      - doc/format/
+      - doc/language/
+    sort-ui: false
+    filter-ui: false
+  - id: git-listing
+    type: table
+    fields: [title, categories]
+    contents: 
+      - doc/git/
+    sort-ui: false
+    filter-ui: false
+  - id: datalab-listing
+    type: table
+    fields: [title, categories]
+    contents: 
+      - doc/datalab/
+    sort-ui: false
+    filter-ui: false
+  - id: quarto-listing
+    type: table
+    fields: [title, categories]
+    contents: 
+      - doc/quarto/
+    sort-ui: false
+    filter-ui: false
 ---
 
 :construction:
 
-- SSPCloud
-- Git
-- Quarto
-- VSCode
-- RStudio
+Vous trouverez ici les outils indispensables pour mener à bien vos projets et stages.
+
+Les TP suivants seront dispensés aux élèves de première année :
+
+- [Découverte du Datalab](./doc/datalab/lab.qmd){target="_blank"}
+- [Introduction à Git](./doc/git/lab.qmd){target="_blank"}
+- Gérer votre projet
+- Hello Quarto (via un TP de *Stats avec R*)
+
+## Git
+
+::: {#git-listing}
+:::
+
+## Datalab
+
+::: {#datalab-listing}
+:::
+
+## Quarto
+
+::: {#quarto-listing}
+:::
+

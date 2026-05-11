@@ -1,0 +1,75 @@
+---
+title: "Git - usages avancés"
+description: "Quelques usages avancés de Git"
+author: "Ludovic Deneuville"
+categories:
+  - Branches
+  - GitFlow
+  - Pull Request
+  - Open source
+---
+
+## Les branches
+
+Imaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.
+
+Seulement vous n'êtes pas encore sûr que :
+
+- cette fonctionnalité sera vraiment utile :neutral_face:
+- qu'elle ne va pas tout casser :cold_sweat: 
+
+::: {.callout-note}
+- si c'est tout petit, vous pouvez dev en local en faire un reset au cas où
+- sinon utilisez une branche
+:::
+
+### Les branches
+
+Vous aimeriez pouvoir :
+
+- tester votre nouveau code
+- de manière isolée
+- sans polluer le dépôt
+
+::: {.callout-note}
+La branche principale se nomme généralement *main* ou *master*.
+:::
+
+### La solution
+
+- Créez une branche
+- Développez sur cette branche (add, commit, push...)
+- Selon vos conclusions
+  - fusionnez votre branche avec le tronc
+  - supprimez votre branche
+
+:::{ .notes}
+ça vous permet de coder de manière isolée
+:::
+
+### Commandes liées aux branches {.smaller}
+
+| Commande                       | Description                                        |
+|--------------------------------|----------------------------------------------------|
+| `git branch -a`                | Lister toutes les branches                         |
+| `git switch <branch>`          | Changer de branche                                 |
+| `git switch -c <branch>`       | Créer et changer de branche                        |
+| `git merge <branch>`           | Fusionner `<branch>` dans la branche actuelle      |
+| `git branch -d <branch>`       | Supprimer la branche                               |
+| `git push origin <branch>`     | Pousser la branche vers le dépôt distant           |
+
+
+## Gitflow
+
+:construction:
+
+
+## Pull request
+
+:construction:
+
+
+## Open source
+
+:construction:
+

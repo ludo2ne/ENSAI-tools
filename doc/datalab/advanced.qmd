@@ -1,10 +1,10 @@
 ---
-title: "Découverte du Datalab SSPCloud"
-description: "Utilisation avancée du Datalab"
+title: "Usage avancé du Datalab"
 author: "Ludovic Deneuville"
 categories:
   - Script
   - Secrets
+  - Docker
 ---
 
 :construction:

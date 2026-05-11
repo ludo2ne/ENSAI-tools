@@ -30,8 +30,14 @@ website:
             text: "Bash"
       - text: Git
         menu:
-          - href: doc/git/basics.qmd
-            text: "Introduction"
+          - href: doc/git/presentation.qmd
+            text: "Présentation"
+          - href: doc/git/advanced.qmd
+            text: "Usages avancés"
+          - href: doc/git/lab.qmd
+            text: "TP"
+          - href: doc/git/glossary.qmd
+            text: "Glossaire"
       - text: Datalab
         menu:
           - href: doc/datalab/intro.qmd
@@ -42,6 +48,8 @@ website:
             text: "Usage avancé"
           - href: doc/datalab/vscode-python.qmd
             text: "VSCode Python"
+          - href: doc/datalab/lab.qmd
+            text: "TP Découverte"
       - text: Quarto
         menu:
           - href: doc/quarto/basics.qmd
@@ -62,7 +70,7 @@ website:
       [Code source]({{< meta var.url-repo >}}){.external target="_blank"}
 
 execute:
-  freeze: auto  # re-render only when source changes
+  freeze: auto
 
 format:
   html:

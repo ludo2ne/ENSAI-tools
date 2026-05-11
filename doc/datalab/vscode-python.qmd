@@ -4,6 +4,7 @@ description: "Utilisation du service vscode-python"
 author: "Ludovic Deneuville"
 ---
 
+:construction:
 
 ## Ouverture port
 
