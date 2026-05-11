@@ -148,7 +148,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -371,8 +371,20 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-git">    
         <li>
-    <a class="dropdown-item" href="../../doc/git/basics.html">
- <span class="dropdown-text">Introduction</span></a>
+    <a class="dropdown-item" href="../../doc/git/presentation.html">
+ <span class="dropdown-text">Présentation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/git/advanced.html">
+ <span class="dropdown-text">Usages avancés</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/git/lab.html">
+ <span class="dropdown-text">TP</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/git/glossary.html">
+ <span class="dropdown-text">Glossaire</span></a>
   </li>  
     </ul>
   </li>
@@ -396,6 +408,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../../doc/datalab/vscode-python.html">
  <span class="dropdown-text">VSCode Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/datalab/lab.html">
+ <span class="dropdown-text">TP Découverte</span></a>
   </li>  
     </ul>
   </li>
@@ -455,6 +471,8 @@ window.Quarto = {
   <li><a href="#les-touches-magiques" id="toc-les-touches-magiques" class="nav-link" data-scroll-target="#les-touches-magiques"><span class="header-section-number">3</span> Les touches magiques</a></li>
   <li><a href="#caractères-spéciaux" id="toc-caractères-spéciaux" class="nav-link" data-scroll-target="#caractères-spéciaux"><span class="header-section-number">4</span> Caractères spéciaux</a></li>
   <li><a href="#variables-denvironnement" id="toc-variables-denvironnement" class="nav-link" data-scroll-target="#variables-denvironnement"><span class="header-section-number">5</span> Variables d’environnement</a></li>
+  <li><a href="#scripts" id="toc-scripts" class="nav-link" data-scroll-target="#scripts"><span class="header-section-number">6</span> Scripts</a></li>
+  <li><a href="#ressources" id="toc-ressources" class="nav-link" data-scroll-target="#ressources">Ressources</a></li>
   </ul>
 </nav>
 </nav>
@@ -496,11 +514,6 @@ window.Quarto = {
 </header>
 
 
-<p><span class="emoji" data-emoji="construction">🚧</span></p>
-<div class="notes">
-<p><a href="https://ludo2ne.github.io/Git-tuto/" class="uri">https://ludo2ne.github.io/Git-tuto/</a></p>
-<p><a href="https://ludo2ne.github.io/ENSAI-2A-remise-a-niveau/doc/outils/Bash.html" class="uri">https://ludo2ne.github.io/ENSAI-2A-remise-a-niveau/doc/outils/Bash.html</a></p>
-</div>
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
 <p>Il y a peu, dans un monde proche — très proche — la ligne de commande était le principal moyen de communiquer avec un ordinateur. Pas de souris, pas de bureau avec des icônes : simplement un clavier et un terminal.</p>
@@ -571,6 +584,7 @@ window.Quarto = {
 </section>
 <section id="fonctionnement" class="level3" data-number="1.3">
 <h3 data-number="1.3" class="anchored" data-anchor-id="fonctionnement"><span class="header-section-number">1.3</span> Fonctionnement</h3>
+<p>Le terminal est une manière simple de donner des instructions à la machine.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -602,13 +616,13 @@ window.Quarto = {
 </section>
 <section id="principales-commandes" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="principales-commandes"><span class="header-section-number">2</span> Principales commandes</h2>
-<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warning
+Caution
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -648,12 +662,12 @@ Warning
 <td>Liste les fichiers et dossiers</td>
 </tr>
 <tr class="even">
-<td><code>mv &lt;src_file&gt; &lt;dest_file&gt;</code></td>
+<td><code>mv &lt;src&gt; &lt;dest&gt;</code></td>
 <td>move</td>
-<td>Déplace des fichiers ou des répertoires</td>
+<td>Déplace un fichier ou un répertoire</td>
 </tr>
 <tr class="odd">
-<td><code>cp &lt;src_file&gt; &lt;dest_file&gt;</code></td>
+<td><code>cp &lt;src&gt; &lt;dest&gt;</code></td>
 <td>copy</td>
 <td>Copie un fichier ou un répertoire</td>
 </tr>
@@ -665,20 +679,20 @@ Warning
 <tr class="odd">
 <td><code>rm [-r] &lt;file&gt;</code></td>
 <td>remove</td>
-<td>Supprime des fichiers (<code>-r</code> pour répertoires)</td>
+<td>Supprime un fichier (<code>-r</code> pour répertoire)</td>
 </tr>
 <tr class="even">
-<td><code>touch &lt;filename&gt;</code></td>
+<td><code>touch &lt;file&gt;</code></td>
 <td></td>
 <td>Crée un nouveau fichier vide</td>
 </tr>
 <tr class="odd">
-<td><code>cat &lt;filename&gt;</code></td>
+<td><code>cat &lt;file&gt;</code></td>
 <td>concatenate</td>
 <td>Affiche le contenu d’un fichier</td>
 </tr>
 <tr class="even">
-<td><code>grep &lt;text&gt; &lt;filename&gt;</code></td>
+<td><code>grep &lt;text&gt; &lt;file&gt;</code></td>
 <td>global regex print</td>
 <td>Rechercher dans un fichier</td>
 </tr>
@@ -959,6 +973,113 @@ Tip
 <ul>
 <li><code>echo $HOME</code> : dossier personnel de l’utilisateur</li>
 <li><code>echo $PATH</code> : liste des dossiers où Bash cherche les commandes</li>
+</ul>
+</section>
+<section id="scripts" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="scripts"><span class="header-section-number">6</span> Scripts</h2>
+<p>Il est possible d’écrire un fichier qui va enchainer les commandes les unes après les autres.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>setup.sh</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="setup.sh"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> depots</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> depots</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/ludo2ne/ENSAI-2A-projet-info-template.git</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ENSAI-2A-projet-info-template</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">code-server</span> .</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> sync <span class="at">--project</span> backend <span class="at">--all-extras</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> sync <span class="at">--project</span> frontend <span class="at">--all-extras</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Par exemple le script ci-dessus va :</p>
+<ul>
+<li>créer un dossier <em>depots</em>, puis se postionner dedans</li>
+<li>cloner un repository et se positionner dedans</li>
+<li>ouvrir VSCode dans le dossier courant</li>
+<li>installer les dépendances avec l’utilitaire <em>uv</em></li>
+</ul>
+<section id="droit-dexécution" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="droit-dexécution"><span class="header-section-number">6.1</span> Droit d’exécution</h3>
+<p>Imaginons que vous avez créé le fichier <em>setup.sh</em> ci-dessus, et que vous souhaitez le lancer.</p>
+<p>Avant cela il faut avoir le droit d’exéctuer le fichier.</p>
+<p>La commande <code>chmod +x &lt;filename&gt;</code> autorise tout le monde a exécuter ce fichier.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="En savoir un peu plus sur les droits">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>En savoir un peu plus sur les droits
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Commencez par lister les fichiers d’un dossier avec <code>ls -l</code>.</p>
+<p>La première colonne affiche une suite de 10 caractères, par exemple <code>drwxr-xr--</code>.</p>
+<p>Le premier caractère représente le type d’élément :</p>
+<ul>
+<li><code>-</code> : Fichier</li>
+<li><code>d</code> : Répertoire</li>
+<li><code>l</code> : Lien symbolique</li>
+</ul>
+<p>Les 9 caractères suivants <span class="emoji" data-emoji="arrow_right">➡️</span> Les permissions(divisées en 3 groupes de 3)</p>
+<ul>
+<li><code>rwx</code> (les 2-4) : Droits du Propriétaire</li>
+<li><code>r-x</code> (les 5-7) : Droits du Groupe</li>
+<li><code>r--</code> (les 8-10) : Droits des Autres</li>
+</ul>
+<p>La signification des lettres : r, w, x</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 22%">
+<col style="width: 31%">
+<col style="width: 31%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Lettre</th>
+<th style="text-align: left;">Nom</th>
+<th style="text-align: left;">Sur un Fichier</th>
+<th style="text-align: left;">Sur un Dossier</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong><code>r</code></strong></td>
+<td style="text-align: left;"><em>Read</em></td>
+<td style="text-align: left;">Lire le contenu du fichier.</td>
+<td style="text-align: left;">Lister les fichiers du dossier (<code>ls</code>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><code>w</code></strong></td>
+<td style="text-align: left;"><em>Write</em></td>
+<td style="text-align: left;">Modifier le contenu du fichier.</td>
+<td style="text-align: left;">Créer, supprimer ou renommer des fichiers dedans.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><code>x</code></strong></td>
+<td style="text-align: left;"><em>Execute</em></td>
+<td style="text-align: left;">Lancer le fichier (ex: un script).</td>
+<td style="text-align: left;">Entrer dans le dossier (<code>cd</code>).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="lancer-le-script" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="lancer-le-script"><span class="header-section-number">6.2</span> Lancer le script</h3>
+<p>Simplement avec <code>./&lt;filename.sh&gt;</code>.</p>
+</section>
+</section>
+<section id="ressources" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="ressources">Ressources</h2>
+<ul>
+<li><a href="https://ensae-reproductibilite.github.io/website/chapters/linux101.html" target="_blank">https://ensae-reproductibilite.github.io/website/chapters/linux101.html</a></li>
 </ul>
 
 

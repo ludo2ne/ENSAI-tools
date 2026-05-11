@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ludovic Deneuville">
+<meta name="description" content="Quelques usages avancés de Git">
 
-<title>Git – ENSAI tools</title>
+<title>Git - usages avancés – ENSAI tools</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -77,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -300,8 +301,20 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-git">    
         <li>
-    <a class="dropdown-item" href="../../doc/git/basics.html">
- <span class="dropdown-text">Introduction</span></a>
+    <a class="dropdown-item" href="../../doc/git/presentation.html">
+ <span class="dropdown-text">Présentation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/git/advanced.html">
+ <span class="dropdown-text">Usages avancés</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/git/lab.html">
+ <span class="dropdown-text">TP</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/git/glossary.html">
+ <span class="dropdown-text">Glossaire</span></a>
   </li>  
     </ul>
   </li>
@@ -325,6 +338,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../../doc/datalab/vscode-python.html">
  <span class="dropdown-text">VSCode Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/datalab/lab.html">
+ <span class="dropdown-text">TP Découverte</span></a>
   </li>  
     </ul>
   </li>
@@ -375,7 +392,16 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#les-branches" id="toc-les-branches" class="nav-link active" data-scroll-target="#les-branches"><span class="header-section-number">1</span> Les branches</a></li>
+  <li><a href="#gitflow" id="toc-gitflow" class="nav-link" data-scroll-target="#gitflow"><span class="header-section-number">2</span> Gitflow</a></li>
+  <li><a href="#pull-request" id="toc-pull-request" class="nav-link" data-scroll-target="#pull-request"><span class="header-section-number">3</span> Pull request</a></li>
+  <li><a href="#open-source" id="toc-open-source" class="nav-link" data-scroll-target="#open-source"><span class="header-section-number">4</span> Open source</a></li>
+  </ul>
+</nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -387,9 +413,20 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Git</h1>
-</div>
+<h1 class="title">Git - usages avancés</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Branches</div>
+    <div class="quarto-category">GitFlow</div>
+    <div class="quarto-category">Pull Request</div>
+    <div class="quarto-category">Open source</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Quelques usages avancés de Git
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -410,10 +447,123 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="les-branches" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="les-branches"><span class="header-section-number">1</span> Les branches</h2>
+<p>Imaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.</p>
+<p>Seulement vous n’êtes pas encore sûr que :</p>
+<ul>
+<li>cette fonctionnalité sera vraiment utile <span class="emoji" data-emoji="neutral_face">😐</span></li>
+<li>qu’elle ne va pas tout casser <span class="emoji" data-emoji="cold_sweat">😰</span></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>si c’est tout petit, vous pouvez dev en local en faire un reset au cas où</li>
+<li>sinon utilisez une branche</li>
+</ul>
+</div>
+</div>
+<section id="les-branches-1" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="les-branches-1"><span class="header-section-number">1.1</span> Les branches</h3>
+<p>Vous aimeriez pouvoir :</p>
+<ul>
+<li>tester votre nouveau code</li>
+<li>de manière isolée</li>
+<li>sans polluer le dépôt</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La branche principale se nomme généralement <em>main</em> ou <em>master</em>.</p>
+</div>
+</div>
+</section>
+<section id="la-solution" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="la-solution"><span class="header-section-number">1.2</span> La solution</h3>
+<ul>
+<li>Créez une branche</li>
+<li>Développez sur cette branche (add, commit, push…)</li>
+<li>Selon vos conclusions
+<ul>
+<li>fusionnez votre branche avec le tronc</li>
+<li>supprimez votre branche</li>
+</ul></li>
+</ul>
+<div class="notes">
+<p>ça vous permet de coder de manière isolée</p>
+</div>
+</section>
+<section id="commandes-liées-aux-branches" class="level3 smaller" data-number="1.3">
+<h3 class="smaller anchored" data-number="1.3" data-anchor-id="commandes-liées-aux-branches"><span class="header-section-number">1.3</span> Commandes liées aux branches</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 61%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Commande</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>git branch -a</code></td>
+<td>Lister toutes les branches</td>
+</tr>
+<tr class="even">
+<td><code>git switch &lt;branch&gt;</code></td>
+<td>Changer de branche</td>
+</tr>
+<tr class="odd">
+<td><code>git switch -c &lt;branch&gt;</code></td>
+<td>Créer et changer de branche</td>
+</tr>
+<tr class="even">
+<td><code>git merge &lt;branch&gt;</code></td>
+<td>Fusionner <code>&lt;branch&gt;</code> dans la branche actuelle</td>
+</tr>
+<tr class="odd">
+<td><code>git branch -d &lt;branch&gt;</code></td>
+<td>Supprimer la branche</td>
+</tr>
+<tr class="even">
+<td><code>git push origin &lt;branch&gt;</code></td>
+<td>Pousser la branche vers le dépôt distant</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="gitflow" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="gitflow"><span class="header-section-number">2</span> Gitflow</h2>
 <p><span class="emoji" data-emoji="construction">🚧</span></p>
-<p><a href="https://ludo2ne.github.io/Git-tuto/" class="uri">https://ludo2ne.github.io/Git-tuto/</a></p>
+</section>
+<section id="pull-request" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="pull-request"><span class="header-section-number">3</span> Pull request</h2>
+<p><span class="emoji" data-emoji="construction">🚧</span></p>
+</section>
+<section id="open-source" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="open-source"><span class="header-section-number">4</span> Open source</h2>
+<p><span class="emoji" data-emoji="construction">🚧</span></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

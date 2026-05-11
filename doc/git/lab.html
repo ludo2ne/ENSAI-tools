@@ -1,0 +1,2301 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ludovic Deneuville, Rémi Pépin">
+<meta name="description" content="Découverte de Git">
+
+<title>TP Git – ENSAI tools</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-91544e611bd0e83221240cde35fa504f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-8fe479874ca0985b39699dca03e940ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-91544e611bd0e83221240cde35fa504f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">ENSAI tools</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> <i class="bi bi-house" role="img">
+</i> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-formats" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Formats</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-formats">    
+        <li>
+    <a class="dropdown-item" href="../../doc/format/markdown.html">
+ <span class="dropdown-text">Markdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/format/json.html">
+ <span class="dropdown-text">JSON</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/format/yaml.html">
+ <span class="dropdown-text">YAML</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-langages" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Langages</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-langages">    
+        <li>
+    <a class="dropdown-item" href="../../doc/language/bash.html">
+ <span class="dropdown-text">Bash</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-git" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Git</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-git">    
+        <li>
+    <a class="dropdown-item" href="../../doc/git/presentation.html">
+ <span class="dropdown-text">Présentation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/git/advanced.html">
+ <span class="dropdown-text">Usages avancés</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/git/lab.html">
+ <span class="dropdown-text">TP</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/git/glossary.html">
+ <span class="dropdown-text">Glossaire</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-datalab" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Datalab</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-datalab">    
+        <li>
+    <a class="dropdown-item" href="../../doc/datalab/intro.html">
+ <span class="dropdown-text">Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/datalab/basics.html">
+ <span class="dropdown-text">Usage basique</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/datalab/advanced.html">
+ <span class="dropdown-text">Usage avancé</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/datalab/vscode-python.html">
+ <span class="dropdown-text">VSCode Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/datalab/lab.html">
+ <span class="dropdown-text">TP Découverte</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-quarto" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Quarto</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-quarto">    
+        <li>
+    <a class="dropdown-item" href="../../doc/quarto/basics.html">
+ <span class="dropdown-text">Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/quarto/site.html">
+ <span class="dropdown-text">Site statique</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/quarto/report.html">
+ <span class="dropdown-text">Rapport de projet</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/quarto/rstudio.html">
+ <span class="dropdown-text">Using RStudio</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ludo2ne/ENSAI-tools" target="_blank"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#à-faire-à-la-maison" id="toc-à-faire-à-la-maison" class="nav-link active" data-scroll-target="#à-faire-à-la-maison">À faire à la maison</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#environnement-de-travail" id="toc-environnement-de-travail" class="nav-link" data-scroll-target="#environnement-de-travail"><span class="header-section-number">1</span> Environnement de travail</a></li>
+  <li><a href="#git-bash-et-unix" id="toc-git-bash-et-unix" class="nav-link" data-scroll-target="#git-bash-et-unix"><span class="header-section-number">2</span> Git Bash et Unix</a></li>
+  <li><a href="#dépôts-git" id="toc-dépôts-git" class="nav-link" data-scroll-target="#dépôts-git"><span class="header-section-number">3</span> Dépôts Git</a></li>
+  <li><a href="#premiers-pas" id="toc-premiers-pas" class="nav-link" data-scroll-target="#premiers-pas"><span class="header-section-number">4</span> Premiers pas</a></li>
+  <li><a href="#simulation-de-travail-en-groupe" id="toc-simulation-de-travail-en-groupe" class="nav-link" data-scroll-target="#simulation-de-travail-en-groupe"><span class="header-section-number">5</span> Simulation de travail en groupe</a></li>
+  <li><a href="#ci" id="toc-ci" class="nav-link" data-scroll-target="#ci"><span class="header-section-number">6</span> CI</a></li>
+  <li><a href="#git-sur-la-vm-ensai" id="toc-git-sur-la-vm-ensai" class="nav-link" data-scroll-target="#git-sur-la-vm-ensai">Git sur la VM ENSAI</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">TP Git</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Token</div>
+    <div class="quarto-category">Clone</div>
+    <div class="quarto-category">Add, commit, push</div>
+    <div class="quarto-category">Conflit</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Découverte de Git
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ludovic Deneuville, Rémi Pépin </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les consignes de ce TP sont données pour une utilisation de GitHub.</p>
+<p>Il est possible de réaliser ce TP avec GitLab dont l’interface est très ressemblante.</p>
+<p><span class="emoji" data-emoji="warning">⚠️</span> Il y a tout de même quelques différences, par exemple : GitHub Repository = GitLab Projet</p>
+</div>
+</div>
+<section id="à-faire-à-la-maison" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="à-faire-à-la-maison">À faire à la maison</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">Lire l’introduction</label></li>
+<li><label><input type="checkbox">Créer un compte sur <a href="https://github.com/" target="_blank">GitHub</a></label>
+<ul>
+<li>GitHub &gt; Sign up</li>
+<li>ou avec <a href="https://github.com/signup" target="_blank">ce lien direct</a></li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="Ajoutez un mail perso">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Ajoutez un mail perso
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Lors de la création de compte, si vous utilisez votre adresse mail ENSAI, nous vous conseillons d’ajouter un mail personnel :</p>
+<ul>
+<li>GitHub &gt; Settings <span class="emoji" data-emoji="gear">⚙️</span> &gt; Email (<a href="https://github.com/settings/emails" target="_blank">lien direct</a>)</li>
+</ul>
+<p>Comme vous ne serez pas étudiant toute votre vie, cela vous évitera de perdre votre accès par la suite.</p>
+</div>
+</div>
+</section>
+<section id="introduction" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="introduction">Introduction</h2>
+<p><a href="https://git-scm.com/" target="_blank">Git</a> est un <strong>formidable</strong> outil de versionnage de fichiers qui va vous permettre de conserver efficacement l’historique de votre code aussi bien si vous travaillez seul mais également quand vous travaillez à plusieurs.</p>
+<p>Cet historique est conservé dans ce que l’on appelle un <em>dépôt git</em>.</p>
+<p>Sa conception décentralisée fait qu’il est quasi impossible de perdre une donnée définitivement avec git. En particulier, la perte totale d’un ordinateur hébergeant votre code ne représentera qu’une perte minime de code si vous utilisez git correctement.</p>
+<p>En outre, de nombreux outils de <em>CI/CD</em> (<em>Continuous Intégration / Continuous Deployment</em>) qui rendent possible l’automatisation de l’intégration et du déploiement de votre code s’appuient sur un <em>dépôt git</em>.</p>
+<section id="concepts-clés" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="concepts-clés">Concepts Clés</h3>
+<p>Comme tout logiciel, git demande un peu d’apprentissage, et de la pratique.</p>
+<p>Pour commencer, nous aurons besoin de certains concepts essentiels pour une utilisation efficace. Par sa conception décentralisée, un dépôt git peut exister en plusieurs endroits en même temps :</p>
+<ul>
+<li>sur notre machine</li>
+<li>sur chaque machine des membre du projet</li>
+<li>ou sur un serveur hébergeant le projet</li>
+</ul>
+<p>Nous parlerons de la <em>copie distante</em> (<em>remote</em> en anglais) du dépôt dans le cas du serveur distant. En général, une seule copie distante est utilisée, mais par sa nature décentralisée, plusieurs copies distantes sont possibles (possibilité non incluse dans ce TP).</p>
+<p>La copie sur notre machine est la <em>copie locale</em> (<em>local</em> en anglais). Il s’agit de toutes les informations du dépôt concernant l’historique de ses fichiers, et les métadonnées du dépôt. Une distinction subtile est alors faite entre la copie locale et la <em>copie de travail</em> (<em>working copy</em> en anglais) : nos modifications sur les fichiers du dépôt n’intégrerons la copie locale qu’à notre demande explicite. Cette intégration sera alors effectuée par l’ajout d’une entrée à l’historique du dépôt.</p>
+</section>
+<section id="programme" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="programme">Programme</h3>
+<p>Dans ce TP, nous allons créer un dépôt distant et deux dépôt locaux. Ensuite nous allons les faire évoluer et les synchroniser.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart
+    github[(Remote)]
+    dev1[(Local 1)]
+    dev2[(Local 2)]
+    
+    github &lt;--&gt; dev1
+    github &lt;--&gt; dev2
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Pour utiliser git, donc pour gérer un dépôt, nous avons accès à de nombreuses commandes. Pour ce TP de découverte, les commandes suivantes suffiront :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 59%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Commande</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>git clone &lt;url&gt;</code></td>
+<td>Créer un dépôt local sur son poste</td>
+</tr>
+<tr class="even">
+<td><code>git status</code></td>
+<td>Voir où l’on en est</td>
+</tr>
+<tr class="odd">
+<td><code>git add &lt;file&gt;</code></td>
+<td>Ajouter pour le prochain commit</td>
+</tr>
+<tr class="even">
+<td><code>git commit -m "&lt;msg&gt;"</code></td>
+<td>Créer un point de sauvegarde</td>
+</tr>
+<tr class="odd">
+<td><code>git pull</code></td>
+<td>dépôt local <span class="emoji" data-emoji="arrow_right">➡️</span> dépôt distant</td>
+</tr>
+<tr class="even">
+<td><code>git push</code></td>
+<td>dépôt local <span class="emoji" data-emoji="arrow_left">⬅️</span> dépôt distant</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="environnement-de-travail" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="environnement-de-travail"><span class="header-section-number">1</span> Environnement de travail</h2>
+<p>Les commandes seront saisies dans un terminal Git Bash.</p>
+<p>Vous allez utiliser un service Vscode-python du datalab. Celui-ci inclus Git Bash.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Connectez-vous à un datalab</label>
+<ul>
+<li><a href="https://onyxia.lab.groupe-genes.fr/" target="_blank">https://onyxia.lab.groupe-genes.fr/</a></li>
+<li><a href="https://datalab.sspcloud.fr/" target="_blank">https://datalab.sspcloud.fr/</a> (create an account using <code>firstname.lastname@eleve.ensai.fr</code>)</li>
+</ul></li>
+</ul>
+<p>Durant ce TP, vous allez transférer du code entre votre dépôt local (service VSCode) et votre dépôt distant (sur GitHub). Pour valider ces transfert un processus d’authentification est naturellement requis.</p>
+<section id="génération-dun-token" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="génération-dun-token"><span class="header-section-number">1.1</span> Génération d’un Token</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Ce que vous allez faire">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Ce que vous allez faire
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ce paramétrage n’est à faire qu’une seule fois, jusqu’à expiration du jeton.</p>
+<ul>
+<li>Générer un jeton sur GitHub</li>
+<li>Déclarer ce jeton sur le datalab</li>
+</ul>
+<p>Ainsi, à chaque fois que vous lancerez un service du datalab :</p>
+<ul>
+<li>Le jeton sera injecté dans une variable d’environnement</li>
+<li>vous pourrez donc le récupérer et l’utiliser pour communiquer avec GitHub de manière sécurisée</li>
+</ul>
+</div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Connectez-vous à votre compte <a href="https://github.com/" target="_blank">GitHub</a></label></li>
+<li><label><input type="checkbox">Allez sur ce lien : <a href="https://github.com/settings/tokens" target="_blank">Personal Access Token</a></label>
+<ul>
+<li>pour créer un nouveau <u>token <strong>classic</strong></u></li>
+<li>Note: for ENSAI datalabs</li>
+<li>Expiration: 30/06/2026</li>
+<li>cochez repo and workflow</li>
+<li><span class="green-button">Generate token</span></li>
+</ul></li>
+<li><label><input type="checkbox">Copiez le token (ghp_xxxxxxxxxx)</label></li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Attention sa valeur ne sera affichée qu’une seule fois. En cas de perte, il faut le supprimer et en recréer un nouveau.</p>
+</div>
+</div>
+<p>Nous allons maintenant déclarer ce jeton sur votre compte du datalab.</p>
+</section>
+<section id="déclaration-du-token-au-datalab" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="déclaration-du-token-au-datalab"><span class="header-section-number">1.2</span> Déclaration du Token au Datalab</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Allez dans <em>Mon Compte</em>, puis onglet <em>Git</em></label></li>
+<li><label><input type="checkbox">Collez le token</label></li>
+</ul>
+<p>Ce jeton est maintenant accessible dans la plupart des services du datalab (VSCode, Jupyter, RStudio…) Vous pourrez alors l’utiliser pour communiquer avec vos dépôts GitHub.</p>
+<p>Aujourd’hui nous allons utiliser un service VSCode. Ce logiciel sera utilisé pour la majorité des cours d’informatique de l’ENSAI.</p>
+<p>C’est un IDE (Integrated Development Environment) i.e.&nbsp;une application qui offre des outils complets pour le développement logiciel (éditeur de Code, compilateur / interpréteur, gestionnaire de projet, terminal Intégré, nombreuses extensions…)</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Lancez, puis ouvrez un service <strong>Vscode-python</strong></label></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled" title="à la fin du TP">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>à la fin du TP
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>N’oubliez pas de supprimer votre service !</p>
+<p>Rappel sur le principe des datalabs :</p>
+<ul>
+<li>Des ressources sont à disposition de tous</li>
+<li>Un service lancé = des ressources réservées (cpu, ram, Go…)</li>
+</ul>
+<p>Une fois votre travail terminé :</p>
+<ul>
+<li>sauvegardez votre code : envoi au remote avec git</li>
+<li>exportez vos résultats : par exemple en utilisant le stockage S3</li>
+<li>libérez ces ressources : supprimez vos service</li>
+</ul>
+</div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Ouvrez un terminal</label>
+<ul>
+<li>3 petits traits horizontaux &gt; Terminal &gt; New</li>
+<li>ou CTRL + ù</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="git-bash-et-unix" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="git-bash-et-unix"><span class="header-section-number">2</span> Git Bash et Unix</h2>
+<p>Avant de nous lancer avec git, prenons quelques minutes pour découvrir le terminal Git Bash et les principales commandes Unix.</p>
+<p>En tant qu’ingénieur, cela vous sera sans doute utile un jour.</p>
+<p>Pour vous aider, voici la <a href="presentation.html#commandes-unix" target="_blank">liste des commandes principales</a>.</p>
+<section id="un-terminal" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="un-terminal"><span class="header-section-number">2.1</span> Un terminal ?</h3>
+<p>Un terminal est une interface texte qui permet de donner des commandes à l’ordinateur.</p>
+<p>C’est une alternative à la souris pour naviguer, créer des fichiers, lancer des programmes.</p>
+<p>Git Bash est un terminal qui :</p>
+<ul>
+<li>émule un environnement type Linux/Unix</li>
+<li>inclus les commandes Git</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le terminal, c’est sobre, c’est rapide, c’est efficace.</p>
+<p>Le terminal reste un outil très utilisé en informatique, même à l’ère du tout <em>clic-bouton</em>. Il permet d’aller droit au but sans passer par des menus parfois longs et compliqués.</p>
+<p>Rapide et léger, il s’adapte aussi bien aux petites tâches qu’aux opérations plus techniques.</p>
+<p>Les développeurs et administrateurs l’utilisent au quotidien pour automatiser et gagner du temps.</p>
+</div>
+</div>
+</section>
+<section id="démystifions-la-bête" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="démystifions-la-bête"><span class="header-section-number">2.2</span> Démystifions la bête</h3>
+<p><a href="./img/Git-bash2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="./img/Git-bash2.jpg" class="img-fluid"></a></p>
+<p>Dans le terminal, vous avez :</p>
+<ul>
+<li>un prompt (username, host, folder)
+<ul>
+<li>vous êtes connecté avec l’utilisateur <em>onyxia</em> sur la machine virutelle <em>vscode-python-345194-0</em></li>
+<li>vous êtes positionné dans le dossier <code>~/work</code> (~ est le dossier personnel de l’utilisateur)</li>
+<li>il se termine par un <code>$</code></li>
+</ul></li>
+<li>à côté, vous pouvez écrire une commande</li>
+<li>en dessous, vous avez le résultat de la commande</li>
+<li>à droite, vous avez vos terminaux (c’est possible d’en ouvrir plusieurs)</li>
+</ul>
+</section>
+<section id="premières-commandes" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="premières-commandes"><span class="header-section-number">2.3</span> Premières commandes</h3>
+<p>Commençons par quelques commandes simples :</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Affichez le répertoire courant</label></li>
+<li><label><input type="checkbox">Positionnez-vous dans le dossier parent</label></li>
+<li><label><input type="checkbox">Listez les fichiers et dossiers</label></li>
+<li><label><input type="checkbox">Retournez dans le dossier <em>work</em></label></li>
+<li><label><input type="checkbox">Créez deux dossiers nommés <em>clone1</em> et <em>clone2</em></label></li>
+</ul>
+</section>
+<section id="fichiers" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="fichiers"><span class="header-section-number">2.4</span> Fichiers</h3>
+<p>Faisons maintenant quelques manipulations sur des fichiers :</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Créez un fichier <em>a.txt</em> contenant le résultat de la commande <code>env</code></label>
+<ul>
+<li><em>env</em> : liste des variables d’environnement</li>
+<li><code>env &gt; a.txt</code></li>
+</ul></li>
+<li><label><input type="checkbox">Créez une copie de ce fichier que vous nommerez <em>b.txt</em></label></li>
+<li><label><input type="checkbox">Listez les fichiers du dossier courant</label></li>
+<li><label><input type="checkbox">Renommez <em>a.txt</em> en <em>c.txt</em></label></li>
+<li><label><input type="checkbox">Affichez le contenu du fichier <em>b.txt</em></label></li>
+<li><label><input type="checkbox">Filtrez le contenu du fichier <em>b.txt</em> pour n’afficher que les lignes contenant <em>GIT</em></label>
+<ul>
+<li><code>cat b.txt | grep GIT</code></li>
+</ul></li>
+</ul>
+<p>Vous devriez retrouver ici votre token. Les variables d’environnement sont un système clé-valeur, pour récupérer votre jeton :</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>echo $GIT_PERSONAL_ACCESS_TOKEN</code></label></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="Raccourcis très utiles">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Raccourcis très utiles
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Les flèches <span class="emoji" data-emoji="arrow_up">⬆️</span> et <span class="emoji" data-emoji="arrow_down">⬇️</span> pour naviguer dans l’historique des dernières commandes et éviter de retaper 10 fois la même commande</li>
+<li>TAB pour l’autocomplétion
+<ul>
+<li>Tapez <code>cat b</code>, puis appuyez sur la touche <em>TAB</em></li>
+<li>Il n’y a qu’un seul fichier commençant par <em>b</em> donc l’autocomplétion s’effectue</li>
+<li>La touche <em>TAB</em> se situe à gauche du clavier dessous <code>²</code> et dessus <span class="emoji" data-emoji="lock">🔒</span></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="dépôts-git" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="dépôts-git"><span class="header-section-number">3</span> Dépôts Git</h2>
+<p>Passons maintenant au thème central de ce TP : Git et la synchronisation des dépôts.</p>
+<p>Avant de se lancer, exécutez ces deux commandes qui vous éviterons peut-être d’être bloqué par la suite :</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>git config --global core.editor "code-server --wait"</code></label></li>
+<li><label><input type="checkbox"><code>git config --global core.mergeoptions --no-edit</code></label></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Explication détaillée">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Explication détaillée
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><code>git config --global core.editor "code-server --wait"</code></p>
+<p>Cette commande définit l’éditeur de texte que Git utilisera par défaut pour les opérations nécessitant l’édition d’un message, comme les commits, les tags ou la résolution de conflits de fusion (merge).</p>
+<ul>
+<li><code>git config</code>: La commande de base pour obtenir et définir les options de configuration de Git.</li>
+<li><code>--global</code>: Indique que le paramètre est appliqué à tous les dépôts Git de l’utilisateur sur la machine actuelle. La configuration est stockée dans le fichier <code>~/.gitconfig</code>.</li>
+<li><code>core.editor</code>: La variable de configuration spécifique qui détermine l’éditeur.</li>
+<li><code>"code-server --wait"</code>: La valeur définie pour l’éditeur.
+<ul>
+<li><code>code-server</code>: C’est une version de Visual Studio Code (VS Code) fonctionnant dans un navigateur sur un serveur distant, ce qui est souvent utilisé dans les environnements de développement cloud.</li>
+<li><code>--wait</code>: Cet argument est crucial. Il indique à Git de patienter jusqu’à ce que l’éditeur (<code>code-server</code>) soit fermé avant de continuer l’opération Git. Par exemple, lorsque vous faites un <code>git commit</code>, VS Code s’ouvre, vous éditez le message, vous fermez l’éditeur, et seulement à ce moment-là Git finalise le commit.</li>
+</ul></li>
+</ul>
+<p>Elle configure VS Code comme l’éditeur par défaut pour Git à la place de Nano.</p>
+<hr>
+<p><code>git config --global core.mergeoptions --no-edit</code></p>
+<p>Cette commande modifie les options par défaut utilisées lors de la fusion de branches (<code>git merge</code>).</p>
+<ul>
+<li><code>git config</code>: La commande de base de configuration.</li>
+<li><code>--global</code>: Applique le paramètre à tous les dépôts de l’utilisateur.</li>
+<li><code>core.mergeoptions</code>: La variable de configuration qui permet de définir des options par défaut pour la commande <code>git merge</code>.</li>
+<li><code>--no-edit</code>: L’option ajoutée.
+<ul>
+<li>Lors d’une fusion réussie (sans conflit), Git génère un message de commit de fusion par défaut. Normalement, Git ouvre l’éditeur (<code>core.editor</code>) pour vous permettre de modifier ce message.</li>
+<li>L’option <code>--no-edit</code> désactive l’ouverture automatique de l’éditeur pour la modification du message de commit de fusion. Git utilisera le message de commit de fusion par défaut sans intervention de l’utilisateur.</li>
+</ul></li>
+</ul>
+<p>Elle configure Git pour qu’il n’ouvre pas l’éditeur de texte lors d’une fusion réussie, utilisant directement le message de commit de fusion par défaut.</p>
+</div>
+</div>
+</div>
+<p>Commençons par créer un remote sur GitHub.</p>
+<section id="créez-un-dépôt-distant" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="créez-un-dépôt-distant"><span class="header-section-number">3.1</span> Créez un dépôt distant</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Créez un <a href="https://github.com/new" target="_blank">nouveau Repository</a> sur GitHub</label>
+<ul>
+<li>GitHub &gt; Repositories &gt; <span class="green-button">New</span></li>
+<li>Repository name : <em>tp-git</em></li>
+<li>Visibility Level : <em>Private</em></li>
+<li>Cochez <em>Add a README file</em></li>
+<li>Add .gitignore : <em>Python</em></li>
+<li>Choose a license : <em>MIT Licence</em></li>
+<li>Cliquez sur <span class="green-button">Create Repository</span></li>
+</ul></li>
+</ul>
+<p>Votre remote est maintenant créé.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dans le cadre de ce TP, il est interdit d’éditer des fichiers directement sur GitHub. Ce n’est pas une bonne pratique.</p>
+<p>Toutes les modifications doivent être faites sur votre clone local et ensuite envoyées vers GitHub.</p>
+</div>
+</div>
+</section>
+<section id="privé-public" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="privé-public"><span class="header-section-number">3.2</span> Privé, public ?</h3>
+<p>Vous avez déclaré votre dépôt <strong>Privé</strong>. C’est adapté dans ce cas, car nous sommes dans le cadre d’un exercice où l’idée n’est pas de faire du code propre mais de pratiquer.</p>
+<p>À l’inverse, n’hésitez pas à déclarer public vos travaux aboutis, non confidentiels.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 39%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Critère</th>
+<th>Dépôt <strong>Public</strong></th>
+<th>Dépôt <strong>Privé</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Visibilité</strong></td>
+<td>Tout le monde peut voir</td>
+<td>Uniquement les personnes invitées</td>
+</tr>
+<tr class="even">
+<td><strong>Collaboration externe</strong></td>
+<td>Ouvertes (issues, forks, PR)</td>
+<td>Restreinte à l’équipe</td>
+</tr>
+<tr class="odd">
+<td><strong>Confidentialité</strong></td>
+<td>Aucune, tout est visible</td>
+<td>Sécurisé, accès contrôlé</td>
+</tr>
+<tr class="even">
+<td><strong>Usage typique</strong></td>
+<td>Projets Open Source, propres, aboutis</td>
+<td>Travaux privés, sandbox</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled" title="Invitations">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Invitations
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Que le dépôt soit public ou privé, vous devez faire parti des collaborateurs pour y contribuer. Dépôt public signifie que tout le monde peut le voir mais pas le modifier directement.</p>
+<p>Pour autoriser des personnes à écrire sur votre dépôt vous devez les inviter :</p>
+<ul>
+<li>Sur la page du repo &gt; Settings &gt; Collaborators &gt; Add people</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="créez-un-dépôt-local" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="créez-un-dépôt-local"><span class="header-section-number">3.3</span> Créez un dépôt local</h3>
+<p>Vous allez maintenant créer une copie locale du remote en le clonant.</p>
+<p>Sur la page GitHub de votre repo :</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Cliquez sur <span class="green-button">Code</span></label></li>
+<li><label><input type="checkbox">Copiez la ligne <em>Clone with HTTPS</em></label></li>
+</ul>
+<p>Vous obtenez une url de ce type : <code>https://github.com/&lt;username&gt;/tp-git.git</code></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Modifiez-là pour y intégrer votre token avant <em>github.com</em></label>
+<ul>
+<li><code>https://$GIT_PERSONAL_ACCESS_TOKEN@github.com/&lt;username&gt;/tp-git.git</code></li>
+</ul></li>
+</ul>
+<p>Dans le terminal Git Bash de VSCode :</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Positionnez-vous dans le dossier <em>clone1</em></label></li>
+<li><label><input type="checkbox">Créez votre clone</label>
+<ul>
+<li><code>git clone &lt;url ci-dessus&gt;</code></li>
+</ul></li>
+<li><label><input type="checkbox">Listez les fichiers et dossiers du répertoire courant</label>
+<ul>
+<li>Normalement, le dossier <em>tp-git</em> est apparu</li>
+<li>C’est le clone du repo que vous venez de créer</li>
+</ul></li>
+<li><label><input type="checkbox">Entrez dans ce dossier</label></li>
+</ul>
+<p>Vous êtes maintenant dans un repo git, vous pouvez donc exécuter des commandes git !</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Vérifiez sur quel dépôt distant votre clone est branché</label>
+<ul>
+<li><code>git remote -v</code></li>
+<li>Vous devez voir ici votre token et l’url du remote</li>
+</ul></li>
+<li><label><input type="checkbox">Listez le contenu</label></li>
+<li><label><input type="checkbox">Comparez à ce que vous avez sur GitHub : <code>https://github.com/&lt;username&gt;/tp-git</code></label></li>
+</ul>
+</section>
+</section>
+<section id="premiers-pas" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="premiers-pas"><span class="header-section-number">4</span> Premiers pas</h2>
+<p>Dans ce dépôt local, vous allez commencer par créer de nouveaux dossiers et fichiers sur votre dépôt local.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Créez un dossier <em>src</em></label></li>
+<li><label><input type="checkbox">Dans ce dossier, créez un fichier <em>voiture.py</em></label>
+<ul>
+<li><code>touch src/voiture.py</code></li>
+</ul></li>
+<li><label><input type="checkbox">Ouvrez ce fichier, collez ce code et <u><strong>enregistrez</strong></u></label></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>voiture.py</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Voiture:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Classe représentant une voiture.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Attributes</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    nom : str</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">        le nom de la voiture.</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    couleur : str</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">        la couleur de la voiture.</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    vitesse : int</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">        la vitesse de la voiture (initalisée à 0).</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur):</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Constructeur"""</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.nom <span class="op">=</span> nom</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.couleur <span class="op">=</span> couleur</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"La voiture </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>nom<span class="sc">}</span><span class="ss"> de couleur </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>couleur<span class="sc">}</span><span class="ss"> roule à </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>vitesse<span class="sc">}</span><span class="ss"> km/h."</span>  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Vous venez de créez quelques nouveaux éléments sur votre clone, envoyons-les maintenant au remote.</p>
+<section id="add-commit-et-push" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="add-commit-et-push"><span class="header-section-number">4.1</span> Add, Commit et Push</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>C’est l’enchainement de commandes qu’il faut connaitre ! (avec une pincée de <em>status</em> si besoin)</p>
+</div>
+</div>
+<p>Avant de commencer, vérifiez dans votre terminal que vous êtes bien positionné à la racine de votre dépôt i.e.&nbsp;votre dossier courant est <em>tp-git</em>.</p>
+<p>Dans le terminal <em>Git Bash</em>, exécutez les commandes suivantes :</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>git status</code></label>
+<ul>
+<li>différences entre la version de travail du code et le commit le plus récent</li>
+<li>le dossier <em>src</em> apparait dans <em>Untracked files</em></li>
+<li>cela signifie que Git a repéré ce dossier mais qu’il ne le versionnera pas</li>
+</ul></li>
+<li><label><input type="checkbox"><code>git add src</code></label>
+<ul>
+<li>pour faire reconnaitre ce dossier et le placer la zone de transit</li>
+<li>ce dossier et ses fichiers seront versionnés dans le prochain commit</li>
+</ul></li>
+<li><label><input type="checkbox"><code>git status</code></label>
+<ul>
+<li><em>Changes to be committed</em> : <em>new file: src/voiture.py</em></li>
+<li>le fichier est maintenant reconnu par Git</li>
+</ul></li>
+</ul>
+<p>Nous allons maintenant créer un point de sauvegarde :</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>git commit -m "Création classe voiture"</code></label>
+<ul>
+<li>entre les guillemets, mettez un message court et explicite. Ce message est obligatoire !</li>
+</ul></li>
+<li><label><input type="checkbox"><code>git status</code></label>
+<ul>
+<li><em>Your branch is ahead of ‘origin/main’ by 1 commit</em></li>
+<li>i.e.&nbsp;votre dépôt local est en avance d’un commit par rapport au remote</li>
+</ul></li>
+</ul>
+<p>Enfin, nous souhaitons envoyer notre commit vers le remote.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>git push</code></label>
+<ul>
+<li>pousse vos commits vers le dépôt distant.</li>
+<li><span class="emoji" data-emoji="warning">⚠️</span> si vous avez modifié des fichiers qui ne sont pas dans un commit, ces modifications n’apparaitront pas sur le dépôt distant</li>
+</ul></li>
+</ul>
+<p>Allez sur la page GitHub de votre repo et vérifiez que vos fichiers sont bien arrivés.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Ça ne marche pas">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Ça ne marche pas
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous avez tout bien fait mais votre fichier <em>voiture.py</em> n’est pas à jour sur GitHub. <span class="emoji" data-emoji="confused">😕</span></p>
+<ul>
+<li>est-ce que votre fichier <em>voiture.py</em> a bien été enregistré ?
+<ul>
+<li>sinon recommencez (Add, Commit, Pull et Push). <span class="emoji" data-emoji="weary">😩</span></li>
+</ul></li>
+<li>Est-ce que vous êtes bien connecté au remote avec votre token ?
+<ul>
+<li><code>git remote -v</code> pour vérifier</li>
+<li><code>git remote set-url origin https://$GIT_PERSONAL_ACCESS_TOKEN@github.com/&lt;username&gt;/tp-git.git</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<p>Pour résumer voilà ce que vous avez fait :</p>
+<div class="white-box">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    Workspace -&gt;&gt; Staging index: add
+    Staging index -&gt;&gt; Local repository: commit
+    Local repository -&gt;&gt; Remote repository: push
+    Remote repository -&gt;&gt; Workspace: pull
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<p>Retournez sur VSCode :</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Ajoutez à la fin du fichier <code>voiture.py</code> ce code et <u><strong>enregistrez</strong></u></label></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>voiture.py</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelere(<span class="va">self</span>, increment):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Augmente la vitesse de la voiture.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">        L'incrément maximal est de 10 km/h.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">        La Vitesse maximale est de 130 km/h.</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">        Parameters</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">        ----------</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">        increment : int</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">            la valeur de l'accélération demandée (limité à 10)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> increment <span class="op">&gt;</span> <span class="dv">10</span>:</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            increment <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="dv">130</span>, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Dans le terminal <em>Git Bash</em> :</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>git status</code></label>
+<ul>
+<li>le fichier <em>voiture.py</em> a été modifié</li>
+</ul></li>
+<li><label><input type="checkbox"><code>git diff</code> pour voir les différence depuis le dernier commit</label>
+<ul>
+<li><em>q</em> pour quitter</li>
+</ul></li>
+<li><label><input type="checkbox"><code>git add .</code> pour ajouter toutes les modifications de tous les fichiers au prochain commit</label></li>
+<li><label><input type="checkbox">Comme précédemment, faites un <em>commit</em></label></li>
+</ul>
+</section>
+<section id="historique-du-dépôt" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="historique-du-dépôt"><span class="header-section-number">4.2</span> Historique du dépôt</h3>
+<p>Pour accéder à l’historique d’un repo :</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Sur GitHub, vous pouvez consulter l’historique du dépôt distant</label>
+<ul>
+<li>en cliquant sur <em>Commit</em> (en dessous du bouton <span class="green-button">Code</span>)</li>
+<li>historique d’un fichier en ouvrant ce fichier et en cliquant sur <em>History</em></li>
+</ul></li>
+<li><label><input type="checkbox">Sur votre dépôt local avec <code>git log</code></label>
+<ul>
+<li>ce n’est pas aisément lisible</li>
+<li>heureusement il est possible d’améliorer cette commande</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="Pour avoir un résultat plus agréable">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Pour avoir un résultat plus agréable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Pretty log</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Alors ?</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Alias</a></li></ul>
+<div class="tab-content nav-pills">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><code>git log --pretty=format:'%C(yellow)%h %C(green)%ad %C(blue)%an%C(green)%d %Creset%s' --date=relative</code></p>
+<ul>
+<li>chaque ligne représente un commit</li>
+<li>la première colonne correspond au numéro court de commit</li>
+<li>vous remarquez un décalage entre <em>HEAD</em> et <em>origin/HEAD</em> (entre dépôt local et distant)
+<ul>
+<li><strong>HEAD</strong> : pointeur qui représente la version actuelle du code dans votre espace de travail</li>
+<li><strong>main</strong> (ou master) : nom de la branche principale par défaut</li>
+<li><strong>origin</strong> : désigne le dépôt distant</li>
+</ul></li>
+<li><em>q</em> pour quitter</li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/tHKc-DBb_ME" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>Ce n’est pas évident de se souvenir de commandes aussi longues.</p>
+<p>Une solution est de créer un alias :</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Créer par exemple l’alias blog (beautiful log)</label>
+<ul>
+<li><code>git config --global alias.blog "log --pretty=format:'%C(yellow)%h %C(green)%ad %C(blue)%an%C(green)%d %Creset%s' --date=relative"</code></li>
+</ul></li>
+<li><label><input type="checkbox">Maintenant <code>git blog</code> suffit pour lancer la même commande</label></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Faites un <em>push</em> pour envoyer votre commit vers le dépôt distant</label></li>
+<li><label><input type="checkbox">Regardez de nouveau votre historique</label>
+<ul>
+<li>les 2 dépôts sont de nouveau synchronisés</li>
+</ul></li>
+</ul>
+</section>
+<section id="exercice-dapplication" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="exercice-dapplication"><span class="header-section-number">4.3</span> Exercice d’application</h3>
+<p>C’est le moment d’appliquer ce que nous venons de voir, à vous :</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Créez un fichier <code>src/test_voiture.py</code> avec ce code</label></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>test_voiture.py</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="test_voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> voiture <span class="im">import</span> Voiture</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TestVoiture:</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_accelere_incremente_vitesse():</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="co"># GIVEN</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        v <span class="op">=</span> Voiture(<span class="st">"4L"</span>, <span class="st">"verte"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="co"># WHEN</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        v.accelere(<span class="dv">5</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># THEN</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> v.vitesse <span class="op">==</span> <span class="dv">5</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_accelere_limite_increment():</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># GIVEN</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        v <span class="op">=</span> Voiture(<span class="st">"4L"</span>, <span class="st">"verte"</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># WHEN</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        v.accelere(<span class="dv">20</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># THEN</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> v.vitesse <span class="op">==</span> <span class="dv">10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Envoyez le sur la copie distante de votre projet GitHub</label></li>
+<li><label><input type="checkbox">Créez un fichier <code>requirements.txt</code> avec le contenu suivant</label>
+<ul>
+<li>c’est le nom standard du fichier qui liste les packages python nécessaires au projet</li>
+</ul></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>requirements.txt</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="requirements.txt"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pylint</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>pytest</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Envoyez le sur la copie distante de votre projet GitHub</label></li>
+<li><label><input type="checkbox">Affichez votre historique</label></li>
+</ul>
+</section>
+<section id="le-fichier-.gitignore" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="le-fichier-.gitignore"><span class="header-section-number">4.4</span> Le fichier .gitignore</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Certains fichiers ont vocation à rester seulement sur votre dépôt local, par exemple :</p>
+<ul>
+<li>fichiers de données</li>
+<li>fichiers contenant des mots de passe</li>
+<li>fichiers de logs</li>
+</ul>
+</div>
+</div>
+<p>Grâce au <em>.gitignore</em>, vous pouvez dire à Git d’ignorer certains fichiers.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Créer un dossier <code>data</code> à la racine de votre dépôt</label></li>
+<li><label><input type="checkbox">Dans ce dossier, créer un fichier <code>joueuses.csv</code> avec ce contenu</label></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>joueuses.csv</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="joueuses.csv"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>id_joueuse,nom,prenom,date_naissance,pays</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>1,Sebag,Marie,1986-10-15,France</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>2,Polgar,Judit,1976-07-23,Hongrie</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>3,Hou,Yifan,1994-02-27,Chine</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>4,Kosteniuk,Alexandra,1984-04-23,Suisse</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>5,Ju,Wenjun,1991-01-31,Chine</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Regardez l’état du dépôt</label>
+<ul>
+<li>le dossier <em>data</em> apparait dans les <em>Untracked files</em></li>
+</ul></li>
+<li><label><input type="checkbox">Ouvrez le fichier <em>.gitignore</em></label></li>
+<li><label><input type="checkbox">À la fin ajoutez une ligne avec <code>data/</code></label></li>
+<li><label><input type="checkbox">Regardez l’état du dépôt</label>
+<ul>
+<li>le dossier <em>data</em> n’apparait plus, car maintenant Git ignore ce dossier et son contenu</li>
+<li>il est bien présent dans votre dépôt local mais il n’arrivera donc jamais sur le dépôt distant</li>
+</ul></li>
+</ul>
+<p>Autre exemple : lors du projet info de 2e année, votre application python se connectera à une base de données. Or les infos de connexions à cette bdd ne devront pas atterrir sur GitHub !</p>
+</section>
+</section>
+<section id="simulation-de-travail-en-groupe" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="simulation-de-travail-en-groupe"><span class="header-section-number">5</span> Simulation de travail en groupe</h2>
+<p>Pour les questions suivantes, vous allez avoir besoin de 2 dépôts locaux branchés sur un même dépôt distant. Il y a 2 possibilités :</p>
+<ul>
+<li>soit vous travaillez en bînome (vous avez chacun votre dépôt local)</li>
+<li>soit vous faîtes seul (mais vous gérez 2 dépôts locaux différents)</li>
+</ul>
+<section id="mise-en-place-des-clones" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="mise-en-place-des-clones"><span class="header-section-number">5.1</span> Mise en place des clones</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Si vous travaillez à 2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Si vous travaillez à 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un des deux membres va créer un dépôt local à partir du dépôt distant de l’autre.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> fournit à <span class="emoji" data-emoji="cat">🐱</span> l’adresse https de son repo</label></li>
+<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> donne accès à <span class="emoji" data-emoji="cat">🐱</span> à son repo</label>
+<ul>
+<li>page GitHub du repo &gt; Settings &gt; Collaborators</li>
+<li><span class="green-button">Add people</span></li>
+</ul></li>
+<li><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> clone le dépôt distant</label>
+<ul>
+<li><code>cd /home/onyxia/work/clone2</code></li>
+<li><code>git clone https://$GIT_PERSONAL_ACCESS_TOKEN@github.com/&lt;username_frog&gt;/tp-git.git</code></li>
+<li><code>cd tp-git</code> pour entrer dans le dépôt Git</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Si vous faîtes seul">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Si vous faîtes seul
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul class="task-list">
+<li><label><input type="checkbox">Ouvrez un nouveau terminal</label></li>
+<li><label><input type="checkbox"><code>cd /home/onyxia/work/clone2</code></label></li>
+<li><label><input type="checkbox">Clonez à nouveau votre dépôt distant</label>
+<ul>
+<li>n’oubliez pas d’inclure votre token</li>
+</ul></li>
+<li><label><input type="checkbox">puis <code>cd tp-git</code> pour entrer dans le dépôt Git</label></li>
+</ul>
+<p>Vous allez ainsi avoir deux clones dans votre service VSCode. Une autre alternative pour l’exercice serait de lancer un autre service VSCode-python et d’y créer un clone.</p>
+<p><span class="emoji" data-emoji="bulb">💡</span> Pour ne pas vous-y perdre, n’hésitez pas à renommer vos dossiers et vos terminaux.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="synchronisation-des-dépôts" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="synchronisation-des-dépôts"><span class="header-section-number">5.2</span> Synchronisation des dépôts</h3>
+<p>Ici, un membre va coder et l’autre va devoir récupérer son code.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> crée un fichier <em>src/moto.py</em> avec le code suivant dans son dépôt local :</label></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>moto.py</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename="moto.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Moto:</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.couleur <span class="op">=</span> couleur</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.nom <span class="op">=</span> nom</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelere(<span class="va">self</span>, increment):</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> increment <span class="op">&gt;</span> <span class="dv">15</span>:</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>            increment <span class="op">=</span> <span class="dv">15</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="dv">150</span>, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> envoie ce fichier vers le dépôt distant : <em>add</em>, <em>commit</em> et <em>push</em></label></li>
+<li><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> fait ensuite <code>git pull</code></label>
+<ul>
+<li>il récupére le fichier <em>moto.py</em> dans son dépôt local</li>
+</ul></li>
+<li><label><input type="checkbox">Inversez les rôles (optionnel)</label>
+<ul>
+<li><span class="emoji" data-emoji="cat">🐱</span> crée un fichier <em>velo.py</em> et le pousse</li>
+<li><span class="emoji" data-emoji="frog">🐸</span> le récupère</li>
+</ul></li>
+</ul>
+<p>Nous allons maintenant illustrer le fait que votre dépôt local doit être impérativement à jour pour pousser du code.</p>
+</section>
+<section id="coder-en-équipe" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="coder-en-équipe"><span class="header-section-number">5.3</span> Coder en équipe</h3>
+<p>Maintenant les deux membres vont coder en même temps mais sur des fichiers différents.</p>
+<blockquote class="blockquote">
+<p>Attention : 1, 2, 3, partez <span class="emoji" data-emoji="checkered_flag">🏁</span></p>
+</blockquote>
+<ul class="task-list">
+<li><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> crée le fichier <em>src/trottinette.py</em> en s’inspirant de <em>moto.py</em></label></li>
+<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> crée un dossier <em>doc</em> et à l’intérieur le fichier <em>state-diag.md</em> avec ce code</label></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>state-diag.md</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-filename="state-diag.md"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```mermaid</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>stateDiagram</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    login : Se connecter</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    menu_joueur : Menu Joueur</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    logon : Créer un compte      </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    [<span class="ot">*</span>] --&gt; Accueil      </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    Accueil --&gt; login</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    login --&gt; menu_joueur      </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    Accueil --&gt; logon      </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    Accueil --&gt; quitter</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    quitter --&gt; [<span class="ot">*</span>]</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> envoie son code vers le dépôt distant, ensuite <span class="emoji" data-emoji="cat">🐱</span> fait de même</label>
+<ul>
+<li><code>git add .</code></li>
+<li><code>git commit -m "&lt;complétez&gt;"</code></li>
+<li><code>git push</code></li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Pour <span class="emoji" data-emoji="frog">🐸</span> qui a poussé son code en premier <span class="emoji" data-emoji="arrow_right">➡️</span> tout s’est bien passé</p></li>
+<li><p>Pour <span class="emoji" data-emoji="cat">🐱</span>, il a du recevoir ce genre de message lors du push</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>! [rejected]        main -&gt; dev (fetch first)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>error: failed to push some refs to 'git@github.com:ludo2ne/tp-git.git'</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>hint: Updates were rejected because the remote contains work that you do</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>hint: not have locally. This is usually caused by another repository pushing</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>hint: to the same ref. You may want to first integrate the remote changes</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>hint: (e.g., 'git pull ...') before pushing again.</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>hint: See the 'Note about fast-forwards' in 'git push --help' for details.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ul>
+</div>
+</div>
+<p>Si vous lisez le message, c’est assez clair :</p>
+<ul>
+<li>votre dépôt local est en retard de version par rapport au dépôt distant</li>
+<li>vous devez donc mettre à jour votre dépôt local avant de pousser</li>
+<li>il faut commencer par pull</li>
+</ul>
+<p>Nous allons ajouter l’option <em>rebase</em> pour placer les commits locaux “par-dessus” ceux du remote pour obtenir un historique linéaire, clair et facile à suivre, tout en évitant les commits de fusion superflus.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> commence par <code>git pull --rebase</code></label></li>
+<li><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> fait enfin <code>git push</code></label></li>
+</ul>
+<p>Maintenant c’est <span class="emoji" data-emoji="frog">🐸</span> qui a son dépôt local en retard.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> peut faire un simple <em>pull</em> car il n’a pas de commits locaux</label></li>
+</ul>
+<p>Exercice d’application :</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> modifie et pousse le fichier <code>voiture.py</code></label></li>
+<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> modifie et pousse le fichier <code>moto.py</code></label></li>
+<li><label><input type="checkbox">Synchronisez vos dépôts pour avoir tous la dernière version</label></li>
+</ul>
+</section>
+<section id="un-premier-conflit" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="un-premier-conflit"><span class="header-section-number">5.4</span> Un premier conflit</h3>
+<p>Pour le moment vous avez travaillé sur des fichiers différents, donc git arrive à gérer la situation.</p>
+<p>Maintenant, que se passe-t-il si vous modifiez tous les deux le même fichier ?</p>
+<p>Vous allez tous les 2 travailler sur le fichier <code>voiture.py</code>. Dans la méthode <em>accelere()</em> :</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> remplace 130 par 150</label></li>
+<li><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> commit et pousse son code (<em>add</em>, <em>commit</em>, <em>push</em>)</label></li>
+<li><label><input type="checkbox">De son côté, <span class="emoji" data-emoji="frog">🐸</span> remplace 130 par 110</label></li>
+<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> commit et pousse son code (<em>add</em>, <em>commit</em>, <em>push</em>)</label></li>
+</ul>
+<p>Si vous avez bien compris, vous savez que le push ne va pas fonctionner.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> doit commencer par mettre à jour son dépôt local : <code>git pull</code></label>
+<ul>
+<li>Et là c’est le conflit…</li>
+</ul></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>remote: Enumerating objects: 7, done.</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>remote: Counting objects: 100% (7/7), done.</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>remote: Compressing objects: 100% (3/3), done.</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>remote: Total 4 (delta 2), reused 0 (delta 0), pack-reused 0</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>Unpacking objects: 100% (4/4), 1015 bytes | 8.00 KiB/s, done.</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>From github.com:ludo2ne/tp-git</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>   c27c708..05380ea  main       -&gt; origin/main</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>Auto-merging src/voiture.py</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>CONFLICT (content): Merge conflict in src/voiture.py</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>Automatic merge failed; fix conflicts and then commit the result.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Git vous prévient qu’il n’est pas arrivé à fusionner les commits automatiquement</p>
+<p>Un conflit est généré quand les mêmes lignes d’un fichier sont modifiés par 2 commits de manière différente. Il doit être géré sur un dépôt local.</p>
+<p>Votre code ressemble à cela désormais à :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelere(<span class="va">self</span>, increment) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> increment <span class="op">&gt;</span> <span class="dv">10</span>:</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>            increment <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="dv">110</span>, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="op">=======</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="dv">150</span>, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="dv">0</span><span class="er">5380ea70dbd5d4e49371af8da7c0ac1df13a010</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>La première partie (entre <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> et <code>=======</code>) correspond au code en que vous aviez dans votre copie de travail</li>
+<li>La seconde partie est le code provenant du dépôt distant</li>
+</ul>
+<p>Plusieurs choix s’offrent à vous :</p>
+<ul>
+<li>Imposer votre version (110)</li>
+<li>Accepter la version de <span class="emoji" data-emoji="cat">🐱</span> (150)</li>
+<li>Choisir une toute autre version (par exemple 120)</li>
+</ul>
+<p>Résolvons ce conflit :</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> conserve uniquement la ligne avec 110</label>
+<ul>
+<li>et supprime toutes les autres lignes de <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> à <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code></li>
+<li>autre possibilité offerte par VSCode, cliquer sur <em>Accept Current Change</em></li>
+</ul></li>
+<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> sauvegarde le fichier</label></li>
+<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> commit et pousse son code (<em>add</em>, <em>commit -m “resolve merge”</em>, <em>push</em>)</label></li>
+<li><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> fait un <em>pull</em> pour mettre à jour son dépôt local</label></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Avoir un conflit, ce n’est pas grave !<br>
+Avoir un conflit, ce n’est pas grave !<br>
+Avoir un conflit, ce n’est pas grave !<br>
+Avoir un conflit, ce n’est pas grave !<br>
+Avoir un conflit, ce n’est pas grave !</p>
+<p><strong>Conflit ≠ Erreur</strong></p>
+<p>Cela arrive simplement quand Git rencontre deux versions et il n’a pas de <span class="emoji" data-emoji="crystal_ball">🔮</span>, ni de <span class="emoji" data-emoji="game_die">🎲</span> pour choisir laquelle est la bonne.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Éviter les conflits">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Éviter les conflits
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Essayez de ne pas coder en même temps sur les mêmes fichiers</li>
+<li>Faites des <em>pull</em> et <em>push</em> réguliers</li>
+</ul>
+<p>Plus le code de votre dépôt local sera “proche” de celui du dépôt distant, moins vous en aurez.</p>
+<p>En effet, si vous codez pendant 5 jours sans jamais pousser votre code, vous prenez le risque que d’autres personnes modifient les mêmes fichiers et poussent avant leur code.</p>
+</div>
+</div>
+</section>
+<section id="exercice-dapplication-1" class="level3" data-number="5.5">
+<h3 data-number="5.5" class="anchored" data-anchor-id="exercice-dapplication-1"><span class="header-section-number">5.5</span> Exercice d’application</h3>
+<p>Dans le constructeur de la classe <em>Voiture</em> :</p>
+<ul class="task-list">
+<li><p><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> ajoute un attribut <em>vitesse_max</em> qui vaut par défaut 130</label></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>voiture.py</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, vitesse_max<span class="op">=</span><span class="dv">130</span>):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>      <span class="co">"""Constructeur"""</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.nom <span class="op">=</span> nom</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.couleur <span class="op">=</span> couleur</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.vitesse_max <span class="op">=</span> vitesse_max</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></li>
+<li><p><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> ajoute un attribut <em>carburant</em></label></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>voiture.py</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, carburant):</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>      <span class="co">"""Constructeur"""</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.nom <span class="op">=</span> nom</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.couleur <span class="op">=</span> couleur</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.carburant <span class="op">=</span> carburant</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></li>
+<li><p><label><input type="checkbox">Synchronisez vos dépôts et résolvez les conflits</label></p></li>
+</ul>
+</section>
+</section>
+<section id="ci" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="ci"><span class="header-section-number">6</span> CI</h2>
+<p>L’intégration continue permet d’automatiser certaines tâches lorsque l’on pousse du code vers un remote, par exemple :</p>
+<ul>
+<li>compiler le projet ou générer un paquet</li>
+<li>lancer les tests unitaires avec <em>pytest</em></li>
+<li>vérifier la qualité du code</li>
+</ul>
+<p>Il existe également le Déploiement Continu (CD) qui va installer automatiquement le programme sur un serveur.</p>
+<p>Il est possible de créer des pipelines automatisés pour mettre en place du CI/CD.</p>
+<section id="notre-premier-pipeline" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="notre-premier-pipeline"><span class="header-section-number">6.1</span> Notre premier pipeline</h3>
+<p>Nous allons créer un pipeline qui va exécuter sur une machine virtuelle vierge :</p>
+<ul>
+<li>installer <em>ubuntu</em></li>
+<li>installer un environnement <em>python</em></li>
+<li>installer les packages python nécessaires (<em>requirements.txt</em>)</li>
+</ul>
+<p>et ensuite :</p>
+<ul>
+<li>lancer les tests unitaires</li>
+<li>lancer <em>pylint</em>, un outil pour évaluer la qualité du code</li>
+</ul>
+<p>La fonctionnalité GitHub qui permet de faire cela se nomme <em>GitHub actions</em>. GitLab a un équivalent.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>.github/workflows/ci.yml</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" data-filename=".github/workflows/ci.yml"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> pipeline</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">push</span><span class="kw">]</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">build</span><span class="kw">:</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">strategy</span><span class="kw">:</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">matrix</span><span class="kw">:</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"3.13"</span><span class="kw">]</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Python ${{ matrix.python-version }}</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v5</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> ${{ matrix.python-version }}</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install dependencies</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>        python -m pip install --upgrade pip</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>        pip install -r requirements.txt</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Unit Tests with pytest</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>        pytest</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Analysing the code with pylint</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>        pylint --output-format=colorized --disable=C0114,C0411,C0415,W0718 $(git ls-files '*.py') --fail-under=7.5</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Créez un dossier <em>.github</em> puis dans celui-ci un dossier <em>workflows</em></label>
+<ul>
+<li>c’est important de respecter ces noms précis</li>
+</ul></li>
+<li><label><input type="checkbox">Dans <em>worlflows</em>, créez un fichier <em>ci.yml</em> et collez le code ci-dessus</label></li>
+<li><label><input type="checkbox">Avec git : add, commit et push</label></li>
+</ul>
+<p>Lors d’un push, cela va maintenant déclencher un pipeline sur GitHub.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Sur la page du repo GitHub, allez dans l’onglet <em>Action</em></label></li>
+</ul>
+</section>
+</section>
+<section id="git-sur-la-vm-ensai" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="git-sur-la-vm-ensai">Git sur la VM ENSAI</h2>
+<blockquote class="blockquote">
+<p>Optionnel</p>
+</blockquote>
+<p>Si vous souhaitez gérer des dépôts locaux sur votre VM ENSAI, vous pouvez utiliser le paramétrage ci-dessous.</p>
+<p>La communication avec GitHub se fera avec le protocole <em>ssh</em></p>
+<section id="configuration" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="configuration">Configuration</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>setup-git.sh</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" data-filename="setup-git.sh"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"&lt;Prenom Nom&gt;"</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="op">&lt;</span>prenom.nom<span class="op">&gt;</span>@eleve.ensai.fr</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper store</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.mergeoptions <span class="at">--no-edit</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.editor <span class="st">"code -w"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="création-dune-clé-ssh" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="création-dune-clé-ssh">Création d’une clé SSH</h3>
+<p>Pour permettre de faire dialoguer notre dépôt local avec le dépôt distant de GitHub, vous utiliserez le protocole <code>SSH</code>. Pour cela, vous allez :</p>
+<ul>
+<li>générer une paire de clés (publique/privée) sur notre machine</li>
+<li>déclarer votre clé publique à GitHub</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ce paramètrage SSH est réalisé au niveau de la machine.</p>
+<p>Si par exemple, vous souhaitez utiliser Git sur votre ordinateur personnel, il faudra faire également ce paramétrage.</p>
+</div>
+</div>
+<p>Dans Git Bash :</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Créez un dossier <em>/c/Users/id????.ssh</em> pour stocker votre clé ssh</label>
+<ul>
+<li><code>mkdir -p ~/.ssh</code></li>
+</ul></li>
+<li><label><input type="checkbox">Créez une clé SSH</label>
+<ul>
+<li><code>ssh-keygen -t rsa -b 4096 -N '' -q -f ~/.ssh/id_rsa</code></li>
+</ul></li>
+<li><label><input type="checkbox">Copiez le contenu de la clé publique</label>
+<ul>
+<li><code>cat ~/.ssh/id_rsa.pub | clip</code></li>
+<li>c’est comme si vous copiez le contenu du fichier <em>id_rsa.pub</em></li>
+</ul></li>
+</ul>
+<p>Déclarez votre clé publique à <em>GitHub</em>, pour pouvoir ensuite faire communiquer dépôts locaux avec les dépôts distants :</p>
+<ul class="task-list">
+<li><label><input type="checkbox">GitHub &gt; cliquez sur votre avatar &gt; Settings &gt; SSH and GPG keys</label>
+<ul>
+<li><a href="https://github.com/settings/keys" target="_blank">lien direct</a></li>
+</ul></li>
+<li><label><input type="checkbox">Cliquez sur <span class="green-button">New SSH key</span></label>
+<ul>
+<li>Title : VM ENSAI</li>
+<li>Key : Collez votre clé publique</li>
+<li><span class="green-button">Add SSH key</span></li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="SSH : Comment ça marche ?">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>SSH : Comment ça marche ?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>SSH (Secure Shell) est un protocole permettant de se connecter à un autre ordinateur sur un réseau de manière sécurisée.</p>
+<p>SSH chiffre toutes les informations échangées afin de protéger les données.</p>
+<p>SSH utilise un mécanisme de clés cryptographiques pour authentifier les ordinateurs et les utilisateurs, garantissant que la connexion est effectuée avec le bon serveur et sans intervention malveillante :</p>
+<ul>
+<li><code>Clé privée</code> : C’est comme la clé de votre maison. Vous la gardez en sécurité avec vous et ne la partagez avec personne. Cette clé reste sur votre ordinateur et sert à prouver votre identité.</li>
+<li><code>Clé publique</code> : Elle serait comme votre adresse postale. Vous pouvez la partager avec d’autres. Dans SSH, vous placez votre clé publique sur les serveurs ou les ordinateurs auxquels vous souhaitez vous connecter.</li>
+</ul>
+<p>Ces deux clés sont liées. Un message chiffré par la clé publique n’est déchiffrable que par celui qui posséde la clé privée. Lorsque vous chiffrez un message avec votre clé privée, vous prouvez à tous votre identité car chacun peut déchiffrer ce message avec la clé publique.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/Y-S6GtdLaSU" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/ludo2ne\.github\.io\/ENSAI-tools\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Website built with <a href="https://quarto.org/" class="external" target="_blank">Quarto</a> <br> <a href="https://github.com/ludo2ne/ENSAI-tools" class="external" target="_blank">Code source</a></p>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

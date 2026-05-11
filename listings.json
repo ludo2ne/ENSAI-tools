@@ -1,0 +1,24 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/doc/format/json.html",
+      "/doc/language/bash.html",
+      "/doc/format/markdown.html",
+      "/doc/format/yaml.html",
+      "/doc/git/advanced.html",
+      "/doc/git/glossary.html",
+      "/doc/git/presentation.html",
+      "/doc/git/lab.html",
+      "/doc/datalab/intro.html",
+      "/doc/datalab/basics.html",
+      "/doc/datalab/lab.html",
+      "/doc/datalab/advanced.html",
+      "/doc/datalab/vscode-python.html",
+      "/doc/quarto/basics.html",
+      "/doc/quarto/rstudio.html",
+      "/doc/quarto/report.html",
+      "/doc/quarto/site.html"
+    ]
+  }
+]
