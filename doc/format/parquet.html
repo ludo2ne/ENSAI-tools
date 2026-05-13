@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ludovic Deneuville">
+<meta name="description" content="Introduction à YAML">
 
-<title>Glossaire – ENSAI tools</title>
+<title>Le format Parquet – ENSAI tools</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -410,8 +411,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#les-bases" id="toc-les-bases" class="nav-link active" data-scroll-target="#les-bases"><span class="header-section-number">1</span> Les bases</a></li>
-  <li><a href="#autres" id="toc-autres" class="nav-link" data-scroll-target="#autres"><span class="header-section-number">2</span> Autres</a></li>
+  <li><a href="#pourquoi-utiliser-parquet" id="toc-pourquoi-utiliser-parquet" class="nav-link active" data-scroll-target="#pourquoi-utiliser-parquet"><span class="header-section-number">1</span> Pourquoi utiliser Parquet ?</a></li>
+  <li><a href="#comment-est-il-construit" id="toc-comment-est-il-construit" class="nav-link" data-scroll-target="#comment-est-il-construit"><span class="header-section-number">2</span> Comment est-il construit ?</a></li>
+  <li><a href="#utilisation-typique" id="toc-utilisation-typique" class="nav-link" data-scroll-target="#utilisation-typique"><span class="header-section-number">3</span> Utilisation typique</a></li>
+  <li><a href="#avantages-inconvénients" id="toc-avantages-inconvénients" class="nav-link" data-scroll-target="#avantages-inconvénients"><span class="header-section-number">4</span> Avantages &amp; Inconvénients</a></li>
   </ul>
 </nav>
 </nav>
@@ -425,9 +428,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Glossaire</h1>
+<h1 class="title">Le format Parquet</h1>
 </div>
 
+<div>
+  <div class="description">
+    Introduction à YAML
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -448,115 +456,89 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="les-bases" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="les-bases"><span class="header-section-number">1</span> Les bases</h2>
+<section id="pourquoi-utiliser-parquet" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="pourquoi-utiliser-parquet"><span class="header-section-number">1</span> Pourquoi utiliser Parquet ?</h2>
+<p>Contrairement aux formats orientés lignes (CSV, JSON), Parquet est conçu pour les charges de travail analytiques (<code>OLAP</code>) où l’on lit rarement toute la table, mais seulement quelques colonnes.</p>
+<p>Stocker les données par colonne permet :</p>
+<ul>
+<li>de ne lire que les colonnes utiles lors d’une requête (<code>column pruning</code>),</li>
+<li>d’appliquer des algorithmes de compression adaptés aux valeurs similaires,</li>
+<li>d’activer l’exécution vectorisée (<code>SIMD</code>) dans les moteurs modernes.</li>
+</ul>
+</section>
+<section id="comment-est-il-construit" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="comment-est-il-construit"><span class="header-section-number">2</span> Comment est-il construit ?</h2>
+<p>Parquet est un format binaire structuré hiérarchiquement :</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 15%">
-<col style="width: 25%">
-<col style="width: 60%">
+<col style="width: 68%">
+<col style="width: 31%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Terme</th>
-<th>Synonymes</th>
-<th>Signification</th>
+<th>Niveau</th>
+<th>Rôle</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Git</td>
-<td>Outil de versionnage</td>
-<td>Logiciel qui gère les versions et l’historique du code</td>
+<td>File</td>
+<td>Contient le schéma et les métadonnées en début/fin de fichier</td>
 </tr>
 <tr class="even">
-<td>GitHub</td>
-<td>Plateforme Git</td>
-<td>Service web pour héberger et collaborer sur des dépôts Git</td>
+<td>Row Group</td>
+<td>Bloc logique (~128 Mo à 1 Go) représentant un sous-ensemble de lignes</td>
 </tr>
 <tr class="odd">
-<td>Git Bash</td>
-<td>Terminal</td>
-<td>Terminal pour lancer des commandes Git</td>
+<td>Column</td>
+<td>Données d’une même colonne stockées séquentiellement dans un <code>Row Group</code></td>
 </tr>
 <tr class="even">
-<td>Dépôt</td>
-<td>Repository, Repo</td>
-<td>Dossier contenant un projet Git (code + historique)</td>
-</tr>
-<tr class="odd">
-<td>Remote</td>
-<td>Dépôt distant</td>
-<td>Dépôt hébergée sur un serveur (GitHub, GitLab…)</td>
-</tr>
-<tr class="even">
-<td>Local</td>
-<td>Dépôt local, Clone</td>
-<td>Copie d’un Remote sur ordinateur, ton service</td>
-</tr>
-<tr class="odd">
-<td>Commit</td>
-<td>Point de sauvegarde</td>
-<td>État du projet à un instant donné</td>
-</tr>
-<tr class="even">
-<td>Push</td>
-<td>Envoyer</td>
-<td>Transmettre les commits locaux vers le dépôt remote</td>
-</tr>
-<tr class="odd">
-<td>Pull</td>
-<td>Récupérer</td>
-<td>Ramener les commits du remote vers le local et les fusionner</td>
+<td>Page</td>
+<td>Unité atomique de lecture/compression, contenant valeurs + en-têtes d’encodage</td>
 </tr>
 </tbody>
 </table>
+<p>Chaque colonne utilise des encodages spécialisés (Dictionary, RLE, Delta, ByteStreamSplit) puis une compression par page (Snappy, GZIP, ZSTD). Les métadonnées incluent automatiquement les statistiques par <code>Row Group</code> (min, max, null count), permettant des optimisations comme le <code>predicate pushdown</code>.</p>
 </section>
-<section id="autres" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="autres"><span class="header-section-number">2</span> Autres</h2>
+<section id="utilisation-typique" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="utilisation-typique"><span class="header-section-number">3</span> Utilisation typique</h2>
+<ul>
+<li>Data Lakes : format natif de référence pour S3, ADLS, GCS</li>
+<li>Moteurs de calcul : Apache Spark, DuckDB, Pandas (<code>pyarrow</code>), Dask, Polars</li>
+<li>Couches de table moderne : Apache Iceberg, Delta Lake, Hudi (utilisent Parquet comme format physique)</li>
+<li>BI &amp; Analytics : connexion native dans Tableau, Power BI, Metabase, Superset</li>
+</ul>
+</section>
+<section id="avantages-inconvénients" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="avantages-inconvénients"><span class="header-section-number">4</span> Avantages &amp; Inconvénients</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 15%">
-<col style="width: 25%">
-<col style="width: 60%">
+<col style="width: 72%">
+<col style="width: 27%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Terme</th>
-<th>Synonymes</th>
-<th>Signification</th>
+<th>✅ Avantages</th>
+<th>❌ Inconvénients</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Branche</td>
-<td>Branch</td>
-<td>Ligne parallèle de développement dans un dépôt</td>
+<td>📉 Compression 5 à 10x supérieure au CSV</td>
+<td>🔒 Écrase difficilement une ligne (design <code>append-only</code>)</td>
 </tr>
 <tr class="even">
-<td>Main</td>
-<td>Master</td>
-<td>Branche principale (tronc)</td>
+<td>⚡ Lectures analytiques accélérées (vectorisées)</td>
+<td>🐢 Pas adapté à la lecture/écriture en mode transactionnel</td>
 </tr>
 <tr class="odd">
-<td>Merge</td>
-<td>Fusion</td>
-<td>Action de combiner une branche dans une autre</td>
+<td>📐 Schéma strict &amp; auto-descriptif</td>
+<td>🧩 Requiert des bibliothèques compatibles (PyArrow, Parquet-cpp, etc.)</td>
 </tr>
 <tr class="even">
-<td>Fork</td>
-<td>Copier un remote</td>
-<td>Copier un remote sur son propre compte GitHub</td>
-</tr>
-<tr class="odd">
-<td>Issue</td>
-<td>Ticket</td>
-<td>Outil pour signaler un bug, une tâche ou une discussion</td>
-</tr>
-<tr class="even">
-<td>Pull Request</td>
-<td>PR, Merge Request</td>
-<td>Proposition d’intégrer des changements d’une branche vers une autre</td>
+<td>🌐 Interopérable (Python, R, Java, Scala, SQL…)</td>
+<td>📦 Fichier monolithique : difficile à modifier partiellement</td>
 </tr>
 </tbody>
 </table>

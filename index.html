@@ -172,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-title','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: ["listing-title","listing-author"],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -408,20 +408,31 @@ window.Quarto = {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-formats" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Formats</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-formats-de-données" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Formats de données</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-formats">    
-        <li>
-    <a class="dropdown-item" href="./doc/format/markdown.html">
- <span class="dropdown-text">Markdown</span></a>
-  </li>  
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-formats-de-données">    
         <li>
     <a class="dropdown-item" href="./doc/format/json.html">
  <span class="dropdown-text">JSON</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/format/yaml.html">
+    <a class="dropdown-item" href="./doc/format/parquet.html">
+ <span class="dropdown-text">Parquet</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-balisage" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Balisage</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-balisage">    
+        <li>
+    <a class="dropdown-item" href="./doc/balisage/markdown.html">
+ <span class="dropdown-text">Markdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./doc/balisage/yaml.html">
  <span class="dropdown-text">YAML</span></a>
   </li>  
     </ul>
@@ -434,6 +445,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="./doc/language/bash.html">
  <span class="dropdown-text">Bash</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./doc/language/python.html">
+ <span class="dropdown-text">Python</span></a>
   </li>  
     </ul>
   </li>
@@ -599,7 +614,7 @@ Categories
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-categories="QnJhbmNoZXMlMkNHaXRGbG93JTJDUHVsbCUyMFJlcXVlc3QlMkNPcGVuJTIwc291cmNl" data-listing-file-modified-sort="1778507978451" data-listing-reading-time-sort="3" data-listing-word-count-sort="424" data-listing-title-sort="Git - usages avancés" data-listing-filename-sort="advanced.qmd">
+<tr data-index="0" data-categories="QnJhbmNoZXMlMkNHaXRGbG93JTJDUHVsbCUyMFJlcXVlc3QlMkNPcGVuJTIwc291cmNl" data-listing-file-modified-sort="1778698156007" data-listing-reading-time-sort="3" data-listing-word-count-sort="429" data-listing-title-sort="Git - usages avancés" data-listing-filename-sort="advanced.qmd">
 <td>
 <a href="./doc/git/advanced.html" class="title listing-title">Git - usages avancés</a>
 </td>
@@ -609,7 +624,7 @@ Categories
 
 </tr>
 
-<tr data-index="1" data-listing-file-modified-sort="1778507978451" data-listing-reading-time-sort="3" data-listing-word-count-sort="596" data-listing-title-sort="Glossaire" data-listing-filename-sort="glossary.qmd">
+<tr data-index="1" data-listing-file-modified-sort="1778698156007" data-listing-reading-time-sort="3" data-listing-word-count-sort="596" data-listing-title-sort="Glossaire" data-listing-filename-sort="glossary.qmd">
 <td>
 <a href="./doc/git/glossary.html" class="title listing-title">Glossaire</a>
 </td>
@@ -619,7 +634,7 @@ Categories
 
 </tr>
 
-<tr data-index="2" data-categories="R2VzdGlvbiUyMGRlJTIwdmVyc2lvbiUyQ1RyYXZhaWwlMjBlbiUyMCVDMyVBOXF1aXBlJTJDRCVDMyVBOXAlQzMlQjR0JTIwbG9jYWwlMkZkaXN0YW50JTJDV29ya2Zsb3clMkNDb25mbGl0" data-listing-file-modified-sort="1778507978452" data-listing-reading-time-sort="25" data-listing-word-count-sort="4892" data-listing-title-sort="Introduction à Git" data-listing-filename-sort="presentation.qmd">
+<tr data-index="2" data-categories="R2VzdGlvbiUyMGRlJTIwdmVyc2lvbiUyQ1RyYXZhaWwlMjBlbiUyMCVDMyVBOXF1aXBlJTJDRCVDMyVBOXAlQzMlQjR0JTIwbG9jYWwlMkZkaXN0YW50JTJDV29ya2Zsb3clMkNDb25mbGl0" data-listing-file-modified-sort="1778698156009" data-listing-reading-time-sort="25" data-listing-word-count-sort="4892" data-listing-title-sort="Introduction à Git" data-listing-filename-sort="presentation.qmd">
 <td>
 <a href="./doc/git/presentation.html" class="title listing-title">Introduction à Git</a>
 </td>
@@ -629,7 +644,7 @@ Categories
 
 </tr>
 
-<tr data-index="3" data-categories="VG9rZW4lMkNDbG9uZSUyQ0FkZCUyQyUyMGNvbW1pdCUyQyUyMHB1c2glMkNDb25mbGl0" data-listing-file-modified-sort="1778507978452" data-listing-reading-time-sort="33" data-listing-word-count-sort="6565" data-listing-title-sort="TP Git" data-listing-filename-sort="lab.qmd">
+<tr data-index="3" data-categories="VG9rZW4lMkNDbG9uZSUyQ0FkZCUyQyUyMGNvbW1pdCUyQyUyMHB1c2glMkNDb25mbGl0" data-listing-file-modified-sort="1778698156009" data-listing-reading-time-sort="33" data-listing-word-count-sort="6565" data-listing-title-sort="TP Git" data-listing-filename-sort="lab.qmd">
 <td>
 <a href="./doc/git/lab.html" class="title listing-title">TP Git</a>
 </td>
@@ -663,7 +678,7 @@ Categories
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-categories="T255eGlhJTJDQ2xvdWQlMkNEb2NrZXIlMkNLdWJlcm5ldGVz" data-listing-file-modified-sort="1778507978451" data-listing-reading-time-sort="4" data-listing-word-count-sort="759" data-listing-title-sort="Datalab SSPCloud" data-listing-filename-sort="intro.qmd">
+<tr data-index="0" data-categories="T255eGlhJTJDQ2xvdWQlMkNEb2NrZXIlMkNLdWJlcm5ldGVz" data-listing-file-modified-sort="1778698156007" data-listing-reading-time-sort="4" data-listing-word-count-sort="759" data-listing-title-sort="Datalab SSPCloud" data-listing-filename-sort="intro.qmd">
 <td>
 <a href="./doc/datalab/intro.html" class="title listing-title">Datalab SSPCloud</a>
 </td>
@@ -673,7 +688,7 @@ Categories
 
 </tr>
 
-<tr data-index="1" data-categories="U2VydmljZSUyQ1N0b2NrYWdlJTIwUzMlMkNHaXQ=" data-listing-file-modified-sort="1778507978451" data-listing-reading-time-sort="1" data-listing-word-count-sort="11" data-listing-title-sort="Découverte du Datalab SSPCloud" data-listing-filename-sort="basics.qmd">
+<tr data-index="1" data-categories="U2VydmljZSUyQ1N0b2NrYWdlJTIwUzMlMkNHaXQ=" data-listing-file-modified-sort="1778698156007" data-listing-reading-time-sort="1" data-listing-word-count-sort="11" data-listing-title-sort="Découverte du Datalab SSPCloud" data-listing-filename-sort="basics.qmd">
 <td>
 <a href="./doc/datalab/basics.html" class="title listing-title">Découverte du Datalab SSPCloud</a>
 </td>
@@ -683,7 +698,7 @@ Categories
 
 </tr>
 
-<tr data-index="2" data-listing-file-modified-sort="1778507978451" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="TP découverte du Datalab" data-listing-filename-sort="lab.qmd">
+<tr data-index="2" data-listing-file-modified-sort="1778698156007" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="TP découverte du Datalab" data-listing-filename-sort="lab.qmd">
 <td>
 <a href="./doc/datalab/lab.html" class="title listing-title">TP découverte du Datalab</a>
 </td>
@@ -693,7 +708,7 @@ Categories
 
 </tr>
 
-<tr data-index="3" data-categories="U2NyaXB0JTJDU2VjcmV0cyUyQ0RvY2tlcg==" data-listing-file-modified-sort="1778507978451" data-listing-reading-time-sort="1" data-listing-word-count-sort="7" data-listing-title-sort="Usage avancé du Datalab" data-listing-filename-sort="advanced.qmd">
+<tr data-index="3" data-categories="U2NyaXB0JTJDU2VjcmV0cyUyQ0RvY2tlcg==" data-listing-file-modified-sort="1778698156007" data-listing-reading-time-sort="1" data-listing-word-count-sort="7" data-listing-title-sort="Usage avancé du Datalab" data-listing-filename-sort="advanced.qmd">
 <td>
 <a href="./doc/datalab/advanced.html" class="title listing-title">Usage avancé du Datalab</a>
 </td>
@@ -703,7 +718,7 @@ Categories
 
 </tr>
 
-<tr data-index="4" data-listing-file-modified-sort="1778507978451" data-listing-reading-time-sort="1" data-listing-word-count-sort="4" data-listing-title-sort="VSCode python" data-listing-filename-sort="vscode-python.qmd">
+<tr data-index="4" data-listing-file-modified-sort="1778698156007" data-listing-reading-time-sort="1" data-listing-word-count-sort="4" data-listing-title-sort="VSCode python" data-listing-filename-sort="vscode-python.qmd">
 <td>
 <a href="./doc/datalab/vscode-python.html" class="title listing-title">VSCode python</a>
 </td>
@@ -737,7 +752,7 @@ Categories
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-listing-file-modified-sort="1778507978454" data-listing-reading-time-sort="1" data-listing-word-count-sort="15" data-listing-title-sort="Quarto" data-listing-filename-sort="basics.qmd">
+<tr data-index="0" data-listing-file-modified-sort="1778698156010" data-listing-reading-time-sort="1" data-listing-word-count-sort="15" data-listing-title-sort="Quarto" data-listing-filename-sort="basics.qmd">
 <td>
 <a href="./doc/quarto/basics.html" class="title listing-title">Quarto</a>
 </td>
@@ -747,7 +762,7 @@ Categories
 
 </tr>
 
-<tr data-index="1" data-listing-file-modified-sort="1778507978455" data-listing-reading-time-sort="11" data-listing-word-count-sort="2160" data-listing-title-sort="Quarto avec Rstudio" data-listing-filename-sort="rstudio.qmd">
+<tr data-index="1" data-listing-file-modified-sort="1778698156010" data-listing-reading-time-sort="11" data-listing-word-count-sort="2160" data-listing-title-sort="Quarto avec Rstudio" data-listing-filename-sort="rstudio.qmd">
 <td>
 <a href="./doc/quarto/rstudio.html" class="title listing-title">Quarto avec Rstudio</a>
 </td>
@@ -757,7 +772,7 @@ Categories
 
 </tr>
 
-<tr data-index="2" data-listing-file-modified-sort="1778507978455" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Rapport de projet" data-listing-filename-sort="report.qmd">
+<tr data-index="2" data-listing-date-sort="1745452800000" data-listing-file-modified-sort="1778698156010" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="320" data-listing-title-sort="Rapport de projet" data-listing-filename-sort="report.qmd">
 <td>
 <a href="./doc/quarto/report.html" class="title listing-title">Rapport de projet</a>
 </td>
@@ -767,7 +782,7 @@ Categories
 
 </tr>
 
-<tr data-index="3" data-listing-file-modified-sort="1778507978455" data-listing-reading-time-sort="1" data-listing-word-count-sort="2" data-listing-title-sort="Site statique" data-listing-filename-sort="site.qmd">
+<tr data-index="3" data-listing-file-modified-sort="1778698156010" data-listing-reading-time-sort="1" data-listing-word-count-sort="2" data-listing-title-sort="Site statique" data-listing-filename-sort="site.qmd">
 <td>
 <a href="./doc/quarto/site.html" class="title listing-title">Site statique</a>
 </td>
@@ -803,7 +818,7 @@ Categories
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-listing-file-modified-sort="1778507978451" data-listing-reading-time-sort="2" data-listing-word-count-sort="267" data-listing-title-sort="JSON" data-listing-filename-sort="json.qmd">
+<tr data-index="0" data-listing-file-modified-sort="1778698156007" data-listing-reading-time-sort="2" data-listing-word-count-sort="267" data-listing-title-sort="JSON" data-listing-filename-sort="json.qmd">
 <td>
 <a href="./doc/format/json.html" class="title listing-title">JSON</a>
 </td>
@@ -813,7 +828,17 @@ Categories
 
 </tr>
 
-<tr data-index="1" data-listing-file-modified-sort="1778507978453" data-listing-reading-time-sort="18" data-listing-word-count-sort="3459" data-listing-title-sort="Les commandes Bash" data-listing-filename-sort="bash.qmd">
+<tr data-index="1" data-listing-file-modified-sort="1778698156007" data-listing-reading-time-sort="2" data-listing-word-count-sort="379" data-listing-title-sort="Le format Parquet" data-listing-filename-sort="parquet.qmd">
+<td>
+<a href="./doc/format/parquet.html" class="title listing-title">Le format Parquet</a>
+</td>
+<td>
+<span class="listing-categories">&nbsp;</span>
+</td>
+
+</tr>
+
+<tr data-index="2" data-listing-file-modified-sort="1778698156009" data-listing-reading-time-sort="18" data-listing-word-count-sort="3459" data-listing-title-sort="Les commandes Bash" data-listing-filename-sort="bash.qmd">
 <td>
 <a href="./doc/language/bash.html" class="title listing-title">Les commandes Bash</a>
 </td>
@@ -823,19 +848,9 @@ Categories
 
 </tr>
 
-<tr data-index="2" data-listing-file-modified-sort="1778507978451" data-listing-reading-time-sort="3" data-listing-word-count-sort="539" data-listing-title-sort="Mardown" data-listing-filename-sort="markdown.qmd">
+<tr data-index="3" data-listing-file-modified-sort="1778698156010" data-listing-reading-time-sort="3" data-listing-word-count-sort="436" data-listing-title-sort="Python" data-listing-filename-sort="python.qmd">
 <td>
-<a href="./doc/format/markdown.html" class="title listing-title">Mardown</a>
-</td>
-<td>
-<span class="listing-categories">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="3" data-listing-file-modified-sort="1778507978451" data-listing-reading-time-sort="5" data-listing-word-count-sort="815" data-listing-title-sort="YAML 101" data-listing-filename-sort="yaml.qmd">
-<td>
-<a href="./doc/format/yaml.html" class="title listing-title">YAML 101</a>
+<a href="./doc/language/python.html" class="title listing-title">Python</a>
 </td>
 <td>
 <span class="listing-categories">&nbsp;</span>

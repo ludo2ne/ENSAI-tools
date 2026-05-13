@@ -6,8 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ludovic Deneuville">
-<meta name="description" content="Créer un rapport de projet avec Quarto">
+<meta name="dcterms.date" content="2025-04-24">
 
 <title>Rapport de projet – ENSAI tools</title>
 <style>
@@ -24,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -266,20 +300,31 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-formats" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Formats</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-formats-de-données" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Formats de données</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-formats">    
-        <li>
-    <a class="dropdown-item" href="../../doc/format/markdown.html">
- <span class="dropdown-text">Markdown</span></a>
-  </li>  
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-formats-de-données">    
         <li>
     <a class="dropdown-item" href="../../doc/format/json.html">
  <span class="dropdown-text">JSON</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/format/yaml.html">
+    <a class="dropdown-item" href="../../doc/format/parquet.html">
+ <span class="dropdown-text">Parquet</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-balisage" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Balisage</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-balisage">    
+        <li>
+    <a class="dropdown-item" href="../../doc/balisage/markdown.html">
+ <span class="dropdown-text">Markdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/balisage/yaml.html">
  <span class="dropdown-text">YAML</span></a>
   </li>  
     </ul>
@@ -292,6 +337,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../../doc/language/bash.html">
  <span class="dropdown-text">Bash</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/language/python.html">
+ <span class="dropdown-text">Python</span></a>
   </li>  
     </ul>
   </li>
@@ -392,7 +441,16 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#première-partie" id="toc-première-partie" class="nav-link" data-scroll-target="#première-partie"><span class="header-section-number">2</span> Première partie</a></li>
+  <li><a href="#deuxième-partie" id="toc-deuxième-partie" class="nav-link" data-scroll-target="#deuxième-partie"><span class="header-section-number">3</span> Deuxième partie</a></li>
+  <li><a href="#bibliographie" id="toc-bibliographie" class="nav-link" data-scroll-target="#bibliographie">Bibliographie</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="report.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -404,25 +462,30 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Rapport de projet</h1>
+<div class="quarto-title-block"><div><h1 class="title">Rapport de projet</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Créer un rapport de projet avec Quarto et Typst</p>
 </div>
 
-<div>
-  <div class="description">
-    Créer un rapport de projet avec Quarto
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Authors</div>
     <div class="quarto-title-meta-contents">
+             <p>Laurent Costa </p>
              <p>Ludovic Deneuville </p>
+             <p>Christophe Lesieur </p>
+             <p>Brandon Saintilan </p>
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 24, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -432,9 +495,116 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div style="page-break-after: always;"></div>
 <p><span class="emoji" data-emoji="construction">🚧</span></p>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>Ne pas utiliser tinytex mais typst : <a href="https://quarto.org/docs/output-formats/typst.html" class="uri">https://quarto.org/docs/output-formats/typst.html</a></p>
+<p><a href="https://typst.app/" class="uri">https://typst.app/</a></p>
+<p><a href="https://github.com/InseeFrLab/jms2025-typst/blob/main/_extensions/jms2025/typst-template.typ" class="uri">https://github.com/InseeFrLab/jms2025-typst/blob/main/_extensions/jms2025/typst-template.typ</a></p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="première-partie" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="première-partie"><span class="header-section-number">2</span> Première partie</h2>
+<p>Bonjour</p>
+<section id="première-sous-partie" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="première-sous-partie"><span class="header-section-number">2.1</span> Première sous-partie</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une petite astuce</p>
+</div>
+</div>
+<section id="première-sous-sous-partie" class="level4" data-number="2.1.1">
+<h4 data-number="2.1.1" class="anchored" data-anchor-id="première-sous-sous-partie"><span class="header-section-number">2.1.1</span> première sous-sous-partie</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> <span class="fu">user</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">WHERE</span> <span class="dv">1</span> <span class="op">=</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="deuxième-sous-partie" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="deuxième-sous-partie"><span class="header-section-number">2.2</span> Deuxième sous-partie</h3>
+<ul>
+<li>Paper-based exam</li>
+<li>Duration: 1h30</li>
+<li>1 handwritten A4 sheet (front and back) allowed</li>
+<li>No calculator</li>
+</ul>
+</section>
+<section id="troisème-sous-partie" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="troisème-sous-partie"><span class="header-section-number">2.3</span> Troisème sous-partie</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 15%">
+<col style="width: 17%">
+<col style="width: 16%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Modifier</th>
+<th>Same Class</th>
+<th>Same Package</th>
+<th>Subclasses</th>
+<th>Everywhere</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>public</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>protected</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr class="odd">
+<td><em>default</em> (no modifier)</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr class="even">
+<td>private</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="deuxième-partie" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="deuxième-partie"><span class="header-section-number">3</span> Deuxième partie</h2>
+<blockquote class="blockquote">
+<p>citation</p>
+</blockquote>
+</section>
+<section id="bibliographie" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="bibliographie">Bibliographie</h2>
+<p>Use bib file</p>
 
 
+<!-- -->
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -520,6 +690,57 @@ ul.task-list li input[type="checkbox"] {
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -849,7 +1070,91 @@ ul.task-list li input[type="checkbox"] {
       }
     }
   });
-  </script>
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Rapport de projet</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Créer un rapport de projet avec Quarto et Typst"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2025/04/24"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="an">authors:</span><span class="co"> </span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">  - Laurent Costa</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">  - Ludovic Deneuville</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">  - Christophe Lesieur</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">  - Brandon Saintilan</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">  typst:</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">    papersize: a4</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">    margin:</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">      x: 1.5cm</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">      y: 2.0cm</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">    section-numbering: 1.1.a</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">    mainfont: "Calibri"</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">    fontsize: 11pt</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>{{&lt; pagebreak &gt;}}</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="sc">:construction:</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>Ne pas utiliser tinytex mais typst : <span class="ot">&lt;https://quarto.org/docs/output-formats/typst.html&gt;</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;https://typst.app/&gt;</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;https://github.com/InseeFrLab/jms2025-typst/blob/main/_extensions/jms2025/typst-template.typ&gt;</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>{{&lt; pagebreak &gt;}}</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Première partie</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>Bonjour</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="fu">### Première sous-partie</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>Une petite astuce</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="fu">#### première sous-sous-partie</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sql}</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> <span class="fu">user</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a> <span class="kw">WHERE</span> <span class="dv">1</span> <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="fu">### Deuxième sous-partie</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Paper-based exam</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Duration: 1h30</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>1 handwritten A4 sheet (front and back) allowed</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>No calculator</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="fu">### Troisème sous-partie</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Modifier                <span class="pp">|</span> Same Class <span class="pp">|</span> Same Package <span class="pp">|</span> Subclasses  <span class="pp">|</span>  Everywhere   <span class="pp">|</span></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="pp">|-------------------------|------------|--------------|-------------|---------------|</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> public                  <span class="pp">|</span> ✅         <span class="pp">|</span> ✅          <span class="pp">|</span> ✅          <span class="pp">|</span> ✅           <span class="pp">|</span></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> protected               <span class="pp">|</span> ✅         <span class="pp">|</span> ✅          <span class="pp">|</span> ✅          <span class="pp">|</span> ❌           <span class="pp">|</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> *default* (no modifier) <span class="pp">|</span> ✅         <span class="pp">|</span> ✅          <span class="pp">|</span> ❌          <span class="pp">|</span> ❌           <span class="pp">|</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> private                 <span class="pp">|</span> ✅         <span class="pp">|</span> ❌          <span class="pp">|</span> ❌          <span class="pp">|</span> ❌           <span class="pp">|</span></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>{{&lt; pagebreak &gt;}}</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## Deuxième partie</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; citation</span></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bibliographie {.unnumbered}</span></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>Use bib file</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

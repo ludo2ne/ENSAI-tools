@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ludovic Deneuville">
+<meta name="description" content="Quelques ressources sur Python">
 
-<title>Glossaire – ENSAI tools</title>
+<title>Python – ENSAI tools</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -410,8 +411,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#les-bases" id="toc-les-bases" class="nav-link active" data-scroll-target="#les-bases"><span class="header-section-number">1</span> Les bases</a></li>
-  <li><a href="#autres" id="toc-autres" class="nav-link" data-scroll-target="#autres"><span class="header-section-number">2</span> Autres</a></li>
+  <li><a href="#apprendre-le-langage" id="toc-apprendre-le-langage" class="nav-link active" data-scroll-target="#apprendre-le-langage"><span class="header-section-number">1</span> Apprendre le langage</a></li>
+  <li><a href="#glossaire" id="toc-glossaire" class="nav-link" data-scroll-target="#glossaire"><span class="header-section-number">2</span> Glossaire</a></li>
   </ul>
 </nav>
 </nav>
@@ -425,9 +426,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Glossaire</h1>
+<h1 class="title">Python</h1>
 </div>
 
+<div>
+  <div class="description">
+    Quelques ressources sur Python
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -448,120 +454,118 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="les-bases" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="les-bases"><span class="header-section-number">1</span> Les bases</h2>
+<section id="apprendre-le-langage" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="apprendre-le-langage"><span class="header-section-number">1</span> Apprendre le langage</h2>
+<ul>
+<li><a href="https://inseefrlab.github.io/formation-python-initiation/" target="_blank">https://inseefrlab.github.io/formation-python-initiation/</a></li>
+<li><a href="https://ludo2ne.github.io/ENSAI-2A-remise-a-niveau/doc/python/python-notebooks.html" target="_blank">https://ludo2ne.github.io/ENSAI-2A-remise-a-niveau/doc/python/python-notebooks.html</a></li>
+</ul>
+</section>
+<section id="glossaire" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="glossaire"><span class="header-section-number">2</span> Glossaire</h2>
+<section id="packages" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="packages"><span class="header-section-number">2.1</span> Packages</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 15%">
-<col style="width: 25%">
-<col style="width: 60%">
+<col style="width: 54%">
+<col style="width: 45%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Terme</th>
-<th>Synonymes</th>
-<th>Signification</th>
+<th>Définition</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Git</td>
-<td>Outil de versionnage</td>
-<td>Logiciel qui gère les versions et l’historique du code</td>
+<td>pip</td>
+<td>Gestionnaire de paquets standard pour installer des bibliothèques</td>
 </tr>
 <tr class="even">
-<td>GitHub</td>
-<td>Plateforme Git</td>
-<td>Service web pour héberger et collaborer sur des dépôts Git</td>
+<td>venv</td>
+<td>Environnements virtuels isolés pour installer des dépendances spécifiques à un projet</td>
 </tr>
 <tr class="odd">
-<td>Git Bash</td>
-<td>Terminal</td>
-<td>Terminal pour lancer des commandes Git</td>
+<td>uv</td>
+<td>Gestionnaire de paquets et d’environnements ultra-rapide, remplaçant <em>pip</em> et <em>venv</em></td>
 </tr>
 <tr class="even">
-<td>Dépôt</td>
-<td>Repository, Repo</td>
-<td>Dossier contenant un projet Git (code + historique)</td>
+<td>ruff</td>
+<td>Linter et formateur de code extrêmement rapide</td>
 </tr>
 <tr class="odd">
-<td>Remote</td>
-<td>Dépôt distant</td>
-<td>Dépôt hébergée sur un serveur (GitHub, GitLab…)</td>
+<td>pandas</td>
+<td>Bibliothèque spécialisée dans la manipulation et l’analyse de données structurées</td>
 </tr>
 <tr class="even">
-<td>Local</td>
-<td>Dépôt local, Clone</td>
-<td>Copie d’un Remote sur ordinateur, ton service</td>
+<td>numpy</td>
+<td>Bibliothèque fondamentale pour le calcul scientifique et la gestion de tableaux multidimensionnels</td>
 </tr>
 <tr class="odd">
-<td>Commit</td>
-<td>Point de sauvegarde</td>
-<td>État du projet à un instant donné</td>
-</tr>
-<tr class="even">
-<td>Push</td>
-<td>Envoyer</td>
-<td>Transmettre les commits locaux vers le dépôt remote</td>
-</tr>
-<tr class="odd">
-<td>Pull</td>
-<td>Récupérer</td>
-<td>Ramener les commits du remote vers le local et les fusionner</td>
+<td>pytest</td>
+<td>Permet de lancer les tests unitaires</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="autres" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="autres"><span class="header-section-number">2</span> Autres</h2>
+<section id="ide-integrated-development-environment" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="ide-integrated-development-environment"><span class="header-section-number">2.2</span> IDE (Integrated Development Environment)</h3>
+<p>Un IDE est un logiciel “tout-en-un” conçu pour faciliter le travail du développeur. Contrairement à un simple éditeur de texte (comme le Bloc-notes), il regroupe tous les outils nécessaires au cycle de vie du code :</p>
+<ol type="1">
+<li>Écriture intelligente : Autocomplétion, détection d’erreurs en temps réel (soulignement rouge).</li>
+<li>Navigation : Aller directement à la définition d’une fonction ou d’une variable.</li>
+<li>Débogage : Exécuter le code pas à pas pour voir comment les variables évoluent et trouver les bugs.</li>
+<li>Automatisation : Lancer des tests, formater le code automatiquement, gérer les versions (Git).</li>
+<li>Terminal intégré : Exécuter des commandes (<code>pip</code>, <code>uv</code>, <code>python script.py</code>, <code>git</code>) sans quitter l’application.</li>
+</ol>
+<p><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> est un éditeur de texte léger que l’on transforme en IDE grâce à deux piliers :</p>
+<ul>
+<li>Les Extensions : Ce sont des modules que tu installes pour ajouter des super-pouvoirs.
+<ul>
+<li><em>Indispensables pour Python</em> : <code>Python</code>, <code>Pylance</code> (intelligence du code), <code>Ruff</code> (vitesse/formatage)</li>
+</ul></li>
+<li>Les Settings (Paramètres) : ils permettent de personnaliser l’éditeur (thèmes, taille de police)</li>
+</ul>
+</section>
+<section id="programmation-orientée-objet" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="programmation-orientée-objet"><span class="header-section-number">2.3</span> Programmation Orientée Objet</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 15%">
-<col style="width: 25%">
-<col style="width: 60%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Terme</th>
-<th>Synonymes</th>
-<th>Signification</th>
+<th>Définition</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Branche</td>
-<td>Branch</td>
-<td>Ligne parallèle de développement dans un dépôt</td>
+<td>Classe</td>
+<td>Modèle utilisé pour définir la structure et le comportement d’un objet.</td>
 </tr>
 <tr class="even">
-<td>Main</td>
-<td>Master</td>
-<td>Branche principale (tronc)</td>
+<td>Objet</td>
+<td>Instance concrète créée à partir d’une classe, possédant ses propres données et méthodes.</td>
 </tr>
 <tr class="odd">
-<td>Merge</td>
-<td>Fusion</td>
-<td>Action de combiner une branche dans une autre</td>
+<td><code>self</code></td>
+<td>Référence à l’instance de l’objet lui-même, utilisée pour accéder à ses attributs et méthodes.</td>
 </tr>
 <tr class="even">
-<td>Fork</td>
-<td>Copier un remote</td>
-<td>Copier un remote sur son propre compte GitHub</td>
+<td><code>super()</code></td>
+<td>Fonction permettant d’appeler une méthode de la classe parente (héritage).</td>
 </tr>
 <tr class="odd">
-<td>Issue</td>
-<td>Ticket</td>
-<td>Outil pour signaler un bug, une tâche ou une discussion</td>
-</tr>
-<tr class="even">
-<td>Pull Request</td>
-<td>PR, Merge Request</td>
-<td>Proposition d’intégrer des changements d’une branche vers une autre</td>
+<td>abstract</td>
+<td>Concept de classe ou méthode qui définit une interface obligatoire pour les sous-classes, sans implémentation propre.</td>
 </tr>
 </tbody>
 </table>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

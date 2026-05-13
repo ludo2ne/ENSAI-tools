@@ -88,7 +88,7 @@
     "href": "doc/git/advanced.html#open-source",
     "title": "Git - usages avancés",
     "section": "4 Open source",
-    "text": "4 Open source\n🚧"
+    "text": "4 Open source\n🚧\nPôle open source et communs numériques"
   },
   {
     "objectID": "doc/git/lab.html",
@@ -161,6 +161,286 @@
     "text": "Git sur la VM ENSAI\n\nOptionnel\n\nSi vous souhaitez gérer des dépôts locaux sur votre VM ENSAI, vous pouvez utiliser le paramétrage ci-dessous.\nLa communication avec GitHub se fera avec le protocole ssh\n\nConfiguration\n\n\nsetup-git.sh\n\ngit config --global user.name \"&lt;Prenom Nom&gt;\"\ngit config --global user.email &lt;prenom.nom&gt;@eleve.ensai.fr\ngit config --global credential.helper store\ngit config --global core.mergeoptions --no-edit\ngit config --global core.editor \"code -w\"\n\n\n\nCréation d’une clé SSH\nPour permettre de faire dialoguer notre dépôt local avec le dépôt distant de GitHub, vous utiliserez le protocole SSH. Pour cela, vous allez :\n\ngénérer une paire de clés (publique/privée) sur notre machine\ndéclarer votre clé publique à GitHub\n\n\n\n\n\n\n\nWarning\n\n\n\nCe paramètrage SSH est réalisé au niveau de la machine.\nSi par exemple, vous souhaitez utiliser Git sur votre ordinateur personnel, il faudra faire également ce paramétrage.\n\n\nDans Git Bash :\n\nCréez un dossier /c/Users/id????.ssh pour stocker votre clé ssh\n\nmkdir -p ~/.ssh\n\nCréez une clé SSH\n\nssh-keygen -t rsa -b 4096 -N '' -q -f ~/.ssh/id_rsa\n\nCopiez le contenu de la clé publique\n\ncat ~/.ssh/id_rsa.pub | clip\nc’est comme si vous copiez le contenu du fichier id_rsa.pub\n\n\nDéclarez votre clé publique à GitHub, pour pouvoir ensuite faire communiquer dépôts locaux avec les dépôts distants :\n\nGitHub &gt; cliquez sur votre avatar &gt; Settings &gt; SSH and GPG keys\n\nlien direct\n\nCliquez sur New SSH key\n\nTitle : VM ENSAI\nKey : Collez votre clé publique\nAdd SSH key\n\n\n\n\n\n\n\n\nNoteSSH : Comment ça marche ?\n\n\n\n\n\nSSH (Secure Shell) est un protocole permettant de se connecter à un autre ordinateur sur un réseau de manière sécurisée.\nSSH chiffre toutes les informations échangées afin de protéger les données.\nSSH utilise un mécanisme de clés cryptographiques pour authentifier les ordinateurs et les utilisateurs, garantissant que la connexion est effectuée avec le bon serveur et sans intervention malveillante :\n\nClé privée : C’est comme la clé de votre maison. Vous la gardez en sécurité avec vous et ne la partagez avec personne. Cette clé reste sur votre ordinateur et sert à prouver votre identité.\nClé publique : Elle serait comme votre adresse postale. Vous pouvez la partager avec d’autres. Dans SSH, vous placez votre clé publique sur les serveurs ou les ordinateurs auxquels vous souhaitez vous connecter.\n\nCes deux clés sont liées. Un message chiffré par la clé publique n’est déchiffrable que par celui qui posséde la clé privée. Lorsque vous chiffrez un message avec votre clé privée, vous prouvez à tous votre identité car chacun peut déchiffrer ce message avec la clé publique."
   },
   {
+    "objectID": "doc/language/python.html",
+    "href": "doc/language/python.html",
+    "title": "Python",
+    "section": "",
+    "text": "https://inseefrlab.github.io/formation-python-initiation/\nhttps://ludo2ne.github.io/ENSAI-2A-remise-a-niveau/doc/python/python-notebooks.html"
+  },
+  {
+    "objectID": "doc/language/python.html#apprendre-le-langage",
+    "href": "doc/language/python.html#apprendre-le-langage",
+    "title": "Python",
+    "section": "",
+    "text": "https://inseefrlab.github.io/formation-python-initiation/\nhttps://ludo2ne.github.io/ENSAI-2A-remise-a-niveau/doc/python/python-notebooks.html"
+  },
+  {
+    "objectID": "doc/language/python.html#glossaire",
+    "href": "doc/language/python.html#glossaire",
+    "title": "Python",
+    "section": "2 Glossaire",
+    "text": "2 Glossaire\n\n2.1 Packages\n\n\n\n\n\n\n\nTerme\nDéfinition\n\n\n\n\npip\nGestionnaire de paquets standard pour installer des bibliothèques\n\n\nvenv\nEnvironnements virtuels isolés pour installer des dépendances spécifiques à un projet\n\n\nuv\nGestionnaire de paquets et d’environnements ultra-rapide, remplaçant pip et venv\n\n\nruff\nLinter et formateur de code extrêmement rapide\n\n\npandas\nBibliothèque spécialisée dans la manipulation et l’analyse de données structurées\n\n\nnumpy\nBibliothèque fondamentale pour le calcul scientifique et la gestion de tableaux multidimensionnels\n\n\npytest\nPermet de lancer les tests unitaires\n\n\n\n\n\n2.2 IDE (Integrated Development Environment)\nUn IDE est un logiciel “tout-en-un” conçu pour faciliter le travail du développeur. Contrairement à un simple éditeur de texte (comme le Bloc-notes), il regroupe tous les outils nécessaires au cycle de vie du code :\n\nÉcriture intelligente : Autocomplétion, détection d’erreurs en temps réel (soulignement rouge).\nNavigation : Aller directement à la définition d’une fonction ou d’une variable.\nDébogage : Exécuter le code pas à pas pour voir comment les variables évoluent et trouver les bugs.\nAutomatisation : Lancer des tests, formater le code automatiquement, gérer les versions (Git).\nTerminal intégré : Exécuter des commandes (pip, uv, python script.py, git) sans quitter l’application.\n\nVisual Studio Code est un éditeur de texte léger que l’on transforme en IDE grâce à deux piliers :\n\nLes Extensions : Ce sont des modules que tu installes pour ajouter des super-pouvoirs.\n\nIndispensables pour Python : Python, Pylance (intelligence du code), Ruff (vitesse/formatage)\n\nLes Settings (Paramètres) : ils permettent de personnaliser l’éditeur (thèmes, taille de police)\n\n\n\n2.3 Programmation Orientée Objet\n\n\n\n\n\n\n\nTerme\nDéfinition\n\n\n\n\nClasse\nModèle utilisé pour définir la structure et le comportement d’un objet.\n\n\nObjet\nInstance concrète créée à partir d’une classe, possédant ses propres données et méthodes.\n\n\nself\nRéférence à l’instance de l’objet lui-même, utilisée pour accéder à ses attributs et méthodes.\n\n\nsuper()\nFonction permettant d’appeler une méthode de la classe parente (héritage).\n\n\nabstract\nConcept de classe ou méthode qui définit une interface obligatoire pour les sous-classes, sans implémentation propre."
+  },
+  {
+    "objectID": "doc/datalab/advanced.html",
+    "href": "doc/datalab/advanced.html",
+    "title": "Usage avancé du Datalab",
+    "section": "",
+    "text": "🚧"
+  },
+  {
+    "objectID": "doc/datalab/advanced.html#script-de-lancement",
+    "href": "doc/datalab/advanced.html#script-de-lancement",
+    "title": "Usage avancé du Datalab",
+    "section": "1 Script de lancement",
+    "text": "1 Script de lancement"
+  },
+  {
+    "objectID": "doc/datalab/advanced.html#image-docker",
+    "href": "doc/datalab/advanced.html#image-docker",
+    "title": "Usage avancé du Datalab",
+    "section": "2 Image Docker",
+    "text": "2 Image Docker"
+  },
+  {
+    "objectID": "doc/datalab/advanced.html#secrets",
+    "href": "doc/datalab/advanced.html#secrets",
+    "title": "Usage avancé du Datalab",
+    "section": "3 Secrets",
+    "text": "3 Secrets"
+  },
+  {
+    "objectID": "doc/datalab/advanced.html#surveiller-son-service",
+    "href": "doc/datalab/advanced.html#surveiller-son-service",
+    "title": "Usage avancé du Datalab",
+    "section": "4 Surveiller son service",
+    "text": "4 Surveiller son service"
+  },
+  {
+    "objectID": "doc/datalab/intro.html",
+    "href": "doc/datalab/intro.html",
+    "title": "Datalab SSPCloud",
+    "section": "",
+    "text": "https://github.com/ludo2ne/ENSAI-1A-SQL/blob/main/doc/outils/tp-datalab.qmd"
+  },
+  {
+    "objectID": "doc/datalab/intro.html#introduction",
+    "href": "doc/datalab/intro.html#introduction",
+    "title": "Datalab SSPCloud",
+    "section": "Introduction",
+    "text": "Introduction\nLe Datalab permet aux statisticiens de découvrir, d’expérimenter, d’apprendre, de se former aux outils de la data.\n\nPourquoi un Datalab ?\nDans le monde professionnel, plusieurs problèmes se posent au statisticien :\n\n🐢 sa machine n’est pas assez puissante\n⛔ installer certains logiciels est parfois interdit et bloqué par le système\n🔒 il doit analyser des données sensibles en toute sécurité\n\nÀ l’INSEE, un projet est né pour pallier à ce besoin : Onyxia porté par le lab de l’INSEE.\nLa première étape fut de créer une infrastructure Cloud avec des CPUs, des GPUs, de la RAM et du stockage.\nEnsuite, avoir plein de ressources c’est très bien, mais encore faut-il savoir les utiliser. Or lancer des services dans le cloud nécessite quelques compétences spécifiques (Docker, Kubernetes, Helm, S3…) qui ne sont pas à la portée de tous.\nD’où l’idée de créer une interface graphique pour pouvoir lancer des services en quelques clics. Onyxia s’appuie sur des technologies sous-jacentes (Kubernetes, Helm, S3…) pour proposer une IHM agréable pour le datascientist. Cependant, la philosophie du projet Onyxia est d’être une brique qui facilite le travail sans se rendre indispensable. L’idée est d’éviter que les utilisateurs ne s’enferment dans un choix technologique et qu’il soit couteux d’en sortir.\nÀ l’INSEE, une instance de ce logiciel a été installée sur le Datalab SSP Cloud, ouverte à tous les agents publics. Vous pouvez y créer un compte car c’est également ouvert à tous les élèves de l’ENSAI (en utilisant votre mail ENSAI).\n\n\n\n\n\n\nWarning\n\n\n\nNe déposez pas de données sensibles sur cette instance, ni sur celle du GENES.\nPour celles et ceux qui iront à l’INSEE, une autre instance nommée LS3 n’est accessible qu’en interne et autorise l’utilisation de données sensibles.\n\n\nOnyxia est un logiciel Libre et Open Source. Chacun peut installer sa propre instance sur son infra. C’est ce qu’ont fait de nombreux organismes, ainsi que le GENES.\n\n\n\nLes services\nLe principe est d’offrir aux utilisateurs la possibilité de lancer de nombreux services à la demande (Jupyter, Rstudio, VSCode, PostgreSQL…) avec une puissance de calcul adaptée aux besoins.\n\n\n\n\n\n\nCaution\n\n\n\nCes services sont éphémères, car si les ressources sont importantes, il faut savoir les partager !\nLe principe général est le suivant :\n\nVous lancez votre service en réservant des ressources (CPU, GPU, RAM, Stockage)\nVous effectuez votre travail\nVous sauvegardez votre code (git) et vos résultats (MinIO)\nVous supprimez votre service et libérez les ressources\n\n\n\n\n\n\n\n\n\nNoteCe qu’il se passe sous le capot\n\n\n\n\n\nPour plus de détails, vous pouvez consulter la vidéo en bas de la page.\nPrenons l’exemple de ce qu’il se passe en arrière plan lorsque vous lancez un service Vscode-python :\n\n0.0.1 Construction de l’image Docker\nUne image Docker est un paquet léger et autonome qui contient tout le nécessaire pour exécuter une application : le code, les bibliothèques, les dépendances, les variables d’environnement et les fichiers de configuration.\nLes images Docker permettent de créer des environnements isolés et cohérents, garantissant ainsi la portabilité et la reproductibilité des applications.\n\nNous partons de l’image de base d’Onyxia\n\nubuntu:22.04 et quelques éléments de config\n\nNous ajoutons la couche python-minimal\n\ninstallation de python et quelques packages classiques\n\nNous ajoutons la couche python-datascience\n\nJulia, Quarto et des packages de datascience (numpy, pandas…)\n\nNous ajoutons la couche vscode\n\nInstallation de Visual Studio Code et configuration\n\n\nVous avez maintenant une image Docker avec tout ce qu’il faut pour bien travailler.\n\n\n0.0.2 DockerHub\nCette image est construite et déposée sur DockerHub onyxia-vscode-python.\nNous allons ensuite lancer une instance de cette image : un conteneur.\nUne image est comme un moule, et un conteneur est un objet fabriqué à partir de ce moule. L’image contient les instructions, et le conteneur est l’instance concrète créée à partir de ce modèle. Vous verrez le même principe dans le cours de POO avec les classes (modèles) et les objets (instances)\nPour gérer tous les conteneurs lancés sur le datalab, nous avons besoin d’un orchestrateur : Kubernetes.\n\n\n0.0.3 Chart Helm\nCependant, nous allons d’abord utiliser Helm pour faciliter le déploiement.\nHelm simplifie le processus de déploiement d’applications sur Kubernetes en automatisant les tâches répétitives et en fournissant une gestion centralisée des configurations.\nLe chart Helm vscode-python est un ensemble de fichiers de configuration qui facilite le déploiement d’application dans un envrionnement Kubernetes.\n\n\n0.0.4 Déploiement sur Kube\nKubernetes (K8s) est un système open-source qui automatise le déploiement, la mise à l’échelle et la gestion d’applications conteneurisées. C’est un orchestrateur de conteneurs.\nK8s récupére via le chart Helm toutes les infos nécessaires et déploie le conteneur (créé à partir de l’image Docker) sur l’infra du datalab."
+  },
+  {
+    "objectID": "doc/datalab/intro.html#documentation",
+    "href": "doc/datalab/intro.html#documentation",
+    "title": "Datalab SSPCloud",
+    "section": "1 Documentation",
+    "text": "1 Documentation\n\nhttps://docs.sspcloud.fr/content/principles.html"
+  },
+  {
+    "objectID": "doc/datalab/lab.html",
+    "href": "doc/datalab/lab.html",
+    "title": "TP découverte du Datalab",
+    "section": "",
+    "text": "https://github.com/ihiverlet/Ensai-1A-initiation-datalab"
+  },
+  {
+    "objectID": "doc/format/json.html",
+    "href": "doc/format/json.html",
+    "title": "JSON",
+    "section": "",
+    "text": "JSON (JavaScript Object Notation) est un format de sérialisation de données textuel, léger et indépendant du langage.\nIl est aujourd’hui utilisé pour l’échange de données entre un client et un serveur. Il est à la fois :\n\nLisible par les humains\nLéger\nStructuré de manière hiérarchique\n\n\n\nvous rencontrerez le format JSON dans :\n\nFichiers de Configuration : De nombreux outils modernes utilisent le JSON pour stocker des réglages (ex: settings.json de Visual Studio Code).\nLes API REST : Lorsqu’une application demande des données à un serveur"
+  },
+  {
+    "objectID": "doc/format/json.html#introduction",
+    "href": "doc/format/json.html#introduction",
+    "title": "JSON",
+    "section": "",
+    "text": "JSON (JavaScript Object Notation) est un format de sérialisation de données textuel, léger et indépendant du langage.\nIl est aujourd’hui utilisé pour l’échange de données entre un client et un serveur. Il est à la fois :\n\nLisible par les humains\nLéger\nStructuré de manière hiérarchique\n\n\n\nvous rencontrerez le format JSON dans :\n\nFichiers de Configuration : De nombreux outils modernes utilisent le JSON pour stocker des réglages (ex: settings.json de Visual Studio Code).\nLes API REST : Lorsqu’une application demande des données à un serveur"
+  },
+  {
+    "objectID": "doc/format/json.html#syntaxe",
+    "href": "doc/format/json.html#syntaxe",
+    "title": "JSON",
+    "section": "2 Syntaxe",
+    "text": "2 Syntaxe\nUn fichier JSON repose sur deux structures de données fondamentales :\n\nL’Objet { } : Un ensemble de paires clé: valeur\nLe Tableau [ ] : Une liste ordonnée de valeurs\n\nLes types de données autorisés\n\nString : \"Texte\" (obligatoirement entre doubles guillemets)\nNumber : 20 ou 3.14\nBoolean : true ou false\nObject : { \"sous_cle\": \"valeur\" }\nArray : [1, 2, 3]\nNull : null\n\n\n2.1 Exemple\nVoici comment représenter des objets complexes :\n[\n  {\n    \"id\": 876,\n    \"nom\": \"Couvert\",\n    \"prenom\": \"Armelle\",\n    \"est_adulte\": true,\n    \"notes\": [15.5, 18, 12],\n    \"adresse\": {\n      \"ville\": \"Rennes\",\n      \"code_postal\": 35000\n    },\n    \"projets\": null\n  },\n  {\n    \"id\": 875,\n    \"nom\": \"Golo\",\n    \"prenom\": \"Thierry\"\n  }\n]\n\n\n\n\n\n\nNoteRemarque\n\n\n\nContrairement à un tableau SQL où chaque ligne doit respecter la même structure de colonnes, le JSON permet une structure hétérogène. Chaque objet peut posséder un nombre de propriétés différent."
+  },
+  {
+    "objectID": "doc/balisage/yaml.html",
+    "href": "doc/balisage/yaml.html",
+    "title": "YAML 101",
+    "section": "",
+    "text": "YAML est un acronyme récursif signifiant : YAML Ain’t Markup Language ➡️ YAML n’est pas un langage de balisage. Il est donc rangé logiquement dans la section Balisage 👍\nC’est un format de sérialisation de données lisible par l’homme, conçu pour être facile à lire et à écrire.\nIl est souvent utilisé pour la configuration des fichiers, le stockage de données, et les échanges de données entre langages de programmation."
+  },
+  {
+    "objectID": "doc/balisage/yaml.html#quest-ce-que-yaml",
+    "href": "doc/balisage/yaml.html#quest-ce-que-yaml",
+    "title": "YAML 101",
+    "section": "",
+    "text": "YAML est un acronyme récursif signifiant : YAML Ain’t Markup Language ➡️ YAML n’est pas un langage de balisage. Il est donc rangé logiquement dans la section Balisage 👍\nC’est un format de sérialisation de données lisible par l’homme, conçu pour être facile à lire et à écrire.\nIl est souvent utilisé pour la configuration des fichiers, le stockage de données, et les échanges de données entre langages de programmation."
+  },
+  {
+    "objectID": "doc/balisage/yaml.html#pourquoi-utiliser-yaml",
+    "href": "doc/balisage/yaml.html#pourquoi-utiliser-yaml",
+    "title": "YAML 101",
+    "section": "2 Pourquoi utiliser YAML ?",
+    "text": "2 Pourquoi utiliser YAML ?\n\nLisibilité\n\nYAML est conçu pour être lisible par l’homme. La syntaxe est simple et directe, sans beaucoup de ponctuations.\nLes indentations permettent une structure claire et hiérarchisée, semblable à celle des langages de programmation comme Python.\n\nFlexibilité\n\nYAML supporte des structures de données complexes comme les listes imbriquées et les dictionnaires.\nIl permet des alias et des ancres pour éviter la duplication de données, ce qui peut être utile pour des fichiers de configuration réutilisables.\n\nCompatibilité avec les autres formats\n\nYAML peut facilement être converti en JSON, et vice versa\n\nUsage dans DevOps\n\nYAML est largement utilisé dans les outils de gestion de configuration, les pipelines CI/CD, et les orchestrateurs de conteneurs"
+  },
+  {
+    "objectID": "doc/balisage/yaml.html#syntaxe",
+    "href": "doc/balisage/yaml.html#syntaxe",
+    "title": "YAML 101",
+    "section": "3 Syntaxe",
+    "text": "3 Syntaxe\nVoici quelques exemples de syntaxe avec son équivalent json\n\n3.1 Attributs\n\n\n\n\nyaml\n\nperson:\n  name: Alice             # str\n  city: \"Amiens\"          # str\n  age: 30                 # int\n  height: 1.75            # float\n  student: false          # bool\n  birth_date: 1994-05-15  # date\n\n\n\n\njson\n\n{\n  \"person\": {\n    \"name\": \"Alice\",\n    \"age\": 30,\n    \"height\": 1.75,\n    \"student\": false,\n    \"birth_date\": \"1994-05-15\"\n  }\n}\n\n\n\n\n\n3.2 Liste de valeurs\nPlusieurs possibilités pour déclarer des listes\n\n\n\n\nyaml\n\nhobbies: \n  - chess\n  - hiking\n  - landart\n\n--- # ou\n\nhobbies: [\"chess\", \"hiking\", \"landart\"]\n\n\n\n\njson\n\n{\n  \"hobbies\": [\n    \"chess\",\n    \"hiking\",\n    \"landart\"\n  ]\n}\n\n\n\nAutre exemple\n\n\n\n\nyaml\n\nservers:\n  - name: server1\n    ip: 192.168.1.1\n  - name: server2\n    ip: 192.168.1.2\n  - {name: \"server3\", ip: 192.168.1.3}\n\n\n\n\njson\n\n{\n  \"servers\": [\n    {\"name\": \"server1\", \"ip\": \"192.168.1.1\"},\n    {\"name\": \"server2\", \"ip\": \"192.168.1.2\"},\n    {\"name\": \"server3\", \"ip\": \"192.168.1.3\"}\n  ]\n}\n\n\n\n\n\n3.3 Ancre et alias\n\n\n\n\nyaml\n\nparent: &pere Bob\nchild:\n  - name: Eva\n    papa: *pere\n  - name: Laury\n    papa: *pere\n\n\n\n\njson\n\n{\n  \"parent\": \"Bob\",\n  \"child\": [\n    {\"name\": \"Eva\", \"parent\": \"Bob\"},\n    {\"name\": \"Laury\", \"parent\": \"Bob\"}\n  ]\n}\n\n\n\n\n\n3.4 Héritage\n\n\n\n\nyaml\n\ndefault: &default_settings\n  timeout: 30\n  retries: 5\n\nserver1:\n  &lt;&lt;: *default_settings\n  name: server1\n\nserver2:\n  &lt;&lt;: *default_settings\n  name: server2\n  retries: 3\n\n\n\n\njson\n\n{\n  \"default\": {\n    \"timeout\": 30,\n    \"retries\": 5\n  },\n  \"server1\": {\n    \"timeout\": 30,\n    \"retries\": 5,\n    \"name\": \"server1\"\n  },\n  \"server2\": {\n    \"timeout\": 30,\n    \"retries\": 3,\n    \"name\": \"server2\"\n  }\n}\n\n\n\n\n\n3.5 Long texte\n\n\nyaml\n\n\n# En conservant les retours à la ligne\nfable: |\n  Maître Corbeau, sur un arbre perché,\n  Tenait en son bec un fromage.\n  Maître Renard, par l'odeur alléché,\n  Lui tint à peu près ce langage :\n  \"Hé ! bonjour, Monsieur du Corbeau.\n  Que vous êtes joli ! que vous me semblez beau !\n  Sans mentir, si votre ramage\n  Se rapporte à votre plumage,\n  Vous êtes le Phénix des hôtes de ces bois.\"\n  À ces mots le Corbeau ne se sent pas de joie ;\n  Et pour montrer sa belle voix,\n  Il ouvre un large bec, laisse tomber sa proie.\n  Le Renard s'en saisit, et dit : \"Mon bon Monsieur,\n  Apprenez que tout flatteur\n  Vit aux dépens de celui qui l'écoute :\n  Cette leçon vaut bien un fromage, sans doute.\"\n  Le Corbeau honteux et confus\n  Jura, mais un peu tard, qu'on ne l'y prendrait plus.\n\n# En supprimant les retours à la ligne\nchoixpeau: &gt;\n  Les nouveaux élèves de Poudlard sont répartis en quatre maisons : Gryffondor\n  pour les courageux, Poufsouffle pour les travailleurs, Serdaigle pour les\n  intelligents, Serpentard pour les ambitieux. Le Choixpeau magique, qui \n  s'occupe de la répartition, hésite sur la meilleure maison pour Harry. \n  Comme Harry a entendu dire que les mages noirs venaient tous de Serpentard,\n  il demande à aller ailleurs, et le Choixpeau l'envoie à Gryffondor, avec \n  Ron et Hermione. Albus Dumbledore, le directeur, prévient les élèves qu’ils\n  ne doivent pas aller dans la Forêt interdite, ni dans le couloir du deuxième\n  étage."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Outils pour les élèves et enseignants de l’ENSAI",
+    "section": "",
+    "text": "🚧\nVous trouverez ici les outils indispensables pour mener à bien vos projets et stages.\nLes TP suivants seront dispensés aux élèves de première année :"
+  },
+  {
+    "objectID": "index.html#git",
+    "href": "index.html#git",
+    "title": "Outils pour les élèves et enseignants de l’ENSAI",
+    "section": "Git",
+    "text": "Git\n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\nGit - usages avancés\n\n\nBranches, GitFlow, Pull Request, Open source\n\n\n\n\n\n\nGlossaire\n\n\n \n\n\n\n\n\n\nIntroduction à Git\n\n\nGestion de version, Travail en équipe, Dépôt local/distant, Workflow, Conflit\n\n\n\n\n\n\nTP Git\n\n\nToken, Clone, Add, commit, push, Conflit\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#datalab",
+    "href": "index.html#datalab",
+    "title": "Outils pour les élèves et enseignants de l’ENSAI",
+    "section": "Datalab",
+    "text": "Datalab\n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\nDatalab SSPCloud\n\n\nOnyxia, Cloud, Docker, Kubernetes\n\n\n\n\n\n\nDécouverte du Datalab SSPCloud\n\n\nService, Stockage S3, Git\n\n\n\n\n\n\nTP découverte du Datalab\n\n\n \n\n\n\n\n\n\nUsage avancé du Datalab\n\n\nScript, Secrets, Docker\n\n\n\n\n\n\nVSCode python\n\n\n \n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#quarto",
+    "href": "index.html#quarto",
+    "title": "Outils pour les élèves et enseignants de l’ENSAI",
+    "section": "Quarto",
+    "text": "Quarto\n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\nQuarto\n\n\n \n\n\n\n\n\n\nQuarto avec Rstudio\n\n\n \n\n\n\n\n\n\nRapport de projet\n\n\n \n\n\n\n\n\n\nSite statique\n\n\n \n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "doc/balisage/markdown.html",
+    "href": "doc/balisage/markdown.html",
+    "title": "Mardown",
+    "section": "",
+    "text": "Markdown est un langage de balisage léger créé par John Gruber en 2004. Son objectif de simplifier l’écriture de texte destiné au web en permettant aux utilisateurs d’écrire en utilisant un format texte brut facile à lire et à écrire."
+  },
+  {
+    "objectID": "doc/balisage/markdown.html#quest-ce-que-markdown",
+    "href": "doc/balisage/markdown.html#quest-ce-que-markdown",
+    "title": "Mardown",
+    "section": "",
+    "text": "Markdown est un langage de balisage léger créé par John Gruber en 2004. Son objectif de simplifier l’écriture de texte destiné au web en permettant aux utilisateurs d’écrire en utilisant un format texte brut facile à lire et à écrire."
+  },
+  {
+    "objectID": "doc/balisage/markdown.html#pourquoi-utiliser-markdown",
+    "href": "doc/balisage/markdown.html#pourquoi-utiliser-markdown",
+    "title": "Mardown",
+    "section": "2 Pourquoi utiliser Markdown ?",
+    "text": "2 Pourquoi utiliser Markdown ?\nMarkdown a été conçu comme une alternative intuitive aux balisages plus complexes du HTML. Il s’est rapidement popularisé parmi les développeurs, les blogueurs et les rédacteurs pour sa simplicité et sa lisibilité.\n\n✅ Simplicité : Facile à apprendre et à utiliser, même si vous n’êtes pas familiers avec HTML\n✅ Lisibilité : Le texte brut en Markdown reste lisible même sans être converti en HTML\n✅ Portabilité : Les fichiers Markdown peuvent être convertis facilement en HTML, PDF…\n✅ Popularité : Supporté par de nombreuses plates-formes et outils de rédaction\n❌ Limitations : Markdown est conçu pour être simple, donc il ne supporte pas toutes les fonctionnalités avancées de mise en page"
+  },
+  {
+    "objectID": "doc/balisage/markdown.html#écrire-du-markdown",
+    "href": "doc/balisage/markdown.html#écrire-du-markdown",
+    "title": "Mardown",
+    "section": "3 Écrire du markdown",
+    "text": "3 Écrire du markdown\nLes fichiers markdown sont des fichiers texte qui ont pour extension .md.\nIl existe de très nombreux éditeurs de Markdown :\n\nen ligne, par exemple HackMd\nà installer sur sa machine, par exemple dans Visual Studio Code\n\nLes éditeurs présentent généralement deux sections cote à cote :\n\nune partie édition où l’on écrit le code\nune partie vue où l’on voit le résultat\n\n\n3.1 Exemples\nDe très nombreuses ressources existent pour apprendre en quelques minutes le langage, par exemple https://commonmark.org/help/\nQuelques exemples de mise en forme :\n\n\n\nCode Markdown\nRésultat\n\n\n\n\n**texte en gras**\ntexte en gras\n\n\n*texte en italique*\ntexte en italique\n\n\n[lien](https://example.com)\nlien\n\n\n![texte alternatif](image.jpg)\n\n\n\n`code en ligne`\ncode en ligne\n\n\n# Titre de niveau 1\n\n\n\n## Titre de niveau 2\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nCette page est elle-même écrite en Markdown ! (avec une surcouche)\nVous pouvez consulter le code en cliquant sur le bouton &lt;/&gt; Code en haut à droite.\n\n\nUn large choix d’emoji est également disponible en Markdown 😎"
+  },
+  {
+    "objectID": "doc/format/parquet.html",
+    "href": "doc/format/parquet.html",
+    "title": "Le format Parquet",
+    "section": "",
+    "text": "Contrairement aux formats orientés lignes (CSV, JSON), Parquet est conçu pour les charges de travail analytiques (OLAP) où l’on lit rarement toute la table, mais seulement quelques colonnes.\nStocker les données par colonne permet :\n\nde ne lire que les colonnes utiles lors d’une requête (column pruning),\nd’appliquer des algorithmes de compression adaptés aux valeurs similaires,\nd’activer l’exécution vectorisée (SIMD) dans les moteurs modernes."
+  },
+  {
+    "objectID": "doc/format/parquet.html#pourquoi-utiliser-parquet",
+    "href": "doc/format/parquet.html#pourquoi-utiliser-parquet",
+    "title": "Le format Parquet",
+    "section": "",
+    "text": "Contrairement aux formats orientés lignes (CSV, JSON), Parquet est conçu pour les charges de travail analytiques (OLAP) où l’on lit rarement toute la table, mais seulement quelques colonnes.\nStocker les données par colonne permet :\n\nde ne lire que les colonnes utiles lors d’une requête (column pruning),\nd’appliquer des algorithmes de compression adaptés aux valeurs similaires,\nd’activer l’exécution vectorisée (SIMD) dans les moteurs modernes."
+  },
+  {
+    "objectID": "doc/format/parquet.html#comment-est-il-construit",
+    "href": "doc/format/parquet.html#comment-est-il-construit",
+    "title": "Le format Parquet",
+    "section": "2 Comment est-il construit ?",
+    "text": "2 Comment est-il construit ?\nParquet est un format binaire structuré hiérarchiquement :\n\n\n\n\n\n\n\nNiveau\nRôle\n\n\n\n\nFile\nContient le schéma et les métadonnées en début/fin de fichier\n\n\nRow Group\nBloc logique (~128 Mo à 1 Go) représentant un sous-ensemble de lignes\n\n\nColumn\nDonnées d’une même colonne stockées séquentiellement dans un Row Group\n\n\nPage\nUnité atomique de lecture/compression, contenant valeurs + en-têtes d’encodage\n\n\n\nChaque colonne utilise des encodages spécialisés (Dictionary, RLE, Delta, ByteStreamSplit) puis une compression par page (Snappy, GZIP, ZSTD). Les métadonnées incluent automatiquement les statistiques par Row Group (min, max, null count), permettant des optimisations comme le predicate pushdown."
+  },
+  {
+    "objectID": "doc/format/parquet.html#utilisation-typique",
+    "href": "doc/format/parquet.html#utilisation-typique",
+    "title": "Le format Parquet",
+    "section": "3 Utilisation typique",
+    "text": "3 Utilisation typique\n\nData Lakes : format natif de référence pour S3, ADLS, GCS\nMoteurs de calcul : Apache Spark, DuckDB, Pandas (pyarrow), Dask, Polars\nCouches de table moderne : Apache Iceberg, Delta Lake, Hudi (utilisent Parquet comme format physique)\nBI & Analytics : connexion native dans Tableau, Power BI, Metabase, Superset"
+  },
+  {
+    "objectID": "doc/format/parquet.html#avantages-inconvénients",
+    "href": "doc/format/parquet.html#avantages-inconvénients",
+    "title": "Le format Parquet",
+    "section": "4 Avantages & Inconvénients",
+    "text": "4 Avantages & Inconvénients\n\n\n\n\n\n\n\n✅ Avantages\n❌ Inconvénients\n\n\n\n\n📉 Compression 5 à 10x supérieure au CSV\n🔒 Écrase difficilement une ligne (design append-only)\n\n\n⚡ Lectures analytiques accélérées (vectorisées)\n🐢 Pas adapté à la lecture/écriture en mode transactionnel\n\n\n📐 Schéma strict & auto-descriptif\n🧩 Requiert des bibliothèques compatibles (PyArrow, Parquet-cpp, etc.)\n\n\n🌐 Interopérable (Python, R, Java, Scala, SQL…)\n📦 Fichier monolithique : difficile à modifier partiellement"
+  },
+  {
+    "objectID": "doc/datalab/basics.html",
+    "href": "doc/datalab/basics.html",
+    "title": "Découverte du Datalab SSPCloud",
+    "section": "",
+    "text": "🚧"
+  },
+  {
+    "objectID": "doc/datalab/basics.html#lancer-un-service",
+    "href": "doc/datalab/basics.html#lancer-un-service",
+    "title": "Découverte du Datalab SSPCloud",
+    "section": "1 Lancer un service",
+    "text": "1 Lancer un service"
+  },
+  {
+    "objectID": "doc/datalab/basics.html#s3",
+    "href": "doc/datalab/basics.html#s3",
+    "title": "Découverte du Datalab SSPCloud",
+    "section": "2 S3",
+    "text": "2 S3"
+  },
+  {
+    "objectID": "doc/datalab/basics.html#git",
+    "href": "doc/datalab/basics.html#git",
+    "title": "Découverte du Datalab SSPCloud",
+    "section": "3 Git",
+    "text": "3 Git\n\n3.1 Créer et déclarer son Token\n\n\n3.2 Utiliser le Token\nhttps://github.com/ludo2ne/ENSAI-1A-SQL/blob/main/doc/outils/tp-datalab.qmd"
+  },
+  {
+    "objectID": "doc/datalab/vscode-python.html",
+    "href": "doc/datalab/vscode-python.html",
+    "title": "VSCode python",
+    "section": "",
+    "text": "🚧"
+  },
+  {
+    "objectID": "doc/datalab/vscode-python.html#ouverture-port",
+    "href": "doc/datalab/vscode-python.html#ouverture-port",
+    "title": "VSCode python",
+    "section": "1 Ouverture port",
+    "text": "1 Ouverture port"
+  },
+  {
+    "objectID": "doc/datalab/vscode-python.html#extensions",
+    "href": "doc/datalab/vscode-python.html#extensions",
+    "title": "VSCode python",
+    "section": "2 Extensions",
+    "text": "2 Extensions"
+  },
+  {
+    "objectID": "doc/datalab/vscode-python.html#assistant-ia",
+    "href": "doc/datalab/vscode-python.html#assistant-ia",
+    "title": "VSCode python",
+    "section": "3 Assistant IA",
+    "text": "3 Assistant IA"
+  },
+  {
     "objectID": "doc/language/bash.html",
     "href": "doc/language/bash.html",
     "title": "Les commandes Bash",
@@ -215,230 +495,6 @@
     "title": "Les commandes Bash",
     "section": "Ressources",
     "text": "Ressources\n\nhttps://ensae-reproductibilite.github.io/website/chapters/linux101.html"
-  },
-  {
-    "objectID": "doc/datalab/vscode-python.html",
-    "href": "doc/datalab/vscode-python.html",
-    "title": "VSCode python",
-    "section": "",
-    "text": "🚧"
-  },
-  {
-    "objectID": "doc/datalab/vscode-python.html#ouverture-port",
-    "href": "doc/datalab/vscode-python.html#ouverture-port",
-    "title": "VSCode python",
-    "section": "1 Ouverture port",
-    "text": "1 Ouverture port"
-  },
-  {
-    "objectID": "doc/datalab/vscode-python.html#extensions",
-    "href": "doc/datalab/vscode-python.html#extensions",
-    "title": "VSCode python",
-    "section": "2 Extensions",
-    "text": "2 Extensions"
-  },
-  {
-    "objectID": "doc/datalab/vscode-python.html#assistant-ia",
-    "href": "doc/datalab/vscode-python.html#assistant-ia",
-    "title": "VSCode python",
-    "section": "3 Assistant IA",
-    "text": "3 Assistant IA"
-  },
-  {
-    "objectID": "doc/datalab/basics.html",
-    "href": "doc/datalab/basics.html",
-    "title": "Découverte du Datalab SSPCloud",
-    "section": "",
-    "text": "🚧"
-  },
-  {
-    "objectID": "doc/datalab/basics.html#lancer-un-service",
-    "href": "doc/datalab/basics.html#lancer-un-service",
-    "title": "Découverte du Datalab SSPCloud",
-    "section": "1 Lancer un service",
-    "text": "1 Lancer un service"
-  },
-  {
-    "objectID": "doc/datalab/basics.html#s3",
-    "href": "doc/datalab/basics.html#s3",
-    "title": "Découverte du Datalab SSPCloud",
-    "section": "2 S3",
-    "text": "2 S3"
-  },
-  {
-    "objectID": "doc/datalab/basics.html#git",
-    "href": "doc/datalab/basics.html#git",
-    "title": "Découverte du Datalab SSPCloud",
-    "section": "3 Git",
-    "text": "3 Git\n\n3.1 Créer et déclarer son Token\n\n\n3.2 Utiliser le Token\nhttps://github.com/ludo2ne/ENSAI-1A-SQL/blob/main/doc/outils/tp-datalab.qmd"
-  },
-  {
-    "objectID": "doc/format/markdown.html",
-    "href": "doc/format/markdown.html",
-    "title": "Mardown",
-    "section": "",
-    "text": "Markdown est un langage de balisage léger créé par John Gruber en 2004. Son objectif de simplifier l’écriture de texte destiné au web en permettant aux utilisateurs d’écrire en utilisant un format texte brut facile à lire et à écrire."
-  },
-  {
-    "objectID": "doc/format/markdown.html#quest-ce-que-markdown",
-    "href": "doc/format/markdown.html#quest-ce-que-markdown",
-    "title": "Mardown",
-    "section": "",
-    "text": "Markdown est un langage de balisage léger créé par John Gruber en 2004. Son objectif de simplifier l’écriture de texte destiné au web en permettant aux utilisateurs d’écrire en utilisant un format texte brut facile à lire et à écrire."
-  },
-  {
-    "objectID": "doc/format/markdown.html#pourquoi-utiliser-markdown",
-    "href": "doc/format/markdown.html#pourquoi-utiliser-markdown",
-    "title": "Mardown",
-    "section": "2 Pourquoi utiliser Markdown ?",
-    "text": "2 Pourquoi utiliser Markdown ?\nMarkdown a été conçu comme une alternative intuitive aux balisages plus complexes du HTML. Il s’est rapidement popularisé parmi les développeurs, les blogueurs et les rédacteurs pour sa simplicité et sa lisibilité.\n\n✅ Simplicité : Facile à apprendre et à utiliser, même si vous n’êtes pas familiers avec HTML\n✅ Lisibilité : Le texte brut en Markdown reste lisible même sans être converti en HTML\n✅ Portabilité : Les fichiers Markdown peuvent être convertis facilement en HTML, PDF…\n✅ Popularité : Supporté par de nombreuses plates-formes et outils de rédaction\n❌ Limitations : Markdown est conçu pour être simple, donc il ne supporte pas toutes les fonctionnalités avancées de mise en page"
-  },
-  {
-    "objectID": "doc/format/markdown.html#écrire-du-markdown",
-    "href": "doc/format/markdown.html#écrire-du-markdown",
-    "title": "Mardown",
-    "section": "3 Écrire du markdown",
-    "text": "3 Écrire du markdown\nLes fichiers markdown sont des fichiers texte qui ont pour extension .md.\nIl existe de très nombreux éditeurs de Markdown :\n\nen ligne, par exemple HackMd\nà installer sur sa machine, par exemple dans Visual Studio Code\n\nLes éditeurs présentent généralement deux sections cote à cote :\n\nune partie édition où l’on écrit le code\nune partie vue où l’on voit le résultat\n\n\n3.1 Exemples\nDe très nombreuses ressources existent pour apprendre en quelques minutes le langage, par exemple https://commonmark.org/help/\nQuelques exemples de mise en forme :\n\n\n\nCode Markdown\nRésultat\n\n\n\n\n**texte en gras**\ntexte en gras\n\n\n*texte en italique*\ntexte en italique\n\n\n[lien](https://example.com)\nlien\n\n\n![texte alternatif](image.jpg)\n\n\n\n`code en ligne`\ncode en ligne\n\n\n# Titre de niveau 1\n\n\n\n## Titre de niveau 2\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nCette page est elle-même écrite en Markdown ! (avec une surcouche)\nVous pouvez consulter le code en cliquant sur le bouton &lt;/&gt; Code en haut à droite.\n\n\nUn large choix d’emoji est également disponible en Markdown 😎"
-  },
-  {
-    "objectID": "doc/format/json.html",
-    "href": "doc/format/json.html",
-    "title": "JSON",
-    "section": "",
-    "text": "JSON (JavaScript Object Notation) est un format de sérialisation de données textuel, léger et indépendant du langage.\nIl est aujourd’hui utilisé pour l’échange de données entre un client et un serveur. Il est à la fois :\n\nLisible par les humains\nLéger\nStructuré de manière hiérarchique\n\n\n\nvous rencontrerez le format JSON dans :\n\nFichiers de Configuration : De nombreux outils modernes utilisent le JSON pour stocker des réglages (ex: settings.json de Visual Studio Code).\nLes API REST : Lorsqu’une application demande des données à un serveur"
-  },
-  {
-    "objectID": "doc/format/json.html#introduction",
-    "href": "doc/format/json.html#introduction",
-    "title": "JSON",
-    "section": "",
-    "text": "JSON (JavaScript Object Notation) est un format de sérialisation de données textuel, léger et indépendant du langage.\nIl est aujourd’hui utilisé pour l’échange de données entre un client et un serveur. Il est à la fois :\n\nLisible par les humains\nLéger\nStructuré de manière hiérarchique\n\n\n\nvous rencontrerez le format JSON dans :\n\nFichiers de Configuration : De nombreux outils modernes utilisent le JSON pour stocker des réglages (ex: settings.json de Visual Studio Code).\nLes API REST : Lorsqu’une application demande des données à un serveur"
-  },
-  {
-    "objectID": "doc/format/json.html#syntaxe",
-    "href": "doc/format/json.html#syntaxe",
-    "title": "JSON",
-    "section": "2 Syntaxe",
-    "text": "2 Syntaxe\nUn fichier JSON repose sur deux structures de données fondamentales :\n\nL’Objet { } : Un ensemble de paires clé: valeur\nLe Tableau [ ] : Une liste ordonnée de valeurs\n\nLes types de données autorisés\n\nString : \"Texte\" (obligatoirement entre doubles guillemets)\nNumber : 20 ou 3.14\nBoolean : true ou false\nObject : { \"sous_cle\": \"valeur\" }\nArray : [1, 2, 3]\nNull : null\n\n\n2.1 Exemple\nVoici comment représenter des objets complexes :\n[\n  {\n    \"id\": 876,\n    \"nom\": \"Couvert\",\n    \"prenom\": \"Armelle\",\n    \"est_adulte\": true,\n    \"notes\": [15.5, 18, 12],\n    \"adresse\": {\n      \"ville\": \"Rennes\",\n      \"code_postal\": 35000\n    },\n    \"projets\": null\n  },\n  {\n    \"id\": 875,\n    \"nom\": \"Golo\",\n    \"prenom\": \"Thierry\"\n  }\n]\n\n\n\n\n\n\nNoteRemarque\n\n\n\nContrairement à un tableau SQL où chaque ligne doit respecter la même structure de colonnes, le JSON permet une structure hétérogène. Chaque objet peut posséder un nombre de propriétés différent."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Outils pour les élèves et enseignants de l’ENSAI",
-    "section": "",
-    "text": "🚧\nVous trouverez ici les outils indispensables pour mener à bien vos projets et stages.\nLes TP suivants seront dispensés aux élèves de première année :"
-  },
-  {
-    "objectID": "index.html#git",
-    "href": "index.html#git",
-    "title": "Outils pour les élèves et enseignants de l’ENSAI",
-    "section": "Git",
-    "text": "Git\n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\nGit - usages avancés\n\n\nBranches, GitFlow, Pull Request, Open source\n\n\n\n\n\n\nGlossaire\n\n\n \n\n\n\n\n\n\nIntroduction à Git\n\n\nGestion de version, Travail en équipe, Dépôt local/distant, Workflow, Conflit\n\n\n\n\n\n\nTP Git\n\n\nToken, Clone, Add, commit, push, Conflit\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html#datalab",
-    "href": "index.html#datalab",
-    "title": "Outils pour les élèves et enseignants de l’ENSAI",
-    "section": "Datalab",
-    "text": "Datalab\n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\nDatalab SSPCloud\n\n\nOnyxia, Cloud, Docker, Kubernetes\n\n\n\n\n\n\nDécouverte du Datalab SSPCloud\n\n\nService, Stockage S3, Git\n\n\n\n\n\n\nTP découverte du Datalab\n\n\n \n\n\n\n\n\n\nUsage avancé du Datalab\n\n\nScript, Secrets, Docker\n\n\n\n\n\n\nVSCode python\n\n\n \n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html#quarto",
-    "href": "index.html#quarto",
-    "title": "Outils pour les élèves et enseignants de l’ENSAI",
-    "section": "Quarto",
-    "text": "Quarto\n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\nQuarto\n\n\n \n\n\n\n\n\n\nQuarto avec Rstudio\n\n\n \n\n\n\n\n\n\nRapport de projet\n\n\n \n\n\n\n\n\n\nSite statique\n\n\n \n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "doc/format/yaml.html",
-    "href": "doc/format/yaml.html",
-    "title": "YAML 101",
-    "section": "",
-    "text": "YAML (YAML Ain’t Markup Language) est un format de sérialisation de données lisible par l’homme, conçu pour être facile à lire et à écrire.\nIl est souvent utilisé pour la configuration des fichiers, le stockage de données, et les échanges de données entre langages de programmation."
-  },
-  {
-    "objectID": "doc/format/yaml.html#quest-ce-que-yaml",
-    "href": "doc/format/yaml.html#quest-ce-que-yaml",
-    "title": "YAML 101",
-    "section": "",
-    "text": "YAML (YAML Ain’t Markup Language) est un format de sérialisation de données lisible par l’homme, conçu pour être facile à lire et à écrire.\nIl est souvent utilisé pour la configuration des fichiers, le stockage de données, et les échanges de données entre langages de programmation."
-  },
-  {
-    "objectID": "doc/format/yaml.html#pourquoi-utiliser-yaml",
-    "href": "doc/format/yaml.html#pourquoi-utiliser-yaml",
-    "title": "YAML 101",
-    "section": "2 Pourquoi utiliser YAML ?",
-    "text": "2 Pourquoi utiliser YAML ?\n\nLisibilité\n\nYAML est conçu pour être lisible par l’homme. La syntaxe est simple et directe, sans beaucoup de ponctuations.\nLes indentations permettent une structure claire et hiérarchisée, semblable à celle des langages de programmation comme Python.\n\nFlexibilité\n\nYAML supporte des structures de données complexes comme les listes imbriquées et les dictionnaires.\nIl permet des alias et des ancres pour éviter la duplication de données, ce qui peut être utile pour des fichiers de configuration réutilisables.\n\nCompatibilité avec les autres formats\n\nYAML peut facilement être converti en JSON, et vice versa\n\nUsage dans DevOps\n\nYAML est largement utilisé dans les outils de gestion de configuration, les pipelines CI/CD, et les orchestrateurs de conteneurs"
-  },
-  {
-    "objectID": "doc/format/yaml.html#syntaxe",
-    "href": "doc/format/yaml.html#syntaxe",
-    "title": "YAML 101",
-    "section": "3 Syntaxe",
-    "text": "3 Syntaxe\nVoici quelques exemples de syntaxe avec son équivalent json\n\n3.1 Attributs\n\n\n\n\nyaml\n\nperson:\n  name: Alice             # str\n  city: \"Amiens\"          # str\n  age: 30                 # int\n  height: 1.75            # float\n  student: false          # bool\n  birth_date: 1994-05-15  # date\n\n\n\n\njson\n\n{\n  \"person\": {\n    \"name\": \"Alice\",\n    \"age\": 30,\n    \"height\": 1.75,\n    \"student\": false,\n    \"birth_date\": \"1994-05-15\"\n  }\n}\n\n\n\n\n\n3.2 Liste de valeurs\nPlusieurs possibilités pour déclarer des listes\n\n\n\n\nyaml\n\nhobbies: \n  - chess\n  - hiking\n  - landart\n\n--- # ou\n\nhobbies: [\"chess\", \"hiking\", \"landart\"]\n\n\n\n\njson\n\n{\n  \"hobbies\": [\n    \"chess\",\n    \"hiking\",\n    \"landart\"\n  ]\n}\n\n\n\nAutre exemple\n\n\n\n\nyaml\n\nservers:\n  - name: server1\n    ip: 192.168.1.1\n  - name: server2\n    ip: 192.168.1.2\n  - {name: \"server3\", ip: 192.168.1.3}\n\n\n\n\njson\n\n{\n  \"servers\": [\n    {\"name\": \"server1\", \"ip\": \"192.168.1.1\"},\n    {\"name\": \"server2\", \"ip\": \"192.168.1.2\"},\n    {\"name\": \"server3\", \"ip\": \"192.168.1.3\"}\n  ]\n}\n\n\n\n\n\n3.3 Ancre et alias\n\n\n\n\nyaml\n\nparent: &pere Bob\nchild:\n  - name: Eva\n    papa: *pere\n  - name: Laury\n    papa: *pere\n\n\n\n\njson\n\n{\n  \"parent\": \"Bob\",\n  \"child\": [\n    {\"name\": \"Eva\", \"parent\": \"Bob\"},\n    {\"name\": \"Laury\", \"parent\": \"Bob\"}\n  ]\n}\n\n\n\n\n\n3.4 Héritage\n\n\n\n\nyaml\n\ndefault: &default_settings\n  timeout: 30\n  retries: 5\n\nserver1:\n  &lt;&lt;: *default_settings\n  name: server1\n\nserver2:\n  &lt;&lt;: *default_settings\n  name: server2\n  retries: 3\n\n\n\n\njson\n\n{\n  \"default\": {\n    \"timeout\": 30,\n    \"retries\": 5\n  },\n  \"server1\": {\n    \"timeout\": 30,\n    \"retries\": 5,\n    \"name\": \"server1\"\n  },\n  \"server2\": {\n    \"timeout\": 30,\n    \"retries\": 3,\n    \"name\": \"server2\"\n  }\n}\n\n\n\n\n\n3.5 Long texte\n\n\nyaml\n\n\n# En conservant les retours à la ligne\nfable: |\n  Maître Corbeau, sur un arbre perché,\n  Tenait en son bec un fromage.\n  Maître Renard, par l'odeur alléché,\n  Lui tint à peu près ce langage :\n  \"Hé ! bonjour, Monsieur du Corbeau.\n  Que vous êtes joli ! que vous me semblez beau !\n  Sans mentir, si votre ramage\n  Se rapporte à votre plumage,\n  Vous êtes le Phénix des hôtes de ces bois.\"\n  À ces mots le Corbeau ne se sent pas de joie ;\n  Et pour montrer sa belle voix,\n  Il ouvre un large bec, laisse tomber sa proie.\n  Le Renard s'en saisit, et dit : \"Mon bon Monsieur,\n  Apprenez que tout flatteur\n  Vit aux dépens de celui qui l'écoute :\n  Cette leçon vaut bien un fromage, sans doute.\"\n  Le Corbeau honteux et confus\n  Jura, mais un peu tard, qu'on ne l'y prendrait plus.\n\n# En supprimant les retours à la ligne\nchoixpeau: &gt;\n  Les nouveaux élèves de Poudlard sont répartis en quatre maisons : Gryffondor\n  pour les courageux, Poufsouffle pour les travailleurs, Serdaigle pour les\n  intelligents, Serpentard pour les ambitieux. Le Choixpeau magique, qui \n  s'occupe de la répartition, hésite sur la meilleure maison pour Harry. \n  Comme Harry a entendu dire que les mages noirs venaient tous de Serpentard,\n  il demande à aller ailleurs, et le Choixpeau l'envoie à Gryffondor, avec \n  Ron et Hermione. Albus Dumbledore, le directeur, prévient les élèves qu’ils\n  ne doivent pas aller dans la Forêt interdite, ni dans le couloir du deuxième\n  étage."
-  },
-  {
-    "objectID": "doc/datalab/lab.html",
-    "href": "doc/datalab/lab.html",
-    "title": "TP découverte du Datalab",
-    "section": "",
-    "text": "https://github.com/ihiverlet/Ensai-1A-initiation-datalab"
-  },
-  {
-    "objectID": "doc/datalab/intro.html",
-    "href": "doc/datalab/intro.html",
-    "title": "Datalab SSPCloud",
-    "section": "",
-    "text": "https://github.com/ludo2ne/ENSAI-1A-SQL/blob/main/doc/outils/tp-datalab.qmd"
-  },
-  {
-    "objectID": "doc/datalab/intro.html#introduction",
-    "href": "doc/datalab/intro.html#introduction",
-    "title": "Datalab SSPCloud",
-    "section": "Introduction",
-    "text": "Introduction\nLe Datalab permet aux statisticiens de découvrir, d’expérimenter, d’apprendre, de se former aux outils de la data.\n\nPourquoi un Datalab ?\nDans le monde professionnel, plusieurs problèmes se posent au statisticien :\n\n🐢 sa machine n’est pas assez puissante\n⛔ installer certains logiciels est parfois interdit et bloqué par le système\n🔒 il doit analyser des données sensibles en toute sécurité\n\nÀ l’INSEE, un projet est né pour pallier à ce besoin : Onyxia porté par le lab de l’INSEE.\nLa première étape fut de créer une infrastructure Cloud avec des CPUs, des GPUs, de la RAM et du stockage.\nEnsuite, avoir plein de ressources c’est très bien, mais encore faut-il savoir les utiliser. Or lancer des services dans le cloud nécessite quelques compétences spécifiques (Docker, Kubernetes, Helm, S3…) qui ne sont pas à la portée de tous.\nD’où l’idée de créer une interface graphique pour pouvoir lancer des services en quelques clics. Onyxia s’appuie sur des technologies sous-jacentes (Kubernetes, Helm, S3…) pour proposer une IHM agréable pour le datascientist. Cependant, la philosophie du projet Onyxia est d’être une brique qui facilite le travail sans se rendre indispensable. L’idée est d’éviter que les utilisateurs ne s’enferment dans un choix technologique et qu’il soit couteux d’en sortir.\nÀ l’INSEE, une instance de ce logiciel a été installée sur le Datalab SSP Cloud, ouverte à tous les agents publics. Vous pouvez y créer un compte car c’est également ouvert à tous les élèves de l’ENSAI (en utilisant votre mail ENSAI).\n\n\n\n\n\n\nWarning\n\n\n\nNe déposez pas de données sensibles sur cette instance, ni sur celle du GENES.\nPour celles et ceux qui iront à l’INSEE, une autre instance nommée LS3 n’est accessible qu’en interne et autorise l’utilisation de données sensibles.\n\n\nOnyxia est un logiciel Libre et Open Source. Chacun peut installer sa propre instance sur son infra. C’est ce qu’ont fait de nombreux organismes, ainsi que le GENES.\n\n\n\nLes services\nLe principe est d’offrir aux utilisateurs la possibilité de lancer de nombreux services à la demande (Jupyter, Rstudio, VSCode, PostgreSQL…) avec une puissance de calcul adaptée aux besoins.\n\n\n\n\n\n\nCaution\n\n\n\nCes services sont éphémères, car si les ressources sont importantes, il faut savoir les partager !\nLe principe général est le suivant :\n\nVous lancez votre service en réservant des ressources (CPU, GPU, RAM, Stockage)\nVous effectuez votre travail\nVous sauvegardez votre code (git) et vos résultats (MinIO)\nVous supprimez votre service et libérez les ressources\n\n\n\n\n\n\n\n\n\nNoteCe qu’il se passe sous le capot\n\n\n\n\n\nPour plus de détails, vous pouvez consulter la vidéo en bas de la page.\nPrenons l’exemple de ce qu’il se passe en arrière plan lorsque vous lancez un service Vscode-python :\n\n0.0.1 Construction de l’image Docker\nUne image Docker est un paquet léger et autonome qui contient tout le nécessaire pour exécuter une application : le code, les bibliothèques, les dépendances, les variables d’environnement et les fichiers de configuration.\nLes images Docker permettent de créer des environnements isolés et cohérents, garantissant ainsi la portabilité et la reproductibilité des applications.\n\nNous partons de l’image de base d’Onyxia\n\nubuntu:22.04 et quelques éléments de config\n\nNous ajoutons la couche python-minimal\n\ninstallation de python et quelques packages classiques\n\nNous ajoutons la couche python-datascience\n\nJulia, Quarto et des packages de datascience (numpy, pandas…)\n\nNous ajoutons la couche vscode\n\nInstallation de Visual Studio Code et configuration\n\n\nVous avez maintenant une image Docker avec tout ce qu’il faut pour bien travailler.\n\n\n0.0.2 DockerHub\nCette image est construite et déposée sur DockerHub onyxia-vscode-python.\nNous allons ensuite lancer une instance de cette image : un conteneur.\nUne image est comme un moule, et un conteneur est un objet fabriqué à partir de ce moule. L’image contient les instructions, et le conteneur est l’instance concrète créée à partir de ce modèle. Vous verrez le même principe dans le cours de POO avec les classes (modèles) et les objets (instances)\nPour gérer tous les conteneurs lancés sur le datalab, nous avons besoin d’un orchestrateur : Kubernetes.\n\n\n0.0.3 Chart Helm\nCependant, nous allons d’abord utiliser Helm pour faciliter le déploiement.\nHelm simplifie le processus de déploiement d’applications sur Kubernetes en automatisant les tâches répétitives et en fournissant une gestion centralisée des configurations.\nLe chart Helm vscode-python est un ensemble de fichiers de configuration qui facilite le déploiement d’application dans un envrionnement Kubernetes.\n\n\n0.0.4 Déploiement sur Kube\nKubernetes (K8s) est un système open-source qui automatise le déploiement, la mise à l’échelle et la gestion d’applications conteneurisées. C’est un orchestrateur de conteneurs.\nK8s récupére via le chart Helm toutes les infos nécessaires et déploie le conteneur (créé à partir de l’image Docker) sur l’infra du datalab."
-  },
-  {
-    "objectID": "doc/datalab/intro.html#documentation",
-    "href": "doc/datalab/intro.html#documentation",
-    "title": "Datalab SSPCloud",
-    "section": "1 Documentation",
-    "text": "1 Documentation\n\nhttps://docs.sspcloud.fr/content/principles.html"
-  },
-  {
-    "objectID": "doc/datalab/advanced.html",
-    "href": "doc/datalab/advanced.html",
-    "title": "Usage avancé du Datalab",
-    "section": "",
-    "text": "🚧"
-  },
-  {
-    "objectID": "doc/datalab/advanced.html#script-de-lancement",
-    "href": "doc/datalab/advanced.html#script-de-lancement",
-    "title": "Usage avancé du Datalab",
-    "section": "1 Script de lancement",
-    "text": "1 Script de lancement"
-  },
-  {
-    "objectID": "doc/datalab/advanced.html#image-docker",
-    "href": "doc/datalab/advanced.html#image-docker",
-    "title": "Usage avancé du Datalab",
-    "section": "2 Image Docker",
-    "text": "2 Image Docker"
-  },
-  {
-    "objectID": "doc/datalab/advanced.html#secrets",
-    "href": "doc/datalab/advanced.html#secrets",
-    "title": "Usage avancé du Datalab",
-    "section": "3 Secrets",
-    "text": "3 Secrets"
-  },
-  {
-    "objectID": "doc/datalab/advanced.html#surveiller-son-service",
-    "href": "doc/datalab/advanced.html#surveiller-son-service",
-    "title": "Usage avancé du Datalab",
-    "section": "4 Surveiller son service",
-    "text": "4 Surveiller son service"
   },
   {
     "objectID": "doc/git/presentation-slides.html#introduction",
@@ -712,6 +768,34 @@
     "title": "Rapport de projet",
     "section": "",
     "text": "🚧"
+  },
+  {
+    "objectID": "doc/quarto/report.html#introduction",
+    "href": "doc/quarto/report.html#introduction",
+    "title": "Rapport de projet",
+    "section": "1 Introduction",
+    "text": "1 Introduction\nNe pas utiliser tinytex mais typst : https://quarto.org/docs/output-formats/typst.html\nhttps://typst.app/\nhttps://github.com/InseeFrLab/jms2025-typst/blob/main/_extensions/jms2025/typst-template.typ"
+  },
+  {
+    "objectID": "doc/quarto/report.html#première-partie",
+    "href": "doc/quarto/report.html#première-partie",
+    "title": "Rapport de projet",
+    "section": "2 Première partie",
+    "text": "2 Première partie\nBonjour\n\n2.1 Première sous-partie\n\n\n\n\n\n\nTip\n\n\n\nUne petite astuce\n\n\n\n2.1.1 première sous-sous-partie\nSELECT *\n  FROM user\n WHERE 1 = 1\n\n\n\n2.2 Deuxième sous-partie\n\nPaper-based exam\nDuration: 1h30\n1 handwritten A4 sheet (front and back) allowed\nNo calculator\n\n\n\n2.3 Troisème sous-partie\n\n\n\n\n\n\n\n\n\n\nModifier\nSame Class\nSame Package\nSubclasses\nEverywhere\n\n\n\n\npublic\n✅\n✅\n✅\n✅\n\n\nprotected\n✅\n✅\n✅\n❌\n\n\ndefault (no modifier)\n✅\n✅\n❌\n❌\n\n\nprivate\n✅\n❌\n❌\n❌"
+  },
+  {
+    "objectID": "doc/quarto/report.html#deuxième-partie",
+    "href": "doc/quarto/report.html#deuxième-partie",
+    "title": "Rapport de projet",
+    "section": "3 Deuxième partie",
+    "text": "3 Deuxième partie\n\ncitation"
+  },
+  {
+    "objectID": "doc/quarto/report.html#bibliographie",
+    "href": "doc/quarto/report.html#bibliographie",
+    "title": "Rapport de projet",
+    "section": "Bibliographie",
+    "text": "Bibliographie\nUse bib file"
   },
   {
     "objectID": "doc/quarto/basics.html",

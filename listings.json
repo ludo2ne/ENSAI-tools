@@ -3,9 +3,9 @@
     "listing": "/index.html",
     "items": [
       "/doc/format/json.html",
+      "/doc/format/parquet.html",
       "/doc/language/bash.html",
-      "/doc/format/markdown.html",
-      "/doc/format/yaml.html",
+      "/doc/language/python.html",
       "/doc/git/advanced.html",
       "/doc/git/glossary.html",
       "/doc/git/presentation.html",
