@@ -1,0 +1,54 @@
+---
+title: "Python"
+description: "Quelques ressources sur Python"
+author: "Ludovic Deneuville"
+---
+
+## Apprendre le langage
+
+- <https://inseefrlab.github.io/formation-python-initiation/>{target="_blank"}
+- <https://ludo2ne.github.io/ENSAI-2A-remise-a-niveau/doc/python/python-notebooks.html>{target="_blank"}
+
+
+## Glossaire
+
+### Packages
+
+| Terme        | Définition |
+| ------------ | ---------- |
+| pip          | Gestionnaire de paquets standard pour installer des bibliothèques |
+| venv         | Environnements virtuels isolés pour installer des dépendances spécifiques à un projet | 
+| uv           | Gestionnaire de paquets et d'environnements ultra-rapide, remplaçant *pip* et *venv* |
+| ruff         | Linter et formateur de code extrêmement rapide |
+| pandas       | Bibliothèque spécialisée dans la manipulation et l'analyse de données structurées |
+| numpy        | Bibliothèque fondamentale pour le calcul scientifique et la gestion de tableaux multidimensionnels |
+| pytest       | Permet de lancer les tests unitaires |
+
+
+### IDE (Integrated Development Environment)
+
+Un IDE est un logiciel "tout-en-un" conçu pour faciliter le travail du développeur. Contrairement à un simple éditeur de texte (comme le Bloc-notes), il regroupe tous les outils nécessaires au cycle de vie du code :
+
+1. Écriture intelligente : Autocomplétion, détection d'erreurs en temps réel (soulignement rouge).
+2. Navigation : Aller directement à la définition d'une fonction ou d'une variable.
+3. Débogage : Exécuter le code pas à pas pour voir comment les variables évoluent et trouver les bugs.
+4. Automatisation : Lancer des tests, formater le code automatiquement, gérer les versions (Git).
+5. Terminal intégré : Exécuter des commandes (`pip`, `uv`, `python script.py`, `git`) sans quitter l'application.
+
+
+[Visual Studio Code](https://code.visualstudio.com/){target="_blank"} est un éditeur de texte léger que l'on transforme en IDE grâce à deux piliers :
+
+- Les Extensions : Ce sont des modules que tu installes pour ajouter des super-pouvoirs.
+  - *Indispensables pour Python* : `Python`, `Pylance` (intelligence du code), `Ruff` (vitesse/formatage)
+- Les Settings (Paramètres) : ils permettent de personnaliser l'éditeur (thèmes, taille de police)
+
+
+### Programmation Orientée Objet
+
+| Terme      | Définition |
+| ---------- | ---------- |
+| Classe     | Modèle utilisé pour définir la structure et le comportement d'un objet. |
+| Objet      | Instance concrète créée à partir d'une classe, possédant ses propres données et méthodes. |
+| `self`     | Référence à l'instance de l'objet lui-même, utilisée pour accéder à ses attributs et méthodes. |
+| `super()`  | Fonction permettant d'appeler une méthode de la classe parente (héritage). |
+| abstract   | Concept de classe ou méthode qui définit une interface obligatoire pour les sous-classes, sans implémentation propre. |

@@ -1,0 +1,46 @@
+---
+title: "Le format Parquet"
+description: "Introduction à YAML"
+author: "Ludovic Deneuville"
+---
+
+
+## Pourquoi utiliser Parquet ?
+
+Contrairement aux formats orientés lignes (CSV, JSON), Parquet est conçu pour les charges de travail analytiques (`OLAP`) où l'on lit rarement toute la table, mais seulement quelques colonnes. 
+
+Stocker les données par colonne permet :
+
+- de ne lire que les colonnes utiles lors d'une requête (`column pruning`),
+- d'appliquer des algorithmes de compression adaptés aux valeurs similaires,
+- d'activer l'exécution vectorisée (`SIMD`) dans les moteurs modernes.
+
+## Comment est-il construit ?
+
+Parquet est un format binaire structuré hiérarchiquement :
+
+| Niveau      | Rôle |
+|-------------|------|
+| File        | Contient le schéma et les métadonnées en début/fin de fichier |
+| Row Group   | Bloc logique (~128 Mo à 1 Go) représentant un sous-ensemble de lignes |
+| Column      | Données d'une même colonne stockées séquentiellement dans un `Row Group` |
+| Page        | Unité atomique de lecture/compression, contenant valeurs + en-têtes d'encodage |
+
+Chaque colonne utilise des encodages spécialisés (Dictionary, RLE, Delta, ByteStreamSplit) puis une compression par page (Snappy, GZIP, ZSTD). Les métadonnées incluent automatiquement les statistiques par `Row Group` (min, max, null count), permettant des optimisations comme le `predicate pushdown`.
+
+## Utilisation typique
+
+- Data Lakes : format natif de référence pour S3, ADLS, GCS
+- Moteurs de calcul : Apache Spark, DuckDB, Pandas (`pyarrow`), Dask, Polars
+- Couches de table moderne : Apache Iceberg, Delta Lake, Hudi (utilisent Parquet comme format physique)
+- BI & Analytics : connexion native dans Tableau, Power BI, Metabase, Superset
+
+## Avantages & Inconvénients
+
+| ✅ Avantages                                     | ❌ Inconvénients |
+|--------------------------------------------------|-------------------|
+| 📉 Compression 5 à 10x supérieure au CSV         | 🔒 Écrase difficilement une ligne (design `append-only`) |
+| ⚡ Lectures analytiques accélérées (vectorisées) | 🐢 Pas adapté à la lecture/écriture en mode transactionnel |
+| 📐 Schéma strict & auto-descriptif               | 🧩 Requiert des bibliothèques compatibles (PyArrow, Parquet-cpp, etc.) |
+| 🌐 Interopérable (Python, R, Java, Scala, SQL…) | 📦 Fichier monolithique : difficile à modifier partiellement |
+

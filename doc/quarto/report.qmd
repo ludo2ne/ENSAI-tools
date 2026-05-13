@@ -1,7 +1,83 @@
 ---
-title: "Rapport de projet"
-description: "Créer un rapport de projet avec Quarto"
-author: "Ludovic Deneuville"
+title: Rapport de projet
+subtitle: "Créer un rapport de projet avec Quarto et Typst"
+date: "2025/04/24"
+authors: 
+  - Laurent Costa
+  - Ludovic Deneuville
+  - Christophe Lesieur
+  - Brandon Saintilan
+format:
+  html:
+    code-tools: true
+  typst:
+    papersize: a4
+    margin:
+      x: 1.5cm
+      y: 2.0cm
+    section-numbering: 1.1.a
+    toc: true
+    mainfont: "Calibri"
+    fontsize: 11pt
 ---
 
+{{< pagebreak >}}
+
 :construction:
+
+## Introduction
+
+Ne pas utiliser tinytex mais typst : <https://quarto.org/docs/output-formats/typst.html>
+
+<https://typst.app/>
+
+<https://github.com/InseeFrLab/jms2025-typst/blob/main/_extensions/jms2025/typst-template.typ>
+
+
+{{< pagebreak >}}
+
+## Première partie
+
+Bonjour
+
+### Première sous-partie
+
+::: {.callout-tip}
+Une petite astuce
+:::
+
+#### première sous-sous-partie
+
+```{.sql}
+SELECT *
+  FROM user
+ WHERE 1 = 1
+```
+
+### Deuxième sous-partie
+
+- Paper-based exam
+- Duration: 1h30
+- 1 handwritten A4 sheet (front and back) allowed
+- No calculator
+
+### Troisème sous-partie
+
+| Modifier                | Same Class | Same Package | Subclasses  |  Everywhere   |
+|-------------------------|------------|--------------|-------------|---------------|
+| public                  | ✅         | ✅          | ✅          | ✅           |
+| protected               | ✅         | ✅          | ✅          | ❌           |
+| *default* (no modifier) | ✅         | ✅          | ❌          | ❌           |
+| private                 | ✅         | ❌          | ❌          | ❌           |
+
+{{< pagebreak >}}
+
+
+## Deuxième partie
+
+> citation
+
+
+## Bibliographie {.unnumbered}
+
+Use bib file

@@ -7,7 +7,10 @@ author: "Ludovic Deneuville"
 
 ## Qu'est-ce que YAML ?
 
-YAML (YAML Ain't Markup Language) est un format de sérialisation de données lisible par l'homme, conçu pour être facile à lire et à écrire.
+YAML est un acronyme récursif signifiant : *YAML Ain't Markup Language* :arrow_right: [YAML n’est pas un langage de balisage]{.underline}. Il est donc rangé logiquement dans la section **Balisage** :+1:
+
+
+C'est un format de sérialisation de données lisible par l'homme, conçu pour être facile à lire et à écrire.
 
 Il est souvent utilisé pour la configuration des fichiers, le stockage de données, et les échanges de données entre langages de programmation.
 

@@ -16,18 +16,24 @@ website:
       - icon: house
         href: index.qmd
         text: Home
-      - text: Formats
+      - text: Formats de données
         menu:
-          - href: doc/format/markdown.qmd
-            text: "Markdown"
           - href: doc/format/json.qmd
             text: "JSON"
-          - href: doc/format/yaml.qmd
+          - href: doc/format/parquet.qmd
+            text: "Parquet"
+      - text: Balisage
+        menu:
+          - href: doc/balisage/markdown.qmd
+            text: "Markdown"
+          - href: doc/balisage/yaml.qmd
             text: "YAML"
       - text: Langages
         menu:
           - href: doc/language/bash.qmd
             text: "Bash"
+          - href: doc/language/python.qmd
+            text: "Python"
       - text: Git
         menu:
           - href: doc/git/presentation.qmd
