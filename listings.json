@@ -2,10 +2,13 @@
   {
     "listing": "/index.html",
     "items": [
+      "/doc/format/csv.html",
       "/doc/format/json.html",
       "/doc/format/parquet.html",
       "/doc/language/bash.html",
       "/doc/language/python.html",
+      "/doc/language/r.html",
+      "/doc/format/yaml.html",
       "/doc/git/advanced.html",
       "/doc/git/glossary.html",
       "/doc/git/presentation.html",
@@ -15,7 +18,8 @@
       "/doc/datalab/lab.html",
       "/doc/datalab/advanced.html",
       "/doc/datalab/vscode-python.html",
-      "/doc/quarto/basics.html",
+      "/doc/quarto/markdown.html",
+      "/doc/quarto/quarto.html",
       "/doc/quarto/rstudio.html",
       "/doc/quarto/report.html",
       "/doc/quarto/site.html"

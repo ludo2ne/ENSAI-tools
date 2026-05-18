@@ -81,9 +81,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-91544e611bd0e83221240cde35fa504f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-8fe479874ca0985b39699dca03e940ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-91544e611bd0e83221240cde35fa504f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-8972a4b08918be08a88b3e2a59def418.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-9571ef2f724cf1554e0ac39ede2d41c9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-8972a4b08918be08a88b3e2a59def418.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -341,35 +341,28 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-formats-de-données">    
         <li>
-    <a class="dropdown-item" href="../../doc/format/json.html">
- <span class="dropdown-text">JSON</span></a>
+    <a class="dropdown-item" href="../../doc/format/csv.html">
+ <span class="dropdown-text">CSV</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../doc/format/parquet.html">
  <span class="dropdown-text">Parquet</span></a>
   </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-balisage" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Balisage</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-balisage">    
         <li>
-    <a class="dropdown-item" href="../../doc/balisage/markdown.html">
- <span class="dropdown-text">Markdown</span></a>
+    <a class="dropdown-item" href="../../doc/format/json.html">
+ <span class="dropdown-text">JSON</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/balisage/yaml.html">
+    <a class="dropdown-item" href="../../doc/format/yaml.html">
  <span class="dropdown-text">YAML</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-langages" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Langages</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-programmation" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Programmation</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-langages">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-programmation">    
         <li>
     <a class="dropdown-item" href="../../doc/language/bash.html">
  <span class="dropdown-text">Bash</span></a>
@@ -378,13 +371,17 @@ window.Quarto = {
     <a class="dropdown-item" href="../../doc/language/python.html">
  <span class="dropdown-text">Python</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/language/r.html">
+ <span class="dropdown-text">R</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-git" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Git</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-versionnage" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Versionnage</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-git">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-versionnage">    
         <li>
     <a class="dropdown-item" href="../../doc/git/presentation.html">
  <span class="dropdown-text">Présentation</span></a>
@@ -431,21 +428,40 @@ window.Quarto = {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-quarto" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Quarto</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projet" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Projet</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-quarto">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-projet">    
         <li>
-    <a class="dropdown-item" href="../../doc/quarto/basics.html">
- <span class="dropdown-text">Introduction</span></a>
+    <a class="dropdown-item" href="../../doc/project/planning.html">
+ <span class="dropdown-text">Planning</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/quarto/site.html">
- <span class="dropdown-text">Site statique</span></a>
+    <a class="dropdown-item" href="../../doc/project/lab.html">
+ <span class="dropdown-text">TP Gestion de projet</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-rédaction" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Rédaction</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-rédaction">    
+        <li>
+    <a class="dropdown-item" href="../../doc/quarto/markdown.html">
+ <span class="dropdown-text">Markdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/quarto/quarto.html">
+ <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../doc/quarto/report.html">
  <span class="dropdown-text">Rapport de projet</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/quarto/site.html">
+ <span class="dropdown-text">Site statique</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../doc/quarto/rstudio.html">

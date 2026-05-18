@@ -1,94 +1,269 @@
 [
   {
-    "objectID": "doc/quarto/site.html",
-    "href": "doc/quarto/site.html",
-    "title": "Site statique",
+    "objectID": "doc/language/bash.html",
+    "href": "doc/language/bash.html",
+    "title": "Les commandes Bash",
+    "section": "",
+    "text": "Il y a peu, dans un monde proche — très proche — la ligne de commande était le principal moyen de communiquer avec un ordinateur. Pas de souris, pas de bureau avec des icônes : simplement un clavier et un terminal.\nAujourd’hui encore, dans de nombreux domaines de l’informatique, les instructions se donnent en ligne de commande. En effet, les interfaces graphiques sont souvent plus coûteuses à développer, plus lourdes et plus difficiles à maintenir.\nNous allons ici présenter quelques commandes simples, connues et utilisées par la majorité des informaticiens. Il existe plusieurs shells, sous Unix comme sous Windows. Nous nous intéresserons principalement au shell Bash sous Unix : Bash.\nEn tant que Data Scientist, on ne vous demandera pas de pirater la CIA avec une calculatrice Casio. En revanche, connaître les bases du terminal est un véritable must-have qui vous servira très souvent.\n\n\n\n\n\n\n\n\n\nTerme\nDéfinition\n\n\n\n\nTerminal\nInterface texte permettant d’interagir avec l’ordinateur\n\n\nLigne de commande\nTexte saisi par l’utilisateur pour demander une action\n\n\nShell\nProgramme qui interprète les commandes\n\n\nBash\nShell Unix très répandu\n\n\nScript\nFichier contenant plusieurs commandes automatisées\n\n\n\n\n\n\n\nVoici un premier exemple de terminal. Vous avez :\n\nle prompt : onyxia@vscode-python-413726-0:~/work/ENSAI-2A-projet-info-template$\n\nvous êtes connecté avec l’utilisateur onyxia\nsur la machine virutelle vscode-python-413726-0\nvous êtes positionné dans le dossier ~/work/ENSAI-2A-projet-info-template$\n~ est le dossier personnel de l’utilisateur\nil se termine par un $ (utilisateur normal, # pour root)\n\nà droite du prompt, vous pouvez écrire une commande\n\nici ls -l\nls pour lister les éléments du dossier courant\noption -l pour avoir un affichage détaillé\n\nen dessous, vous avez le résultat de la commande\n\nla liste des dossiers et fichiers\n\n\n\n\n\nLe terminal est une manière simple de donner des instructions à la machine.\n\n\n\n\n\nflowchart TD\n\n    U[Utilisateur]\n\n    %% CLI\n    U --&gt;|commande clavier| TERM[Terminal]\n    TERM --&gt; SHELL[Shell]\n    SHELL --&gt;|appels système| OS[OS]\n\n    %% GUI\n    U --&gt;|clic souris | GUI[Interface graphique]\n    GUI --&gt;|événements GUI| APP[Application]\n    APP --&gt;|appels système| OS\n\n    %% Hardware\n    OS --&gt; Matériel"
+  },
+  {
+    "objectID": "doc/language/bash.html#introduction",
+    "href": "doc/language/bash.html#introduction",
+    "title": "Les commandes Bash",
+    "section": "",
+    "text": "Il y a peu, dans un monde proche — très proche — la ligne de commande était le principal moyen de communiquer avec un ordinateur. Pas de souris, pas de bureau avec des icônes : simplement un clavier et un terminal.\nAujourd’hui encore, dans de nombreux domaines de l’informatique, les instructions se donnent en ligne de commande. En effet, les interfaces graphiques sont souvent plus coûteuses à développer, plus lourdes et plus difficiles à maintenir.\nNous allons ici présenter quelques commandes simples, connues et utilisées par la majorité des informaticiens. Il existe plusieurs shells, sous Unix comme sous Windows. Nous nous intéresserons principalement au shell Bash sous Unix : Bash.\nEn tant que Data Scientist, on ne vous demandera pas de pirater la CIA avec une calculatrice Casio. En revanche, connaître les bases du terminal est un véritable must-have qui vous servira très souvent.\n\n\n\n\n\n\n\n\n\nTerme\nDéfinition\n\n\n\n\nTerminal\nInterface texte permettant d’interagir avec l’ordinateur\n\n\nLigne de commande\nTexte saisi par l’utilisateur pour demander une action\n\n\nShell\nProgramme qui interprète les commandes\n\n\nBash\nShell Unix très répandu\n\n\nScript\nFichier contenant plusieurs commandes automatisées\n\n\n\n\n\n\n\nVoici un premier exemple de terminal. Vous avez :\n\nle prompt : onyxia@vscode-python-413726-0:~/work/ENSAI-2A-projet-info-template$\n\nvous êtes connecté avec l’utilisateur onyxia\nsur la machine virutelle vscode-python-413726-0\nvous êtes positionné dans le dossier ~/work/ENSAI-2A-projet-info-template$\n~ est le dossier personnel de l’utilisateur\nil se termine par un $ (utilisateur normal, # pour root)\n\nà droite du prompt, vous pouvez écrire une commande\n\nici ls -l\nls pour lister les éléments du dossier courant\noption -l pour avoir un affichage détaillé\n\nen dessous, vous avez le résultat de la commande\n\nla liste des dossiers et fichiers\n\n\n\n\n\nLe terminal est une manière simple de donner des instructions à la machine.\n\n\n\n\n\nflowchart TD\n\n    U[Utilisateur]\n\n    %% CLI\n    U --&gt;|commande clavier| TERM[Terminal]\n    TERM --&gt; SHELL[Shell]\n    SHELL --&gt;|appels système| OS[OS]\n\n    %% GUI\n    U --&gt;|clic souris | GUI[Interface graphique]\n    GUI --&gt;|événements GUI| APP[Application]\n    APP --&gt;|appels système| OS\n\n    %% Hardware\n    OS --&gt; Matériel"
+  },
+  {
+    "objectID": "doc/language/bash.html#principales-commandes",
+    "href": "doc/language/bash.html#principales-commandes",
+    "title": "Les commandes Bash",
+    "section": "2 Principales commandes",
+    "text": "2 Principales commandes\n\n\n\n\n\n\nCaution\n\n\n\n\n&lt;...&gt; : texte à remplacer\n[...] : élément optionnel\n\n\n\n\n\n\n\n\n\n\n\nCommande\nSignification\nDescription\n\n\n\n\npwd\nprint working directory\nAffiche le répertoire courant\n\n\ncd &lt;directory&gt;\nchange directory\nChange le répertoire de travail courant\n\n\nls (ou ll)\nlist\nListe les fichiers et dossiers\n\n\nmv &lt;src&gt; &lt;dest&gt;\nmove\nDéplace un fichier ou un répertoire\n\n\ncp &lt;src&gt; &lt;dest&gt;\ncopy\nCopie un fichier ou un répertoire\n\n\nmkdir &lt;directory&gt;\nmake directory\nCrée un nouveau répertoire\n\n\nrm [-r] &lt;file&gt;\nremove\nSupprime un fichier (-r pour répertoire)\n\n\ntouch &lt;file&gt;\n\nCrée un nouveau fichier vide\n\n\ncat &lt;file&gt;\nconcatenate\nAffiche le contenu d’un fichier\n\n\ngrep &lt;text&gt; &lt;file&gt;\nglobal regex print\nRechercher dans un fichier\n\n\n\n\n2.1 cd\ncd backend         # Aller dans le dossier backend\ncd backend/src     # Aller dans le dossier backend/src\ncd ..              # Aller dans le dossier parent\ncd /               # Aller à la racine de la machine\ncd ~               # Aller dans votre dossier personnel\n\n\n2.2 ls\nls                 # Afficher les fichiers du dossier courant\nls -l              # Affichage détaillé\nls -a              # Afficher les fichiers cachés\nls backend         # Afficher le contenu du dossier backend\nls *.py            # Afficher tous les fichiers Python\n\n\n\n\n\n\nTip\n\n\n\nSouvent la commande ll (alias de ls -al) est définie et permet d’avoir un affichage plus joli."
+  },
+  {
+    "objectID": "doc/language/bash.html#les-touches-magiques",
+    "href": "doc/language/bash.html#les-touches-magiques",
+    "title": "Les commandes Bash",
+    "section": "3 Les touches magiques",
+    "text": "3 Les touches magiques\n\n\n\n\n\n\nImportantLa plus utile\n\n\n\nLa touche Tabulation ⇄\n\nElle sert à faire de l’autocomplétion. Elle complète automatiquement les commandes.\ncd bac + TAB ➡️ cd backend\n\n\n\nAutres touches utiles :\n\nENTREE : Pour exécuter la commande\nCTRL + C : stopper la commande en cours\nDouble TAB : affiche toutes les possibilités\n\npratique si plusieurs dossiers commencent par bac\n\n↑ : Accéder à l’historique des commandes exécutées\n\n↓ : pour naviguer également dans l’historique\nhistory : historique des commandes exécutées\n\nCTRL + A : Début de ligne\n\nCTRL + ← (ou →) : Se déplacer de mot en mot\n\nMAJ + INSER : Coller\n\nou Clic Droit"
+  },
+  {
+    "objectID": "doc/language/bash.html#caractères-spéciaux",
+    "href": "doc/language/bash.html#caractères-spéciaux",
+    "title": "Les commandes Bash",
+    "section": "4 Caractères spéciaux",
+    "text": "4 Caractères spéciaux\n\n\n\n\n\n\n\n\n\nSymbole\nNom / idée\nSignification\nExemple\n\n\n\n\n.\ndossier courant\nreprésente le répertoire actuel\n./script.sh\n\n\n..\ndossier parent\nreprésente le dossier au-dessus\ncd ..\n\n\n~\nhome utilisateur\ndossier personnel de l’utilisateur\ncd ~\n\n\n/\nracine / séparateur\nsépare les dossiers dans un chemin\n/home/user\n\n\n*\nwildcard\nremplace n’importe quelle suite de caractères\nls *.py\n\n\n?\nwildcard simple\nremplace un seul caractère\nls file?.txt\n\n\n\n\n\n\n\n\n\nNoteAutres caractères spéciaux\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSymbole\nNom / idée\nSignification\nExemple\n\n\n\n\n-\noption\nintroduit une option de commande\nls -l\n\n\n--\noption longue\noption longue lisible\nls --help\n\n\n&gt;\nredirection\nécrit la sortie dans un fichier\nls &gt; fichiers.txt\n\n\n&gt;&gt;\najout\najoute à un fichier\necho test &gt;&gt; log.txt\n\n\n&lt;\nentrée\nlit depuis un fichier\npython &lt; script.py\n\n\n|\npipe\nenvoie la sortie vers une autre commande\ncat f.txt | grep erreur\n\n\n&\narrière-plan\nlance une commande en tâche de fond\npython app.py &\n\n\n&&\nET logique\nexécute la seconde commande si la première réussit\nmkdir test && cd test\n\n\n;\nséparateur\nenchaîne plusieurs commandes\npwd ; ls\n\n\n#\ncommentaire\ncommentaire dans un script shell\n# ceci est un commentaire\n\n\n$\nvariable shell\naccès à une variable\necho $HOME\n\n\n$?\ncode retour\nstatut de la dernière commande\necho $?\n\n\n!\nhistorique\nrappelle une commande précédente\n!!\n\n\n\"\nguillemets doubles\nprotège du découpage mais garde les variables\necho \"$HOME\"\n\n\n'\nguillemets simples\ntexte littéral\necho '$HOME'\n\n\n\\\néchappement\nneutralise un caractère spécial\nMes\\ Documents"
+  },
+  {
+    "objectID": "doc/language/bash.html#variables-denvironnement",
+    "href": "doc/language/bash.html#variables-denvironnement",
+    "title": "Les commandes Bash",
+    "section": "5 Variables d’environnement",
+    "text": "5 Variables d’environnement\nLes variables d’environnement sont des paires clé=valeur utilisées par le shell et les programmes.\nexport export MA_CLE=\"ma valeur\"  # Creer ou Modifier une variable dans le terminal courant\n\necho $MA_CLE                      # Afficher la valeur (vide si la cle n existe pas)\n\nenv                               # Lister toutes les variables\nenv | grep GIT                    # Liste des variables contenant GIT\nDans la dernière commande le pipe (|) permet d’envoyer la sortie de la commande env comme paramètre d’entrée de la commande grep.\n\nf(x) | g ➡️ traduit en langage matheux signifie : \\(g(f(x))\\)\n\nVariables courantes :\n\necho $HOME : dossier personnel de l’utilisateur\necho $PATH : liste des dossiers où Bash cherche les commandes"
+  },
+  {
+    "objectID": "doc/language/bash.html#scripts",
+    "href": "doc/language/bash.html#scripts",
+    "title": "Les commandes Bash",
+    "section": "6 Scripts",
+    "text": "6 Scripts\nIl est possible d’écrire un fichier qui va enchainer les commandes les unes après les autres.\n\n\nsetup.sh\n\nmkdir depots\ncd depots\ngit clone https://github.com/ludo2ne/ENSAI-2A-projet-info-template.git\ncd ENSAI-2A-projet-info-template\n\ncode-server .\n\nuv sync --project backend --all-extras\nuv sync --project frontend --all-extras\n\nPar exemple le script ci-dessus va :\n\ncréer un dossier depots, puis se postionner dedans\ncloner un repository et se positionner dedans\nouvrir VSCode dans le dossier courant\ninstaller les dépendances avec l’utilitaire uv\n\n\n6.1 Droit d’exécution\nImaginons que vous avez créé le fichier setup.sh ci-dessus, et que vous souhaitez le lancer.\nAvant cela il faut avoir le droit d’exéctuer le fichier.\nLa commande chmod +x &lt;filename&gt; autorise tout le monde a exécuter ce fichier.\n\n\n\n\n\n\nTipEn savoir un peu plus sur les droits\n\n\n\n\n\nCommencez par lister les fichiers d’un dossier avec ls -l.\nLa première colonne affiche une suite de 10 caractères, par exemple drwxr-xr--.\nLe premier caractère représente le type d’élément :\n\n- : Fichier\nd : Répertoire\nl : Lien symbolique\n\nLes 9 caractères suivants ➡️ Les permissions(divisées en 3 groupes de 3)\n\nrwx (les 2-4) : Droits du Propriétaire\nr-x (les 5-7) : Droits du Groupe\nr-- (les 8-10) : Droits des Autres\n\nLa signification des lettres : r, w, x\n\n\n\n\n\n\n\n\n\nLettre\nNom\nSur un Fichier\nSur un Dossier\n\n\n\n\nr\nRead\nLire le contenu du fichier.\nLister les fichiers du dossier (ls).\n\n\nw\nWrite\nModifier le contenu du fichier.\nCréer, supprimer ou renommer des fichiers dedans.\n\n\nx\nExecute\nLancer le fichier (ex: un script).\nEntrer dans le dossier (cd).\n\n\n\n\n\n\n\n\n6.2 Lancer le script\nSimplement avec ./&lt;filename.sh&gt;."
+  },
+  {
+    "objectID": "doc/language/bash.html#ressources",
+    "href": "doc/language/bash.html#ressources",
+    "title": "Les commandes Bash",
+    "section": "Ressources",
+    "text": "Ressources\n\nhttps://ensae-reproductibilite.github.io/website/chapters/linux101.html"
+  },
+  {
+    "objectID": "doc/project/planning.html",
+    "href": "doc/project/planning.html",
+    "title": "Planning projet",
+    "section": "",
+    "text": "🚧\n\n\nKanban\nGantt"
+  },
+  {
+    "objectID": "doc/quarto/markdown.html",
+    "href": "doc/quarto/markdown.html",
+    "title": "Mardown",
+    "section": "",
+    "text": "Markdown est un langage de balisage léger créé par John Gruber en 2004. Son objectif de simplifier l’écriture de texte destiné au web en permettant aux utilisateurs d’écrire en utilisant un format texte brut facile à lire et à écrire."
+  },
+  {
+    "objectID": "doc/quarto/markdown.html#quest-ce-que-markdown",
+    "href": "doc/quarto/markdown.html#quest-ce-que-markdown",
+    "title": "Mardown",
+    "section": "",
+    "text": "Markdown est un langage de balisage léger créé par John Gruber en 2004. Son objectif de simplifier l’écriture de texte destiné au web en permettant aux utilisateurs d’écrire en utilisant un format texte brut facile à lire et à écrire."
+  },
+  {
+    "objectID": "doc/quarto/markdown.html#pourquoi-utiliser-markdown",
+    "href": "doc/quarto/markdown.html#pourquoi-utiliser-markdown",
+    "title": "Mardown",
+    "section": "2 Pourquoi utiliser Markdown ?",
+    "text": "2 Pourquoi utiliser Markdown ?\nMarkdown a été conçu comme une alternative intuitive aux balisages plus complexes du HTML. Il s’est rapidement popularisé parmi les développeurs, les blogueurs et les rédacteurs pour sa simplicité et sa lisibilité.\n\n✅ Simplicité : Facile à apprendre et à utiliser, même si vous n’êtes pas familiers avec HTML\n✅ Lisibilité : Le texte brut en Markdown reste lisible même sans être converti en HTML\n✅ Portabilité : Les fichiers Markdown peuvent être convertis facilement en HTML, PDF…\n✅ Popularité : Supporté par de nombreuses plates-formes et outils de rédaction\n❌ Limitations : Markdown est conçu pour être simple, donc il ne supporte pas toutes les fonctionnalités avancées de mise en page"
+  },
+  {
+    "objectID": "doc/quarto/markdown.html#écrire-du-markdown",
+    "href": "doc/quarto/markdown.html#écrire-du-markdown",
+    "title": "Mardown",
+    "section": "3 Écrire du markdown",
+    "text": "3 Écrire du markdown\nLes fichiers markdown sont des fichiers texte qui ont pour extension .md.\nIl existe de très nombreux éditeurs de Markdown :\n\nen ligne, par exemple HackMd\nà installer sur sa machine, par exemple dans Visual Studio Code\n\nLes éditeurs présentent généralement deux sections cote à cote :\n\nune partie édition où l’on écrit le code\nune partie vue où l’on voit le résultat\n\n\n3.1 Exemples\nDe très nombreuses ressources existent pour apprendre en quelques minutes le langage, par exemple https://commonmark.org/help/\nQuelques exemples de mise en forme :\n\n\n\nCode Markdown\nRésultat\n\n\n\n\n**texte en gras**\ntexte en gras\n\n\n*texte en italique*\ntexte en italique\n\n\n[lien](https://example.com)\nlien\n\n\n![texte alternatif](image.jpg)\n\n\n\n`code en ligne`\ncode en ligne\n\n\n# Titre de niveau 1\n\n\n\n## Titre de niveau 2\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nCette page est elle-même écrite en Markdown ! (avec une surcouche)\nVous pouvez consulter le code en cliquant sur le bouton &lt;/&gt; Code en haut à droite.\n\n\nUn large choix d’emoji est également disponible en Markdown 😎"
+  },
+  {
+    "objectID": "doc/quarto/report.html",
+    "href": "doc/quarto/report.html",
+    "title": "Rapport de projet",
     "section": "",
     "text": "🚧"
   },
   {
-    "objectID": "doc/quarto/site.html#créer-un-projet",
-    "href": "doc/quarto/site.html#créer-un-projet",
-    "title": "Site statique",
-    "section": "1 Créer un projet",
-    "text": "1 Créer un projet"
+    "objectID": "doc/quarto/report.html#introduction",
+    "href": "doc/quarto/report.html#introduction",
+    "title": "Rapport de projet",
+    "section": "1 Introduction",
+    "text": "1 Introduction\nNe pas utiliser tinytex mais typst : https://quarto.org/docs/output-formats/typst.html\nhttps://typst.app/\nhttps://github.com/InseeFrLab/jms2025-typst/blob/main/_extensions/jms2025/typst-template.typ"
   },
   {
-    "objectID": "doc/quarto/site.html#déployer",
-    "href": "doc/quarto/site.html#déployer",
-    "title": "Site statique",
-    "section": "2 Déployer",
-    "text": "2 Déployer"
+    "objectID": "doc/quarto/report.html#première-partie",
+    "href": "doc/quarto/report.html#première-partie",
+    "title": "Rapport de projet",
+    "section": "2 Première partie",
+    "text": "2 Première partie\nBonjour\n\n2.1 Première sous-partie\n\n\n\n\n\n\nTip\n\n\n\nUne petite astuce\n\n\n\n2.1.1 première sous-sous-partie\nSELECT *\n  FROM user\n WHERE 1 = 1\n\n\n\n2.2 Deuxième sous-partie\n\nPaper-based exam\nDuration: 1h30\n1 handwritten A4 sheet (front and back) allowed\nNo calculator\n\n\n\n2.3 Troisème sous-partie\n\n\n\n\n\n\n\n\n\n\nModifier\nSame Class\nSame Package\nSubclasses\nEverywhere\n\n\n\n\npublic\n✅\n✅\n✅\n✅\n\n\nprotected\n✅\n✅\n✅\n❌\n\n\ndefault (no modifier)\n✅\n✅\n❌\n❌\n\n\nprivate\n✅\n❌\n❌\n❌"
   },
   {
-    "objectID": "doc/quarto/rstudio.html",
-    "href": "doc/quarto/rstudio.html",
-    "title": "Quarto avec Rstudio",
+    "objectID": "doc/quarto/report.html#deuxième-partie",
+    "href": "doc/quarto/report.html#deuxième-partie",
+    "title": "Rapport de projet",
+    "section": "3 Deuxième partie",
+    "text": "3 Deuxième partie\n\ncitation"
+  },
+  {
+    "objectID": "doc/quarto/report.html#bibliographie",
+    "href": "doc/quarto/report.html#bibliographie",
+    "title": "Rapport de projet",
+    "section": "Bibliographie",
+    "text": "Bibliographie\nUse bib file"
+  },
+  {
+    "objectID": "doc/datalab/vscode-python.html",
+    "href": "doc/datalab/vscode-python.html",
+    "title": "VSCode python",
     "section": "",
-    "text": "Connectez-vous à GitHub\nVérifiez que vous avez un token actif\nCréer un nouveau Repository\n\nPublic ➡️ obligatoire si vous voulez ensuite déployer un site Quarto\nCochez Add README\n\nCopiez l’url https du dépôt\n\n\n\n\n\n\n\nTipSi vous n’avez pas de token actif\n\n\n\n\n\n\nGenerate a new classic token\n\nFill in:\n\ntoken name: SSPCloud\nexpiration date ➡️ Custom ➡️ 31 July\n\n✅ Tick repo and workflow boxes\nClick on Generate token\n\nCopy the token starting with ghp_ and keep it safe for a few minutes\nOnce you’re logged in to SSPCloud, go to My Account &gt; Settings &gt; Git and paste it there"
+    "text": "🚧"
   },
   {
-    "objectID": "doc/quarto/rstudio.html#créer-un-dépôt-distant",
-    "href": "doc/quarto/rstudio.html#créer-un-dépôt-distant",
-    "title": "Quarto avec Rstudio",
+    "objectID": "doc/datalab/vscode-python.html#ouverture-port",
+    "href": "doc/datalab/vscode-python.html#ouverture-port",
+    "title": "VSCode python",
+    "section": "1 Ouverture port",
+    "text": "1 Ouverture port"
+  },
+  {
+    "objectID": "doc/datalab/vscode-python.html#extensions",
+    "href": "doc/datalab/vscode-python.html#extensions",
+    "title": "VSCode python",
+    "section": "2 Extensions",
+    "text": "2 Extensions"
+  },
+  {
+    "objectID": "doc/datalab/vscode-python.html#assistant-ia",
+    "href": "doc/datalab/vscode-python.html#assistant-ia",
+    "title": "VSCode python",
+    "section": "3 Assistant IA",
+    "text": "3 Assistant IA"
+  },
+  {
+    "objectID": "doc/datalab/advanced.html",
+    "href": "doc/datalab/advanced.html",
+    "title": "Usage avancé du Datalab",
     "section": "",
-    "text": "Connectez-vous à GitHub\nVérifiez que vous avez un token actif\nCréer un nouveau Repository\n\nPublic ➡️ obligatoire si vous voulez ensuite déployer un site Quarto\nCochez Add README\n\nCopiez l’url https du dépôt\n\n\n\n\n\n\n\nTipSi vous n’avez pas de token actif\n\n\n\n\n\n\nGenerate a new classic token\n\nFill in:\n\ntoken name: SSPCloud\nexpiration date ➡️ Custom ➡️ 31 July\n\n✅ Tick repo and workflow boxes\nClick on Generate token\n\nCopy the token starting with ghp_ and keep it safe for a few minutes\nOnce you’re logged in to SSPCloud, go to My Account &gt; Settings &gt; Git and paste it there"
+    "text": "🚧"
   },
   {
-    "objectID": "doc/quarto/rstudio.html#lancer-le-service-rstudio",
-    "href": "doc/quarto/rstudio.html#lancer-le-service-rstudio",
-    "title": "Quarto avec Rstudio",
-    "section": "2 Lancer le service RStudio",
-    "text": "2 Lancer le service RStudio\n\nConnectez-vous au SSPCloud\nDans le catalogue, cliquez une fois sur Lancer pour le service RStudio\n\nIl y a quelques paramètrages à faire avant de lancer définitivement:\n\nOnglet Git\n\nCollez Repository url\nVérifiez que vous avez un token renseigné\n\nOnglet Network access\n\nCliquez sur Enable access to your service through specific ports\nPort numbers to expose: 5000\n\nLancez\n\n\n\n\n\n\n\nTipÀ quoi ça sert ?\n\n\n\nEn renseignant l’url du dépôt Git, celui-ci sera automatiquement cloné dans RStudio en y injectant le token. Ainsi vous pourrez communiquer aisément avec le dépôt distant (GitHub) sans avoir besoin de vous authentifier (i.e. sans avoir à renseigner identifiant et mot de passe GitHub à chaque push).\nL’ouverture du port 5000 va permettre de diffuser au monde extérieur les pages générées par Quarto. Si ce n’était pas fait, les pages html générées par Quarto ne seraient accessible que lorsque vous êtes connecté au service RStudio"
+    "objectID": "doc/datalab/advanced.html#script-de-lancement",
+    "href": "doc/datalab/advanced.html#script-de-lancement",
+    "title": "Usage avancé du Datalab",
+    "section": "1 Script de lancement",
+    "text": "1 Script de lancement"
   },
   {
-    "objectID": "doc/quarto/rstudio.html#ouvrir-le-service-rstudio",
-    "href": "doc/quarto/rstudio.html#ouvrir-le-service-rstudio",
-    "title": "Quarto avec Rstudio",
-    "section": "3 Ouvrir le service RStudio",
-    "text": "3 Ouvrir le service RStudio\nSi tout s’est bien passé, un clone local a été créé.\n\n\n\n\n\n\nTipDans le cas contraire\n\n\n\nIl faut créer manuellement en injectant le token\nDans un terminal :\n\ngit clone https://$GIT_PERSONAL_ACCESS_TOKEN@&lt;url-remote&gt;\n\nurl-remote: https://github.com/&lt;user-name&gt;/&lt;repository-name&gt;.git\n\n\n\n\nOuvrez un terminal :\n\nPositionnez-vous dans le dépôt\n\ncd &lt;repository-name&gt;\n\nVérifiez que vous êtes branchés sur le dépôt distant avec le token\n\ngit remote -v"
+    "objectID": "doc/datalab/advanced.html#image-docker",
+    "href": "doc/datalab/advanced.html#image-docker",
+    "title": "Usage avancé du Datalab",
+    "section": "2 Image Docker",
+    "text": "2 Image Docker"
   },
   {
-    "objectID": "doc/quarto/rstudio.html#créer-un-projet-quarto",
-    "href": "doc/quarto/rstudio.html#créer-un-projet-quarto",
-    "title": "Quarto avec Rstudio",
-    "section": "4 Créer un projet Quarto",
-    "text": "4 Créer un projet Quarto\nVous allez créer un projet Quarto qui va générer des pages html que vous pourrez ensuite déployer sur internet (i.e. créer un site internet).\n\nquarto create project\n\nType: website\n\n\nCette commande crée les fichiers indispensables pour tout projet Quarto :\n\n_quarto.yml : métadonnées pour décrire le projet, gérer le rendu et la barre de navigation\nindex.qmd : la page d’accueil du site qui sera généré\nstyle.css : pour gérer la mise en forme des pages html\n\nce fichier est obligatoire mais vous pouvez le laisser vide si vous n’en avez pas besoin\n\n\nComme vous êtes dans RStudio, un fichier .Rproj est également créé : il centralise les options RStudio du projet.\nIl y a également un fichier nommé about.qmd, qui permet de créer une page du même nom (optionnel, peut-être supprimé).\n\n4.1 Build and Preview\nVous avez un projet minimal avec deux pages. Demandons maintenant à Quarto de construire les pages html à partir de ces fichiers.\n\nModifiez le fichier *_quarto.yml, pour ajouter la partie preview* disant que la prévisualisation du site se fera en déployant sur l’url http://0.0.0.0:5000/ qui sera accessible depuis l’extérieur du service\n\n\n\n_quarto.yml\n\nproject:\n  type: website\n  preview:\n    host: 0.0.0.0\n    port: 5000\n\n\nquarto preview\nOuvrez la page de votre site Quarto\n\nRetournez sur le SSPCloud, puis cliquez sur Ouvrir votre service, puis sur le lien relié au port 5000\n\n\nLa fonctionnalité preview vous permet de rpaidement modifier et visualiser votre projet.\n\n\n4.2 Ajout de nouvelles pages\nNous allons maintenant créer de nouvelles pages pour notre site. Mais plutôt que de laisser trainer les fichiers à la racine du dépôt, rangeons-les dans un dossier :\n\nCréez un dossier doc\nDans ce dossier créer les fichiers pages1.qmd et dashboard.qmd\n\nSi vous voulez pouvoir ensuite accéder à ces pages depuis la page d’accueil du site, il peut être judicieux de les ajouter à la barre de navigation.\n\nModifiez la partie navbar du fichier *_quarto.yml* pour avoir des liens vers ces deux nouvelles pages\n\n\n\n4.3 Une page classique\nCommençons par éditer le fichier pages1.qmd qui contiendra un mix en texte et code R\nChaque fichier qmd commence par une entête au format yml pour décrire les propriétés de la page.\n---\ntitle: \"First page using R\"\ndescription: \"My description\"\nauthor: \"Your name\"\nformat:\n  html:\n    toc: true\n    toc-location: left\n    toc-expand: 3\nfrom: markdown+emoji\nnumber-sections: true\n---\nEn déclarant ces métadonnées, quarto générera :\n\nUne page au format html (nombreux autres formats possibles : pdf, doc, ppt…)\navec une table des matières positionnée à gauche\nle langage utilisé pour écrire le fichier sera markdown incluant les emojis\ndes sections numérotées\n\n\n\n\n\n\n\nTipMétadonnées\n\n\n\nVous remarquerez que le format de ces métadonnées (yaml) est le même que celui du fichier *_quarto.yml*.\nVous pouvez définir :\n\ndes métadonnées globales dans *_quarto.yml*\n\ni.e. qui s’appliquent à tous les fichiers .qmd du projet\n\ndes métadonnées locale (en entête des fichier .qmd) pour compléter et/ou supplanter les métadonnées globales\n\n\n\n\nInsérer l’entête de votre page\nCollez ensuite le contenu ci-dessous\nVérifier le rendu\n\nNous allons simuler 100 lancers d'une pièce à pile ou face.\n\n## Librairie utilisées\n\nUne bonne pratique est de lister au début toutes les librairies utilisées.\n\n```{r}\nlibrary(ggplot2)\n```\n\n\n## Simulation\n\n```{r}\nset.seed(1986)\n\nn &lt;- 100\np &lt;- 0.5\n\nX &lt;- rbinom(n, 1, prob = p)\n```\n\n\n## Stats desc\n\nQuelques statistiques descriptives sur les résultats obtenus.\n\n```{r}\nprop.table(table(X))\nmean(X)\nvar(X)\n```\n\nIl est aussi possible d'appeler du code en mode inline : la moyenne est de `r mean(X)`.\n\n## Un graph\n\nAjoutons ici une option `#| echo: false` pour ne pas afficher le code.\n\n```{r}\n#| echo: false\ndf &lt;- data.frame(X = factor(X))\n\nggplot(df, aes(x = X, fill = X)) +\n  geom_bar(width = 0.6) +\n  labs(\n    title = \"Simulation binomiale (n = 100, p = 0.5)\",\n    x = \"Valeur (0 = échec, 1 = succès)\",\n    y = \"Fréquence\"\n  ) +\n  theme_minimal()\n```\n\n\n4.4 Librairies et Reprodutibilité\nC’est trés bien de lister les librairies nécessaires, mais ce serait encore mieux d’avoir un outil pour les installer si elles ne sont pas là (et si possible dans la bonne version).\nC’est ici qu’entrent en jeu :\n\nDESCRIPTION : un fichier qui va lister les librairies utilisées dans le projet\nrenv : outil qui va permettre de facilement figer/installer les librairies dans les bonnes versions\n\n\n\nCréez à la racine du projet un fichier DESCRIPTION\n\nexemple ci-dessous\n\n\nPackage: quartotuto\nType: website\nTitle: Quarto tuto\nDescription: Used to declare R dependencies\nVersion: 1.0\nAuthors@R: c(\n    person(\"Ludovic\", \"DENEUVILLE\",role = c(\"aut\", \"cre\"), email = \"ludovic.deneuville@ensai.fr\"))\nURL: https://ludo2ne.github.io/Quarto-tuto\nLicense: MIT\nImports:\n    dplyr,\n    DT,\n    ggplot2,\n    leaflet,\n    lubridate,\n    rmarkdown,\n    stringr,\n    tidyverse,\n    tidygeocoder\nEncoding: UTF-8\n\nrenv::install()\n\nlit le fichier DESCRIPTION et installe les librairies\n\n\n\n\n4.5 Déploiement\nOn a un joli site, mais ce serait bien de le déployer sur internet.\nGitHub propose une fonctionnalité pour créer un site statique, pour cela :\n\nCréez à la racine du projet ces dossiers et ce fichier\n\n├── .github/\n│   └── workflows/\n│       └── ci.yml\nCe fichier va permettre de lister les étapes nécessaires pour déployer.\n\nCollez-y le contenu ci-dessous\n\n\n\n\"ci.yml\n\non:\n  workflow_dispatch:\n  push:\n    branches: main\n\nname: Quarto Publish\n\njobs:\n  build-deploy:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n    steps:\n      - name: Check out repository\n        uses: actions/checkout@v6\n\n      - name: Set up Quarto\n        uses: quarto-dev/quarto-actions/setup@v2\n\n      - name: Render and Publish\n        uses: quarto-dev/quarto-actions/publish@v2\n        with:\n          target: gh-pages\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n\nVous remarquerez que le déploiement se fait sur la branche git nommée gh_pages.\n\nSur la page du dépôt GitHub, créez cette branche\n\n\n\n\n\n\n\nImportant\n\n\n\nAvant d’envoyer notre code vers le dépôt distant, il faut s’assurer d’envoyer un dépôt propre.\nPar exemple, nous ne voulons pas envoyer les dossiers *_site* ou encore *_freeze* qui sont générés par Quarto et qu’il n’est pas nécessaire de versionner.\n\n\n\nAjoutez ces deux dosssiers au .gitignore\n\nVérifions que tout est ok avant d’envoyer vers le dépôt distant\n\ngit status\n\nvérifiez que seuls les fichiers utiles sont versionnés\n\ngit add .\ngit commit -m \"init repo\"\ngit push\n\n\n\n4.6 Un dashboard\n---\ntitle: \"Chess Analytics\" \nformat:\n  dashboard:\n    theme: pulse\n    orientation: columns\nfrom: markdown+emoji\nlightbox: true\n---\n\n```{r}}\n#| label: load-packages\nlibrary(DT)\nlibrary(leaflet)\nlibrary(lubridate)\nlibrary(tidyverse)\nlibrary(tidygeocoder)\n```\n\n```{r}\n#| label: load-data\ndf_raw &lt;- read_csv(\"data/chess_games.csv\")\n```\n\n```{r}\n#| label: prep-data\ndf &lt;- df_raw |&gt;\n  mutate(\n    result_simple = case_when(\n      result == \"1 - 0\" ~ \"White\",\n      result == \"0 - 1\" ~ \"Black\",\n      TRUE ~ \"Draw\"\n    )\n  )\n```\n\n## Column 1 {width=65%}\n\n### Colum 1.1 {height=40%}\n\n#### Top openings\n\n```{r}\n#| fig-width: 4\n#| fig-asp: 0.6\nopening_results &lt;- df |&gt;\n  count(opening, result_simple) |&gt;\n  group_by(opening) |&gt;\n  mutate(total = sum(n)) |&gt;\n  ungroup()\n\ntop_openings &lt;- opening_results |&gt;\n  distinct(opening, total) |&gt;\n  arrange(desc(total)) |&gt;\n  slice_head(n = 5)\n\nplot_data &lt;- opening_results |&gt;\n  filter(opening %in% top_openings$opening)\n\nggplot(plot_data, aes(x = reorder(opening, total), y = n, fill = result_simple)) +\n  geom_col(width = 0.7) +\n  geom_text(\n    aes(label = n),\n    position = position_stack(vjust = 0.5),\n    color = \"white\",\n    size = 3.5\n  ) +\n  coord_flip() +\n  scale_fill_manual(\n    values = c(\n      \"White\" = \"#6BAED6\",\n      \"Draw\"  = \"#2171B5\",\n      \"Black\" = \"#08306B\"\n    ),\n    breaks = c(\"White\", \"Draw\", \"Black\")\n  ) +\n  labs(\n    title = \"Top 5 Openings\",\n    x = \"\",\n    y = \"Game count\",\n    fill = \"Winner\"\n  ) +\n  theme_minimal() +\n  theme(\n    legend.position = \"top\",\n    plot.title = element_text(face = \"bold\"),\n    plot.margin = margin(5, 5, 5, 5)\n  ) +\n  guides(fill = guide_legend(nrow = 1))\n```\n\n\n#### Simple card\n\n::: {.card title=\"Games\" }\n`r nrow(df)` games played.\n:::\n\n\n\n### Top ten players winrate {height=60%}\n\n```{r}\n#| title: \"Top 10 players by win rate\"\nplayers &lt;- df |&gt;\n  mutate(\n    White_win = result_simple == \"White\",\n    Black_win = result_simple == \"Black\",\n    Draw = result_simple == \"Draw\"\n  ) |&gt;\n  pivot_longer(\n    cols = c(white, black),\n    names_to = \"color\",\n    values_to = \"player\"\n  ) |&gt;\n  mutate(\n    win = case_when(\n      color == \"white\" & result_simple == \"White\" ~ 1,\n      color == \"black\" & result_simple == \"Black\" ~ 1,\n      TRUE ~ 0\n    ),\n    loss = case_when(\n      color == \"white\" & result_simple == \"Black\" ~ 1,\n      color == \"black\" & result_simple == \"White\" ~ 1,\n      TRUE ~ 0\n    ),\n    Draw = if_else(result_simple == \"Draw\", 1, 0),\n    elo = if_else(color == \"white\", elo_white, elo_black)\n  )\n\nranking &lt;- players |&gt;\n  group_by(player) |&gt;\n  summarise(\n    elo = round(mean(elo, na.rm = TRUE)),\n    wins = sum(win),\n    losses = sum(loss),\n    Draws = sum(Draw),\n    total = n(),\n    winrate = round(wins / total, 2)\n  ) |&gt;\n  arrange(desc(winrate)) |&gt;\n  slice_head(n = 10)\n\ndatatable(ranking)\n```\n\n\n## Column 2 {width=35%}\n\n### Win rates {height=30%}\n\n```{r}\nwin_rates &lt;- df |&gt;\n  count(result_simple) |&gt;\n  mutate(pct = n / sum(n))\n```\n\n\n```{r}\n#| content: valuebox\n#| title: \"White\"\n#| icon: circle\n#| color: light\nlist(value=win_rates |&gt;\n  filter(result_simple == \"White\") |&gt;\n  pull(pct))\n```\n\n```{r}\n#| content: valuebox\n#| title: \"Black\"\n#| icon: circle-fill\n#| color: dark\nlist(value=win_rates |&gt;\n  filter(result_simple == \"Black\") |&gt;\n  pull(pct))\n```\n\n```{r}\n#| content: valuebox\n#| title: \"Draw\"\n#| icon: circle-half\n#| color: secondary\nlist(value=win_rates |&gt;\n  filter(result_simple == \"Draw\") |&gt;\n  pull(pct))\n```\n\n\n\n### Cities tournament map \n\n\n```{r}\n#| title: Cities tournament map\ncities &lt;- df |&gt;\n  filter(!is.na(city), city != \"NA\") |&gt;\n  distinct(city) |&gt;\n  geocode(city, method = \"osm\")\n\ndf_map &lt;- df |&gt;\n  left_join(cities, by = \"city\")\n\nleaflet(df_map) |&gt;\n  addTiles() |&gt;\n  addCircleMarkers(\n    lng = ~long,\n    lat = ~lat,\n    popup = ~city,\n    radius = 2\n  )\n```"
+    "objectID": "doc/datalab/advanced.html#secrets",
+    "href": "doc/datalab/advanced.html#secrets",
+    "title": "Usage avancé du Datalab",
+    "section": "3 Secrets",
+    "text": "3 Secrets"
   },
   {
-    "objectID": "doc/git/advanced.html",
-    "href": "doc/git/advanced.html",
-    "title": "Git - usages avancés",
+    "objectID": "doc/datalab/advanced.html#surveiller-son-service",
+    "href": "doc/datalab/advanced.html#surveiller-son-service",
+    "title": "Usage avancé du Datalab",
+    "section": "4 Surveiller son service",
+    "text": "4 Surveiller son service"
+  },
+  {
+    "objectID": "doc/datalab/lab.html",
+    "href": "doc/datalab/lab.html",
+    "title": "TP découverte du Datalab",
     "section": "",
-    "text": "Imaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.\nSeulement vous n’êtes pas encore sûr que :\n\ncette fonctionnalité sera vraiment utile 😐\nqu’elle ne va pas tout casser 😰\n\n\n\n\n\n\n\nNote\n\n\n\n\nsi c’est tout petit, vous pouvez dev en local en faire un reset au cas où\nsinon utilisez une branche\n\n\n\n\n\nVous aimeriez pouvoir :\n\ntester votre nouveau code\nde manière isolée\nsans polluer le dépôt\n\n\n\n\n\n\n\nNote\n\n\n\nLa branche principale se nomme généralement main ou master.\n\n\n\n\n\n\nCréez une branche\nDéveloppez sur cette branche (add, commit, push…)\nSelon vos conclusions\n\nfusionnez votre branche avec le tronc\nsupprimez votre branche\n\n\n\nça vous permet de coder de manière isolée\n\n\n\n\n\n\n\n\n\n\n\nCommande\nDescription\n\n\n\n\ngit branch -a\nLister toutes les branches\n\n\ngit switch &lt;branch&gt;\nChanger de branche\n\n\ngit switch -c &lt;branch&gt;\nCréer et changer de branche\n\n\ngit merge &lt;branch&gt;\nFusionner &lt;branch&gt; dans la branche actuelle\n\n\ngit branch -d &lt;branch&gt;\nSupprimer la branche\n\n\ngit push origin &lt;branch&gt;\nPousser la branche vers le dépôt distant"
+    "text": "https://github.com/ihiverlet/Ensai-1A-initiation-datalab"
   },
   {
-    "objectID": "doc/git/advanced.html#les-branches",
-    "href": "doc/git/advanced.html#les-branches",
-    "title": "Git - usages avancés",
+    "objectID": "doc/format/parquet.html",
+    "href": "doc/format/parquet.html",
+    "title": "Le format Parquet",
     "section": "",
-    "text": "Imaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.\nSeulement vous n’êtes pas encore sûr que :\n\ncette fonctionnalité sera vraiment utile 😐\nqu’elle ne va pas tout casser 😰\n\n\n\n\n\n\n\nNote\n\n\n\n\nsi c’est tout petit, vous pouvez dev en local en faire un reset au cas où\nsinon utilisez une branche\n\n\n\n\n\nVous aimeriez pouvoir :\n\ntester votre nouveau code\nde manière isolée\nsans polluer le dépôt\n\n\n\n\n\n\n\nNote\n\n\n\nLa branche principale se nomme généralement main ou master.\n\n\n\n\n\n\nCréez une branche\nDéveloppez sur cette branche (add, commit, push…)\nSelon vos conclusions\n\nfusionnez votre branche avec le tronc\nsupprimez votre branche\n\n\n\nça vous permet de coder de manière isolée\n\n\n\n\n\n\n\n\n\n\n\nCommande\nDescription\n\n\n\n\ngit branch -a\nLister toutes les branches\n\n\ngit switch &lt;branch&gt;\nChanger de branche\n\n\ngit switch -c &lt;branch&gt;\nCréer et changer de branche\n\n\ngit merge &lt;branch&gt;\nFusionner &lt;branch&gt; dans la branche actuelle\n\n\ngit branch -d &lt;branch&gt;\nSupprimer la branche\n\n\ngit push origin &lt;branch&gt;\nPousser la branche vers le dépôt distant"
+    "text": "🚧"
   },
   {
-    "objectID": "doc/git/advanced.html#gitflow",
-    "href": "doc/git/advanced.html#gitflow",
-    "title": "Git - usages avancés",
-    "section": "2 Gitflow",
-    "text": "2 Gitflow\n🚧"
+    "objectID": "doc/format/parquet.html#parquet",
+    "href": "doc/format/parquet.html#parquet",
+    "title": "Le format Parquet",
+    "section": "1 Parquet ?",
+    "text": "1 Parquet ?\nParquet est un format de stockage de données orienté colonne : les valeurs sont stockées colonne par colonne.\nCe n’est pas un format que l’on “écrit” à la main, mais un format que l’on génère via des outils de programmation (Python/Pandas, R, Spark, SQL).\nL’avantage majeur : Si vous avez un dataset de 100 colonnes mais que votre analyse ne porte que sur la colonne Age, un moteur de lecture (comme Pandas ou Spark) ne lira que les octets correspondant à la colonne Age. En CSV, vous seriez obligé de lire tout le fichier."
   },
   {
-    "objectID": "doc/git/advanced.html#pull-request",
-    "href": "doc/git/advanced.html#pull-request",
-    "title": "Git - usages avancés",
-    "section": "3 Pull request",
-    "text": "3 Pull request\n🚧"
+    "objectID": "doc/format/parquet.html#pourquoi-utiliser-parquet",
+    "href": "doc/format/parquet.html#pourquoi-utiliser-parquet",
+    "title": "Le format Parquet",
+    "section": "2 Pourquoi utiliser Parquet ?",
+    "text": "2 Pourquoi utiliser Parquet ?\nContrairement aux formats orientés lignes (CSV, JSON), Parquet est conçu pour les charges de travail analytiques (OLAP) où l’on lit rarement toute la table, mais seulement quelques colonnes.\nStocker les données par colonne permet :\n\nde ne lire que les colonnes utiles lors d’une requête (column pruning),\nd’appliquer des algorithmes de compression adaptés aux valeurs similaires,\nd’activer l’exécution vectorisée (SIMD) dans les moteurs modernes."
   },
   {
-    "objectID": "doc/git/advanced.html#open-source",
-    "href": "doc/git/advanced.html#open-source",
-    "title": "Git - usages avancés",
-    "section": "4 Open source",
-    "text": "4 Open source\n🚧\nPôle open source et communs numériques"
+    "objectID": "doc/format/parquet.html#comment-est-il-construit",
+    "href": "doc/format/parquet.html#comment-est-il-construit",
+    "title": "Le format Parquet",
+    "section": "3 Comment est-il construit ?",
+    "text": "3 Comment est-il construit ?\nParquet est un format binaire structuré hiérarchiquement :\n\n\n\n\n\n\n\nNiveau\nRôle\n\n\n\n\nFile\nContient le schéma et les métadonnées en début/fin de fichier\n\n\nRow Group\nBloc logique (~128 Mo à 1 Go) représentant un sous-ensemble de lignes\n\n\nColumn\nDonnées d’une même colonne stockées séquentiellement dans un Row Group\n\n\nPage\nUnité atomique de lecture/compression, contenant valeurs + en-têtes d’encodage\n\n\n\nChaque colonne utilise des encodages spécialisés (Dictionary, RLE, Delta, ByteStreamSplit) puis une compression par page (Snappy, GZIP, ZSTD). Les métadonnées incluent automatiquement les statistiques par Row Group (min, max, null count), permettant des optimisations comme le predicate pushdown."
+  },
+  {
+    "objectID": "doc/format/parquet.html#utilisation-typique",
+    "href": "doc/format/parquet.html#utilisation-typique",
+    "title": "Le format Parquet",
+    "section": "4 Utilisation typique",
+    "text": "4 Utilisation typique\n\nData Lakes : format natif de référence pour S3, ADLS, GCS\nMoteurs de calcul : Apache Spark, DuckDB, Pandas (pyarrow), Dask, Polars\nCouches de table moderne : Apache Iceberg, Delta Lake, Hudi (utilisent Parquet comme format physique)\nBI & Analytics : connexion native dans Tableau, Power BI, Metabase, Superset"
+  },
+  {
+    "objectID": "doc/format/parquet.html#avantages-inconvénients",
+    "href": "doc/format/parquet.html#avantages-inconvénients",
+    "title": "Le format Parquet",
+    "section": "5 Avantages & Inconvénients",
+    "text": "5 Avantages & Inconvénients\n\n\n\n\n\n\n\n✅ Avantages\n❌ Inconvénients\n\n\n\n\n📉 Compression 5 à 10x supérieure au CSV\n🔒 Écrase difficilement une ligne (design append-only)\n\n\n⚡ Lectures analytiques accélérées (vectorisées)\n🐢 Pas adapté à la lecture/écriture en mode transactionnel\n\n\n📐 Schéma strict & auto-descriptif\n🧩 Requiert des bibliothèques compatibles (PyArrow, Parquet-cpp, etc.)\n\n\n🌐 Interopérable (Python, R, Java, Scala, SQL…)\n📦 Fichier monolithique : difficile à modifier partiellement"
+  },
+  {
+    "objectID": "doc/format/csv.html",
+    "href": "doc/format/csv.html",
+    "title": "CSV",
+    "section": "",
+    "text": "🚧"
+  },
+  {
+    "objectID": "doc/format/csv.html#cest-quoi-un-csv",
+    "href": "doc/format/csv.html#cest-quoi-un-csv",
+    "title": "CSV",
+    "section": "1 C’est quoi un CSV ?",
+    "text": "1 C’est quoi un CSV ?\nCSV signifie Comma-Separated Values ➡️ Valeurs séparées par des virgules.\n\nLe concept : C’est un format de fichier texte très simple utilisé pour stocker des données tabulaires\nLa structure :\n\nChaque ligne du fichier correspond à une ligne du tableau.\nChaque colonne est séparée par un caractère spécial (le “délimiteur”).\n\nLe piège : Bien que le nom signifie “virgule”, le délimiteur peut être un point-virgule ; (très fréquent en Europe car la virgule sert aux décimales), une tabulation \\t ou un pipe |.\nAvantages : Léger, universel, lisible par n’importe quel éditeur de texte et très rapide à lire pour les machines."
+  },
+  {
+    "objectID": "doc/format/csv.html#charger-un-csv-en-r",
+    "href": "doc/format/csv.html#charger-un-csv-en-r",
+    "title": "CSV",
+    "section": "2 Charger un CSV en R",
+    "text": "2 Charger un CSV en R\nEn R, on utilise soit la fonction de base (read.csv), soit le package readr (plus moderne et rapide), soit data.table (pour les très gros fichiers).\n\n2.1 R base\n# Lecture standard (délimiteur virgule)\ndf &lt;- read.csv(\"data.csv\")\n\n# Lecture avec point-virgule (format européen courant)\ndf &lt;- read.csv2(\"data.csv\") \n\n# Options manuelles\ndf &lt;- read.csv(\"data.csv\", \n               sep = \";\",           # Spécifier le délimiteur\n               header = TRUE,       # La première ligne contient les noms de colonnes\n               dec = \",\",           # Utiliser la virgule pour les décimales\n               stringsAsFactors = F) # Empêcher la conversion automatique en facteurs\n\n\n2.2 Avec readr\nlibrary(readr)\n\ndf &lt;- read_csv(\"data.csv\")\ndf2 &lt;- read_delim(\"data.csv\", delim = \";\")"
+  },
+  {
+    "objectID": "doc/format/csv.html#charger-un-csv-en-python",
+    "href": "doc/format/csv.html#charger-un-csv-en-python",
+    "title": "CSV",
+    "section": "3 Charger un CSV en Python",
+    "text": "3 Charger un CSV en Python\n\n3.1 Avec le module natif csv\nUtile pour des scripts très légers où l’on ne veut pas installer Pandas.\nimport csv\n\nwith open('data.csv', mode='r', encoding='utf-8') as f:\n    reader = csv.reader(f, delimiter=';')\n    for row in reader:\n        print(row)\n\n\n3.2 Avec Pandas\nimport pandas as pd\n\n# Lecture standard (virgule)\ndf = pd.read_csv('data.csv')\n\n# Options courantes\ndf = pd.read_csv('data.csv', \n                 sep=';',            # Délimiteur (peut être ',', ';', '\\t', etc.)\n                 header=0,           # Utiliser la ligne 0 comme en-tête\n                 index_col='id',     # Définir une colonne comme index\n                 usecols=['A', 'B'], # Ne charger que certaines colonnes\n                 encoding='utf-8',    # Gérer l'encodage (ex: 'latin1' si erreur)\n                 nrows=100)          # Lire seulement les 100 premières lignes"
   },
   {
     "objectID": "doc/git/lab.html",
@@ -161,137 +336,25 @@
     "text": "Git sur la VM ENSAI\n\nOptionnel\n\nSi vous souhaitez gérer des dépôts locaux sur votre VM ENSAI, vous pouvez utiliser le paramétrage ci-dessous.\nLa communication avec GitHub se fera avec le protocole ssh\n\nConfiguration\n\n\nsetup-git.sh\n\ngit config --global user.name \"&lt;Prenom Nom&gt;\"\ngit config --global user.email &lt;prenom.nom&gt;@eleve.ensai.fr\ngit config --global credential.helper store\ngit config --global core.mergeoptions --no-edit\ngit config --global core.editor \"code -w\"\n\n\n\nCréation d’une clé SSH\nPour permettre de faire dialoguer notre dépôt local avec le dépôt distant de GitHub, vous utiliserez le protocole SSH. Pour cela, vous allez :\n\ngénérer une paire de clés (publique/privée) sur notre machine\ndéclarer votre clé publique à GitHub\n\n\n\n\n\n\n\nWarning\n\n\n\nCe paramètrage SSH est réalisé au niveau de la machine.\nSi par exemple, vous souhaitez utiliser Git sur votre ordinateur personnel, il faudra faire également ce paramétrage.\n\n\nDans Git Bash :\n\nCréez un dossier /c/Users/id????.ssh pour stocker votre clé ssh\n\nmkdir -p ~/.ssh\n\nCréez une clé SSH\n\nssh-keygen -t rsa -b 4096 -N '' -q -f ~/.ssh/id_rsa\n\nCopiez le contenu de la clé publique\n\ncat ~/.ssh/id_rsa.pub | clip\nc’est comme si vous copiez le contenu du fichier id_rsa.pub\n\n\nDéclarez votre clé publique à GitHub, pour pouvoir ensuite faire communiquer dépôts locaux avec les dépôts distants :\n\nGitHub &gt; cliquez sur votre avatar &gt; Settings &gt; SSH and GPG keys\n\nlien direct\n\nCliquez sur New SSH key\n\nTitle : VM ENSAI\nKey : Collez votre clé publique\nAdd SSH key\n\n\n\n\n\n\n\n\nNoteSSH : Comment ça marche ?\n\n\n\n\n\nSSH (Secure Shell) est un protocole permettant de se connecter à un autre ordinateur sur un réseau de manière sécurisée.\nSSH chiffre toutes les informations échangées afin de protéger les données.\nSSH utilise un mécanisme de clés cryptographiques pour authentifier les ordinateurs et les utilisateurs, garantissant que la connexion est effectuée avec le bon serveur et sans intervention malveillante :\n\nClé privée : C’est comme la clé de votre maison. Vous la gardez en sécurité avec vous et ne la partagez avec personne. Cette clé reste sur votre ordinateur et sert à prouver votre identité.\nClé publique : Elle serait comme votre adresse postale. Vous pouvez la partager avec d’autres. Dans SSH, vous placez votre clé publique sur les serveurs ou les ordinateurs auxquels vous souhaitez vous connecter.\n\nCes deux clés sont liées. Un message chiffré par la clé publique n’est déchiffrable que par celui qui posséde la clé privée. Lorsque vous chiffrez un message avec votre clé privée, vous prouvez à tous votre identité car chacun peut déchiffrer ce message avec la clé publique."
   },
   {
-    "objectID": "doc/language/python.html",
-    "href": "doc/language/python.html",
-    "title": "Python",
+    "objectID": "doc/git/glossary.html",
+    "href": "doc/git/glossary.html",
+    "title": "Glossaire",
     "section": "",
-    "text": "https://inseefrlab.github.io/formation-python-initiation/\nhttps://ludo2ne.github.io/ENSAI-2A-remise-a-niveau/doc/python/python-notebooks.html"
+    "text": "Terme\nSynonymes\nSignification\n\n\n\n\nGit\nOutil de versionnage\nLogiciel qui gère les versions et l’historique du code\n\n\nGitHub\nPlateforme Git\nService web pour héberger et collaborer sur des dépôts Git\n\n\nGit Bash\nTerminal\nTerminal pour lancer des commandes Git\n\n\nDépôt\nRepository, Repo\nDossier contenant un projet Git (code + historique)\n\n\nRemote\nDépôt distant\nDépôt hébergée sur un serveur (GitHub, GitLab…)\n\n\nLocal\nDépôt local, Clone\nCopie d’un Remote sur ordinateur, ton service\n\n\nCommit\nPoint de sauvegarde\nÉtat du projet à un instant donné\n\n\nPush\nEnvoyer\nTransmettre les commits locaux vers le dépôt remote\n\n\nPull\nRécupérer\nRamener les commits du remote vers le local et les fusionner"
   },
   {
-    "objectID": "doc/language/python.html#apprendre-le-langage",
-    "href": "doc/language/python.html#apprendre-le-langage",
-    "title": "Python",
+    "objectID": "doc/git/glossary.html#les-bases",
+    "href": "doc/git/glossary.html#les-bases",
+    "title": "Glossaire",
     "section": "",
-    "text": "https://inseefrlab.github.io/formation-python-initiation/\nhttps://ludo2ne.github.io/ENSAI-2A-remise-a-niveau/doc/python/python-notebooks.html"
+    "text": "Terme\nSynonymes\nSignification\n\n\n\n\nGit\nOutil de versionnage\nLogiciel qui gère les versions et l’historique du code\n\n\nGitHub\nPlateforme Git\nService web pour héberger et collaborer sur des dépôts Git\n\n\nGit Bash\nTerminal\nTerminal pour lancer des commandes Git\n\n\nDépôt\nRepository, Repo\nDossier contenant un projet Git (code + historique)\n\n\nRemote\nDépôt distant\nDépôt hébergée sur un serveur (GitHub, GitLab…)\n\n\nLocal\nDépôt local, Clone\nCopie d’un Remote sur ordinateur, ton service\n\n\nCommit\nPoint de sauvegarde\nÉtat du projet à un instant donné\n\n\nPush\nEnvoyer\nTransmettre les commits locaux vers le dépôt remote\n\n\nPull\nRécupérer\nRamener les commits du remote vers le local et les fusionner"
   },
   {
-    "objectID": "doc/language/python.html#glossaire",
-    "href": "doc/language/python.html#glossaire",
-    "title": "Python",
-    "section": "2 Glossaire",
-    "text": "2 Glossaire\n\n2.1 Packages\n\n\n\n\n\n\n\nTerme\nDéfinition\n\n\n\n\npip\nGestionnaire de paquets standard pour installer des bibliothèques\n\n\nvenv\nEnvironnements virtuels isolés pour installer des dépendances spécifiques à un projet\n\n\nuv\nGestionnaire de paquets et d’environnements ultra-rapide, remplaçant pip et venv\n\n\nruff\nLinter et formateur de code extrêmement rapide\n\n\npandas\nBibliothèque spécialisée dans la manipulation et l’analyse de données structurées\n\n\nnumpy\nBibliothèque fondamentale pour le calcul scientifique et la gestion de tableaux multidimensionnels\n\n\npytest\nPermet de lancer les tests unitaires\n\n\n\n\n\n2.2 IDE (Integrated Development Environment)\nUn IDE est un logiciel “tout-en-un” conçu pour faciliter le travail du développeur. Contrairement à un simple éditeur de texte (comme le Bloc-notes), il regroupe tous les outils nécessaires au cycle de vie du code :\n\nÉcriture intelligente : Autocomplétion, détection d’erreurs en temps réel (soulignement rouge).\nNavigation : Aller directement à la définition d’une fonction ou d’une variable.\nDébogage : Exécuter le code pas à pas pour voir comment les variables évoluent et trouver les bugs.\nAutomatisation : Lancer des tests, formater le code automatiquement, gérer les versions (Git).\nTerminal intégré : Exécuter des commandes (pip, uv, python script.py, git) sans quitter l’application.\n\nVisual Studio Code est un éditeur de texte léger que l’on transforme en IDE grâce à deux piliers :\n\nLes Extensions : Ce sont des modules que tu installes pour ajouter des super-pouvoirs.\n\nIndispensables pour Python : Python, Pylance (intelligence du code), Ruff (vitesse/formatage)\n\nLes Settings (Paramètres) : ils permettent de personnaliser l’éditeur (thèmes, taille de police)\n\n\n\n2.3 Programmation Orientée Objet\n\n\n\n\n\n\n\nTerme\nDéfinition\n\n\n\n\nClasse\nModèle utilisé pour définir la structure et le comportement d’un objet.\n\n\nObjet\nInstance concrète créée à partir d’une classe, possédant ses propres données et méthodes.\n\n\nself\nRéférence à l’instance de l’objet lui-même, utilisée pour accéder à ses attributs et méthodes.\n\n\nsuper()\nFonction permettant d’appeler une méthode de la classe parente (héritage).\n\n\nabstract\nConcept de classe ou méthode qui définit une interface obligatoire pour les sous-classes, sans implémentation propre."
-  },
-  {
-    "objectID": "doc/datalab/advanced.html",
-    "href": "doc/datalab/advanced.html",
-    "title": "Usage avancé du Datalab",
-    "section": "",
-    "text": "🚧"
-  },
-  {
-    "objectID": "doc/datalab/advanced.html#script-de-lancement",
-    "href": "doc/datalab/advanced.html#script-de-lancement",
-    "title": "Usage avancé du Datalab",
-    "section": "1 Script de lancement",
-    "text": "1 Script de lancement"
-  },
-  {
-    "objectID": "doc/datalab/advanced.html#image-docker",
-    "href": "doc/datalab/advanced.html#image-docker",
-    "title": "Usage avancé du Datalab",
-    "section": "2 Image Docker",
-    "text": "2 Image Docker"
-  },
-  {
-    "objectID": "doc/datalab/advanced.html#secrets",
-    "href": "doc/datalab/advanced.html#secrets",
-    "title": "Usage avancé du Datalab",
-    "section": "3 Secrets",
-    "text": "3 Secrets"
-  },
-  {
-    "objectID": "doc/datalab/advanced.html#surveiller-son-service",
-    "href": "doc/datalab/advanced.html#surveiller-son-service",
-    "title": "Usage avancé du Datalab",
-    "section": "4 Surveiller son service",
-    "text": "4 Surveiller son service"
-  },
-  {
-    "objectID": "doc/datalab/intro.html",
-    "href": "doc/datalab/intro.html",
-    "title": "Datalab SSPCloud",
-    "section": "",
-    "text": "https://github.com/ludo2ne/ENSAI-1A-SQL/blob/main/doc/outils/tp-datalab.qmd"
-  },
-  {
-    "objectID": "doc/datalab/intro.html#introduction",
-    "href": "doc/datalab/intro.html#introduction",
-    "title": "Datalab SSPCloud",
-    "section": "Introduction",
-    "text": "Introduction\nLe Datalab permet aux statisticiens de découvrir, d’expérimenter, d’apprendre, de se former aux outils de la data.\n\nPourquoi un Datalab ?\nDans le monde professionnel, plusieurs problèmes se posent au statisticien :\n\n🐢 sa machine n’est pas assez puissante\n⛔ installer certains logiciels est parfois interdit et bloqué par le système\n🔒 il doit analyser des données sensibles en toute sécurité\n\nÀ l’INSEE, un projet est né pour pallier à ce besoin : Onyxia porté par le lab de l’INSEE.\nLa première étape fut de créer une infrastructure Cloud avec des CPUs, des GPUs, de la RAM et du stockage.\nEnsuite, avoir plein de ressources c’est très bien, mais encore faut-il savoir les utiliser. Or lancer des services dans le cloud nécessite quelques compétences spécifiques (Docker, Kubernetes, Helm, S3…) qui ne sont pas à la portée de tous.\nD’où l’idée de créer une interface graphique pour pouvoir lancer des services en quelques clics. Onyxia s’appuie sur des technologies sous-jacentes (Kubernetes, Helm, S3…) pour proposer une IHM agréable pour le datascientist. Cependant, la philosophie du projet Onyxia est d’être une brique qui facilite le travail sans se rendre indispensable. L’idée est d’éviter que les utilisateurs ne s’enferment dans un choix technologique et qu’il soit couteux d’en sortir.\nÀ l’INSEE, une instance de ce logiciel a été installée sur le Datalab SSP Cloud, ouverte à tous les agents publics. Vous pouvez y créer un compte car c’est également ouvert à tous les élèves de l’ENSAI (en utilisant votre mail ENSAI).\n\n\n\n\n\n\nWarning\n\n\n\nNe déposez pas de données sensibles sur cette instance, ni sur celle du GENES.\nPour celles et ceux qui iront à l’INSEE, une autre instance nommée LS3 n’est accessible qu’en interne et autorise l’utilisation de données sensibles.\n\n\nOnyxia est un logiciel Libre et Open Source. Chacun peut installer sa propre instance sur son infra. C’est ce qu’ont fait de nombreux organismes, ainsi que le GENES.\n\n\n\nLes services\nLe principe est d’offrir aux utilisateurs la possibilité de lancer de nombreux services à la demande (Jupyter, Rstudio, VSCode, PostgreSQL…) avec une puissance de calcul adaptée aux besoins.\n\n\n\n\n\n\nCaution\n\n\n\nCes services sont éphémères, car si les ressources sont importantes, il faut savoir les partager !\nLe principe général est le suivant :\n\nVous lancez votre service en réservant des ressources (CPU, GPU, RAM, Stockage)\nVous effectuez votre travail\nVous sauvegardez votre code (git) et vos résultats (MinIO)\nVous supprimez votre service et libérez les ressources\n\n\n\n\n\n\n\n\n\nNoteCe qu’il se passe sous le capot\n\n\n\n\n\nPour plus de détails, vous pouvez consulter la vidéo en bas de la page.\nPrenons l’exemple de ce qu’il se passe en arrière plan lorsque vous lancez un service Vscode-python :\n\n0.0.1 Construction de l’image Docker\nUne image Docker est un paquet léger et autonome qui contient tout le nécessaire pour exécuter une application : le code, les bibliothèques, les dépendances, les variables d’environnement et les fichiers de configuration.\nLes images Docker permettent de créer des environnements isolés et cohérents, garantissant ainsi la portabilité et la reproductibilité des applications.\n\nNous partons de l’image de base d’Onyxia\n\nubuntu:22.04 et quelques éléments de config\n\nNous ajoutons la couche python-minimal\n\ninstallation de python et quelques packages classiques\n\nNous ajoutons la couche python-datascience\n\nJulia, Quarto et des packages de datascience (numpy, pandas…)\n\nNous ajoutons la couche vscode\n\nInstallation de Visual Studio Code et configuration\n\n\nVous avez maintenant une image Docker avec tout ce qu’il faut pour bien travailler.\n\n\n0.0.2 DockerHub\nCette image est construite et déposée sur DockerHub onyxia-vscode-python.\nNous allons ensuite lancer une instance de cette image : un conteneur.\nUne image est comme un moule, et un conteneur est un objet fabriqué à partir de ce moule. L’image contient les instructions, et le conteneur est l’instance concrète créée à partir de ce modèle. Vous verrez le même principe dans le cours de POO avec les classes (modèles) et les objets (instances)\nPour gérer tous les conteneurs lancés sur le datalab, nous avons besoin d’un orchestrateur : Kubernetes.\n\n\n0.0.3 Chart Helm\nCependant, nous allons d’abord utiliser Helm pour faciliter le déploiement.\nHelm simplifie le processus de déploiement d’applications sur Kubernetes en automatisant les tâches répétitives et en fournissant une gestion centralisée des configurations.\nLe chart Helm vscode-python est un ensemble de fichiers de configuration qui facilite le déploiement d’application dans un envrionnement Kubernetes.\n\n\n0.0.4 Déploiement sur Kube\nKubernetes (K8s) est un système open-source qui automatise le déploiement, la mise à l’échelle et la gestion d’applications conteneurisées. C’est un orchestrateur de conteneurs.\nK8s récupére via le chart Helm toutes les infos nécessaires et déploie le conteneur (créé à partir de l’image Docker) sur l’infra du datalab."
-  },
-  {
-    "objectID": "doc/datalab/intro.html#documentation",
-    "href": "doc/datalab/intro.html#documentation",
-    "title": "Datalab SSPCloud",
-    "section": "1 Documentation",
-    "text": "1 Documentation\n\nhttps://docs.sspcloud.fr/content/principles.html"
-  },
-  {
-    "objectID": "doc/datalab/lab.html",
-    "href": "doc/datalab/lab.html",
-    "title": "TP découverte du Datalab",
-    "section": "",
-    "text": "https://github.com/ihiverlet/Ensai-1A-initiation-datalab"
-  },
-  {
-    "objectID": "doc/format/json.html",
-    "href": "doc/format/json.html",
-    "title": "JSON",
-    "section": "",
-    "text": "JSON (JavaScript Object Notation) est un format de sérialisation de données textuel, léger et indépendant du langage.\nIl est aujourd’hui utilisé pour l’échange de données entre un client et un serveur. Il est à la fois :\n\nLisible par les humains\nLéger\nStructuré de manière hiérarchique\n\n\n\nvous rencontrerez le format JSON dans :\n\nFichiers de Configuration : De nombreux outils modernes utilisent le JSON pour stocker des réglages (ex: settings.json de Visual Studio Code).\nLes API REST : Lorsqu’une application demande des données à un serveur"
-  },
-  {
-    "objectID": "doc/format/json.html#introduction",
-    "href": "doc/format/json.html#introduction",
-    "title": "JSON",
-    "section": "",
-    "text": "JSON (JavaScript Object Notation) est un format de sérialisation de données textuel, léger et indépendant du langage.\nIl est aujourd’hui utilisé pour l’échange de données entre un client et un serveur. Il est à la fois :\n\nLisible par les humains\nLéger\nStructuré de manière hiérarchique\n\n\n\nvous rencontrerez le format JSON dans :\n\nFichiers de Configuration : De nombreux outils modernes utilisent le JSON pour stocker des réglages (ex: settings.json de Visual Studio Code).\nLes API REST : Lorsqu’une application demande des données à un serveur"
-  },
-  {
-    "objectID": "doc/format/json.html#syntaxe",
-    "href": "doc/format/json.html#syntaxe",
-    "title": "JSON",
-    "section": "2 Syntaxe",
-    "text": "2 Syntaxe\nUn fichier JSON repose sur deux structures de données fondamentales :\n\nL’Objet { } : Un ensemble de paires clé: valeur\nLe Tableau [ ] : Une liste ordonnée de valeurs\n\nLes types de données autorisés\n\nString : \"Texte\" (obligatoirement entre doubles guillemets)\nNumber : 20 ou 3.14\nBoolean : true ou false\nObject : { \"sous_cle\": \"valeur\" }\nArray : [1, 2, 3]\nNull : null\n\n\n2.1 Exemple\nVoici comment représenter des objets complexes :\n[\n  {\n    \"id\": 876,\n    \"nom\": \"Couvert\",\n    \"prenom\": \"Armelle\",\n    \"est_adulte\": true,\n    \"notes\": [15.5, 18, 12],\n    \"adresse\": {\n      \"ville\": \"Rennes\",\n      \"code_postal\": 35000\n    },\n    \"projets\": null\n  },\n  {\n    \"id\": 875,\n    \"nom\": \"Golo\",\n    \"prenom\": \"Thierry\"\n  }\n]\n\n\n\n\n\n\nNoteRemarque\n\n\n\nContrairement à un tableau SQL où chaque ligne doit respecter la même structure de colonnes, le JSON permet une structure hétérogène. Chaque objet peut posséder un nombre de propriétés différent."
-  },
-  {
-    "objectID": "doc/balisage/yaml.html",
-    "href": "doc/balisage/yaml.html",
-    "title": "YAML 101",
-    "section": "",
-    "text": "YAML est un acronyme récursif signifiant : YAML Ain’t Markup Language ➡️ YAML n’est pas un langage de balisage. Il est donc rangé logiquement dans la section Balisage 👍\nC’est un format de sérialisation de données lisible par l’homme, conçu pour être facile à lire et à écrire.\nIl est souvent utilisé pour la configuration des fichiers, le stockage de données, et les échanges de données entre langages de programmation."
-  },
-  {
-    "objectID": "doc/balisage/yaml.html#quest-ce-que-yaml",
-    "href": "doc/balisage/yaml.html#quest-ce-que-yaml",
-    "title": "YAML 101",
-    "section": "",
-    "text": "YAML est un acronyme récursif signifiant : YAML Ain’t Markup Language ➡️ YAML n’est pas un langage de balisage. Il est donc rangé logiquement dans la section Balisage 👍\nC’est un format de sérialisation de données lisible par l’homme, conçu pour être facile à lire et à écrire.\nIl est souvent utilisé pour la configuration des fichiers, le stockage de données, et les échanges de données entre langages de programmation."
-  },
-  {
-    "objectID": "doc/balisage/yaml.html#pourquoi-utiliser-yaml",
-    "href": "doc/balisage/yaml.html#pourquoi-utiliser-yaml",
-    "title": "YAML 101",
-    "section": "2 Pourquoi utiliser YAML ?",
-    "text": "2 Pourquoi utiliser YAML ?\n\nLisibilité\n\nYAML est conçu pour être lisible par l’homme. La syntaxe est simple et directe, sans beaucoup de ponctuations.\nLes indentations permettent une structure claire et hiérarchisée, semblable à celle des langages de programmation comme Python.\n\nFlexibilité\n\nYAML supporte des structures de données complexes comme les listes imbriquées et les dictionnaires.\nIl permet des alias et des ancres pour éviter la duplication de données, ce qui peut être utile pour des fichiers de configuration réutilisables.\n\nCompatibilité avec les autres formats\n\nYAML peut facilement être converti en JSON, et vice versa\n\nUsage dans DevOps\n\nYAML est largement utilisé dans les outils de gestion de configuration, les pipelines CI/CD, et les orchestrateurs de conteneurs"
-  },
-  {
-    "objectID": "doc/balisage/yaml.html#syntaxe",
-    "href": "doc/balisage/yaml.html#syntaxe",
-    "title": "YAML 101",
-    "section": "3 Syntaxe",
-    "text": "3 Syntaxe\nVoici quelques exemples de syntaxe avec son équivalent json\n\n3.1 Attributs\n\n\n\n\nyaml\n\nperson:\n  name: Alice             # str\n  city: \"Amiens\"          # str\n  age: 30                 # int\n  height: 1.75            # float\n  student: false          # bool\n  birth_date: 1994-05-15  # date\n\n\n\n\njson\n\n{\n  \"person\": {\n    \"name\": \"Alice\",\n    \"age\": 30,\n    \"height\": 1.75,\n    \"student\": false,\n    \"birth_date\": \"1994-05-15\"\n  }\n}\n\n\n\n\n\n3.2 Liste de valeurs\nPlusieurs possibilités pour déclarer des listes\n\n\n\n\nyaml\n\nhobbies: \n  - chess\n  - hiking\n  - landart\n\n--- # ou\n\nhobbies: [\"chess\", \"hiking\", \"landart\"]\n\n\n\n\njson\n\n{\n  \"hobbies\": [\n    \"chess\",\n    \"hiking\",\n    \"landart\"\n  ]\n}\n\n\n\nAutre exemple\n\n\n\n\nyaml\n\nservers:\n  - name: server1\n    ip: 192.168.1.1\n  - name: server2\n    ip: 192.168.1.2\n  - {name: \"server3\", ip: 192.168.1.3}\n\n\n\n\njson\n\n{\n  \"servers\": [\n    {\"name\": \"server1\", \"ip\": \"192.168.1.1\"},\n    {\"name\": \"server2\", \"ip\": \"192.168.1.2\"},\n    {\"name\": \"server3\", \"ip\": \"192.168.1.3\"}\n  ]\n}\n\n\n\n\n\n3.3 Ancre et alias\n\n\n\n\nyaml\n\nparent: &pere Bob\nchild:\n  - name: Eva\n    papa: *pere\n  - name: Laury\n    papa: *pere\n\n\n\n\njson\n\n{\n  \"parent\": \"Bob\",\n  \"child\": [\n    {\"name\": \"Eva\", \"parent\": \"Bob\"},\n    {\"name\": \"Laury\", \"parent\": \"Bob\"}\n  ]\n}\n\n\n\n\n\n3.4 Héritage\n\n\n\n\nyaml\n\ndefault: &default_settings\n  timeout: 30\n  retries: 5\n\nserver1:\n  &lt;&lt;: *default_settings\n  name: server1\n\nserver2:\n  &lt;&lt;: *default_settings\n  name: server2\n  retries: 3\n\n\n\n\njson\n\n{\n  \"default\": {\n    \"timeout\": 30,\n    \"retries\": 5\n  },\n  \"server1\": {\n    \"timeout\": 30,\n    \"retries\": 5,\n    \"name\": \"server1\"\n  },\n  \"server2\": {\n    \"timeout\": 30,\n    \"retries\": 3,\n    \"name\": \"server2\"\n  }\n}\n\n\n\n\n\n3.5 Long texte\n\n\nyaml\n\n\n# En conservant les retours à la ligne\nfable: |\n  Maître Corbeau, sur un arbre perché,\n  Tenait en son bec un fromage.\n  Maître Renard, par l'odeur alléché,\n  Lui tint à peu près ce langage :\n  \"Hé ! bonjour, Monsieur du Corbeau.\n  Que vous êtes joli ! que vous me semblez beau !\n  Sans mentir, si votre ramage\n  Se rapporte à votre plumage,\n  Vous êtes le Phénix des hôtes de ces bois.\"\n  À ces mots le Corbeau ne se sent pas de joie ;\n  Et pour montrer sa belle voix,\n  Il ouvre un large bec, laisse tomber sa proie.\n  Le Renard s'en saisit, et dit : \"Mon bon Monsieur,\n  Apprenez que tout flatteur\n  Vit aux dépens de celui qui l'écoute :\n  Cette leçon vaut bien un fromage, sans doute.\"\n  Le Corbeau honteux et confus\n  Jura, mais un peu tard, qu'on ne l'y prendrait plus.\n\n# En supprimant les retours à la ligne\nchoixpeau: &gt;\n  Les nouveaux élèves de Poudlard sont répartis en quatre maisons : Gryffondor\n  pour les courageux, Poufsouffle pour les travailleurs, Serdaigle pour les\n  intelligents, Serpentard pour les ambitieux. Le Choixpeau magique, qui \n  s'occupe de la répartition, hésite sur la meilleure maison pour Harry. \n  Comme Harry a entendu dire que les mages noirs venaient tous de Serpentard,\n  il demande à aller ailleurs, et le Choixpeau l'envoie à Gryffondor, avec \n  Ron et Hermione. Albus Dumbledore, le directeur, prévient les élèves qu’ils\n  ne doivent pas aller dans la Forêt interdite, ni dans le couloir du deuxième\n  étage."
+    "objectID": "doc/git/glossary.html#autres",
+    "href": "doc/git/glossary.html#autres",
+    "title": "Glossaire",
+    "section": "2 Autres",
+    "text": "2 Autres\n\n\n\n\n\n\n\n\nTerme\nSynonymes\nSignification\n\n\n\n\nBranche\nBranch\nLigne parallèle de développement dans un dépôt\n\n\nMain\nMaster\nBranche principale (tronc)\n\n\nMerge\nFusion\nAction de combiner une branche dans une autre\n\n\nFork\nCopier un remote\nCopier un remote sur son propre compte GitHub\n\n\nIssue\nTicket\nOutil pour signaler un bug, une tâche ou une discussion\n\n\nPull Request\nPR, Merge Request\nProposition d’intégrer des changements d’une branche vers une autre"
   },
   {
     "objectID": "index.html",
@@ -319,182 +382,7 @@
     "href": "index.html#quarto",
     "title": "Outils pour les élèves et enseignants de l’ENSAI",
     "section": "Quarto",
-    "text": "Quarto\n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\nQuarto\n\n\n \n\n\n\n\n\n\nQuarto avec Rstudio\n\n\n \n\n\n\n\n\n\nRapport de projet\n\n\n \n\n\n\n\n\n\nSite statique\n\n\n \n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "doc/balisage/markdown.html",
-    "href": "doc/balisage/markdown.html",
-    "title": "Mardown",
-    "section": "",
-    "text": "Markdown est un langage de balisage léger créé par John Gruber en 2004. Son objectif de simplifier l’écriture de texte destiné au web en permettant aux utilisateurs d’écrire en utilisant un format texte brut facile à lire et à écrire."
-  },
-  {
-    "objectID": "doc/balisage/markdown.html#quest-ce-que-markdown",
-    "href": "doc/balisage/markdown.html#quest-ce-que-markdown",
-    "title": "Mardown",
-    "section": "",
-    "text": "Markdown est un langage de balisage léger créé par John Gruber en 2004. Son objectif de simplifier l’écriture de texte destiné au web en permettant aux utilisateurs d’écrire en utilisant un format texte brut facile à lire et à écrire."
-  },
-  {
-    "objectID": "doc/balisage/markdown.html#pourquoi-utiliser-markdown",
-    "href": "doc/balisage/markdown.html#pourquoi-utiliser-markdown",
-    "title": "Mardown",
-    "section": "2 Pourquoi utiliser Markdown ?",
-    "text": "2 Pourquoi utiliser Markdown ?\nMarkdown a été conçu comme une alternative intuitive aux balisages plus complexes du HTML. Il s’est rapidement popularisé parmi les développeurs, les blogueurs et les rédacteurs pour sa simplicité et sa lisibilité.\n\n✅ Simplicité : Facile à apprendre et à utiliser, même si vous n’êtes pas familiers avec HTML\n✅ Lisibilité : Le texte brut en Markdown reste lisible même sans être converti en HTML\n✅ Portabilité : Les fichiers Markdown peuvent être convertis facilement en HTML, PDF…\n✅ Popularité : Supporté par de nombreuses plates-formes et outils de rédaction\n❌ Limitations : Markdown est conçu pour être simple, donc il ne supporte pas toutes les fonctionnalités avancées de mise en page"
-  },
-  {
-    "objectID": "doc/balisage/markdown.html#écrire-du-markdown",
-    "href": "doc/balisage/markdown.html#écrire-du-markdown",
-    "title": "Mardown",
-    "section": "3 Écrire du markdown",
-    "text": "3 Écrire du markdown\nLes fichiers markdown sont des fichiers texte qui ont pour extension .md.\nIl existe de très nombreux éditeurs de Markdown :\n\nen ligne, par exemple HackMd\nà installer sur sa machine, par exemple dans Visual Studio Code\n\nLes éditeurs présentent généralement deux sections cote à cote :\n\nune partie édition où l’on écrit le code\nune partie vue où l’on voit le résultat\n\n\n3.1 Exemples\nDe très nombreuses ressources existent pour apprendre en quelques minutes le langage, par exemple https://commonmark.org/help/\nQuelques exemples de mise en forme :\n\n\n\nCode Markdown\nRésultat\n\n\n\n\n**texte en gras**\ntexte en gras\n\n\n*texte en italique*\ntexte en italique\n\n\n[lien](https://example.com)\nlien\n\n\n![texte alternatif](image.jpg)\n\n\n\n`code en ligne`\ncode en ligne\n\n\n# Titre de niveau 1\n\n\n\n## Titre de niveau 2\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nCette page est elle-même écrite en Markdown ! (avec une surcouche)\nVous pouvez consulter le code en cliquant sur le bouton &lt;/&gt; Code en haut à droite.\n\n\nUn large choix d’emoji est également disponible en Markdown 😎"
-  },
-  {
-    "objectID": "doc/format/parquet.html",
-    "href": "doc/format/parquet.html",
-    "title": "Le format Parquet",
-    "section": "",
-    "text": "Contrairement aux formats orientés lignes (CSV, JSON), Parquet est conçu pour les charges de travail analytiques (OLAP) où l’on lit rarement toute la table, mais seulement quelques colonnes.\nStocker les données par colonne permet :\n\nde ne lire que les colonnes utiles lors d’une requête (column pruning),\nd’appliquer des algorithmes de compression adaptés aux valeurs similaires,\nd’activer l’exécution vectorisée (SIMD) dans les moteurs modernes."
-  },
-  {
-    "objectID": "doc/format/parquet.html#pourquoi-utiliser-parquet",
-    "href": "doc/format/parquet.html#pourquoi-utiliser-parquet",
-    "title": "Le format Parquet",
-    "section": "",
-    "text": "Contrairement aux formats orientés lignes (CSV, JSON), Parquet est conçu pour les charges de travail analytiques (OLAP) où l’on lit rarement toute la table, mais seulement quelques colonnes.\nStocker les données par colonne permet :\n\nde ne lire que les colonnes utiles lors d’une requête (column pruning),\nd’appliquer des algorithmes de compression adaptés aux valeurs similaires,\nd’activer l’exécution vectorisée (SIMD) dans les moteurs modernes."
-  },
-  {
-    "objectID": "doc/format/parquet.html#comment-est-il-construit",
-    "href": "doc/format/parquet.html#comment-est-il-construit",
-    "title": "Le format Parquet",
-    "section": "2 Comment est-il construit ?",
-    "text": "2 Comment est-il construit ?\nParquet est un format binaire structuré hiérarchiquement :\n\n\n\n\n\n\n\nNiveau\nRôle\n\n\n\n\nFile\nContient le schéma et les métadonnées en début/fin de fichier\n\n\nRow Group\nBloc logique (~128 Mo à 1 Go) représentant un sous-ensemble de lignes\n\n\nColumn\nDonnées d’une même colonne stockées séquentiellement dans un Row Group\n\n\nPage\nUnité atomique de lecture/compression, contenant valeurs + en-têtes d’encodage\n\n\n\nChaque colonne utilise des encodages spécialisés (Dictionary, RLE, Delta, ByteStreamSplit) puis une compression par page (Snappy, GZIP, ZSTD). Les métadonnées incluent automatiquement les statistiques par Row Group (min, max, null count), permettant des optimisations comme le predicate pushdown."
-  },
-  {
-    "objectID": "doc/format/parquet.html#utilisation-typique",
-    "href": "doc/format/parquet.html#utilisation-typique",
-    "title": "Le format Parquet",
-    "section": "3 Utilisation typique",
-    "text": "3 Utilisation typique\n\nData Lakes : format natif de référence pour S3, ADLS, GCS\nMoteurs de calcul : Apache Spark, DuckDB, Pandas (pyarrow), Dask, Polars\nCouches de table moderne : Apache Iceberg, Delta Lake, Hudi (utilisent Parquet comme format physique)\nBI & Analytics : connexion native dans Tableau, Power BI, Metabase, Superset"
-  },
-  {
-    "objectID": "doc/format/parquet.html#avantages-inconvénients",
-    "href": "doc/format/parquet.html#avantages-inconvénients",
-    "title": "Le format Parquet",
-    "section": "4 Avantages & Inconvénients",
-    "text": "4 Avantages & Inconvénients\n\n\n\n\n\n\n\n✅ Avantages\n❌ Inconvénients\n\n\n\n\n📉 Compression 5 à 10x supérieure au CSV\n🔒 Écrase difficilement une ligne (design append-only)\n\n\n⚡ Lectures analytiques accélérées (vectorisées)\n🐢 Pas adapté à la lecture/écriture en mode transactionnel\n\n\n📐 Schéma strict & auto-descriptif\n🧩 Requiert des bibliothèques compatibles (PyArrow, Parquet-cpp, etc.)\n\n\n🌐 Interopérable (Python, R, Java, Scala, SQL…)\n📦 Fichier monolithique : difficile à modifier partiellement"
-  },
-  {
-    "objectID": "doc/datalab/basics.html",
-    "href": "doc/datalab/basics.html",
-    "title": "Découverte du Datalab SSPCloud",
-    "section": "",
-    "text": "🚧"
-  },
-  {
-    "objectID": "doc/datalab/basics.html#lancer-un-service",
-    "href": "doc/datalab/basics.html#lancer-un-service",
-    "title": "Découverte du Datalab SSPCloud",
-    "section": "1 Lancer un service",
-    "text": "1 Lancer un service"
-  },
-  {
-    "objectID": "doc/datalab/basics.html#s3",
-    "href": "doc/datalab/basics.html#s3",
-    "title": "Découverte du Datalab SSPCloud",
-    "section": "2 S3",
-    "text": "2 S3"
-  },
-  {
-    "objectID": "doc/datalab/basics.html#git",
-    "href": "doc/datalab/basics.html#git",
-    "title": "Découverte du Datalab SSPCloud",
-    "section": "3 Git",
-    "text": "3 Git\n\n3.1 Créer et déclarer son Token\n\n\n3.2 Utiliser le Token\nhttps://github.com/ludo2ne/ENSAI-1A-SQL/blob/main/doc/outils/tp-datalab.qmd"
-  },
-  {
-    "objectID": "doc/datalab/vscode-python.html",
-    "href": "doc/datalab/vscode-python.html",
-    "title": "VSCode python",
-    "section": "",
-    "text": "🚧"
-  },
-  {
-    "objectID": "doc/datalab/vscode-python.html#ouverture-port",
-    "href": "doc/datalab/vscode-python.html#ouverture-port",
-    "title": "VSCode python",
-    "section": "1 Ouverture port",
-    "text": "1 Ouverture port"
-  },
-  {
-    "objectID": "doc/datalab/vscode-python.html#extensions",
-    "href": "doc/datalab/vscode-python.html#extensions",
-    "title": "VSCode python",
-    "section": "2 Extensions",
-    "text": "2 Extensions"
-  },
-  {
-    "objectID": "doc/datalab/vscode-python.html#assistant-ia",
-    "href": "doc/datalab/vscode-python.html#assistant-ia",
-    "title": "VSCode python",
-    "section": "3 Assistant IA",
-    "text": "3 Assistant IA"
-  },
-  {
-    "objectID": "doc/language/bash.html",
-    "href": "doc/language/bash.html",
-    "title": "Les commandes Bash",
-    "section": "",
-    "text": "Il y a peu, dans un monde proche — très proche — la ligne de commande était le principal moyen de communiquer avec un ordinateur. Pas de souris, pas de bureau avec des icônes : simplement un clavier et un terminal.\nAujourd’hui encore, dans de nombreux domaines de l’informatique, les instructions se donnent en ligne de commande. En effet, les interfaces graphiques sont souvent plus coûteuses à développer, plus lourdes et plus difficiles à maintenir.\nNous allons ici présenter quelques commandes simples, connues et utilisées par la majorité des informaticiens. Il existe plusieurs shells, sous Unix comme sous Windows. Nous nous intéresserons principalement au shell Bash sous Unix : Bash.\nEn tant que Data Scientist, on ne vous demandera pas de pirater la CIA avec une calculatrice Casio. En revanche, connaître les bases du terminal est un véritable must-have qui vous servira très souvent.\n\n\n\n\n\n\n\n\n\nTerme\nDéfinition\n\n\n\n\nTerminal\nInterface texte permettant d’interagir avec l’ordinateur\n\n\nLigne de commande\nTexte saisi par l’utilisateur pour demander une action\n\n\nShell\nProgramme qui interprète les commandes\n\n\nBash\nShell Unix très répandu\n\n\nScript\nFichier contenant plusieurs commandes automatisées\n\n\n\n\n\n\n\nVoici un premier exemple de terminal. Vous avez :\n\nle prompt : onyxia@vscode-python-413726-0:~/work/ENSAI-2A-projet-info-template$\n\nvous êtes connecté avec l’utilisateur onyxia\nsur la machine virutelle vscode-python-413726-0\nvous êtes positionné dans le dossier ~/work/ENSAI-2A-projet-info-template$\n~ est le dossier personnel de l’utilisateur\nil se termine par un $ (utilisateur normal, # pour root)\n\nà droite du prompt, vous pouvez écrire une commande\n\nici ls -l\nls pour lister les éléments du dossier courant\noption -l pour avoir un affichage détaillé\n\nen dessous, vous avez le résultat de la commande\n\nla liste des dossiers et fichiers\n\n\n\n\n\nLe terminal est une manière simple de donner des instructions à la machine.\n\n\n\n\n\nflowchart TD\n\n    U[Utilisateur]\n\n    %% CLI\n    U --&gt;|commande clavier| TERM[Terminal]\n    TERM --&gt; SHELL[Shell]\n    SHELL --&gt;|appels système| OS[OS]\n\n    %% GUI\n    U --&gt;|clic souris | GUI[Interface graphique]\n    GUI --&gt;|événements GUI| APP[Application]\n    APP --&gt;|appels système| OS\n\n    %% Hardware\n    OS --&gt; Matériel"
-  },
-  {
-    "objectID": "doc/language/bash.html#introduction",
-    "href": "doc/language/bash.html#introduction",
-    "title": "Les commandes Bash",
-    "section": "",
-    "text": "Il y a peu, dans un monde proche — très proche — la ligne de commande était le principal moyen de communiquer avec un ordinateur. Pas de souris, pas de bureau avec des icônes : simplement un clavier et un terminal.\nAujourd’hui encore, dans de nombreux domaines de l’informatique, les instructions se donnent en ligne de commande. En effet, les interfaces graphiques sont souvent plus coûteuses à développer, plus lourdes et plus difficiles à maintenir.\nNous allons ici présenter quelques commandes simples, connues et utilisées par la majorité des informaticiens. Il existe plusieurs shells, sous Unix comme sous Windows. Nous nous intéresserons principalement au shell Bash sous Unix : Bash.\nEn tant que Data Scientist, on ne vous demandera pas de pirater la CIA avec une calculatrice Casio. En revanche, connaître les bases du terminal est un véritable must-have qui vous servira très souvent.\n\n\n\n\n\n\n\n\n\nTerme\nDéfinition\n\n\n\n\nTerminal\nInterface texte permettant d’interagir avec l’ordinateur\n\n\nLigne de commande\nTexte saisi par l’utilisateur pour demander une action\n\n\nShell\nProgramme qui interprète les commandes\n\n\nBash\nShell Unix très répandu\n\n\nScript\nFichier contenant plusieurs commandes automatisées\n\n\n\n\n\n\n\nVoici un premier exemple de terminal. Vous avez :\n\nle prompt : onyxia@vscode-python-413726-0:~/work/ENSAI-2A-projet-info-template$\n\nvous êtes connecté avec l’utilisateur onyxia\nsur la machine virutelle vscode-python-413726-0\nvous êtes positionné dans le dossier ~/work/ENSAI-2A-projet-info-template$\n~ est le dossier personnel de l’utilisateur\nil se termine par un $ (utilisateur normal, # pour root)\n\nà droite du prompt, vous pouvez écrire une commande\n\nici ls -l\nls pour lister les éléments du dossier courant\noption -l pour avoir un affichage détaillé\n\nen dessous, vous avez le résultat de la commande\n\nla liste des dossiers et fichiers\n\n\n\n\n\nLe terminal est une manière simple de donner des instructions à la machine.\n\n\n\n\n\nflowchart TD\n\n    U[Utilisateur]\n\n    %% CLI\n    U --&gt;|commande clavier| TERM[Terminal]\n    TERM --&gt; SHELL[Shell]\n    SHELL --&gt;|appels système| OS[OS]\n\n    %% GUI\n    U --&gt;|clic souris | GUI[Interface graphique]\n    GUI --&gt;|événements GUI| APP[Application]\n    APP --&gt;|appels système| OS\n\n    %% Hardware\n    OS --&gt; Matériel"
-  },
-  {
-    "objectID": "doc/language/bash.html#principales-commandes",
-    "href": "doc/language/bash.html#principales-commandes",
-    "title": "Les commandes Bash",
-    "section": "2 Principales commandes",
-    "text": "2 Principales commandes\n\n\n\n\n\n\nCaution\n\n\n\n\n&lt;...&gt; : texte à remplacer\n[...] : élément optionnel\n\n\n\n\n\n\n\n\n\n\n\nCommande\nSignification\nDescription\n\n\n\n\npwd\nprint working directory\nAffiche le répertoire courant\n\n\ncd &lt;directory&gt;\nchange directory\nChange le répertoire de travail courant\n\n\nls (ou ll)\nlist\nListe les fichiers et dossiers\n\n\nmv &lt;src&gt; &lt;dest&gt;\nmove\nDéplace un fichier ou un répertoire\n\n\ncp &lt;src&gt; &lt;dest&gt;\ncopy\nCopie un fichier ou un répertoire\n\n\nmkdir &lt;directory&gt;\nmake directory\nCrée un nouveau répertoire\n\n\nrm [-r] &lt;file&gt;\nremove\nSupprime un fichier (-r pour répertoire)\n\n\ntouch &lt;file&gt;\n\nCrée un nouveau fichier vide\n\n\ncat &lt;file&gt;\nconcatenate\nAffiche le contenu d’un fichier\n\n\ngrep &lt;text&gt; &lt;file&gt;\nglobal regex print\nRechercher dans un fichier\n\n\n\n\n2.1 cd\ncd backend         # Aller dans le dossier backend\ncd backend/src     # Aller dans le dossier backend/src\ncd ..              # Aller dans le dossier parent\ncd /               # Aller à la racine de la machine\ncd ~               # Aller dans votre dossier personnel\n\n\n2.2 ls\nls                 # Afficher les fichiers du dossier courant\nls -l              # Affichage détaillé\nls -a              # Afficher les fichiers cachés\nls backend         # Afficher le contenu du dossier backend\nls *.py            # Afficher tous les fichiers Python\n\n\n\n\n\n\nTip\n\n\n\nSouvent la commande ll (alias de ls -al) est définie et permet d’avoir un affichage plus joli."
-  },
-  {
-    "objectID": "doc/language/bash.html#les-touches-magiques",
-    "href": "doc/language/bash.html#les-touches-magiques",
-    "title": "Les commandes Bash",
-    "section": "3 Les touches magiques",
-    "text": "3 Les touches magiques\n\n\n\n\n\n\nImportantLa plus utile\n\n\n\nLa touche Tabulation ⇄\n\nElle sert à faire de l’autocomplétion. Elle complète automatiquement les commandes.\ncd bac + TAB ➡️ cd backend\n\n\n\nAutres touches utiles :\n\nENTREE : Pour exécuter la commande\nCTRL + C : stopper la commande en cours\nDouble TAB : affiche toutes les possibilités\n\npratique si plusieurs dossiers commencent par bac\n\n↑ : Accéder à l’historique des commandes exécutées\n\n↓ : pour naviguer également dans l’historique\nhistory : historique des commandes exécutées\n\nCTRL + A : Début de ligne\n\nCTRL + ← (ou →) : Se déplacer de mot en mot\n\nMAJ + INSER : Coller\n\nou Clic Droit"
-  },
-  {
-    "objectID": "doc/language/bash.html#caractères-spéciaux",
-    "href": "doc/language/bash.html#caractères-spéciaux",
-    "title": "Les commandes Bash",
-    "section": "4 Caractères spéciaux",
-    "text": "4 Caractères spéciaux\n\n\n\n\n\n\n\n\n\nSymbole\nNom / idée\nSignification\nExemple\n\n\n\n\n.\ndossier courant\nreprésente le répertoire actuel\n./script.sh\n\n\n..\ndossier parent\nreprésente le dossier au-dessus\ncd ..\n\n\n~\nhome utilisateur\ndossier personnel de l’utilisateur\ncd ~\n\n\n/\nracine / séparateur\nsépare les dossiers dans un chemin\n/home/user\n\n\n*\nwildcard\nremplace n’importe quelle suite de caractères\nls *.py\n\n\n?\nwildcard simple\nremplace un seul caractère\nls file?.txt\n\n\n\n\n\n\n\n\n\nNoteAutres caractères spéciaux\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSymbole\nNom / idée\nSignification\nExemple\n\n\n\n\n-\noption\nintroduit une option de commande\nls -l\n\n\n--\noption longue\noption longue lisible\nls --help\n\n\n&gt;\nredirection\nécrit la sortie dans un fichier\nls &gt; fichiers.txt\n\n\n&gt;&gt;\najout\najoute à un fichier\necho test &gt;&gt; log.txt\n\n\n&lt;\nentrée\nlit depuis un fichier\npython &lt; script.py\n\n\n|\npipe\nenvoie la sortie vers une autre commande\ncat f.txt | grep erreur\n\n\n&\narrière-plan\nlance une commande en tâche de fond\npython app.py &\n\n\n&&\nET logique\nexécute la seconde commande si la première réussit\nmkdir test && cd test\n\n\n;\nséparateur\nenchaîne plusieurs commandes\npwd ; ls\n\n\n#\ncommentaire\ncommentaire dans un script shell\n# ceci est un commentaire\n\n\n$\nvariable shell\naccès à une variable\necho $HOME\n\n\n$?\ncode retour\nstatut de la dernière commande\necho $?\n\n\n!\nhistorique\nrappelle une commande précédente\n!!\n\n\n\"\nguillemets doubles\nprotège du découpage mais garde les variables\necho \"$HOME\"\n\n\n'\nguillemets simples\ntexte littéral\necho '$HOME'\n\n\n\\\néchappement\nneutralise un caractère spécial\nMes\\ Documents"
-  },
-  {
-    "objectID": "doc/language/bash.html#variables-denvironnement",
-    "href": "doc/language/bash.html#variables-denvironnement",
-    "title": "Les commandes Bash",
-    "section": "5 Variables d’environnement",
-    "text": "5 Variables d’environnement\nLes variables d’environnement sont des paires clé=valeur utilisées par le shell et les programmes.\nexport export MA_CLE=\"ma valeur\"  # Creer ou Modifier une variable dans le terminal courant\n\necho $MA_CLE                      # Afficher la valeur (vide si la cle n existe pas)\n\nenv                               # Lister toutes les variables\nenv | grep GIT                    # Liste des variables contenant GIT\nDans la dernière commande le pipe (|) permet d’envoyer la sortie de la commande env comme paramètre d’entrée de la commande grep.\n\nf(x) | g ➡️ traduit en langage matheux signifie : \\(g(f(x))\\)\n\nVariables courantes :\n\necho $HOME : dossier personnel de l’utilisateur\necho $PATH : liste des dossiers où Bash cherche les commandes"
-  },
-  {
-    "objectID": "doc/language/bash.html#scripts",
-    "href": "doc/language/bash.html#scripts",
-    "title": "Les commandes Bash",
-    "section": "6 Scripts",
-    "text": "6 Scripts\nIl est possible d’écrire un fichier qui va enchainer les commandes les unes après les autres.\n\n\nsetup.sh\n\nmkdir depots\ncd depots\ngit clone https://github.com/ludo2ne/ENSAI-2A-projet-info-template.git\ncd ENSAI-2A-projet-info-template\n\ncode-server .\n\nuv sync --project backend --all-extras\nuv sync --project frontend --all-extras\n\nPar exemple le script ci-dessus va :\n\ncréer un dossier depots, puis se postionner dedans\ncloner un repository et se positionner dedans\nouvrir VSCode dans le dossier courant\ninstaller les dépendances avec l’utilitaire uv\n\n\n6.1 Droit d’exécution\nImaginons que vous avez créé le fichier setup.sh ci-dessus, et que vous souhaitez le lancer.\nAvant cela il faut avoir le droit d’exéctuer le fichier.\nLa commande chmod +x &lt;filename&gt; autorise tout le monde a exécuter ce fichier.\n\n\n\n\n\n\nTipEn savoir un peu plus sur les droits\n\n\n\n\n\nCommencez par lister les fichiers d’un dossier avec ls -l.\nLa première colonne affiche une suite de 10 caractères, par exemple drwxr-xr--.\nLe premier caractère représente le type d’élément :\n\n- : Fichier\nd : Répertoire\nl : Lien symbolique\n\nLes 9 caractères suivants ➡️ Les permissions(divisées en 3 groupes de 3)\n\nrwx (les 2-4) : Droits du Propriétaire\nr-x (les 5-7) : Droits du Groupe\nr-- (les 8-10) : Droits des Autres\n\nLa signification des lettres : r, w, x\n\n\n\n\n\n\n\n\n\nLettre\nNom\nSur un Fichier\nSur un Dossier\n\n\n\n\nr\nRead\nLire le contenu du fichier.\nLister les fichiers du dossier (ls).\n\n\nw\nWrite\nModifier le contenu du fichier.\nCréer, supprimer ou renommer des fichiers dedans.\n\n\nx\nExecute\nLancer le fichier (ex: un script).\nEntrer dans le dossier (cd).\n\n\n\n\n\n\n\n\n6.2 Lancer le script\nSimplement avec ./&lt;filename.sh&gt;."
-  },
-  {
-    "objectID": "doc/language/bash.html#ressources",
-    "href": "doc/language/bash.html#ressources",
-    "title": "Les commandes Bash",
-    "section": "Ressources",
-    "text": "Ressources\n\nhttps://ensae-reproductibilite.github.io/website/chapters/linux101.html"
+    "text": "Quarto\n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\nMardown\n\n\n \n\n\n\n\n\n\nQuarto\n\n\n \n\n\n\n\n\n\nQuarto avec Rstudio\n\n\n \n\n\n\n\n\n\nRapport de projet\n\n\n \n\n\n\n\n\n\nSite statique\n\n\n \n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "doc/git/presentation-slides.html#introduction",
@@ -742,80 +630,241 @@
     "text": "Bibliographie\n\nGit : un élément essentiel au quotidien, Python pour la datascience, Lino Galiana\nFormation Git du Lab INSEE\nFormation Git du SSM Agriculture\nGitFlow\nDéveloppement basé sur le tronc"
   },
   {
-    "objectID": "doc/git/glossary.html",
-    "href": "doc/git/glossary.html",
-    "title": "Glossaire",
+    "objectID": "doc/git/advanced.html",
+    "href": "doc/git/advanced.html",
+    "title": "Git - usages avancés",
     "section": "",
-    "text": "Terme\nSynonymes\nSignification\n\n\n\n\nGit\nOutil de versionnage\nLogiciel qui gère les versions et l’historique du code\n\n\nGitHub\nPlateforme Git\nService web pour héberger et collaborer sur des dépôts Git\n\n\nGit Bash\nTerminal\nTerminal pour lancer des commandes Git\n\n\nDépôt\nRepository, Repo\nDossier contenant un projet Git (code + historique)\n\n\nRemote\nDépôt distant\nDépôt hébergée sur un serveur (GitHub, GitLab…)\n\n\nLocal\nDépôt local, Clone\nCopie d’un Remote sur ordinateur, ton service\n\n\nCommit\nPoint de sauvegarde\nÉtat du projet à un instant donné\n\n\nPush\nEnvoyer\nTransmettre les commits locaux vers le dépôt remote\n\n\nPull\nRécupérer\nRamener les commits du remote vers le local et les fusionner"
+    "text": "Imaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.\nSeulement vous n’êtes pas encore sûr que :\n\ncette fonctionnalité sera vraiment utile 😐\nqu’elle ne va pas tout casser 😰\n\n\n\n\n\n\n\nNote\n\n\n\n\nsi c’est tout petit, vous pouvez dev en local en faire un reset au cas où\nsinon utilisez une branche\n\n\n\n\n\nVous aimeriez pouvoir :\n\ntester votre nouveau code\nde manière isolée\nsans polluer le dépôt\n\n\n\n\n\n\n\nNote\n\n\n\nLa branche principale se nomme généralement main ou master.\n\n\n\n\n\n\nCréez une branche\nDéveloppez sur cette branche (add, commit, push…)\nSelon vos conclusions\n\nfusionnez votre branche avec le tronc\nsupprimez votre branche\n\n\n\nça vous permet de coder de manière isolée\n\n\n\n\n\n\n\n\n\n\n\nCommande\nDescription\n\n\n\n\ngit branch -a\nLister toutes les branches\n\n\ngit switch &lt;branch&gt;\nChanger de branche\n\n\ngit switch -c &lt;branch&gt;\nCréer et changer de branche\n\n\ngit merge &lt;branch&gt;\nFusionner &lt;branch&gt; dans la branche actuelle\n\n\ngit branch -d &lt;branch&gt;\nSupprimer la branche\n\n\ngit push origin &lt;branch&gt;\nPousser la branche vers le dépôt distant"
   },
   {
-    "objectID": "doc/git/glossary.html#les-bases",
-    "href": "doc/git/glossary.html#les-bases",
-    "title": "Glossaire",
+    "objectID": "doc/git/advanced.html#les-branches",
+    "href": "doc/git/advanced.html#les-branches",
+    "title": "Git - usages avancés",
     "section": "",
-    "text": "Terme\nSynonymes\nSignification\n\n\n\n\nGit\nOutil de versionnage\nLogiciel qui gère les versions et l’historique du code\n\n\nGitHub\nPlateforme Git\nService web pour héberger et collaborer sur des dépôts Git\n\n\nGit Bash\nTerminal\nTerminal pour lancer des commandes Git\n\n\nDépôt\nRepository, Repo\nDossier contenant un projet Git (code + historique)\n\n\nRemote\nDépôt distant\nDépôt hébergée sur un serveur (GitHub, GitLab…)\n\n\nLocal\nDépôt local, Clone\nCopie d’un Remote sur ordinateur, ton service\n\n\nCommit\nPoint de sauvegarde\nÉtat du projet à un instant donné\n\n\nPush\nEnvoyer\nTransmettre les commits locaux vers le dépôt remote\n\n\nPull\nRécupérer\nRamener les commits du remote vers le local et les fusionner"
+    "text": "Imaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.\nSeulement vous n’êtes pas encore sûr que :\n\ncette fonctionnalité sera vraiment utile 😐\nqu’elle ne va pas tout casser 😰\n\n\n\n\n\n\n\nNote\n\n\n\n\nsi c’est tout petit, vous pouvez dev en local en faire un reset au cas où\nsinon utilisez une branche\n\n\n\n\n\nVous aimeriez pouvoir :\n\ntester votre nouveau code\nde manière isolée\nsans polluer le dépôt\n\n\n\n\n\n\n\nNote\n\n\n\nLa branche principale se nomme généralement main ou master.\n\n\n\n\n\n\nCréez une branche\nDéveloppez sur cette branche (add, commit, push…)\nSelon vos conclusions\n\nfusionnez votre branche avec le tronc\nsupprimez votre branche\n\n\n\nça vous permet de coder de manière isolée\n\n\n\n\n\n\n\n\n\n\n\nCommande\nDescription\n\n\n\n\ngit branch -a\nLister toutes les branches\n\n\ngit switch &lt;branch&gt;\nChanger de branche\n\n\ngit switch -c &lt;branch&gt;\nCréer et changer de branche\n\n\ngit merge &lt;branch&gt;\nFusionner &lt;branch&gt; dans la branche actuelle\n\n\ngit branch -d &lt;branch&gt;\nSupprimer la branche\n\n\ngit push origin &lt;branch&gt;\nPousser la branche vers le dépôt distant"
   },
   {
-    "objectID": "doc/git/glossary.html#autres",
-    "href": "doc/git/glossary.html#autres",
-    "title": "Glossaire",
-    "section": "2 Autres",
-    "text": "2 Autres\n\n\n\n\n\n\n\n\nTerme\nSynonymes\nSignification\n\n\n\n\nBranche\nBranch\nLigne parallèle de développement dans un dépôt\n\n\nMain\nMaster\nBranche principale (tronc)\n\n\nMerge\nFusion\nAction de combiner une branche dans une autre\n\n\nFork\nCopier un remote\nCopier un remote sur son propre compte GitHub\n\n\nIssue\nTicket\nOutil pour signaler un bug, une tâche ou une discussion\n\n\nPull Request\nPR, Merge Request\nProposition d’intégrer des changements d’une branche vers une autre"
+    "objectID": "doc/git/advanced.html#gitflow",
+    "href": "doc/git/advanced.html#gitflow",
+    "title": "Git - usages avancés",
+    "section": "2 Gitflow",
+    "text": "2 Gitflow\n🚧"
   },
   {
-    "objectID": "doc/quarto/report.html",
-    "href": "doc/quarto/report.html",
-    "title": "Rapport de projet",
+    "objectID": "doc/git/advanced.html#pull-request",
+    "href": "doc/git/advanced.html#pull-request",
+    "title": "Git - usages avancés",
+    "section": "3 Pull request",
+    "text": "3 Pull request\n🚧"
+  },
+  {
+    "objectID": "doc/git/advanced.html#open-source",
+    "href": "doc/git/advanced.html#open-source",
+    "title": "Git - usages avancés",
+    "section": "4 Open source",
+    "text": "4 Open source\n🚧\nPôle open source et communs numériques"
+  },
+  {
+    "objectID": "doc/format/json.html",
+    "href": "doc/format/json.html",
+    "title": "JSON",
+    "section": "",
+    "text": "JSON (JavaScript Object Notation) est un format de sérialisation de données textuel, léger et indépendant du langage.\nIl est aujourd’hui utilisé pour l’échange de données entre un client et un serveur. Il est à la fois :\n\nLisible par les humains\nLéger\nStructuré de manière hiérarchique\n\n\n\nvous rencontrerez le format JSON dans :\n\nFichiers de Configuration : De nombreux outils modernes utilisent le JSON pour stocker des réglages (ex: settings.json de Visual Studio Code).\nLes API REST : Lorsqu’une application demande des données à un serveur"
+  },
+  {
+    "objectID": "doc/format/json.html#introduction",
+    "href": "doc/format/json.html#introduction",
+    "title": "JSON",
+    "section": "",
+    "text": "JSON (JavaScript Object Notation) est un format de sérialisation de données textuel, léger et indépendant du langage.\nIl est aujourd’hui utilisé pour l’échange de données entre un client et un serveur. Il est à la fois :\n\nLisible par les humains\nLéger\nStructuré de manière hiérarchique\n\n\n\nvous rencontrerez le format JSON dans :\n\nFichiers de Configuration : De nombreux outils modernes utilisent le JSON pour stocker des réglages (ex: settings.json de Visual Studio Code).\nLes API REST : Lorsqu’une application demande des données à un serveur"
+  },
+  {
+    "objectID": "doc/format/json.html#syntaxe",
+    "href": "doc/format/json.html#syntaxe",
+    "title": "JSON",
+    "section": "2 Syntaxe",
+    "text": "2 Syntaxe\nUn fichier JSON repose sur deux structures de données fondamentales :\n\nL’Objet { } : Un ensemble de paires clé: valeur\nLe Tableau [ ] : Une liste ordonnée de valeurs\n\nLes types de données autorisés\n\nString : \"Texte\" (obligatoirement entre doubles guillemets)\nNumber : 20 ou 3.14\nBoolean : true ou false\nObject : { \"sous_cle\": \"valeur\" }\nArray : [1, 2, 3]\nNull : null\n\n\n2.1 Exemple\nVoici comment représenter des objets complexes :\n[\n  {\n    \"id\": 876,\n    \"nom\": \"Couvert\",\n    \"prenom\": \"Armelle\",\n    \"est_adulte\": true,\n    \"notes\": [15.5, 18, 12],\n    \"adresse\": {\n      \"ville\": \"Rennes\",\n      \"code_postal\": 35000\n    },\n    \"projets\": null\n  },\n  {\n    \"id\": 875,\n    \"nom\": \"Golo\",\n    \"prenom\": \"Thierry\"\n  }\n]\n\n\n\n\n\n\nNoteRemarque\n\n\n\nContrairement à un tableau SQL où chaque ligne doit respecter la même structure de colonnes, le JSON permet une structure hétérogène. Chaque objet peut posséder un nombre de propriétés différent."
+  },
+  {
+    "objectID": "doc/format/yaml.html",
+    "href": "doc/format/yaml.html",
+    "title": "YAML 101",
     "section": "",
     "text": "🚧"
   },
   {
-    "objectID": "doc/quarto/report.html#introduction",
-    "href": "doc/quarto/report.html#introduction",
-    "title": "Rapport de projet",
-    "section": "1 Introduction",
-    "text": "1 Introduction\nNe pas utiliser tinytex mais typst : https://quarto.org/docs/output-formats/typst.html\nhttps://typst.app/\nhttps://github.com/InseeFrLab/jms2025-typst/blob/main/_extensions/jms2025/typst-template.typ"
+    "objectID": "doc/format/yaml.html#quest-ce-que-yaml",
+    "href": "doc/format/yaml.html#quest-ce-que-yaml",
+    "title": "YAML 101",
+    "section": "1 Qu’est-ce que YAML ?",
+    "text": "1 Qu’est-ce que YAML ?\nYAML est un acronyme récursif signifiant : YAML Ain’t Markup Language permet de stocker de la donnée structurée.\nC’est un format facile à lire et à écrire pour les humain. Il n’y a pas de balises, sa syntaxe est basée sur l’indentation.\nIl est souvent utilisé pour la configuration des fichiers, le stockage de données, et les échanges de données entre langages de programmation."
   },
   {
-    "objectID": "doc/quarto/report.html#première-partie",
-    "href": "doc/quarto/report.html#première-partie",
-    "title": "Rapport de projet",
-    "section": "2 Première partie",
-    "text": "2 Première partie\nBonjour\n\n2.1 Première sous-partie\n\n\n\n\n\n\nTip\n\n\n\nUne petite astuce\n\n\n\n2.1.1 première sous-sous-partie\nSELECT *\n  FROM user\n WHERE 1 = 1\n\n\n\n2.2 Deuxième sous-partie\n\nPaper-based exam\nDuration: 1h30\n1 handwritten A4 sheet (front and back) allowed\nNo calculator\n\n\n\n2.3 Troisème sous-partie\n\n\n\n\n\n\n\n\n\n\nModifier\nSame Class\nSame Package\nSubclasses\nEverywhere\n\n\n\n\npublic\n✅\n✅\n✅\n✅\n\n\nprotected\n✅\n✅\n✅\n❌\n\n\ndefault (no modifier)\n✅\n✅\n❌\n❌\n\n\nprivate\n✅\n❌\n❌\n❌"
+    "objectID": "doc/format/yaml.html#pourquoi-utiliser-yaml",
+    "href": "doc/format/yaml.html#pourquoi-utiliser-yaml",
+    "title": "YAML 101",
+    "section": "2 Pourquoi utiliser YAML ?",
+    "text": "2 Pourquoi utiliser YAML ?\n\nLisibilité\n\nYAML est conçu pour être lisible par l’homme. La syntaxe est simple et directe, sans beaucoup de ponctuations.\nLes indentations permettent une structure claire et hiérarchisée, semblable à celle des langages de programmation comme Python.\n\nFlexibilité\n\nYAML supporte des structures de données complexes comme les listes imbriquées et les dictionnaires.\nIl permet des alias et des ancres pour éviter la duplication de données, ce qui peut être utile pour des fichiers de configuration réutilisables.\n\nCompatibilité avec les autres formats\n\nYAML peut facilement être converti en JSON, et vice versa\n\nUsage dans DevOps\n\nYAML est largement utilisé dans les outils de gestion de configuration, les pipelines CI/CD, et les orchestrateurs de conteneurs"
   },
   {
-    "objectID": "doc/quarto/report.html#deuxième-partie",
-    "href": "doc/quarto/report.html#deuxième-partie",
-    "title": "Rapport de projet",
-    "section": "3 Deuxième partie",
-    "text": "3 Deuxième partie\n\ncitation"
+    "objectID": "doc/format/yaml.html#syntaxe",
+    "href": "doc/format/yaml.html#syntaxe",
+    "title": "YAML 101",
+    "section": "3 Syntaxe",
+    "text": "3 Syntaxe\nVoici quelques exemples de syntaxe avec son équivalent json.\n\n3.1 Les types de base (Attributs)\nTout commence par l’assignation de valeurs à des clés.\n\n\n\n\nyaml\n\nperson:\n  name: Alice             # str\n  city: \"Amiens\"          # str\n  age: 30                 # int\n  height: 1.75            # float\n  student: false          # bool\n  birth_date: 1994-05-15  # date\n\n\n\n\njson\n\n{\n  \"person\": {\n    \"name\": \"Alice\",\n    \"age\": 30,\n    \"height\": 1.75,\n    \"student\": false,\n    \"birth_date\": \"1994-05-15\"\n  }\n}\n\n\n\n\n\n3.2 Liste de valeurs\nUne structure de données peut contenir une séquence d’éléments. En YAML, nous avons deux façons de déclarer une liste : le mode “bloc” (plus lisible) ou le mode “flux” (plus compact, identique au JSON).\n\n\n\n\nyaml\n\nhobbies: \n  - chess\n  - hiking\n  - landart\n\n--- # ou\n\nhobbies: [\"chess\", \"hiking\", \"landart\"]\n\n\n\n\njson\n\n{\n  \"hobbies\": [\n    \"chess\",\n    \"hiking\",\n    \"landart\"\n  ]\n}\n\n\n\nOn peut également imbriquer des dictionnaires à l’intérieur de listes, ce qui est très courant pour représenter des tables de données ou des objets complexes.\n\n\n\n\nyaml\n\nservers:\n  - name: server1\n    ip: 192.168.1.1\n  - name: server2\n    ip: 192.168.1.2\n  - {name: \"server3\", ip: 192.168.1.3}\n\n\n\n\njson\n\n{\n  \"servers\": [\n    {\"name\": \"server1\", \"ip\": \"192.168.1.1\"},\n    {\"name\": \"server2\", \"ip\": \"192.168.1.2\"},\n    {\"name\": \"server3\", \"ip\": \"192.168.1.3\"}\n  ]\n}\n\n\n\n\n\n3.3 Ancre et alias\nL’un des grands avantages de YAML sur JSON est sa capacité à gérer la redondance. Si une donnée est répétée plusieurs fois, on peut définir une ancre (&) pour la nommer, et un alias (*) pour l’appeler.\n\n\n\n\nyaml\n\nparent: &pere Bob\nchild:\n  - name: Eva\n    papa: *pere\n  - name: Laury\n    papa: *pere\n\n\n\n\njson\n\n{\n  \"parent\": \"Bob\",\n  \"child\": [\n    {\"name\": \"Eva\", \"parent\": \"Bob\"},\n    {\"name\": \"Laury\", \"parent\": \"Bob\"}\n  ]\n}\n\n\n\n\n\n3.4 Héritage\nL’opérateur &lt;&lt; permet de créer un template de base et de ne modifier que les paramètres spécifiques pour chaque instance.\n\n\n\n\nyaml\n\ndefault: &default_settings\n  timeout: 30\n  retries: 5\n\nserver1:\n  &lt;&lt;: *default_settings\n  name: server1\n\nserver2:\n  &lt;&lt;: *default_settings\n  name: server2\n  retries: 3\n\n\n\n\njson\n\n{\n  \"default\": {\n    \"timeout\": 30,\n    \"retries\": 5\n  },\n  \"server1\": {\n    \"timeout\": 30,\n    \"retries\": 5,\n    \"name\": \"server1\"\n  },\n  \"server2\": {\n    \"timeout\": 30,\n    \"retries\": 3,\n    \"name\": \"server2\"\n  }\n}\n\n\n\n\n\n3.5 Texte multi-lignes\nQuand il s’agit de stocker de longs blocs de texte (descriptions, requêtes SQL, scripts, poèmes), YAML propose deux opérateurs très utiles pour gérer les retours à la ligne de manière explicite.\n\nLe pipe | : préserve les retours à la ligne.\nLe chevron &gt; : transforme les retours à la ligne en espaces (pour faire un seul gros bloc).\n\n\n\nyaml\n\n# En conservant les retours à la ligne\nfable: |\n  Maître Corbeau, sur un arbre perché,\n  Tenait en son bec un fromage.\n  Maître Renard, par l'odeur alléché,\n  Lui tint à peu près ce langage :\n  \"Hé ! bonjour, Monsieur du Corbeau.\n  Que vous êtes joli ! que vous me semblez beau !\n  Sans mentir, si votre ramage\n  Se rapporte à votre plumage,\n  Vous êtes le Phénix des hôtes de ces bois.\"\n  À ces mots le Corbeau ne se sent pas de joie ;\n  Et pour montrer sa belle voix,\n  Il ouvre un large bec, laisse tomber sa proie.\n  Le Renard s'en saisit, et dit : \"Mon bon Monsieur,\n  Apprenez que tout flatteur\n  Vit aux dépens de celui qui l'écoute :\n  Cette leçon vaut bien un fromage, sans doute.\"\n  Le Corbeau honteux et confus\n  Jura, mais un peu tard, qu'on ne l'y prendrait plus.\n\n# En supprimant les retours à la ligne\nchoixpeau: &gt;\n  Les nouveaux élèves de Poudlard sont répartis en quatre maisons : Gryffondor\n  pour les courageux, Poufsouffle pour les travailleurs, Serdaigle pour les\n  intelligents, Serpentard pour les ambitieux. Le Choixpeau magique, qui \n  s'occupe de la répartition, hésite sur la meilleure maison pour Harry. \n  Comme Harry a entendu dire que les mages noirs venaient tous de Serpentard,\n  il demande à aller ailleurs, et le Choixpeau l'envoie à Gryffondor, avec \n  Ron et Hermione. Albus Dumbledore, le directeur, prévient les élèves qu’ils\n  ne doivent pas aller dans la Forêt interdite, ni dans le couloir du deuxième\n  étage."
   },
   {
-    "objectID": "doc/quarto/report.html#bibliographie",
-    "href": "doc/quarto/report.html#bibliographie",
-    "title": "Rapport de projet",
-    "section": "Bibliographie",
-    "text": "Bibliographie\nUse bib file"
+    "objectID": "doc/datalab/intro.html",
+    "href": "doc/datalab/intro.html",
+    "title": "Datalab SSPCloud",
+    "section": "",
+    "text": "https://github.com/ludo2ne/ENSAI-1A-SQL/blob/main/doc/outils/tp-datalab.qmd"
   },
   {
-    "objectID": "doc/quarto/basics.html",
-    "href": "doc/quarto/basics.html",
+    "objectID": "doc/datalab/intro.html#introduction",
+    "href": "doc/datalab/intro.html#introduction",
+    "title": "Datalab SSPCloud",
+    "section": "Introduction",
+    "text": "Introduction\nLe Datalab permet aux statisticiens de découvrir, d’expérimenter, d’apprendre, de se former aux outils de la data.\n\nPourquoi un Datalab ?\nDans le monde professionnel, plusieurs problèmes se posent au statisticien :\n\n🐢 sa machine n’est pas assez puissante\n⛔ installer certains logiciels est parfois interdit et bloqué par le système\n🔒 il doit analyser des données sensibles en toute sécurité\n\nÀ l’INSEE, un projet est né pour pallier à ce besoin : Onyxia porté par le lab de l’INSEE.\nLa première étape fut de créer une infrastructure Cloud avec des CPUs, des GPUs, de la RAM et du stockage.\nEnsuite, avoir plein de ressources c’est très bien, mais encore faut-il savoir les utiliser. Or lancer des services dans le cloud nécessite quelques compétences spécifiques (Docker, Kubernetes, Helm, S3…) qui ne sont pas à la portée de tous.\nD’où l’idée de créer une interface graphique pour pouvoir lancer des services en quelques clics. Onyxia s’appuie sur des technologies sous-jacentes (Kubernetes, Helm, S3…) pour proposer une IHM agréable pour le datascientist. Cependant, la philosophie du projet Onyxia est d’être une brique qui facilite le travail sans se rendre indispensable. L’idée est d’éviter que les utilisateurs ne s’enferment dans un choix technologique et qu’il soit couteux d’en sortir.\nÀ l’INSEE, une instance de ce logiciel a été installée sur le Datalab SSP Cloud, ouverte à tous les agents publics. Vous pouvez y créer un compte car c’est également ouvert à tous les élèves de l’ENSAI (en utilisant votre mail ENSAI).\n\n\n\n\n\n\nWarning\n\n\n\nNe déposez pas de données sensibles sur cette instance, ni sur celle du GENES.\nPour celles et ceux qui iront à l’INSEE, une autre instance nommée LS3 n’est accessible qu’en interne et autorise l’utilisation de données sensibles.\n\n\nOnyxia est un logiciel Libre et Open Source. Chacun peut installer sa propre instance sur son infra. C’est ce qu’ont fait de nombreux organismes, ainsi que le GENES.\n\n\n\nLes services\nLe principe est d’offrir aux utilisateurs la possibilité de lancer de nombreux services à la demande (Jupyter, Rstudio, VSCode, PostgreSQL…) avec une puissance de calcul adaptée aux besoins.\n\n\n\n\n\n\nCaution\n\n\n\nCes services sont éphémères, car si les ressources sont importantes, il faut savoir les partager !\nLe principe général est le suivant :\n\nVous lancez votre service en réservant des ressources (CPU, GPU, RAM, Stockage)\nVous effectuez votre travail\nVous sauvegardez votre code (git) et vos résultats (MinIO)\nVous supprimez votre service et libérez les ressources\n\n\n\n\n\n\n\n\n\nNoteCe qu’il se passe sous le capot\n\n\n\n\n\nPour plus de détails, vous pouvez consulter la vidéo en bas de la page.\nPrenons l’exemple de ce qu’il se passe en arrière plan lorsque vous lancez un service Vscode-python :\n\n0.0.1 Construction de l’image Docker\nUne image Docker est un paquet léger et autonome qui contient tout le nécessaire pour exécuter une application : le code, les bibliothèques, les dépendances, les variables d’environnement et les fichiers de configuration.\nLes images Docker permettent de créer des environnements isolés et cohérents, garantissant ainsi la portabilité et la reproductibilité des applications.\n\nNous partons de l’image de base d’Onyxia\n\nubuntu:22.04 et quelques éléments de config\n\nNous ajoutons la couche python-minimal\n\ninstallation de python et quelques packages classiques\n\nNous ajoutons la couche python-datascience\n\nJulia, Quarto et des packages de datascience (numpy, pandas…)\n\nNous ajoutons la couche vscode\n\nInstallation de Visual Studio Code et configuration\n\n\nVous avez maintenant une image Docker avec tout ce qu’il faut pour bien travailler.\n\n\n0.0.2 DockerHub\nCette image est construite et déposée sur DockerHub onyxia-vscode-python.\nNous allons ensuite lancer une instance de cette image : un conteneur.\nUne image est comme un moule, et un conteneur est un objet fabriqué à partir de ce moule. L’image contient les instructions, et le conteneur est l’instance concrète créée à partir de ce modèle. Vous verrez le même principe dans le cours de POO avec les classes (modèles) et les objets (instances)\nPour gérer tous les conteneurs lancés sur le datalab, nous avons besoin d’un orchestrateur : Kubernetes.\n\n\n0.0.3 Chart Helm\nCependant, nous allons d’abord utiliser Helm pour faciliter le déploiement.\nHelm simplifie le processus de déploiement d’applications sur Kubernetes en automatisant les tâches répétitives et en fournissant une gestion centralisée des configurations.\nLe chart Helm vscode-python est un ensemble de fichiers de configuration qui facilite le déploiement d’application dans un envrionnement Kubernetes.\n\n\n0.0.4 Déploiement sur Kube\nKubernetes (K8s) est un système open-source qui automatise le déploiement, la mise à l’échelle et la gestion d’applications conteneurisées. C’est un orchestrateur de conteneurs.\nK8s récupére via le chart Helm toutes les infos nécessaires et déploie le conteneur (créé à partir de l’image Docker) sur l’infra du datalab."
+  },
+  {
+    "objectID": "doc/datalab/intro.html#documentation",
+    "href": "doc/datalab/intro.html#documentation",
+    "title": "Datalab SSPCloud",
+    "section": "1 Documentation",
+    "text": "1 Documentation\n\nhttps://docs.sspcloud.fr/content/principles.html"
+  },
+  {
+    "objectID": "doc/datalab/basics.html",
+    "href": "doc/datalab/basics.html",
+    "title": "Découverte du Datalab SSPCloud",
+    "section": "",
+    "text": "🚧"
+  },
+  {
+    "objectID": "doc/datalab/basics.html#lancer-un-service",
+    "href": "doc/datalab/basics.html#lancer-un-service",
+    "title": "Découverte du Datalab SSPCloud",
+    "section": "1 Lancer un service",
+    "text": "1 Lancer un service"
+  },
+  {
+    "objectID": "doc/datalab/basics.html#s3",
+    "href": "doc/datalab/basics.html#s3",
+    "title": "Découverte du Datalab SSPCloud",
+    "section": "2 S3",
+    "text": "2 S3"
+  },
+  {
+    "objectID": "doc/datalab/basics.html#git",
+    "href": "doc/datalab/basics.html#git",
+    "title": "Découverte du Datalab SSPCloud",
+    "section": "3 Git",
+    "text": "3 Git\n\n3.1 Créer et déclarer son Token\n\n\n3.2 Utiliser le Token\nhttps://github.com/ludo2ne/ENSAI-1A-SQL/blob/main/doc/outils/tp-datalab.qmd"
+  },
+  {
+    "objectID": "doc/quarto/rstudio.html",
+    "href": "doc/quarto/rstudio.html",
+    "title": "Quarto avec Rstudio",
+    "section": "",
+    "text": "Connectez-vous à GitHub\nVérifiez que vous avez un token actif\nCréer un nouveau Repository\n\nPublic ➡️ obligatoire si vous voulez ensuite déployer un site Quarto\nCochez Add README\n\nCopiez l’url https du dépôt\n\n\n\n\n\n\n\nTipSi vous n’avez pas de token actif\n\n\n\n\n\n\nGenerate a new classic token\n\nFill in:\n\ntoken name: SSPCloud\nexpiration date ➡️ Custom ➡️ 31 July\n\n✅ Tick repo and workflow boxes\nClick on Generate token\n\nCopy the token starting with ghp_ and keep it safe for a few minutes\nOnce you’re logged in to SSPCloud, go to My Account &gt; Settings &gt; Git and paste it there"
+  },
+  {
+    "objectID": "doc/quarto/rstudio.html#créer-un-dépôt-distant",
+    "href": "doc/quarto/rstudio.html#créer-un-dépôt-distant",
+    "title": "Quarto avec Rstudio",
+    "section": "",
+    "text": "Connectez-vous à GitHub\nVérifiez que vous avez un token actif\nCréer un nouveau Repository\n\nPublic ➡️ obligatoire si vous voulez ensuite déployer un site Quarto\nCochez Add README\n\nCopiez l’url https du dépôt\n\n\n\n\n\n\n\nTipSi vous n’avez pas de token actif\n\n\n\n\n\n\nGenerate a new classic token\n\nFill in:\n\ntoken name: SSPCloud\nexpiration date ➡️ Custom ➡️ 31 July\n\n✅ Tick repo and workflow boxes\nClick on Generate token\n\nCopy the token starting with ghp_ and keep it safe for a few minutes\nOnce you’re logged in to SSPCloud, go to My Account &gt; Settings &gt; Git and paste it there"
+  },
+  {
+    "objectID": "doc/quarto/rstudio.html#lancer-le-service-rstudio",
+    "href": "doc/quarto/rstudio.html#lancer-le-service-rstudio",
+    "title": "Quarto avec Rstudio",
+    "section": "2 Lancer le service RStudio",
+    "text": "2 Lancer le service RStudio\n\nConnectez-vous au SSPCloud\nDans le catalogue, cliquez une fois sur Lancer pour le service RStudio\n\nIl y a quelques paramètrages à faire avant de lancer définitivement:\n\nOnglet Git\n\nCollez Repository url\nVérifiez que vous avez un token renseigné\n\nOnglet Network access\n\nCliquez sur Enable access to your service through specific ports\nPort numbers to expose: 5000\n\nLancez\n\n\n\n\n\n\n\nTipÀ quoi ça sert ?\n\n\n\nEn renseignant l’url du dépôt Git, celui-ci sera automatiquement cloné dans RStudio en y injectant le token. Ainsi vous pourrez communiquer aisément avec le dépôt distant (GitHub) sans avoir besoin de vous authentifier (i.e. sans avoir à renseigner identifiant et mot de passe GitHub à chaque push).\nL’ouverture du port 5000 va permettre de diffuser au monde extérieur les pages générées par Quarto. Si ce n’était pas fait, les pages html générées par Quarto ne seraient accessible que lorsque vous êtes connecté au service RStudio"
+  },
+  {
+    "objectID": "doc/quarto/rstudio.html#ouvrir-le-service-rstudio",
+    "href": "doc/quarto/rstudio.html#ouvrir-le-service-rstudio",
+    "title": "Quarto avec Rstudio",
+    "section": "3 Ouvrir le service RStudio",
+    "text": "3 Ouvrir le service RStudio\nSi tout s’est bien passé, un clone local a été créé.\n\n\n\n\n\n\nTipDans le cas contraire\n\n\n\nIl faut créer manuellement en injectant le token\nDans un terminal :\n\ngit clone https://$GIT_PERSONAL_ACCESS_TOKEN@&lt;url-remote&gt;\n\nurl-remote: https://github.com/&lt;user-name&gt;/&lt;repository-name&gt;.git\n\n\n\n\nOuvrez un terminal :\n\nPositionnez-vous dans le dépôt\n\ncd &lt;repository-name&gt;\n\nVérifiez que vous êtes branchés sur le dépôt distant avec le token\n\ngit remote -v"
+  },
+  {
+    "objectID": "doc/quarto/rstudio.html#créer-un-projet-quarto",
+    "href": "doc/quarto/rstudio.html#créer-un-projet-quarto",
+    "title": "Quarto avec Rstudio",
+    "section": "4 Créer un projet Quarto",
+    "text": "4 Créer un projet Quarto\nVous allez créer un projet Quarto qui va générer des pages html que vous pourrez ensuite déployer sur internet (i.e. créer un site internet).\n\nquarto create project\n\nType: website\n\n\nCette commande crée les fichiers indispensables pour tout projet Quarto :\n\n_quarto.yml : métadonnées pour décrire le projet, gérer le rendu et la barre de navigation\nindex.qmd : la page d’accueil du site qui sera généré\nstyle.css : pour gérer la mise en forme des pages html\n\nce fichier est obligatoire mais vous pouvez le laisser vide si vous n’en avez pas besoin\n\n\nComme vous êtes dans RStudio, un fichier .Rproj est également créé : il centralise les options RStudio du projet.\nIl y a également un fichier nommé about.qmd, qui permet de créer une page du même nom (optionnel, peut-être supprimé).\n\n4.1 Build and Preview\nVous avez un projet minimal avec deux pages. Demandons maintenant à Quarto de construire les pages html à partir de ces fichiers.\n\nModifiez le fichier *_quarto.yml, pour ajouter la partie preview* disant que la prévisualisation du site se fera en déployant sur l’url http://0.0.0.0:5000/ qui sera accessible depuis l’extérieur du service\n\n\n\n_quarto.yml\n\nproject:\n  type: website\n  preview:\n    host: 0.0.0.0\n    port: 5000\n\n\nquarto preview\nOuvrez la page de votre site Quarto\n\nRetournez sur le SSPCloud, puis cliquez sur Ouvrir votre service, puis sur le lien relié au port 5000\n\n\nLa fonctionnalité preview vous permet de rpaidement modifier et visualiser votre projet.\n\n\n4.2 Ajout de nouvelles pages\nNous allons maintenant créer de nouvelles pages pour notre site. Mais plutôt que de laisser trainer les fichiers à la racine du dépôt, rangeons-les dans un dossier :\n\nCréez un dossier doc\nDans ce dossier créer les fichiers pages1.qmd et dashboard.qmd\n\nSi vous voulez pouvoir ensuite accéder à ces pages depuis la page d’accueil du site, il peut être judicieux de les ajouter à la barre de navigation.\n\nModifiez la partie navbar du fichier *_quarto.yml* pour avoir des liens vers ces deux nouvelles pages\n\n\n\n4.3 Une page classique\nCommençons par éditer le fichier pages1.qmd qui contiendra un mix en texte et code R\nChaque fichier qmd commence par une entête au format yml pour décrire les propriétés de la page.\n---\ntitle: \"First page using R\"\ndescription: \"My description\"\nauthor: \"Your name\"\nformat:\n  html:\n    toc: true\n    toc-location: left\n    toc-expand: 3\nfrom: markdown+emoji\nnumber-sections: true\n---\nEn déclarant ces métadonnées, quarto générera :\n\nUne page au format html (nombreux autres formats possibles : pdf, doc, ppt…)\navec une table des matières positionnée à gauche\nle langage utilisé pour écrire le fichier sera markdown incluant les emojis\ndes sections numérotées\n\n\n\n\n\n\n\nTipMétadonnées\n\n\n\nVous remarquerez que le format de ces métadonnées (yaml) est le même que celui du fichier *_quarto.yml*.\nVous pouvez définir :\n\ndes métadonnées globales dans *_quarto.yml*\n\ni.e. qui s’appliquent à tous les fichiers .qmd du projet\n\ndes métadonnées locale (en entête des fichier .qmd) pour compléter et/ou supplanter les métadonnées globales\n\n\n\n\nInsérer l’entête de votre page\nCollez ensuite le contenu ci-dessous\nVérifier le rendu\n\nNous allons simuler 100 lancers d'une pièce à pile ou face.\n\n## Librairie utilisées\n\nUne bonne pratique est de lister au début toutes les librairies utilisées.\n\n```{r}\nlibrary(ggplot2)\n```\n\n\n## Simulation\n\n```{r}\nset.seed(1986)\n\nn &lt;- 100\np &lt;- 0.5\n\nX &lt;- rbinom(n, 1, prob = p)\n```\n\n\n## Stats desc\n\nQuelques statistiques descriptives sur les résultats obtenus.\n\n```{r}\nprop.table(table(X))\nmean(X)\nvar(X)\n```\n\nIl est aussi possible d'appeler du code en mode inline : la moyenne est de `r mean(X)`.\n\n## Un graph\n\nAjoutons ici une option `#| echo: false` pour ne pas afficher le code.\n\n```{r}\n#| echo: false\ndf &lt;- data.frame(X = factor(X))\n\nggplot(df, aes(x = X, fill = X)) +\n  geom_bar(width = 0.6) +\n  labs(\n    title = \"Simulation binomiale (n = 100, p = 0.5)\",\n    x = \"Valeur (0 = échec, 1 = succès)\",\n    y = \"Fréquence\"\n  ) +\n  theme_minimal()\n```\n\n\n4.4 Librairies et Reprodutibilité\nC’est trés bien de lister les librairies nécessaires, mais ce serait encore mieux d’avoir un outil pour les installer si elles ne sont pas là (et si possible dans la bonne version).\nC’est ici qu’entrent en jeu :\n\nDESCRIPTION : un fichier qui va lister les librairies utilisées dans le projet\nrenv : outil qui va permettre de facilement figer/installer les librairies dans les bonnes versions\n\n\n\nCréez à la racine du projet un fichier DESCRIPTION\n\nexemple ci-dessous\n\n\nPackage: quartotuto\nType: website\nTitle: Quarto tuto\nDescription: Used to declare R dependencies\nVersion: 1.0\nAuthors@R: c(\n    person(\"Ludovic\", \"DENEUVILLE\",role = c(\"aut\", \"cre\"), email = \"ludovic.deneuville@ensai.fr\"))\nURL: https://ludo2ne.github.io/Quarto-tuto\nLicense: MIT\nImports:\n    dplyr,\n    DT,\n    ggplot2,\n    leaflet,\n    lubridate,\n    rmarkdown,\n    stringr,\n    tidyverse,\n    tidygeocoder\nEncoding: UTF-8\n\nrenv::install()\n\nlit le fichier DESCRIPTION et installe les librairies\n\n\n\n\n4.5 Déploiement\nOn a un joli site, mais ce serait bien de le déployer sur internet.\nGitHub propose une fonctionnalité pour créer un site statique, pour cela :\n\nCréez à la racine du projet ces dossiers et ce fichier\n\n├── .github/\n│   └── workflows/\n│       └── ci.yml\nCe fichier va permettre de lister les étapes nécessaires pour déployer.\n\nCollez-y le contenu ci-dessous\n\n\n\n\"ci.yml\n\non:\n  workflow_dispatch:\n  push:\n    branches: main\n\nname: Quarto Publish\n\njobs:\n  build-deploy:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n    steps:\n      - name: Check out repository\n        uses: actions/checkout@v6\n\n      - name: Set up Quarto\n        uses: quarto-dev/quarto-actions/setup@v2\n\n      - name: Render and Publish\n        uses: quarto-dev/quarto-actions/publish@v2\n        with:\n          target: gh-pages\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n\nVous remarquerez que le déploiement se fait sur la branche git nommée gh_pages.\n\nSur la page du dépôt GitHub, créez cette branche\n\n\n\n\n\n\n\nImportant\n\n\n\nAvant d’envoyer notre code vers le dépôt distant, il faut s’assurer d’envoyer un dépôt propre.\nPar exemple, nous ne voulons pas envoyer les dossiers *_site* ou encore *_freeze* qui sont générés par Quarto et qu’il n’est pas nécessaire de versionner.\n\n\n\nAjoutez ces deux dosssiers au .gitignore\n\nVérifions que tout est ok avant d’envoyer vers le dépôt distant\n\ngit status\n\nvérifiez que seuls les fichiers utiles sont versionnés\n\ngit add .\ngit commit -m \"init repo\"\ngit push\n\n\n\n4.6 Un dashboard\n---\ntitle: \"Chess Analytics\" \nformat:\n  dashboard:\n    theme: pulse\n    orientation: columns\nfrom: markdown+emoji\nlightbox: true\n---\n\n```{r}}\n#| label: load-packages\nlibrary(DT)\nlibrary(leaflet)\nlibrary(lubridate)\nlibrary(tidyverse)\nlibrary(tidygeocoder)\n```\n\n```{r}\n#| label: load-data\ndf_raw &lt;- read_csv(\"data/chess_games.csv\")\n```\n\n```{r}\n#| label: prep-data\ndf &lt;- df_raw |&gt;\n  mutate(\n    result_simple = case_when(\n      result == \"1 - 0\" ~ \"White\",\n      result == \"0 - 1\" ~ \"Black\",\n      TRUE ~ \"Draw\"\n    )\n  )\n```\n\n## Column 1 {width=65%}\n\n### Colum 1.1 {height=40%}\n\n#### Top openings\n\n```{r}\n#| fig-width: 4\n#| fig-asp: 0.6\nopening_results &lt;- df |&gt;\n  count(opening, result_simple) |&gt;\n  group_by(opening) |&gt;\n  mutate(total = sum(n)) |&gt;\n  ungroup()\n\ntop_openings &lt;- opening_results |&gt;\n  distinct(opening, total) |&gt;\n  arrange(desc(total)) |&gt;\n  slice_head(n = 5)\n\nplot_data &lt;- opening_results |&gt;\n  filter(opening %in% top_openings$opening)\n\nggplot(plot_data, aes(x = reorder(opening, total), y = n, fill = result_simple)) +\n  geom_col(width = 0.7) +\n  geom_text(\n    aes(label = n),\n    position = position_stack(vjust = 0.5),\n    color = \"white\",\n    size = 3.5\n  ) +\n  coord_flip() +\n  scale_fill_manual(\n    values = c(\n      \"White\" = \"#6BAED6\",\n      \"Draw\"  = \"#2171B5\",\n      \"Black\" = \"#08306B\"\n    ),\n    breaks = c(\"White\", \"Draw\", \"Black\")\n  ) +\n  labs(\n    title = \"Top 5 Openings\",\n    x = \"\",\n    y = \"Game count\",\n    fill = \"Winner\"\n  ) +\n  theme_minimal() +\n  theme(\n    legend.position = \"top\",\n    plot.title = element_text(face = \"bold\"),\n    plot.margin = margin(5, 5, 5, 5)\n  ) +\n  guides(fill = guide_legend(nrow = 1))\n```\n\n\n#### Simple card\n\n::: {.card title=\"Games\" }\n`r nrow(df)` games played.\n:::\n\n\n\n### Top ten players winrate {height=60%}\n\n```{r}\n#| title: \"Top 10 players by win rate\"\nplayers &lt;- df |&gt;\n  mutate(\n    White_win = result_simple == \"White\",\n    Black_win = result_simple == \"Black\",\n    Draw = result_simple == \"Draw\"\n  ) |&gt;\n  pivot_longer(\n    cols = c(white, black),\n    names_to = \"color\",\n    values_to = \"player\"\n  ) |&gt;\n  mutate(\n    win = case_when(\n      color == \"white\" & result_simple == \"White\" ~ 1,\n      color == \"black\" & result_simple == \"Black\" ~ 1,\n      TRUE ~ 0\n    ),\n    loss = case_when(\n      color == \"white\" & result_simple == \"Black\" ~ 1,\n      color == \"black\" & result_simple == \"White\" ~ 1,\n      TRUE ~ 0\n    ),\n    Draw = if_else(result_simple == \"Draw\", 1, 0),\n    elo = if_else(color == \"white\", elo_white, elo_black)\n  )\n\nranking &lt;- players |&gt;\n  group_by(player) |&gt;\n  summarise(\n    elo = round(mean(elo, na.rm = TRUE)),\n    wins = sum(win),\n    losses = sum(loss),\n    Draws = sum(Draw),\n    total = n(),\n    winrate = round(wins / total, 2)\n  ) |&gt;\n  arrange(desc(winrate)) |&gt;\n  slice_head(n = 10)\n\ndatatable(ranking)\n```\n\n\n## Column 2 {width=35%}\n\n### Win rates {height=30%}\n\n```{r}\nwin_rates &lt;- df |&gt;\n  count(result_simple) |&gt;\n  mutate(pct = n / sum(n))\n```\n\n\n```{r}\n#| content: valuebox\n#| title: \"White\"\n#| icon: circle\n#| color: light\nlist(value=win_rates |&gt;\n  filter(result_simple == \"White\") |&gt;\n  pull(pct))\n```\n\n```{r}\n#| content: valuebox\n#| title: \"Black\"\n#| icon: circle-fill\n#| color: dark\nlist(value=win_rates |&gt;\n  filter(result_simple == \"Black\") |&gt;\n  pull(pct))\n```\n\n```{r}\n#| content: valuebox\n#| title: \"Draw\"\n#| icon: circle-half\n#| color: secondary\nlist(value=win_rates |&gt;\n  filter(result_simple == \"Draw\") |&gt;\n  pull(pct))\n```\n\n\n\n### Cities tournament map \n\n\n```{r}\n#| title: Cities tournament map\ncities &lt;- df |&gt;\n  filter(!is.na(city), city != \"NA\") |&gt;\n  distinct(city) |&gt;\n  geocode(city, method = \"osm\")\n\ndf_map &lt;- df |&gt;\n  left_join(cities, by = \"city\")\n\nleaflet(df_map) |&gt;\n  addTiles() |&gt;\n  addCircleMarkers(\n    lng = ~long,\n    lat = ~lat,\n    popup = ~city,\n    radius = 2\n  )\n```"
+  },
+  {
+    "objectID": "doc/quarto/site.html",
+    "href": "doc/quarto/site.html",
+    "title": "Site statique",
+    "section": "",
+    "text": "🚧"
+  },
+  {
+    "objectID": "doc/quarto/site.html#créer-un-projet",
+    "href": "doc/quarto/site.html#créer-un-projet",
+    "title": "Site statique",
+    "section": "1 Créer un projet",
+    "text": "1 Créer un projet"
+  },
+  {
+    "objectID": "doc/quarto/site.html#déployer",
+    "href": "doc/quarto/site.html#déployer",
+    "title": "Site statique",
+    "section": "2 Déployer",
+    "text": "2 Déployer"
+  },
+  {
+    "objectID": "doc/quarto/quarto.html",
+    "href": "doc/quarto/quarto.html",
     "title": "Quarto",
     "section": "",
     "text": "🚧"
   },
   {
-    "objectID": "doc/quarto/basics.html#pourquoi-quarto",
-    "href": "doc/quarto/basics.html#pourquoi-quarto",
+    "objectID": "doc/quarto/quarto.html#pourquoi-quarto",
+    "href": "doc/quarto/quarto.html#pourquoi-quarto",
     "title": "Quarto",
     "section": "1 Pourquoi Quarto",
     "text": "1 Pourquoi Quarto\nhistorique :\n\nR avec commentaire\nCopier coller les figures\nRmd"
   },
   {
-    "objectID": "doc/quarto/basics.html#fichier-qmd",
-    "href": "doc/quarto/basics.html#fichier-qmd",
+    "objectID": "doc/quarto/quarto.html#fichier-qmd",
+    "href": "doc/quarto/quarto.html#fichier-qmd",
     "title": "Quarto",
     "section": "2 Fichier qmd",
     "text": "2 Fichier qmd\n\n2.1 Métadonnées Yaml"
+  },
+  {
+    "objectID": "doc/project/lab.html",
+    "href": "doc/project/lab.html",
+    "title": "TP Gérer son projet",
+    "section": "",
+    "text": "🚧\n\n\nBonnes pratiques de gestion de projet • Organisation des ressources : o code (GitHub) o données (S3) o suivi (Kanban GitHub, carnet de bord, fichier de suivi)\nMise en place du dépôt de projet • Création d’un dépôt GitHub commun • Fourniture d’un template (arborescence + fichiers essentiels) • Rappels pratiques (clone, push/pull, travail collaboratif)\nUtilisation de RStudio sur SSPCloud • Bonnes pratiques de code (lisibilité, modularité, reproductibilité) • Gestion des packages et projet (.Rproj) • Créer un premier script R pour : o charger les données brutes (depuis S3) o nettoyage o sauvegarde des données propres (S3) • Création d’un premier document Quarto (statistiques descriptives simples) • Proposer également le même code en Python\nOutils de gestion de projet • Mise à disposition d’outils légers et centralisés (idéalement sur GitHub) • diagramme de Gantt • Kanban GitHub ? • suivi hebdomadaire / carnet de bord ? Adapter les outils déjà fournis\nRédaction de rapports • Fourniture d’un template Quarto simple • Mise à disposition d’un exemple complet (modèle de Gabriel/Christophe) pour que les élèves puissent piocher dedans • Rappels méthodologiques : o structure : recherche biblio, énoncé de problématique, expériences, bilan (est-ce que ça confirme/infirme), limites, ouverture) o la conclusion n’est pas une reformulation de l’introduction o qualité rédactionnelle (titres informatifs, figures commentées, conclusion argumentée)"
+  },
+  {
+    "objectID": "doc/language/python.html",
+    "href": "doc/language/python.html",
+    "title": "Python",
+    "section": "",
+    "text": "https://inseefrlab.github.io/formation-python-initiation/\nhttps://ludo2ne.github.io/ENSAI-2A-remise-a-niveau/doc/python/python-notebooks.html"
+  },
+  {
+    "objectID": "doc/language/python.html#apprendre-le-langage",
+    "href": "doc/language/python.html#apprendre-le-langage",
+    "title": "Python",
+    "section": "",
+    "text": "https://inseefrlab.github.io/formation-python-initiation/\nhttps://ludo2ne.github.io/ENSAI-2A-remise-a-niveau/doc/python/python-notebooks.html"
+  },
+  {
+    "objectID": "doc/language/python.html#glossaire",
+    "href": "doc/language/python.html#glossaire",
+    "title": "Python",
+    "section": "2 Glossaire",
+    "text": "2 Glossaire\n\n2.1 Packages\n\n\n\n\n\n\n\nTerme\nDéfinition\n\n\n\n\npip\nGestionnaire de paquets standard pour installer des bibliothèques\n\n\nvenv\nEnvironnements virtuels isolés pour installer des dépendances spécifiques à un projet\n\n\nuv\nGestionnaire de paquets et d’environnements ultra-rapide, remplaçant pip et venv\n\n\nruff\nLinter et formateur de code extrêmement rapide\n\n\npandas\nBibliothèque spécialisée dans la manipulation et l’analyse de données structurées\n\n\nnumpy\nBibliothèque fondamentale pour le calcul scientifique et la gestion de tableaux multidimensionnels\n\n\npytest\nPermet de lancer les tests unitaires\n\n\n\n\n\n2.2 IDE (Integrated Development Environment)\nUn IDE est un logiciel “tout-en-un” conçu pour faciliter le travail du développeur. Contrairement à un simple éditeur de texte (comme le Bloc-notes), il regroupe tous les outils nécessaires au cycle de vie du code :\n\nÉcriture intelligente : Autocomplétion, détection d’erreurs en temps réel (soulignement rouge).\nNavigation : Aller directement à la définition d’une fonction ou d’une variable.\nDébogage : Exécuter le code pas à pas pour voir comment les variables évoluent et trouver les bugs.\nAutomatisation : Lancer des tests, formater le code automatiquement, gérer les versions (Git).\nTerminal intégré : Exécuter des commandes (pip, uv, python script.py, git) sans quitter l’application.\n\nVisual Studio Code est un éditeur de texte léger que l’on transforme en IDE grâce à deux piliers :\n\nLes Extensions : Ce sont des modules que tu installes pour ajouter des super-pouvoirs.\n\nIndispensables pour Python : Python, Pylance (intelligence du code), Ruff (vitesse/formatage)\n\nLes Settings (Paramètres) : ils permettent de personnaliser l’éditeur (thèmes, taille de police)\n\n\n\n2.3 Programmation Orientée Objet\n\n\n\n\n\n\n\nTerme\nDéfinition\n\n\n\n\nClasse\nModèle utilisé pour définir la structure et le comportement d’un objet.\n\n\nObjet\nInstance concrète créée à partir d’une classe, possédant ses propres données et méthodes.\n\n\nself\nRéférence à l’instance de l’objet lui-même, utilisée pour accéder à ses attributs et méthodes.\n\n\nsuper()\nFonction permettant d’appeler une méthode de la classe parente (héritage).\n\n\nabstract\nConcept de classe ou méthode qui définit une interface obligatoire pour les sous-classes, sans implémentation propre."
   }
 ]

@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ludovic Deneuville">
-<meta name="description" content="Quelques usages avancés de Git">
+<meta name="description" content="Introduction à YAML">
 
-<title>Git - usages avancés – ENSAI tools</title>
+<title>YAML 101 – ENSAI tools</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -24,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -427,10 +462,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#les-branches" id="toc-les-branches" class="nav-link active" data-scroll-target="#les-branches"><span class="header-section-number">1</span> Les branches</a></li>
-  <li><a href="#gitflow" id="toc-gitflow" class="nav-link" data-scroll-target="#gitflow"><span class="header-section-number">2</span> Gitflow</a></li>
-  <li><a href="#pull-request" id="toc-pull-request" class="nav-link" data-scroll-target="#pull-request"><span class="header-section-number">3</span> Pull request</a></li>
-  <li><a href="#open-source" id="toc-open-source" class="nav-link" data-scroll-target="#open-source"><span class="header-section-number">4</span> Open source</a></li>
+  <li><a href="#quest-ce-que-yaml" id="toc-quest-ce-que-yaml" class="nav-link active" data-scroll-target="#quest-ce-que-yaml"><span class="header-section-number">1</span> Qu’est-ce que YAML ?</a></li>
+  <li><a href="#pourquoi-utiliser-yaml" id="toc-pourquoi-utiliser-yaml" class="nav-link" data-scroll-target="#pourquoi-utiliser-yaml"><span class="header-section-number">2</span> Pourquoi utiliser YAML ?</a></li>
+  <li><a href="#syntaxe" id="toc-syntaxe" class="nav-link" data-scroll-target="#syntaxe"><span class="header-section-number">3</span> Syntaxe</a></li>
   </ul>
 </nav>
 </nav>
@@ -444,18 +478,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Git - usages avancés</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">Branches</div>
-    <div class="quarto-category">GitFlow</div>
-    <div class="quarto-category">Pull Request</div>
-    <div class="quarto-category">Open source</div>
-  </div>
-  </div>
+<h1 class="title">YAML 101</h1>
+</div>
 
 <div>
   <div class="description">
-    Quelques usages avancés de Git
+    Introduction à YAML
   </div>
 </div>
 
@@ -478,123 +506,268 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="les-branches" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="les-branches"><span class="header-section-number">1</span> Les branches</h2>
-<p>Imaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.</p>
-<p>Seulement vous n’êtes pas encore sûr que :</p>
+<p><span class="emoji" data-emoji="construction">🚧</span></p>
+<div class="notes">
 <ul>
-<li>cette fonctionnalité sera vraiment utile <span class="emoji" data-emoji="neutral_face">😐</span></li>
-<li>qu’elle ne va pas tout casser <span class="emoji" data-emoji="cold_sweat">😰</span></li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>si c’est tout petit, vous pouvez dev en local en faire un reset au cas où</li>
-<li>sinon utilisez une branche</li>
+<li>Dire pas trop pour stocker de la données, plutot conf</li>
 </ul>
 </div>
-</div>
-<section id="les-branches-1" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="les-branches-1"><span class="header-section-number">1.1</span> Les branches</h3>
-<p>Vous aimeriez pouvoir :</p>
-<ul>
-<li>tester votre nouveau code</li>
-<li>de manière isolée</li>
-<li>sans polluer le dépôt</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>La branche principale se nomme généralement <em>main</em> ou <em>master</em>.</p>
-</div>
-</div>
+<section id="quest-ce-que-yaml" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="quest-ce-que-yaml"><span class="header-section-number">1</span> Qu’est-ce que YAML ?</h2>
+<p><a href="https://yaml.org/" target="_blank">YAML</a> est un acronyme récursif signifiant : <em>YAML Ain’t Markup Language</em> permet de stocker de la donnée structurée.</p>
+<p>C’est un format facile à lire et à écrire pour les humain. Il n’y a pas de balises, sa syntaxe est basée sur l’indentation.</p>
+<p>Il est souvent utilisé pour la configuration des fichiers, le stockage de données, et les échanges de données entre langages de programmation.</p>
 </section>
-<section id="la-solution" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="la-solution"><span class="header-section-number">1.2</span> La solution</h3>
+<section id="pourquoi-utiliser-yaml" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="pourquoi-utiliser-yaml"><span class="header-section-number">2</span> Pourquoi utiliser YAML ?</h2>
 <ul>
-<li>Créez une branche</li>
-<li>Développez sur cette branche (add, commit, push…)</li>
-<li>Selon vos conclusions
+<li><strong>Lisibilité</strong>
 <ul>
-<li>fusionnez votre branche avec le tronc</li>
-<li>supprimez votre branche</li>
+<li>YAML est conçu pour être lisible par l’homme. La syntaxe est simple et directe, sans beaucoup de ponctuations.</li>
+<li>Les indentations permettent une structure claire et hiérarchisée, semblable à celle des langages de programmation comme Python.</li>
+</ul></li>
+<li><strong>Flexibilité</strong>
+<ul>
+<li>YAML supporte des structures de données complexes comme les listes imbriquées et les dictionnaires.</li>
+<li>Il permet des alias et des ancres pour éviter la duplication de données, ce qui peut être utile pour des fichiers de configuration réutilisables.</li>
+</ul></li>
+<li><strong>Compatibilité avec les autres formats</strong>
+<ul>
+<li>YAML peut facilement être converti en JSON, et vice versa</li>
+</ul></li>
+<li><strong>Usage dans DevOps</strong>
+<ul>
+<li>YAML est largement utilisé dans les outils de gestion de configuration, les pipelines CI/CD, et les orchestrateurs de conteneurs</li>
 </ul></li>
 </ul>
-<div class="notes">
-<p>ça vous permet de coder de manière isolée</p>
+</section>
+<section id="syntaxe" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="syntaxe"><span class="header-section-number">3</span> Syntaxe</h2>
+<p>Voici quelques exemples de syntaxe avec son équivalent json.</p>
+<section id="les-types-de-base-attributs" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="les-types-de-base-attributs"><span class="header-section-number">3.1</span> Les types de base (Attributs)</h3>
+<p>Tout commence par l’assignation de valeurs à des clés.</p>
+<div class="columns">
+<div class="column">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>yaml</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="yaml"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">person</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Alice</span><span class="co">             # str</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">city</span><span class="kw">:</span><span class="at"> </span><span class="st">"Amiens"</span><span class="co">          # str</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">age</span><span class="kw">:</span><span class="at"> </span><span class="dv">30</span><span class="co">                 # int</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">height</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.75</span><span class="co">            # float</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">student</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">          # bool</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">birth_date</span><span class="kw">:</span><span class="at"> 1994-05-15</span><span class="co">  # date</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>json</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="json"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"person"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Alice"</span><span class="fu">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"age"</span><span class="fu">:</span> <span class="dv">30</span><span class="fu">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"height"</span><span class="fu">:</span> <span class="fl">1.75</span><span class="fu">,</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"student"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"birth_date"</span><span class="fu">:</span> <span class="st">"1994-05-15"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
 </div>
 </section>
-<section id="commandes-liées-aux-branches" class="level3 smaller" data-number="1.3">
-<h3 class="smaller anchored" data-number="1.3" data-anchor-id="commandes-liées-aux-branches"><span class="header-section-number">1.3</span> Commandes liées aux branches</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 38%">
-<col style="width: 61%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Commande</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>git branch -a</code></td>
-<td>Lister toutes les branches</td>
-</tr>
-<tr class="even">
-<td><code>git switch &lt;branch&gt;</code></td>
-<td>Changer de branche</td>
-</tr>
-<tr class="odd">
-<td><code>git switch -c &lt;branch&gt;</code></td>
-<td>Créer et changer de branche</td>
-</tr>
-<tr class="even">
-<td><code>git merge &lt;branch&gt;</code></td>
-<td>Fusionner <code>&lt;branch&gt;</code> dans la branche actuelle</td>
-</tr>
-<tr class="odd">
-<td><code>git branch -d &lt;branch&gt;</code></td>
-<td>Supprimer la branche</td>
-</tr>
-<tr class="even">
-<td><code>git push origin &lt;branch&gt;</code></td>
-<td>Pousser la branche vers le dépôt distant</td>
-</tr>
-</tbody>
-</table>
+<section id="liste-de-valeurs" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="liste-de-valeurs"><span class="header-section-number">3.2</span> Liste de valeurs</h3>
+<p>Une structure de données peut contenir une séquence d’éléments. En YAML, nous avons deux façons de déclarer une liste : le mode “bloc” (plus lisible) ou le mode “flux” (plus compact, identique au JSON).</p>
+<div class="columns">
+<div class="column">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>yaml</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="yaml"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hobbies</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> chess</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> hiking</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> landart</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span><span class="co"> # ou</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">hobbies</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"chess"</span><span class="kw">,</span><span class="at"> </span><span class="st">"hiking"</span><span class="kw">,</span><span class="at"> </span><span class="st">"landart"</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>json</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="json"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"hobbies"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"chess"</span><span class="ot">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"hiking"</span><span class="ot">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"landart"</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<p>On peut également imbriquer des dictionnaires à l’intérieur de listes, ce qui est très courant pour représenter des tables de données ou des objets complexes.</p>
+<div class="columns">
+<div class="column">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>yaml</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="yaml"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">servers</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> server1</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">ip</span><span class="kw">:</span><span class="at"> </span><span class="fl">192.168.1.1</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> server2</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">ip</span><span class="kw">:</span><span class="at"> </span><span class="fl">192.168.1.2</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="fu">name</span><span class="kw">:</span><span class="at"> </span><span class="st">"server3"</span><span class="kw">,</span><span class="at"> </span><span class="fu">ip</span><span class="kw">:</span><span class="at"> </span><span class="fl">192.168.1.3</span><span class="kw">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>json</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename="json"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"servers"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span><span class="dt">"name"</span><span class="fu">:</span> <span class="st">"server1"</span><span class="fu">,</span> <span class="dt">"ip"</span><span class="fu">:</span> <span class="st">"192.168.1.1"</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span><span class="dt">"name"</span><span class="fu">:</span> <span class="st">"server2"</span><span class="fu">,</span> <span class="dt">"ip"</span><span class="fu">:</span> <span class="st">"192.168.1.2"</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span><span class="dt">"name"</span><span class="fu">:</span> <span class="st">"server3"</span><span class="fu">,</span> <span class="dt">"ip"</span><span class="fu">:</span> <span class="st">"192.168.1.3"</span><span class="fu">}</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 </section>
+<section id="ancre-et-alias" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="ancre-et-alias"><span class="header-section-number">3.3</span> Ancre et alias</h3>
+<p>L’un des grands avantages de YAML sur JSON est sa capacité à gérer la redondance. Si une donnée est répétée plusieurs fois, on peut définir une <strong>ancre</strong> (<code>&amp;</code>) pour la nommer, et un <strong>alias</strong> (<code>*</code>) pour l’appeler.</p>
+<div class="columns">
+<div class="column">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>yaml</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-filename="yaml"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parent</span><span class="kw">:</span><span class="at"> </span><span class="ot">&amp;pere</span><span class="at"> Bob</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">child</span><span class="kw">:</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Eva</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">papa</span><span class="kw">:</span><span class="at"> </span><span class="ot">*pere</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Laury</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">papa</span><span class="kw">:</span><span class="at"> </span><span class="ot">*pere</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>json</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-filename="json"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"parent"</span><span class="fu">:</span> <span class="st">"Bob"</span><span class="fu">,</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"child"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span><span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Eva"</span><span class="fu">,</span> <span class="dt">"parent"</span><span class="fu">:</span> <span class="st">"Bob"</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span><span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Laury"</span><span class="fu">,</span> <span class="dt">"parent"</span><span class="fu">:</span> <span class="st">"Bob"</span><span class="fu">}</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 </section>
-<section id="gitflow" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="gitflow"><span class="header-section-number">2</span> Gitflow</h2>
-<p><span class="emoji" data-emoji="construction">🚧</span></p>
+<section id="héritage" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="héritage"><span class="header-section-number">3.4</span> Héritage</h3>
+<p>L’opérateur <code>&lt;&lt;</code> permet de créer un template de base et de ne modifier que les paramètres spécifiques pour chaque instance.</p>
+<div class="columns">
+<div class="column">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>yaml</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" data-filename="yaml"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">default</span><span class="kw">:</span><span class="at"> </span><span class="ot">&amp;default_settings</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">timeout</span><span class="kw">:</span><span class="at"> </span><span class="dv">30</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">retries</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">server1</span><span class="kw">:</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">&lt;&lt;</span><span class="kw">:</span><span class="at"> </span><span class="ot">*default_settings</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> server1</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">server2</span><span class="kw">:</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">&lt;&lt;</span><span class="kw">:</span><span class="at"> </span><span class="ot">*default_settings</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">name</span><span class="kw">:</span><span class="at"> server2</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">retries</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>json</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-filename="json"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"default"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"timeout"</span><span class="fu">:</span> <span class="dv">30</span><span class="fu">,</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"retries"</span><span class="fu">:</span> <span class="dv">5</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"server1"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"timeout"</span><span class="fu">:</span> <span class="dv">30</span><span class="fu">,</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"retries"</span><span class="fu">:</span> <span class="dv">5</span><span class="fu">,</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"server1"</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"server2"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"timeout"</span><span class="fu">:</span> <span class="dv">30</span><span class="fu">,</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"retries"</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"server2"</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 </section>
-<section id="pull-request" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="pull-request"><span class="header-section-number">3</span> Pull request</h2>
-<p><span class="emoji" data-emoji="construction">🚧</span></p>
-</section>
-<section id="open-source" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="open-source"><span class="header-section-number">4</span> Open source</h2>
-<p><span class="emoji" data-emoji="construction">🚧</span></p>
-<p><a href="https://code.gouv.fr/fr/" target="_blank">Pôle open source et communs numériques</a></p>
+<section id="texte-multi-lignes" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="texte-multi-lignes"><span class="header-section-number">3.5</span> Texte multi-lignes</h3>
+<p>Quand il s’agit de stocker de longs blocs de texte (descriptions, requêtes SQL, scripts, poèmes), YAML propose deux opérateurs très utiles pour gérer les retours à la ligne de manière explicite.</p>
+<ul>
+<li>Le pipe <code>|</code> : préserve les retours à la ligne.</li>
+<li>Le chevron <code>&gt;</code> : transforme les retours à la ligne en espaces (pour faire un seul gros bloc).</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>yaml</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-filename="yaml"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># En conservant les retours à la ligne</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fable</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  Maître Corbeau, sur un arbre perché,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  Tenait en son bec un fromage.</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  Maître Renard, par l'odeur alléché,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  Lui tint à peu près ce langage :</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  "Hé ! bonjour, Monsieur du Corbeau.</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  Que vous êtes joli ! que vous me semblez beau !</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  Sans mentir, si votre ramage</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  Se rapporte à votre plumage,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  Vous êtes le Phénix des hôtes de ces bois."</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  À ces mots le Corbeau ne se sent pas de joie ;</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  Et pour montrer sa belle voix,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  Il ouvre un large bec, laisse tomber sa proie.</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  Le Renard s'en saisit, et dit : "Mon bon Monsieur,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  Apprenez que tout flatteur</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  Vit aux dépens de celui qui l'écoute :</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  Cette leçon vaut bien un fromage, sans doute."</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  Le Corbeau honteux et confus</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>  Jura, mais un peu tard, qu'on ne l'y prendrait plus.</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="co"># En supprimant les retours à la ligne</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="fu">choixpeau</span><span class="kw">: </span><span class="ch">&gt;</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>  Les nouveaux élèves de Poudlard sont répartis en quatre maisons : Gryffondor</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>  pour les courageux, Poufsouffle pour les travailleurs, Serdaigle pour les</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>  intelligents, Serpentard pour les ambitieux. Le Choixpeau magique, qui </span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>  s'occupe de la répartition, hésite sur la meilleure maison pour Harry. </span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>  Comme Harry a entendu dire que les mages noirs venaient tous de Serpentard,</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>  il demande à aller ailleurs, et le Choixpeau l'envoie à Gryffondor, avec </span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>  Ron et Hermione. Albus Dumbledore, le directeur, prévient les élèves qu’ils</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>  ne doivent pas aller dans la Forêt interdite, ni dans le couloir du deuxième</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>  étage.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

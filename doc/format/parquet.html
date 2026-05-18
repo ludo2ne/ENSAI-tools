@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ludovic Deneuville">
-<meta name="description" content="Introduction à YAML">
+<meta name="description" content="Accélérez l’analyse de données grâce au stockage orienté colonne">
 
 <title>Le format Parquet – ENSAI tools</title>
 <style>
@@ -46,9 +46,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-91544e611bd0e83221240cde35fa504f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-8fe479874ca0985b39699dca03e940ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-91544e611bd0e83221240cde35fa504f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-8972a4b08918be08a88b3e2a59def418.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-9571ef2f724cf1554e0ac39ede2d41c9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-8972a4b08918be08a88b3e2a59def418.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -271,35 +271,28 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-formats-de-données">    
         <li>
-    <a class="dropdown-item" href="../../doc/format/json.html">
- <span class="dropdown-text">JSON</span></a>
+    <a class="dropdown-item" href="../../doc/format/csv.html">
+ <span class="dropdown-text">CSV</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../doc/format/parquet.html">
  <span class="dropdown-text">Parquet</span></a>
   </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-balisage" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Balisage</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-balisage">    
         <li>
-    <a class="dropdown-item" href="../../doc/balisage/markdown.html">
- <span class="dropdown-text">Markdown</span></a>
+    <a class="dropdown-item" href="../../doc/format/json.html">
+ <span class="dropdown-text">JSON</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/balisage/yaml.html">
+    <a class="dropdown-item" href="../../doc/format/yaml.html">
  <span class="dropdown-text">YAML</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-langages" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Langages</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-programmation" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Programmation</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-langages">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-programmation">    
         <li>
     <a class="dropdown-item" href="../../doc/language/bash.html">
  <span class="dropdown-text">Bash</span></a>
@@ -308,13 +301,17 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../doc/language/python.html">
  <span class="dropdown-text">Python</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/language/r.html">
+ <span class="dropdown-text">R</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-git" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Git</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-versionnage" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Versionnage</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-git">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-versionnage">    
         <li>
     <a class="dropdown-item" href="../../doc/git/presentation.html">
  <span class="dropdown-text">Présentation</span></a>
@@ -361,21 +358,40 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-quarto" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Quarto</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projet" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Projet</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-quarto">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-projet">    
         <li>
-    <a class="dropdown-item" href="../../doc/quarto/basics.html">
- <span class="dropdown-text">Introduction</span></a>
+    <a class="dropdown-item" href="../../doc/project/planning.html">
+ <span class="dropdown-text">Planning</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../doc/quarto/site.html">
- <span class="dropdown-text">Site statique</span></a>
+    <a class="dropdown-item" href="../../doc/project/lab.html">
+ <span class="dropdown-text">TP Gestion de projet</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-rédaction" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Rédaction</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-rédaction">    
+        <li>
+    <a class="dropdown-item" href="../../doc/quarto/markdown.html">
+ <span class="dropdown-text">Markdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/quarto/quarto.html">
+ <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../doc/quarto/report.html">
  <span class="dropdown-text">Rapport de projet</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/quarto/site.html">
+ <span class="dropdown-text">Site statique</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../doc/quarto/rstudio.html">
@@ -411,10 +427,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#pourquoi-utiliser-parquet" id="toc-pourquoi-utiliser-parquet" class="nav-link active" data-scroll-target="#pourquoi-utiliser-parquet"><span class="header-section-number">1</span> Pourquoi utiliser Parquet ?</a></li>
-  <li><a href="#comment-est-il-construit" id="toc-comment-est-il-construit" class="nav-link" data-scroll-target="#comment-est-il-construit"><span class="header-section-number">2</span> Comment est-il construit ?</a></li>
-  <li><a href="#utilisation-typique" id="toc-utilisation-typique" class="nav-link" data-scroll-target="#utilisation-typique"><span class="header-section-number">3</span> Utilisation typique</a></li>
-  <li><a href="#avantages-inconvénients" id="toc-avantages-inconvénients" class="nav-link" data-scroll-target="#avantages-inconvénients"><span class="header-section-number">4</span> Avantages &amp; Inconvénients</a></li>
+  <li><a href="#parquet" id="toc-parquet" class="nav-link active" data-scroll-target="#parquet"><span class="header-section-number">1</span> Parquet ?</a></li>
+  <li><a href="#pourquoi-utiliser-parquet" id="toc-pourquoi-utiliser-parquet" class="nav-link" data-scroll-target="#pourquoi-utiliser-parquet"><span class="header-section-number">2</span> Pourquoi utiliser Parquet ?</a></li>
+  <li><a href="#comment-est-il-construit" id="toc-comment-est-il-construit" class="nav-link" data-scroll-target="#comment-est-il-construit"><span class="header-section-number">3</span> Comment est-il construit ?</a></li>
+  <li><a href="#utilisation-typique" id="toc-utilisation-typique" class="nav-link" data-scroll-target="#utilisation-typique"><span class="header-section-number">4</span> Utilisation typique</a></li>
+  <li><a href="#avantages-inconvénients" id="toc-avantages-inconvénients" class="nav-link" data-scroll-target="#avantages-inconvénients"><span class="header-section-number">5</span> Avantages &amp; Inconvénients</a></li>
   </ul>
 </nav>
 </nav>
@@ -433,7 +450,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Introduction à YAML
+    Accélérez l’analyse de données grâce au stockage orienté colonne
   </div>
 </div>
 
@@ -456,8 +473,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="pourquoi-utiliser-parquet" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="pourquoi-utiliser-parquet"><span class="header-section-number">1</span> Pourquoi utiliser Parquet ?</h2>
+<p><span class="emoji" data-emoji="construction">🚧</span></p>
+<div class="notes">
+<p><a href="https://www.icem7.fr/outils/parquet-devrait-remplacer-le-format-csv/" class="uri">https://www.icem7.fr/outils/parquet-devrait-remplacer-le-format-csv/</a> <a href="https://www.datacamp.com/fr/tutorial/apache-parquet" class="uri">https://www.datacamp.com/fr/tutorial/apache-parquet</a> <a href="https://www.snowflake.com/fr/fundamentals/parquet/" class="uri">https://www.snowflake.com/fr/fundamentals/parquet/</a></p>
+<p>Lecture/Ecriture Compression Chargement en mémoire Métadonnées Usages à l’INSEE, Big Data…</p>
+</div>
+<section id="parquet" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="parquet"><span class="header-section-number">1</span> Parquet ?</h2>
+<p><a href="https://parquet.apache.org/" target="_blank">Parquet</a> est un format de stockage de données <strong>orienté colonne</strong> : les valeurs sont stockées colonne par colonne.</p>
+<p>Ce n’est pas un format que l’on “écrit” à la main, mais un format que l’on génère via des outils de programmation (Python/Pandas, R, Spark, SQL).</p>
+<p><strong>L’avantage majeur :</strong> Si vous avez un dataset de 100 colonnes mais que votre analyse ne porte que sur la colonne <code>Age</code>, un moteur de lecture (comme Pandas ou Spark) ne lira que les octets correspondant à la colonne <code>Age</code>. En CSV, vous seriez obligé de lire tout le fichier.</p>
+</section>
+<section id="pourquoi-utiliser-parquet" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="pourquoi-utiliser-parquet"><span class="header-section-number">2</span> Pourquoi utiliser Parquet ?</h2>
 <p>Contrairement aux formats orientés lignes (CSV, JSON), Parquet est conçu pour les charges de travail analytiques (<code>OLAP</code>) où l’on lit rarement toute la table, mais seulement quelques colonnes.</p>
 <p>Stocker les données par colonne permet :</p>
 <ul>
@@ -466,8 +494,8 @@ ul.task-list li input[type="checkbox"] {
 <li>d’activer l’exécution vectorisée (<code>SIMD</code>) dans les moteurs modernes.</li>
 </ul>
 </section>
-<section id="comment-est-il-construit" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="comment-est-il-construit"><span class="header-section-number">2</span> Comment est-il construit ?</h2>
+<section id="comment-est-il-construit" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="comment-est-il-construit"><span class="header-section-number">3</span> Comment est-il construit ?</h2>
 <p>Parquet est un format binaire structuré hiérarchiquement :</p>
 <table class="caption-top table">
 <colgroup>
@@ -501,8 +529,8 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p>Chaque colonne utilise des encodages spécialisés (Dictionary, RLE, Delta, ByteStreamSplit) puis une compression par page (Snappy, GZIP, ZSTD). Les métadonnées incluent automatiquement les statistiques par <code>Row Group</code> (min, max, null count), permettant des optimisations comme le <code>predicate pushdown</code>.</p>
 </section>
-<section id="utilisation-typique" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="utilisation-typique"><span class="header-section-number">3</span> Utilisation typique</h2>
+<section id="utilisation-typique" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="utilisation-typique"><span class="header-section-number">4</span> Utilisation typique</h2>
 <ul>
 <li>Data Lakes : format natif de référence pour S3, ADLS, GCS</li>
 <li>Moteurs de calcul : Apache Spark, DuckDB, Pandas (<code>pyarrow</code>), Dask, Polars</li>
@@ -510,8 +538,8 @@ ul.task-list li input[type="checkbox"] {
 <li>BI &amp; Analytics : connexion native dans Tableau, Power BI, Metabase, Superset</li>
 </ul>
 </section>
-<section id="avantages-inconvénients" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="avantages-inconvénients"><span class="header-section-number">4</span> Avantages &amp; Inconvénients</h2>
+<section id="avantages-inconvénients" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="avantages-inconvénients"><span class="header-section-number">5</span> Avantages &amp; Inconvénients</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 72%">

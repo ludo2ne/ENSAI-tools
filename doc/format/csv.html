@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Ludovic Deneuville">
+<meta name="description" content="Le format simple pour stocker de la donnée">
 
-<title>Outils pour les élèves et enseignants de l’ENSAI – ENSAI tools</title>
+<title>CSV – ENSAI tools</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,32 +25,65 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8972a4b08918be08a88b3e2a59def418.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-9571ef2f724cf1554e0ac39ede2d41c9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-8972a4b08918be08a88b3e2a59def418.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8972a4b08918be08a88b3e2a59def418.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-9571ef2f724cf1554e0ac39ede2d41c9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-8972a4b08918be08a88b3e2a59def418.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,151 +111,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-others-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-title','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-others-listing'] = new List('listing-others-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-git-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-git-listing'] = new List('listing-git-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-datalab-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-datalab-listing'] = new List('listing-datalab-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-quarto-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-quarto-listing'] = new List('listing-quarto-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -392,7 +285,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">ENSAI tools</span>
     </a>
   </div>
@@ -403,7 +296,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> <i class="bi bi-house" role="img">
+    <a class="nav-link" href="../../index.html"> <i class="bi bi-house" role="img">
 </i> 
 <span class="menu-text">Home</span></a>
   </li>  
@@ -413,19 +306,19 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-formats-de-données">    
         <li>
-    <a class="dropdown-item" href="./doc/format/csv.html">
+    <a class="dropdown-item" href="../../doc/format/csv.html">
  <span class="dropdown-text">CSV</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/format/parquet.html">
+    <a class="dropdown-item" href="../../doc/format/parquet.html">
  <span class="dropdown-text">Parquet</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/format/json.html">
+    <a class="dropdown-item" href="../../doc/format/json.html">
  <span class="dropdown-text">JSON</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/format/yaml.html">
+    <a class="dropdown-item" href="../../doc/format/yaml.html">
  <span class="dropdown-text">YAML</span></a>
   </li>  
     </ul>
@@ -436,15 +329,15 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-programmation">    
         <li>
-    <a class="dropdown-item" href="./doc/language/bash.html">
+    <a class="dropdown-item" href="../../doc/language/bash.html">
  <span class="dropdown-text">Bash</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/language/python.html">
+    <a class="dropdown-item" href="../../doc/language/python.html">
  <span class="dropdown-text">Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/language/r.html">
+    <a class="dropdown-item" href="../../doc/language/r.html">
  <span class="dropdown-text">R</span></a>
   </li>  
     </ul>
@@ -455,19 +348,19 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-versionnage">    
         <li>
-    <a class="dropdown-item" href="./doc/git/presentation.html">
+    <a class="dropdown-item" href="../../doc/git/presentation.html">
  <span class="dropdown-text">Présentation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/git/advanced.html">
+    <a class="dropdown-item" href="../../doc/git/advanced.html">
  <span class="dropdown-text">Usages avancés</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/git/lab.html">
+    <a class="dropdown-item" href="../../doc/git/lab.html">
  <span class="dropdown-text">TP</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/git/glossary.html">
+    <a class="dropdown-item" href="../../doc/git/glossary.html">
  <span class="dropdown-text">Glossaire</span></a>
   </li>  
     </ul>
@@ -478,23 +371,23 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-datalab">    
         <li>
-    <a class="dropdown-item" href="./doc/datalab/intro.html">
+    <a class="dropdown-item" href="../../doc/datalab/intro.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/datalab/basics.html">
+    <a class="dropdown-item" href="../../doc/datalab/basics.html">
  <span class="dropdown-text">Usage basique</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/datalab/advanced.html">
+    <a class="dropdown-item" href="../../doc/datalab/advanced.html">
  <span class="dropdown-text">Usage avancé</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/datalab/vscode-python.html">
+    <a class="dropdown-item" href="../../doc/datalab/vscode-python.html">
  <span class="dropdown-text">VSCode Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/datalab/lab.html">
+    <a class="dropdown-item" href="../../doc/datalab/lab.html">
  <span class="dropdown-text">TP Découverte</span></a>
   </li>  
     </ul>
@@ -505,11 +398,11 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-projet">    
         <li>
-    <a class="dropdown-item" href="./doc/project/planning.html">
+    <a class="dropdown-item" href="../../doc/project/planning.html">
  <span class="dropdown-text">Planning</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/project/lab.html">
+    <a class="dropdown-item" href="../../doc/project/lab.html">
  <span class="dropdown-text">TP Gestion de projet</span></a>
   </li>  
     </ul>
@@ -520,23 +413,23 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-rédaction">    
         <li>
-    <a class="dropdown-item" href="./doc/quarto/markdown.html">
+    <a class="dropdown-item" href="../../doc/quarto/markdown.html">
  <span class="dropdown-text">Markdown</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/quarto/quarto.html">
+    <a class="dropdown-item" href="../../doc/quarto/quarto.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/quarto/report.html">
+    <a class="dropdown-item" href="../../doc/quarto/report.html">
  <span class="dropdown-text">Rapport de projet</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/quarto/site.html">
+    <a class="dropdown-item" href="../../doc/quarto/site.html">
  <span class="dropdown-text">Site statique</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./doc/quarto/rstudio.html">
+    <a class="dropdown-item" href="../../doc/quarto/rstudio.html">
  <span class="dropdown-text">Using RStudio</span></a>
   </li>  
     </ul>
@@ -569,9 +462,9 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#git" id="toc-git" class="nav-link active" data-scroll-target="#git">Git</a></li>
-  <li><a href="#datalab" id="toc-datalab" class="nav-link" data-scroll-target="#datalab">Datalab</a></li>
-  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
+  <li><a href="#cest-quoi-un-csv" id="toc-cest-quoi-un-csv" class="nav-link active" data-scroll-target="#cest-quoi-un-csv"><span class="header-section-number">1</span> C’est quoi un CSV ?</a></li>
+  <li><a href="#charger-un-csv-en-r" id="toc-charger-un-csv-en-r" class="nav-link" data-scroll-target="#charger-un-csv-en-r"><span class="header-section-number">2</span> Charger un CSV en R</a></li>
+  <li><a href="#charger-un-csv-en-python" id="toc-charger-un-csv-en-python" class="nav-link" data-scroll-target="#charger-un-csv-en-python"><span class="header-section-number">3</span> Charger un CSV en Python</a></li>
   </ul>
 </nav>
 </nav>
@@ -585,13 +478,24 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Outils pour les élèves et enseignants de l’ENSAI</h1>
+<h1 class="title">CSV</h1>
 </div>
 
+<div>
+  <div class="description">
+    Le format simple pour stocker de la donnée
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ludovic Deneuville </p>
+          </div>
+  </div>
     
   
     
@@ -603,321 +507,79 @@ window.Quarto = {
 
 
 <p><span class="emoji" data-emoji="construction">🚧</span></p>
-<p>Vous trouverez ici les outils indispensables pour mener à bien vos projets et stages.</p>
-<p>Les TP suivants seront dispensés aux élèves de première année :</p>
+<section id="cest-quoi-un-csv" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="cest-quoi-un-csv"><span class="header-section-number">1</span> C’est quoi un CSV ?</h2>
+<p><strong>CSV</strong> signifie <em>Comma-Separated Values</em> <span class="emoji" data-emoji="arrow_right">➡️</span> Valeurs séparées par des virgules.</p>
 <ul>
-<li><a href="./doc/datalab/lab.html" target="_blank">Découverte du Datalab</a></li>
-<li><a href="./doc/git/lab.html" target="_blank">Introduction à Git</a></li>
-<li>Gérer votre projet</li>
-<li>Hello Quarto (via un TP de <em>Stats avec R</em>)</li>
+<li><strong>Le concept :</strong> C’est un format de fichier texte très simple utilisé pour stocker des données tabulaires</li>
+<li><strong>La structure :</strong>
+<ul>
+<li>Chaque ligne du fichier correspond à une ligne du tableau.</li>
+<li>Chaque colonne est séparée par un caractère spécial (le “délimiteur”).</li>
+</ul></li>
+<li><strong>Le piège :</strong> Bien que le nom signifie “virgule”, le délimiteur peut être un point-virgule <code>;</code> (très fréquent en Europe car la virgule sert aux décimales), une tabulation <code>\t</code> ou un pipe <code>|</code>.</li>
+<li><strong>Avantages :</strong> Léger, universel, lisible par n’importe quel éditeur de texte et très rapide à lire pour les machines.</li>
 </ul>
-<section id="git" class="level2">
-<h2 class="anchored" data-anchor-id="git">Git</h2>
-<div id="listing-git-listing" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-
-<th>
-Title
-</th>
-
-<th>
-Categories
-</th>
-
-</tr>
-</thead>
-<tbody class="list">
-
-<tr data-index="0" data-categories="QnJhbmNoZXMlMkNHaXRGbG93JTJDUHVsbCUyMFJlcXVlc3QlMkNPcGVuJTIwc291cmNl" data-listing-file-modified-sort="1779108495638" data-listing-reading-time-sort="3" data-listing-word-count-sort="429" data-listing-title-sort="Git - usages avancés" data-listing-filename-sort="advanced.qmd">
-<td>
-<a href="./doc/git/advanced.html" class="title listing-title">Git - usages avancés</a>
-</td>
-<td>
-<span class="listing-categories">Branches, GitFlow, Pull Request, Open source</span>
-</td>
-
-</tr>
-
-<tr data-index="1" data-listing-file-modified-sort="1779108495638" data-listing-reading-time-sort="3" data-listing-word-count-sort="596" data-listing-title-sort="Glossaire" data-listing-filename-sort="glossary.qmd">
-<td>
-<a href="./doc/git/glossary.html" class="title listing-title">Glossaire</a>
-</td>
-<td>
-<span class="listing-categories">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="2" data-categories="R2VzdGlvbiUyMGRlJTIwdmVyc2lvbiUyQ1RyYXZhaWwlMjBlbiUyMCVDMyVBOXF1aXBlJTJDRCVDMyVBOXAlQzMlQjR0JTIwbG9jYWwlMkZkaXN0YW50JTJDV29ya2Zsb3clMkNDb25mbGl0" data-listing-file-modified-sort="1779108495639" data-listing-reading-time-sort="25" data-listing-word-count-sort="4892" data-listing-title-sort="Introduction à Git" data-listing-filename-sort="presentation.qmd">
-<td>
-<a href="./doc/git/presentation.html" class="title listing-title">Introduction à Git</a>
-</td>
-<td>
-<span class="listing-categories">Gestion de version, Travail en équipe, Dépôt local/distant, Workflow, Conflit</span>
-</td>
-
-</tr>
-
-<tr data-index="3" data-categories="VG9rZW4lMkNDbG9uZSUyQ0FkZCUyQyUyMGNvbW1pdCUyQyUyMHB1c2glMkNDb25mbGl0" data-listing-file-modified-sort="1779108495639" data-listing-reading-time-sort="33" data-listing-word-count-sort="6565" data-listing-title-sort="TP Git" data-listing-filename-sort="lab.qmd">
-<td>
-<a href="./doc/git/lab.html" class="title listing-title">TP Git</a>
-</td>
-<td>
-<span class="listing-categories">Token, Clone, Add, commit, push, Conflit</span>
-</td>
-
-</tr>
-
-</tbody>
-</table>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
 </section>
-<section id="datalab" class="level2">
-<h2 class="anchored" data-anchor-id="datalab">Datalab</h2>
-<div id="listing-datalab-listing" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-
-<th>
-Title
-</th>
-
-<th>
-Categories
-</th>
-
-</tr>
-</thead>
-<tbody class="list">
-
-<tr data-index="0" data-categories="T255eGlhJTJDQ2xvdWQlMkNEb2NrZXIlMkNLdWJlcm5ldGVz" data-listing-file-modified-sort="1779108495637" data-listing-reading-time-sort="4" data-listing-word-count-sort="759" data-listing-title-sort="Datalab SSPCloud" data-listing-filename-sort="intro.qmd">
-<td>
-<a href="./doc/datalab/intro.html" class="title listing-title">Datalab SSPCloud</a>
-</td>
-<td>
-<span class="listing-categories">Onyxia, Cloud, Docker, Kubernetes</span>
-</td>
-
-</tr>
-
-<tr data-index="1" data-categories="U2VydmljZSUyQ1N0b2NrYWdlJTIwUzMlMkNHaXQ=" data-listing-file-modified-sort="1779108495637" data-listing-reading-time-sort="1" data-listing-word-count-sort="11" data-listing-title-sort="Découverte du Datalab SSPCloud" data-listing-filename-sort="basics.qmd">
-<td>
-<a href="./doc/datalab/basics.html" class="title listing-title">Découverte du Datalab SSPCloud</a>
-</td>
-<td>
-<span class="listing-categories">Service, Stockage S3, Git</span>
-</td>
-
-</tr>
-
-<tr data-index="2" data-listing-file-modified-sort="1779108495637" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="TP découverte du Datalab" data-listing-filename-sort="lab.qmd">
-<td>
-<a href="./doc/datalab/lab.html" class="title listing-title">TP découverte du Datalab</a>
-</td>
-<td>
-<span class="listing-categories">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="3" data-categories="U2NyaXB0JTJDU2VjcmV0cyUyQ0RvY2tlcg==" data-listing-file-modified-sort="1779108495637" data-listing-reading-time-sort="1" data-listing-word-count-sort="7" data-listing-title-sort="Usage avancé du Datalab" data-listing-filename-sort="advanced.qmd">
-<td>
-<a href="./doc/datalab/advanced.html" class="title listing-title">Usage avancé du Datalab</a>
-</td>
-<td>
-<span class="listing-categories">Script, Secrets, Docker</span>
-</td>
-
-</tr>
-
-<tr data-index="4" data-listing-file-modified-sort="1779108495637" data-listing-reading-time-sort="1" data-listing-word-count-sort="4" data-listing-title-sort="VSCode python" data-listing-filename-sort="vscode-python.qmd">
-<td>
-<a href="./doc/datalab/vscode-python.html" class="title listing-title">VSCode python</a>
-</td>
-<td>
-<span class="listing-categories">&nbsp;</span>
-</td>
-
-</tr>
-
-</tbody>
-</table>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
+<section id="charger-un-csv-en-r" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="charger-un-csv-en-r"><span class="header-section-number">2</span> Charger un CSV en R</h2>
+<p>En R, on utilise soit la fonction de base (<code>read.csv</code>), soit le package <code>readr</code> (plus moderne et rapide), soit <code>data.table</code> (pour les très gros fichiers).</p>
+<section id="r-base" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="r-base"><span class="header-section-number">2.1</span> R base</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode R code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lecture standard (délimiteur virgule)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Lecture avec point-virgule (format européen courant)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"data.csv"</span>) </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Options manuelles</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>, </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">sep =</span> <span class="st">";"</span>,           <span class="co"># Spécifier le délimiteur</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">header =</span> <span class="cn">TRUE</span>,       <span class="co"># La première ligne contient les noms de colonnes</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">dec =</span> <span class="st">","</span>,           <span class="co"># Utiliser la virgule pour les décimales</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">stringsAsFactors =</span> F) <span class="co"># Empêcher la conversion automatique en facteurs</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="quarto" class="level2">
-<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
-<div id="listing-quarto-listing" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-
-<th>
-Title
-</th>
-
-<th>
-Categories
-</th>
-
-</tr>
-</thead>
-<tbody class="list">
-
-<tr data-index="0" data-listing-file-modified-sort="1779108495641" data-listing-reading-time-sort="3" data-listing-word-count-sort="539" data-listing-title-sort="Mardown" data-listing-filename-sort="markdown.qmd">
-<td>
-<a href="./doc/quarto/markdown.html" class="title listing-title">Mardown</a>
-</td>
-<td>
-<span class="listing-categories">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="1" data-listing-file-modified-sort="1779108495641" data-listing-reading-time-sort="1" data-listing-word-count-sort="15" data-listing-title-sort="Quarto" data-listing-filename-sort="quarto.qmd">
-<td>
-<a href="./doc/quarto/quarto.html" class="title listing-title">Quarto</a>
-</td>
-<td>
-<span class="listing-categories">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="2" data-listing-file-modified-sort="1779108495641" data-listing-reading-time-sort="11" data-listing-word-count-sort="2160" data-listing-title-sort="Quarto avec Rstudio" data-listing-filename-sort="rstudio.qmd">
-<td>
-<a href="./doc/quarto/rstudio.html" class="title listing-title">Quarto avec Rstudio</a>
-</td>
-<td>
-<span class="listing-categories">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="3" data-listing-date-sort="1745452800000" data-listing-file-modified-sort="1779108495641" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="320" data-listing-title-sort="Rapport de projet" data-listing-filename-sort="report.qmd">
-<td>
-<a href="./doc/quarto/report.html" class="title listing-title">Rapport de projet</a>
-</td>
-<td>
-<span class="listing-categories">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="4" data-listing-file-modified-sort="1779108495641" data-listing-reading-time-sort="1" data-listing-word-count-sort="2" data-listing-title-sort="Site statique" data-listing-filename-sort="site.qmd">
-<td>
-<a href="./doc/quarto/site.html" class="title listing-title">Site statique</a>
-</td>
-<td>
-<span class="listing-categories">&nbsp;</span>
-</td>
-
-</tr>
-
-</tbody>
-</table>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-
+<section id="avec-readr" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="avec-readr"><span class="header-section-number">2.2</span> Avec readr</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode R code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data.csv"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"data.csv"</span>, <span class="at">delim =</span> <span class="st">";"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="charger-un-csv-en-python" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="charger-un-csv-en-python"><span class="header-section-number">3</span> Charger un CSV en Python</h2>
+<section id="avec-le-module-natif-csv" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="avec-le-module-natif-csv"><span class="header-section-number">3.1</span> Avec le module natif <code>csv</code></h3>
+<p><em>Utile pour des scripts très légers où l’on ne veut pas installer Pandas.</em></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'data.csv'</span>, mode<span class="op">=</span><span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>) <span class="im">as</span> f:</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    reader <span class="op">=</span> csv.reader(f, delimiter<span class="op">=</span><span class="st">';'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> row <span class="kw">in</span> reader:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(row)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="avec-pandas" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="avec-pandas"><span class="header-section-number">3.2</span> Avec Pandas</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Lecture standard (virgule)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'data.csv'</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Options courantes</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'data.csv'</span>, </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                 sep<span class="op">=</span><span class="st">';'</span>,            <span class="co"># Délimiteur (peut être ',', ';', '\t', etc.)</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                 header<span class="op">=</span><span class="dv">0</span>,           <span class="co"># Utiliser la ligne 0 comme en-tête</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                 index_col<span class="op">=</span><span class="st">'id'</span>,     <span class="co"># Définir une colonne comme index</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                 usecols<span class="op">=</span>[<span class="st">'A'</span>, <span class="st">'B'</span>], <span class="co"># Ne charger que certaines colonnes</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                 encoding<span class="op">=</span><span class="st">'utf-8'</span>,    <span class="co"># Gérer l'encodage (ex: 'latin1' si erreur)</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                 nrows<span class="op">=</span><span class="dv">100</span>)          <span class="co"># Lire seulement les 100 premières lignes</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
+</section>
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-others-listing">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-
-<th>
-Title
-</th>
-
-<th>
-Categories
-</th>
-
-</tr>
-</thead>
-<tbody class="list">
-
-<tr data-index="0" data-listing-file-modified-sort="1779108495637" data-listing-reading-time-sort="3" data-listing-word-count-sort="533" data-listing-title-sort="CSV" data-listing-filename-sort="csv.qmd">
-<td>
-<a href="./doc/format/csv.html" class="title listing-title">CSV</a>
-</td>
-<td>
-<span class="listing-categories">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="1" data-listing-file-modified-sort="1779108495638" data-listing-reading-time-sort="2" data-listing-word-count-sort="267" data-listing-title-sort="JSON" data-listing-filename-sort="json.qmd">
-<td>
-<a href="./doc/format/json.html" class="title listing-title">JSON</a>
-</td>
-<td>
-<span class="listing-categories">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="2" data-listing-file-modified-sort="1779108495638" data-listing-reading-time-sort="3" data-listing-word-count-sort="480" data-listing-title-sort="Le format Parquet" data-listing-filename-sort="parquet.qmd">
-<td>
-<a href="./doc/format/parquet.html" class="title listing-title">Le format Parquet</a>
-</td>
-<td>
-<span class="listing-categories">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="3" data-listing-file-modified-sort="1779108495639" data-listing-reading-time-sort="18" data-listing-word-count-sort="3459" data-listing-title-sort="Les commandes Bash" data-listing-filename-sort="bash.qmd">
-<td>
-<a href="./doc/language/bash.html" class="title listing-title">Les commandes Bash</a>
-</td>
-<td>
-<span class="listing-categories">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="4" data-listing-file-modified-sort="1779108495641" data-listing-reading-time-sort="3" data-listing-word-count-sort="436" data-listing-title-sort="Python" data-listing-filename-sort="python.qmd">
-<td>
-<a href="./doc/language/python.html" class="title listing-title">Python</a>
-</td>
-<td>
-<span class="listing-categories">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="5" data-listing-file-modified-sort="1779108495641" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="R" data-listing-filename-sort="r.qmd">
-<td>
-<a href="./doc/language/r.html" class="title listing-title">R</a>
-</td>
-<td>
-<span class="listing-categories">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="6" data-listing-file-modified-sort="1779108495638" data-listing-reading-time-sort="6" data-listing-word-count-sort="1018" data-listing-title-sort="YAML 101" data-listing-filename-sort="yaml.qmd">
-<td>
-<a href="./doc/format/yaml.html" class="title listing-title">YAML 101</a>
-</td>
-<td>
-<span class="listing-categories">&nbsp;</span>
-</td>
-
-</tr>
-
-</tbody>
-</table>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
