@@ -1,6 +1,6 @@
 ---
 title: "JSON"
-description: "Le format JSON pour l'échange de données"
+description: "Le format de référence pour les échanges d'API et le web"
 author: "Ludovic Deneuville"
 ---
 

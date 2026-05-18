@@ -1,0 +1,82 @@
+---
+title: "CSV"
+description: "Le format simple pour stocker de la donnée"
+author: "Ludovic Deneuville"
+---
+
+:construction:
+
+## C'est quoi un CSV ?
+
+**CSV** signifie *Comma-Separated Values* :arrow_right: Valeurs séparées par des virgules.
+
+- **Le concept :** C'est un format de fichier texte très simple utilisé pour stocker des données tabulaires
+- **La structure :**
+  - Chaque ligne du fichier correspond à une ligne du tableau.
+  - Chaque colonne est séparée par un caractère spécial (le "délimiteur").
+- **Le piège :** Bien que le nom signifie "virgule", le délimiteur peut être un point-virgule `;` (très fréquent en Europe car la virgule sert aux décimales), une tabulation `\t` ou un pipe `|`.
+- **Avantages :** Léger, universel, lisible par n'importe quel éditeur de texte et très rapide à lire pour les machines.
+
+
+## Charger un CSV en R
+
+En R, on utilise soit la fonction de base (`read.csv`), soit le package `readr` (plus moderne et rapide), soit `data.table` (pour les très gros fichiers).
+
+### R base
+
+```{.R}
+# Lecture standard (délimiteur virgule)
+df <- read.csv("data.csv")
+
+# Lecture avec point-virgule (format européen courant)
+df <- read.csv2("data.csv") 
+
+# Options manuelles
+df <- read.csv("data.csv", 
+               sep = ";",           # Spécifier le délimiteur
+               header = TRUE,       # La première ligne contient les noms de colonnes
+               dec = ",",           # Utiliser la virgule pour les décimales
+               stringsAsFactors = F) # Empêcher la conversion automatique en facteurs
+```
+
+### Avec readr
+
+```{.R}
+library(readr)
+
+df <- read_csv("data.csv")
+df2 <- read_delim("data.csv", delim = ";")
+```
+
+## Charger un CSV en Python
+
+### Avec le module natif `csv`
+
+*Utile pour des scripts très légers où l'on ne veut pas installer Pandas.*
+
+```{.python}
+import csv
+
+with open('data.csv', mode='r', encoding='utf-8') as f:
+    reader = csv.reader(f, delimiter=';')
+    for row in reader:
+        print(row)
+```
+
+### Avec Pandas
+
+```{.python}
+import pandas as pd
+
+# Lecture standard (virgule)
+df = pd.read_csv('data.csv')
+
+# Options courantes
+df = pd.read_csv('data.csv', 
+                 sep=';',            # Délimiteur (peut être ',', ';', '\t', etc.)
+                 header=0,           # Utiliser la ligne 0 comme en-tête
+                 index_col='id',     # Définir une colonne comme index
+                 usecols=['A', 'B'], # Ne charger que certaines colonnes
+                 encoding='utf-8',    # Gérer l'encodage (ex: 'latin1' si erreur)
+                 nrows=100)          # Lire seulement les 100 premières lignes
+```

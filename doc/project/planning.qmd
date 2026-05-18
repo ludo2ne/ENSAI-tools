@@ -1,0 +1,10 @@
+---
+title: "Planning projet"
+---
+
+:construction:
+
+:::{.notes}
+- Kanban
+- Gantt
+:::

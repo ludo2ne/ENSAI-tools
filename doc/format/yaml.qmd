@@ -4,13 +4,17 @@ description: "Introduction à YAML"
 author: "Ludovic Deneuville"
 ---
 
+:construction:
+
+:::{.notes}
+- Dire pas trop pour stocker de la données, plutot conf
+:::
 
 ## Qu'est-ce que YAML ?
 
-YAML est un acronyme récursif signifiant : *YAML Ain't Markup Language* :arrow_right: [YAML n’est pas un langage de balisage]{.underline}. Il est donc rangé logiquement dans la section **Balisage** :+1:
+[YAML](https://yaml.org/){target="_blank"} est un acronyme récursif signifiant : *YAML Ain't Markup Language* permet de stocker de la donnée structurée.
 
-
-C'est un format de sérialisation de données lisible par l'homme, conçu pour être facile à lire et à écrire.
+C'est un format facile à lire et à écrire pour les humain. Il n'y a pas de balises, sa syntaxe est basée sur l'indentation.
 
 Il est souvent utilisé pour la configuration des fichiers, le stockage de données, et les échanges de données entre langages de programmation.
 
@@ -29,9 +33,11 @@ Il est souvent utilisé pour la configuration des fichiers, le stockage de donn�
 
 ## Syntaxe
 
-Voici quelques exemples de syntaxe avec son équivalent json
+Voici quelques exemples de syntaxe avec son équivalent json.
 
-### Attributs
+### Les types de base (Attributs)
+
+Tout commence par l'assignation de valeurs à des clés.
 
 :::::: {.columns}
 ::: {.column}
@@ -65,7 +71,8 @@ person:
 
 ### Liste de valeurs
 
-Plusieurs possibilités pour déclarer des listes
+Une structure de données peut contenir une séquence d'éléments. En YAML, nous avons deux façons de déclarer une liste : le mode "bloc" (plus lisible) ou le mode "flux" (plus compact, identique au JSON).
+
 
 :::::: {.columns}
 ::: {.column}
@@ -95,9 +102,7 @@ hobbies: ["chess", "hiking", "landart"]
 :::
 ::::::
 
-
-
-Autre exemple
+On peut également imbriquer des dictionnaires à l'intérieur de listes, ce qui est très courant pour représenter des tables de données ou des objets complexes.
 
 :::::: {.columns}
 ::: {.column}
@@ -127,6 +132,9 @@ servers:
 
 ### Ancre et alias
 
+L'un des grands avantages de YAML sur JSON est sa capacité à gérer la redondance. Si une donnée est répétée plusieurs fois, on peut définir une **ancre** (`&`) pour la nommer, et un **alias** (`*`) pour l'appeler.
+
+
 :::::: {.columns}
 ::: {.column}
 ```{.yml filename="yaml"}
@@ -154,6 +162,8 @@ child:
 
 
 ### Héritage
+
+L'opérateur `<<` permet de créer un template de base et de ne modifier que les paramètres spécifiques pour chaque instance.
 
 :::::: {.columns}
 ::: {.column}
@@ -196,10 +206,14 @@ server2:
 ::::::
 
 
-### Long texte
+### Texte multi-lignes
+
+Quand il s'agit de stocker de longs blocs de texte (descriptions, requêtes SQL, scripts, poèmes), YAML propose deux opérateurs très utiles pour gérer les retours à la ligne de manière explicite.
+
+- Le pipe `|` : préserve les retours à la ligne.
+- Le chevron `>` : transforme les retours à la ligne en espaces (pour faire un seul gros bloc).
 
 ```{.yml filename="yaml"}
-
 # En conservant les retours à la ligne
 fable: |
   Maître Corbeau, sur un arbre perché,
@@ -232,5 +246,4 @@ choixpeau: >
   Ron et Hermione. Albus Dumbledore, le directeur, prévient les élèves qu’ils
   ne doivent pas aller dans la Forêt interdite, ni dans le couloir du deuxième
   étage.
-
 ```

@@ -1,6 +1,7 @@
 ---
 title: Rapport de projet
 subtitle: "Créer un rapport de projet avec Quarto et Typst"
+description: "Equipe 8"
 date: "2025/04/24"
 authors: 
   - Laurent Costa

@@ -18,23 +18,23 @@ website:
         text: Home
       - text: Formats de données
         menu:
-          - href: doc/format/json.qmd
-            text: "JSON"
+          - href: doc/format/csv.qmd
+            text: "CSV"
           - href: doc/format/parquet.qmd
             text: "Parquet"
-      - text: Balisage
-        menu:
-          - href: doc/balisage/markdown.qmd
-            text: "Markdown"
-          - href: doc/balisage/yaml.qmd
+          - href: doc/format/json.qmd
+            text: "JSON"
+          - href: doc/format/yaml.qmd
             text: "YAML"
-      - text: Langages
+      - text: Programmation
         menu:
           - href: doc/language/bash.qmd
             text: "Bash"
           - href: doc/language/python.qmd
             text: "Python"
-      - text: Git
+          - href: doc/language/r.qmd
+            text: "R"
+      - text: Versionnage
         menu:
           - href: doc/git/presentation.qmd
             text: "Présentation"
@@ -56,14 +56,22 @@ website:
             text: "VSCode Python"
           - href: doc/datalab/lab.qmd
             text: "TP Découverte"
-      - text: Quarto
+      - text: Projet
         menu:
-          - href: doc/quarto/basics.qmd
+          - href: doc/project/planning.qmd
+            text: "Planning"
+          - href: doc/project/lab.qmd
+            text: "TP Gestion de projet"
+      - text: Rédaction
+        menu:
+          - href: doc/quarto/markdown.qmd
+            text: "Markdown"
+          - href: doc/quarto/quarto.qmd
             text: "Introduction"
-          - href: doc/quarto/site.qmd
-            text: "Site statique"
           - href: doc/quarto/report.qmd
             text: "Rapport de projet"
+          - href: doc/quarto/site.qmd
+            text: "Site statique"
           - href: doc/quarto/rstudio.qmd
             text: "Using RStudio"
     right:

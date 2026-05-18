@@ -1,8 +1,31 @@
 ---
 title: "Le format Parquet"
-description: "Introduction à YAML"
+description: "Accélérez l'analyse de données grâce au stockage orienté colonne"
 author: "Ludovic Deneuville"
 ---
+
+:construction:
+
+:::{.notes}
+<https://www.icem7.fr/outils/parquet-devrait-remplacer-le-format-csv/>
+<https://www.datacamp.com/fr/tutorial/apache-parquet>
+<https://www.snowflake.com/fr/fundamentals/parquet/>
+
+Lecture/Ecriture
+Compression
+Chargement en mémoire
+Métadonnées
+Usages à l'INSEE, Big Data...
+:::
+
+## Parquet ?
+
+[Parquet](https://parquet.apache.org/){target="_blank"} est un format de stockage de données **orienté colonne** : les valeurs sont stockées colonne par colonne.
+
+Ce n'est pas un format que l'on "écrit" à la main, mais un format que l'on génère via des outils de programmation (Python/Pandas, R, Spark, SQL).
+
+**L'avantage majeur :** Si vous avez un dataset de 100 colonnes mais que votre analyse ne porte que sur la colonne `Age`, un moteur de lecture (comme Pandas ou Spark) ne lira que les octets correspondant à la colonne `Age`. En CSV, vous seriez obligé de lire tout le fichier.
+
 
 
 ## Pourquoi utiliser Parquet ?
