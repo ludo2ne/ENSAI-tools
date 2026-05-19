@@ -16,7 +16,7 @@ website:
       - icon: house
         href: index.qmd
         text: Home
-      - text: Formats de données
+      - text: Formater les données
         menu:
           - href: doc/format/csv.qmd
             text: "CSV"
@@ -26,7 +26,7 @@ website:
             text: "JSON"
           - href: doc/format/yaml.qmd
             text: "YAML"
-      - text: Programmation
+      - text: Coder
         menu:
           - href: doc/language/bash.qmd
             text: "Bash"
@@ -34,7 +34,7 @@ website:
             text: "Python"
           - href: doc/language/r.qmd
             text: "R"
-      - text: Versionnage
+      - text: Versionner
         menu:
           - href: doc/git/presentation.qmd
             text: "Présentation"
@@ -44,7 +44,7 @@ website:
             text: "TP"
           - href: doc/git/glossary.qmd
             text: "Glossaire"
-      - text: Datalab
+      - text: Utiliser le Datalab
         menu:
           - href: doc/datalab/intro.qmd
             text: "Introduction"
@@ -56,13 +56,13 @@ website:
             text: "VSCode Python"
           - href: doc/datalab/lab.qmd
             text: "TP Découverte"
-      - text: Projet
+      - text: Gérer son Projet
         menu:
           - href: doc/project/planning.qmd
             text: "Planning"
           - href: doc/project/lab.qmd
             text: "TP Gestion de projet"
-      - text: Rédaction
+      - text: Rédiger
         menu:
           - href: doc/quarto/markdown.qmd
             text: "Markdown"

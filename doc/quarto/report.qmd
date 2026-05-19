@@ -1,13 +1,4 @@
 ---
-title: Rapport de projet
-subtitle: "Créer un rapport de projet avec Quarto et Typst"
-description: "Equipe 8"
-date: "2025/04/24"
-authors: 
-  - Laurent Costa
-  - Ludovic Deneuville
-  - Christophe Lesieur
-  - Brandon Saintilan
 format:
   html:
     code-tools: true
@@ -17,14 +8,71 @@ format:
       x: 1.5cm
       y: 2.0cm
     section-numbering: 1.1.a
-    toc: true
     mainfont: "Calibri"
     fontsize: 11pt
 ---
 
-{{< pagebreak >}}
+```{=typst}
+#let title-page(title:[], team_number:[], authors:[], tutor: [], project: [], body) = {
 
-:construction:
+  // 1. COVER PAGE
+  set page(footer: none)
+  
+  align(horizon + center)[
+    #text(size: 40pt, "ENSAI")
+    #line(start: (0cm, 0cm), end: (17cm, 0%), stroke: (thickness: 2pt))
+    #text(size: 24pt, title)\
+    #line(start: (0cm, 0cm), end: (17cm, 0%), stroke: (thickness: 2pt))
+    #v(1em)
+    Equipe #text(team_number)
+    #v(2em)
+  ]
+
+  align(left)[
+    Étudiants :
+    #v(0.1em)
+    #authors.map(a => [#a]).join("\n")
+  ]
+
+  align(right)[
+    Encadrant :
+    #v(0.1em)
+    #text(tutor)
+  ]
+  
+  align(bottom + center)[
+    #text(project)
+  ]
+  
+  // 2. TABLE OF CONTENTS
+  pagebreak()
+  set page(fill: none, margin: auto)
+  align(horizon, outline(indent: auto)) //toc
+  
+  
+  // 3. BODY
+  pagebreak()
+  counter(page).update(1)
+  
+  set page(
+    footer: context {
+      set align(center)
+      counter(page).display()
+    }
+  )
+
+  body
+}
+
+#show: body => title-page(
+  title: [Créer un rapport de projet\ avec Quarto et Typst],
+  team_number: [8],
+  authors: ([Laurent Costa], [Ludovic Deneuville], [Christophe Lesieur], [Brandon Saintilan]),
+  tutor: [Michel],
+  project: [Projet Statistique de 1ère année - Année 2025-2026],
+  body
+)
+```
 
 ## Introduction
 
