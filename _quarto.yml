@@ -34,7 +34,7 @@ website:
             text: "Python"
           - href: doc/language/r.qmd
             text: "R"
-      - text: Versionner
+      - text: Versionner avec Git
         menu:
           - href: doc/git/presentation.qmd
             text: "Présentation"

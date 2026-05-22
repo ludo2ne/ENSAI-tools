@@ -1,4 +1,7 @@
 ---
+bibliography: refs.bib
+citeproc: false
+nocite: "@*"
 format:
   html:
     code-tools: true
@@ -13,89 +16,98 @@ format:
 ---
 
 ```{=typst}
-#let title-page(title:[], team_number:[], authors:[], tutor: [], project: [], body) = {
+#import "model.typ": project_template
 
-  // 1. COVER PAGE
-  set page(footer: none)
-  
-  align(horizon + center)[
-    #text(size: 40pt, "ENSAI")
-    #line(start: (0cm, 0cm), end: (17cm, 0%), stroke: (thickness: 2pt))
-    #text(size: 24pt, title)\
-    #line(start: (0cm, 0cm), end: (17cm, 0%), stroke: (thickness: 2pt))
-    #v(1em)
-    Equipe #text(team_number)
-    #v(2em)
-  ]
-
-  align(left)[
-    Étudiants :
-    #v(0.1em)
-    #authors.map(a => [#a]).join("\n")
-  ]
-
-  align(right)[
-    Encadrant :
-    #v(0.1em)
-    #text(tutor)
-  ]
-  
-  align(bottom + center)[
-    #text(project)
-  ]
-  
-  // 2. TABLE OF CONTENTS
-  pagebreak()
-  set page(fill: none, margin: auto)
-  align(horizon, outline(indent: auto)) //toc
-  
-  
-  // 3. BODY
-  pagebreak()
-  counter(page).update(1)
-  
-  set page(
-    footer: context {
-      set align(center)
-      counter(page).display()
-    }
-  )
-
-  body
-}
-
-#show: body => title-page(
+#show: body => project_template(
   title: [Créer un rapport de projet\ avec Quarto et Typst],
-  team_number: [8],
-  authors: ([Laurent Costa], [Ludovic Deneuville], [Christophe Lesieur], [Brandon Saintilan]),
-  tutor: [Michel],
+  team: [Équipe 8],
+  authors: ([Jean-Guy Badiane], [Serena Williams], [François Pignon], [Anne Hathaway]),
+  tutor: [Philippe Lucas],
   project: [Projet Statistique de 1ère année - Année 2025-2026],
   body
 )
 ```
 
-## Introduction
+## Introduction {.unnumbered}
 
-Ne pas utiliser tinytex mais typst : <https://quarto.org/docs/output-formats/typst.html>
+Je commence toujours par une introduction que je ne numérote pas avec la propriété `unumbered`. Dans l'idéal, je trouve une phrase d'accroche en citant par exemple une actualité ou un fait marquant en rapport avec le sujet. Je présente le contexte, puis j'expose la problématique et le plan.
 
-<https://typst.app/>
-
-<https://github.com/InseeFrLab/jms2025-typst/blob/main/_extensions/jms2025/typst-template.typ>
+Ce rapport est rédigé en utilisant Quarto et Typst.
 
 
 {{< pagebreak >}}
 
-## Première partie
+## Quarto et Typst
 
-Bonjour
+### Typst
 
-### Première sous-partie
+[Typst](https://typst.app/){target="_blank"} est un nouveau système de composition de documents conçu pour remplacer LaTeX. Il se distingue par une syntaxe moderne, intuitive et une compilation quasi instantanée. Il offre une gestion fluide des polices et une mise en page élégante, tout en permettant de créer des templates personnalisés avec une logique de programmation simplifiée.
 
-::: {.callout-tip}
-Une petite astuce
+### Quarto
+
+[Quarto](https://quarto.org/){target="_blank"} est un système de publication scientifique multi-langage qui permet de mélanger texte (Markdown) et code exécutable (Python, R, Julia). Il agit comme un orchestrateur capable de transformer un document unique en formats variés (HTML, diapo, PDF...). Sa force réside dans la reproductibilité totale des analyses et des graphiques.
+
+### Typst inclus dans Quarto
+
+Typst est désormais intégré nativement dans Quarto, offrant une flexibilité d'utilisation à trois niveaux : 
+
+- un moteur de rendu automatique pour vos fichiers *.qmd*
+- la possibilité d'injecter directement du code Typst dans votre texte
+- via des fichiers `.typ` pour créer des templates
+
+<https://quarto.org/docs/output-formats/typst.html>{target="_blank"}
+
+
+::: {.callout-important}
+Je n'oublie pas de faire une petite phrase de transition.
 :::
 
-#### première sous-sous-partie
+Après avoir typst et Quarto, nous allons utiliser ces outils pour créer un rapport de projet.
+
+{{< pagebreak >}}
+
+## Créer un rapport de projet
+
+La majorité de ce rapport est rédigée en utilisant le *markdown*. Cependant il arrive que cela ne soit pas suffisant pour avoir une gestion fine du rendu.
+
+Par exemple pour obtenir une page de garde propre, nous allons utiliser directement du code *typst*
+
+### La page de garde
+
+Ce code est placé au début de ce document et permet de créer la page de garde et la table des matières.
+
+````
+```{=typst}
+#import "model.typ": project_template
+
+#show: body => project_template(
+  title: [Créer un rapport de projet\ avec Quarto et Typst],
+  team: [Équipe 8],
+  authors: ([Jean-Guy Badiane], [Serena Williams], [François Pignon], [Anne Hathaway]),
+  tutor: [Philippe Lucas],
+  project: [Projet Statistique de 1ère année - Année 2025-2026],
+  body
+)
+```
+````
+
+### Comment ça fonctionne
+
+Nous commençons par importer le fichier [model.typ](./model.typ){target="_blank"} et sa fonction nommée *project_template*. Celle-ci contient le code typst pour créer une belle page de garde.
+
+Ensuite nous appelons cette fonction avec les paramètres adéquats pour générer la page de garde.
+
+::: {.callout-tip}
+Vous noterez que cela permet de gérer également la numérotation des pages à partir de l'introduction.
+:::
+
+[Remarque :]{.underline} le code a été déplacé dans le fichier *model.typ* pour alléger ce document et séparer le fond et la forme. Mais le résultat serait le même si vous remplaciez l'import par tout le contenu du fichier *model.typ*.
+
+
+
+## Quelques exemples de mise en forme
+
+### Code
 
 ```{.sql}
 SELECT *
@@ -103,14 +115,34 @@ SELECT *
  WHERE 1 = 1
 ```
 
-### Deuxième sous-partie
+#### Code R exécuté
+
+Nous pouvons exécuter du code R et en afficher le résultat
+
+```{r}
+#| echo: false
+
+library(ggplot2)
+theta <- seq(0, 8 * pi, length.out = 1000)
+r <- 0.5 * theta
+
+data <- data.frame(theta = theta, r = r)
+data$x <- data$r * cos(data$theta)
+data$y <- data$r * sin(data$theta)
+
+ggplot(data, aes(x, y)) +
+  geom_path(color = "darkcyan", linewidth = 1.5)
+```
+
+
+### Liste
 
 - Paper-based exam
 - Duration: 1h30
 - 1 handwritten A4 sheet (front and back) allowed
 - No calculator
 
-### Troisème sous-partie
+### Tableau
 
 | Modifier                | Same Class | Same Package | Subclasses  |  Everywhere   |
 |-------------------------|------------|--------------|-------------|---------------|
@@ -119,14 +151,85 @@ SELECT *
 | *default* (no modifier) | ✅         | ✅          | ❌          | ❌           |
 | private                 | ✅         | ❌          | ❌          | ❌           |
 
+
+### Images
+
+Normalement vous n'avez pas besoin d'intégrer souvent des images, car vos figures peuvent être générées directement par du code R ou Python.
+
+![](./img/ensai_logo.png){fig-align="center" width="50%"}
+
+
+### Callout blocks
+
+
+::: {.callout-note}
+Les callout blocks servent à casser la monotonie visuelle et à hiérarchiser l'information.
+
+Leurs intérêts principaux sont :
+
+- Attirer l'attention sur des points cruciaux (avertissements, notes, astuces).
+- Structurer la lecture en isolant des éléments spécifiques (définitions, conseils, exemples).
+- Améliorer la lisibilité en créant des zones de respiration visuelle dans un texte dense.
+:::
+
+### Formules
+
+- with one `$` : inline $\overline{X}_n = \frac{1}{n} \sum_{i=1}^{n}X_{i}$
+- with two `$$`: $$\tilde{S}^2 = \frac{1}{n} \sum_{i=1}^{n}(X_{i} - \overline{X}_n)^{2}$$
+
 {{< pagebreak >}}
 
+## Bonnes pratiques
 
-## Deuxième partie
+### Rédaction
 
-> citation
+- Evitez la forme passive
+- On a :arrow_right: Nous avons
+
+::: {.callout-warning}
+RELISEZ-VOUS !!!
+:::
 
 
-## Bibliographie {.unnumbered}
 
-Use bib file
+
+### Figures
+
+- Titre, Numéro, Source, Champ, Note de lecture
+- Elle doit être citée dans le texte
+- Elle doit pourvoir être comprise seule sans lire le texte
+
+### Graphique
+
+- Je choisis le type le mieux adapté
+- J'utilise une palette de couleurs harmonisées
+
+### Références bibliographique
+
+::: {.callout-important}
+Citer des références bibliographiques permet de situer notre projet dans un cadre plus large. Cela montre que nous maîtrisons le sujet et que nous avons pris connaissance des travaux de nos pairs. Une bibliographie riche et pertinente démontre la profondeur de notre recherche documentaire.
+:::
+
+Comme le spécifie cet article [@prospect_theory], la Prospect Théory c'est pas mal.
+
+
+
+{{< pagebreak >}}
+
+## Conclusion {.unnumbered}
+
+Je ne rappelle pas un à un tous les résultats obtenus.
+
+Je fais un bilan, est-ce que ça répond à mes questions, est-ce que ça confirme.
+
+Quelles sont les limites ? Comment faire pour aller plus loin ?
+
+
+
+{{< pagebreak >}}
+
+## Annexes {.unnumbered}
+
+J'ajoute ici les éléments utiles pour la compréhension mais trop lourds pour la lecture fluide.
+
+{{< pagebreak >}}
