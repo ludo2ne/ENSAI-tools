@@ -15,6 +15,13 @@ format:
     fontsize: 11pt
 ---
 
+```{r}
+#| label: libraries-list
+#| echo: false
+
+library(ggplot2)
+```
+
 ```{=typst}
 #import "model.typ": project_template
 
@@ -122,7 +129,6 @@ Nous pouvons exécuter du code R et en afficher le résultat
 ```{r}
 #| echo: false
 
-library(ggplot2)
 theta <- seq(0, 8 * pi, length.out = 1000)
 r <- 0.5 * theta
 
