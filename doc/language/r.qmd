@@ -3,3 +3,37 @@ title: "R"
 description: "Le langage R"
 ---
 
+:construction:
+
+
+## Projet
+
+Fichier .Rproj
+
+
+## Renv
+
+Pour fixer les versions de packages
+
+*Renv.lock*
+
+ou
+
+```{.txt filename="DESCRIPTION"}
+Package: a
+Type: Book
+Title: Introduction à R
+Encoding: UTF-8
+Date: 2026-02-04
+Version: 0.0.1
+Depends:
+    questionr,
+    tidyverse
+```
+
+
+
+
+## Ressources {.unnumbered}
+
+<https://juba.github.io/tidyverse/>{target="_blank"}

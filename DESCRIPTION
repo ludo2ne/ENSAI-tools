@@ -1,0 +1,9 @@
+Package: ENSAITools
+Title: Outils pratiques pour les élèves de l'ENSAI
+Version: 0.1.0
+License: MIT
+Encoding: UTF-8
+Imports: 
+    tidyverse,
+    knitr,
+    rmarkdown
