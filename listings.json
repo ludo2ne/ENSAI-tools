@@ -18,10 +18,10 @@
       "/doc/datalab/lab.html",
       "/doc/datalab/advanced.html",
       "/doc/datalab/vscode-python.html",
+      "/doc/quarto/report.html",
       "/doc/quarto/markdown.html",
       "/doc/quarto/quarto.html",
       "/doc/quarto/rstudio.html",
-      "/doc/quarto/report.html",
       "/doc/quarto/site.html"
     ]
   }

@@ -56,6 +56,34 @@
     "text": "Ressources\n\nhttps://ensae-reproductibilite.github.io/website/chapters/linux101.html"
   },
   {
+    "objectID": "doc/language/r.html",
+    "href": "doc/language/r.html",
+    "title": "R",
+    "section": "",
+    "text": "🚧"
+  },
+  {
+    "objectID": "doc/language/r.html#projet",
+    "href": "doc/language/r.html#projet",
+    "title": "R",
+    "section": "1 Projet",
+    "text": "1 Projet\nFichier .Rproj"
+  },
+  {
+    "objectID": "doc/language/r.html#renv",
+    "href": "doc/language/r.html#renv",
+    "title": "R",
+    "section": "2 Renv",
+    "text": "2 Renv\nPour fixer les versions de packages\nRenv.lock\nou\n\n\nDESCRIPTION\n\nPackage: a\nType: Book\nTitle: Introduction à R\nEncoding: UTF-8\nDate: 2026-02-04\nVersion: 0.0.1\nDepends:\n    questionr,\n    tidyverse"
+  },
+  {
+    "objectID": "doc/language/r.html#ressources",
+    "href": "doc/language/r.html#ressources",
+    "title": "R",
+    "section": "Ressources",
+    "text": "Ressources\nhttps://juba.github.io/tidyverse/"
+  },
+  {
     "objectID": "doc/project/planning.html",
     "href": "doc/project/planning.html",
     "title": "Planning projet",
@@ -93,37 +121,58 @@
   {
     "objectID": "doc/quarto/report.html",
     "href": "doc/quarto/report.html",
-    "title": "Rapport de projet",
+    "title": "",
     "section": "",
-    "text": "🚧"
+    "text": "Code"
   },
   {
     "objectID": "doc/quarto/report.html#introduction",
     "href": "doc/quarto/report.html#introduction",
-    "title": "Rapport de projet",
-    "section": "1 Introduction",
-    "text": "1 Introduction\nNe pas utiliser tinytex mais typst : https://quarto.org/docs/output-formats/typst.html\nhttps://typst.app/\nhttps://github.com/InseeFrLab/jms2025-typst/blob/main/_extensions/jms2025/typst-template.typ"
+    "title": "",
+    "section": "Introduction",
+    "text": "Introduction\nJe commence toujours par une introduction que je ne numérote pas avec la propriété unumbered. Dans l’idéal, je trouve une phrase d’accroche en citant par exemple une actualité ou un fait marquant en rapport avec le sujet. Je présente le contexte, puis j’expose la problématique et le plan.\nCe rapport est rédigé en utilisant Quarto et Typst."
   },
   {
-    "objectID": "doc/quarto/report.html#première-partie",
-    "href": "doc/quarto/report.html#première-partie",
-    "title": "Rapport de projet",
-    "section": "2 Première partie",
-    "text": "2 Première partie\nBonjour\n\n2.1 Première sous-partie\n\n\n\n\n\n\nTip\n\n\n\nUne petite astuce\n\n\n\n2.1.1 première sous-sous-partie\nSELECT *\n  FROM user\n WHERE 1 = 1\n\n\n\n2.2 Deuxième sous-partie\n\nPaper-based exam\nDuration: 1h30\n1 handwritten A4 sheet (front and back) allowed\nNo calculator\n\n\n\n2.3 Troisème sous-partie\n\n\n\n\n\n\n\n\n\n\nModifier\nSame Class\nSame Package\nSubclasses\nEverywhere\n\n\n\n\npublic\n✅\n✅\n✅\n✅\n\n\nprotected\n✅\n✅\n✅\n❌\n\n\ndefault (no modifier)\n✅\n✅\n❌\n❌\n\n\nprivate\n✅\n❌\n❌\n❌"
+    "objectID": "doc/quarto/report.html#quarto-et-typst",
+    "href": "doc/quarto/report.html#quarto-et-typst",
+    "title": "",
+    "section": "1 Quarto et Typst",
+    "text": "1 Quarto et Typst\n\n1.1 Typst\nTypst est un nouveau système de composition de documents conçu pour remplacer LaTeX. Il se distingue par une syntaxe moderne, intuitive et une compilation quasi instantanée. Il offre une gestion fluide des polices et une mise en page élégante, tout en permettant de créer des templates personnalisés avec une logique de programmation simplifiée.\n\n\n1.2 Quarto\nQuarto est un système de publication scientifique multi-langage qui permet de mélanger texte (Markdown) et code exécutable (Python, R, Julia). Il agit comme un orchestrateur capable de transformer un document unique en formats variés (HTML, diapo, PDF…). Sa force réside dans la reproductibilité totale des analyses et des graphiques.\n\n\n1.3 Typst inclus dans Quarto\nTypst est désormais intégré nativement dans Quarto, offrant une flexibilité d’utilisation à trois niveaux :\n\nun moteur de rendu automatique pour vos fichiers .qmd\nla possibilité d’injecter directement du code Typst dans votre texte\nvia des fichiers .typ pour créer des templates\n\nhttps://quarto.org/docs/output-formats/typst.html\n\n\n\n\n\n\nImportant\n\n\n\nJe n’oublie pas de faire une petite phrase de transition.\n\n\nAprès avoir typst et Quarto, nous allons utiliser ces outils pour créer un rapport de projet."
   },
   {
-    "objectID": "doc/quarto/report.html#deuxième-partie",
-    "href": "doc/quarto/report.html#deuxième-partie",
-    "title": "Rapport de projet",
-    "section": "3 Deuxième partie",
-    "text": "3 Deuxième partie\n\ncitation"
+    "objectID": "doc/quarto/report.html#créer-un-rapport-de-projet",
+    "href": "doc/quarto/report.html#créer-un-rapport-de-projet",
+    "title": "",
+    "section": "2 Créer un rapport de projet",
+    "text": "2 Créer un rapport de projet\nLa majorité de ce rapport est rédigée en utilisant le markdown. Cependant il arrive que cela ne soit pas suffisant pour avoir une gestion fine du rendu.\nPar exemple pour obtenir une page de garde propre, nous allons utiliser directement du code typst\n\n2.1 La page de garde\nCe code est placé au début de ce document et permet de créer la page de garde et la table des matières.\n```{=typst}\n#import \"model.typ\": project_template\n\n#show: body =&gt; project_template(\n  title: [Créer un rapport de projet\\ avec Quarto et Typst],\n  team: [Équipe 8],\n  authors: ([Jean-Guy Badiane], [Serena Williams], [François Pignon], [Anne Hathaway]),\n  tutor: [Philippe Lucas],\n  project: [Projet Statistique de 1ère année - Année 2025-2026],\n  body\n)\n```\n\n\n2.2 Comment ça fonctionne\nNous commençons par importer le fichier model.typ et sa fonction nommée project_template. Celle-ci contient le code typst pour créer une belle page de garde.\nEnsuite nous appelons cette fonction avec les paramètres adéquats pour générer la page de garde.\n\n\n\n\n\n\nTip\n\n\n\nVous noterez que cela permet de gérer également la numérotation des pages à partir de l’introduction.\n\n\nRemarque : le code a été déplacé dans le fichier model.typ pour alléger ce document et séparer le fond et la forme. Mais le résultat serait le même si vous remplaciez l’import par tout le contenu du fichier model.typ."
   },
   {
-    "objectID": "doc/quarto/report.html#bibliographie",
-    "href": "doc/quarto/report.html#bibliographie",
-    "title": "Rapport de projet",
-    "section": "Bibliographie",
-    "text": "Bibliographie\nUse bib file"
+    "objectID": "doc/quarto/report.html#quelques-exemples-de-mise-en-forme",
+    "href": "doc/quarto/report.html#quelques-exemples-de-mise-en-forme",
+    "title": "",
+    "section": "3 Quelques exemples de mise en forme",
+    "text": "3 Quelques exemples de mise en forme\n\n3.1 Code\nSELECT *\n  FROM user\n WHERE 1 = 1\n\n3.1.1 Code R exécuté\nNous pouvons exécuter du code R et en afficher le résultat\n\n\n\n\n\n\n\n\n\n\n\n\n3.2 Liste\n\nPaper-based exam\nDuration: 1h30\n1 handwritten A4 sheet (front and back) allowed\nNo calculator\n\n\n\n3.3 Tableau\n\n\n\n\n\n\n\n\n\n\nModifier\nSame Class\nSame Package\nSubclasses\nEverywhere\n\n\n\n\npublic\n✅\n✅\n✅\n✅\n\n\nprotected\n✅\n✅\n✅\n❌\n\n\ndefault (no modifier)\n✅\n✅\n❌\n❌\n\n\nprivate\n✅\n❌\n❌\n❌\n\n\n\n\n\n3.4 Images\nNormalement vous n’avez pas besoin d’intégrer souvent des images, car vos figures peuvent être générées directement par du code R ou Python.\n\n\n\n\n\n\n\n3.5 Callout blocks\n\n\n\n\n\n\nNote\n\n\n\nLes callout blocks servent à casser la monotonie visuelle et à hiérarchiser l’information.\nLeurs intérêts principaux sont :\n\nAttirer l’attention sur des points cruciaux (avertissements, notes, astuces).\nStructurer la lecture en isolant des éléments spécifiques (définitions, conseils, exemples).\nAméliorer la lisibilité en créant des zones de respiration visuelle dans un texte dense.\n\n\n\n\n\n3.6 Formules\n\nwith one $ : inline \\(\\overline{X}_n = \\frac{1}{n} \\sum_{i=1}^{n}X_{i}\\)\nwith two $$: \\[\\tilde{S}^2 = \\frac{1}{n} \\sum_{i=1}^{n}(X_{i} - \\overline{X}_n)^{2}\\]"
+  },
+  {
+    "objectID": "doc/quarto/report.html#bonnes-pratiques",
+    "href": "doc/quarto/report.html#bonnes-pratiques",
+    "title": "",
+    "section": "4 Bonnes pratiques",
+    "text": "4 Bonnes pratiques\n\n4.1 Rédaction\n\nEvitez la forme passive\nOn a ➡️ Nous avons\n\n\n\n\n\n\n\nWarning\n\n\n\nRELISEZ-VOUS !!!\n\n\n\n\n4.2 Figures\n\nTitre, Numéro, Source, Champ, Note de lecture\nElle doit être citée dans le texte\nElle doit pourvoir être comprise seule sans lire le texte\n\n\n\n4.3 Graphique\n\nJe choisis le type le mieux adapté\nJ’utilise une palette de couleurs harmonisées\n\n\n\n4.4 Références bibliographique\n\n\n\n\n\n\nImportant\n\n\n\nCiter des références bibliographiques permet de situer notre projet dans un cadre plus large. Cela montre que nous maîtrisons le sujet et que nous avons pris connaissance des travaux de nos pairs. Une bibliographie riche et pertinente démontre la profondeur de notre recherche documentaire.\n\n\nComme le spécifie cet article [@prospect_theory], la Prospect Théory c’est pas mal."
+  },
+  {
+    "objectID": "doc/quarto/report.html#conclusion",
+    "href": "doc/quarto/report.html#conclusion",
+    "title": "",
+    "section": "Conclusion",
+    "text": "Conclusion\nJe ne rappelle pas un à un tous les résultats obtenus.\nJe fais un bilan, est-ce que ça répond à mes questions, est-ce que ça confirme.\nQuelles sont les limites ? Comment faire pour aller plus loin ?"
+  },
+  {
+    "objectID": "doc/quarto/report.html#annexes",
+    "href": "doc/quarto/report.html#annexes",
+    "title": "",
+    "section": "Annexes",
+    "text": "Annexes\nJ’ajoute ici les éléments utiles pour la compréhension mais trop lourds pour la lecture fluide."
   },
   {
     "objectID": "doc/datalab/vscode-python.html",
@@ -382,7 +431,7 @@
     "href": "index.html#quarto",
     "title": "Outils pour les élèves et enseignants de l’ENSAI",
     "section": "Quarto",
-    "text": "Quarto\n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\nMardown\n\n\n \n\n\n\n\n\n\nQuarto\n\n\n \n\n\n\n\n\n\nQuarto avec Rstudio\n\n\n \n\n\n\n\n\n\nRapport de projet\n\n\n \n\n\n\n\n\n\nSite statique\n\n\n \n\n\n\n\n\n\nNo matching items"
+    "text": "Quarto\n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\nIntroduction\n\n\n \n\n\n\n\n\n\nMardown\n\n\n \n\n\n\n\n\n\nQuarto\n\n\n \n\n\n\n\n\n\nQuarto avec Rstudio\n\n\n \n\n\n\n\n\n\nSite statique\n\n\n \n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "doc/git/presentation-slides.html#introduction",
@@ -844,7 +893,7 @@
     "href": "doc/project/lab.html",
     "title": "TP Gérer son projet",
     "section": "",
-    "text": "🚧\n\n\nBonnes pratiques de gestion de projet • Organisation des ressources : o code (GitHub) o données (S3) o suivi (Kanban GitHub, carnet de bord, fichier de suivi)\nMise en place du dépôt de projet • Création d’un dépôt GitHub commun • Fourniture d’un template (arborescence + fichiers essentiels) • Rappels pratiques (clone, push/pull, travail collaboratif)\nUtilisation de RStudio sur SSPCloud • Bonnes pratiques de code (lisibilité, modularité, reproductibilité) • Gestion des packages et projet (.Rproj) • Créer un premier script R pour : o charger les données brutes (depuis S3) o nettoyage o sauvegarde des données propres (S3) • Création d’un premier document Quarto (statistiques descriptives simples) • Proposer également le même code en Python\nOutils de gestion de projet • Mise à disposition d’outils légers et centralisés (idéalement sur GitHub) • diagramme de Gantt • Kanban GitHub ? • suivi hebdomadaire / carnet de bord ? Adapter les outils déjà fournis\nRédaction de rapports • Fourniture d’un template Quarto simple • Mise à disposition d’un exemple complet (modèle de Gabriel/Christophe) pour que les élèves puissent piocher dedans • Rappels méthodologiques : o structure : recherche biblio, énoncé de problématique, expériences, bilan (est-ce que ça confirme/infirme), limites, ouverture) o la conclusion n’est pas une reformulation de l’introduction o qualité rédactionnelle (titres informatifs, figures commentées, conclusion argumentée)"
+    "text": "🚧\n\n\nBonnes pratiques de gestion de projet • Organisation des ressources : o code (GitHub) o données (S3) o suivi (Kanban GitHub, carnet de bord, fichier de suivi)\nMise en place du dépôt de projet • Création d’un dépôt GitHub commun • Fourniture d’un template (arborescence + fichiers essentiels) • Rappels pratiques (clone, push/pull, travail collaboratif)\nUtilisation de RStudio sur SSPCloud • Bonnes pratiques de code (lisibilité, modularité, reproductibilité) • Gestion des packages et projet (.Rproj) • Créer un premier script R pour : o charger les données brutes (depuis S3) o nettoyage o sauvegarde des données propres (S3) • Création d’un premier document Quarto (statistiques descriptives simples) • Proposer également le même code en Python\nOutils de gestion de projet • Mise à disposition d’outils légers et centralisés (idéalement sur GitHub) • diagramme de Gantt • Kanban GitHub ? • suivi hebdomadaire / carnet de bord ? Adapter les outils déjà fournis\nRédaction de rapports • Fourniture d’un template Quarto simple ENSAI-Report-Template • Mise à disposition d’un exemple complet (modèle de Gabriel/Christophe) pour que les élèves puissent piocher dedans • Rappels méthodologiques : o structure : recherche biblio, énoncé de problématique, expériences, bilan (est-ce que ça confirme/infirme), limites, ouverture) o la conclusion n’est pas une reformulation de l’introduction o qualité rédactionnelle (titres informatifs, figures commentées, conclusion argumentée)"
   },
   {
     "objectID": "doc/language/python.html",

@@ -2,14 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-04-24">
-<meta name="description" content="Equipe 8">
 
-<title>Rapport de projet – ENSAI tools</title>
+<title>report – ENSAI tools</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -76,14 +74,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-8972a4b08918be08a88b3e2a59def418.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark-9571ef2f724cf1554e0ac39ede2d41c9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../../site_libs/bootstrap/bootstrap-8972a4b08918be08a88b3e2a59def418.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -112,6 +113,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -301,10 +331,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-formats-de-données" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Formats de données</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-formater-les-données" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Formater les données</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-formats-de-données">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-formater-les-données">    
         <li>
     <a class="dropdown-item" href="../../doc/format/csv.html">
  <span class="dropdown-text">CSV</span></a>
@@ -324,10 +354,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-programmation" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Programmation</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-coder" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Coder</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-programmation">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-coder">    
         <li>
     <a class="dropdown-item" href="../../doc/language/bash.html">
  <span class="dropdown-text">Bash</span></a>
@@ -343,10 +373,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-versionnage" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Versionnage</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-versionner-avec-git" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Versionner avec Git</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-versionnage">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-versionner-avec-git">    
         <li>
     <a class="dropdown-item" href="../../doc/git/presentation.html">
  <span class="dropdown-text">Présentation</span></a>
@@ -366,10 +396,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-datalab" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Datalab</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-utiliser-le-datalab" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Utiliser le Datalab</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-datalab">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-utiliser-le-datalab">    
         <li>
     <a class="dropdown-item" href="../../doc/datalab/intro.html">
  <span class="dropdown-text">Introduction</span></a>
@@ -393,10 +423,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projet" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Projet</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-gérer-son-projet" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Gérer son Projet</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-projet">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-gérer-son-projet">    
         <li>
     <a class="dropdown-item" href="../../doc/project/planning.html">
  <span class="dropdown-text">Planning</span></a>
@@ -408,10 +438,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-rédaction" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Rédaction</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-rédiger" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Rédiger</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-rédaction">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-rédiger">    
         <li>
     <a class="dropdown-item" href="../../doc/quarto/markdown.html">
  <span class="dropdown-text">Markdown</span></a>
@@ -462,10 +492,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#première-partie" id="toc-première-partie" class="nav-link" data-scroll-target="#première-partie"><span class="header-section-number">2</span> Première partie</a></li>
-  <li><a href="#deuxième-partie" id="toc-deuxième-partie" class="nav-link" data-scroll-target="#deuxième-partie"><span class="header-section-number">3</span> Deuxième partie</a></li>
-  <li><a href="#bibliographie" id="toc-bibliographie" class="nav-link" data-scroll-target="#bibliographie">Bibliographie</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#quarto-et-typst" id="toc-quarto-et-typst" class="nav-link" data-scroll-target="#quarto-et-typst"><span class="header-section-number">1</span> Quarto et Typst</a></li>
+  <li><a href="#créer-un-rapport-de-projet" id="toc-créer-un-rapport-de-projet" class="nav-link" data-scroll-target="#créer-un-rapport-de-projet"><span class="header-section-number">2</span> Créer un rapport de projet</a></li>
+  <li><a href="#quelques-exemples-de-mise-en-forme" id="toc-quelques-exemples-de-mise-en-forme" class="nav-link" data-scroll-target="#quelques-exemples-de-mise-en-forme"><span class="header-section-number">3</span> Quelques exemples de mise en forme</a></li>
+  <li><a href="#bonnes-pratiques" id="toc-bonnes-pratiques" class="nav-link" data-scroll-target="#bonnes-pratiques"><span class="header-section-number">4</span> Bonnes pratiques</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#annexes" id="toc-annexes" class="nav-link" data-scroll-target="#annexes">Annexes</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="report.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
 </nav>
@@ -474,63 +507,78 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7"></h1></header><div class="quarto-title-block"><div class="quarto-title-tools-only"><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Rapport de projet</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Créer un rapport de projet avec Quarto et Typst</p>
-</div>
-
-<div>
-  <div class="description">
-    Equipe 8
-  </div>
-</div>
 
 
-<div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Authors</div>
-    <div class="quarto-title-meta-contents">
-             <p>Laurent Costa </p>
-             <p>Ludovic Deneuville </p>
-             <p>Christophe Lesieur </p>
-             <p>Brandon Saintilan </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">April 24, 2025</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<div style="page-break-after: always;"></div>
-<p><span class="emoji" data-emoji="construction">🚧</span></p>
-<section id="introduction" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
-<p>Ne pas utiliser tinytex mais typst : <a href="https://quarto.org/docs/output-formats/typst.html" class="uri">https://quarto.org/docs/output-formats/typst.html</a></p>
-<p><a href="https://typst.app/" class="uri">https://typst.app/</a></p>
-<p><a href="https://github.com/InseeFrLab/jms2025-typst/blob/main/_extensions/jms2025/typst-template.typ" class="uri">https://github.com/InseeFrLab/jms2025-typst/blob/main/_extensions/jms2025/typst-template.typ</a></p>
+<section id="introduction" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Je commence toujours par une introduction que je ne numérote pas avec la propriété <code>unumbered</code>. Dans l’idéal, je trouve une phrase d’accroche en citant par exemple une actualité ou un fait marquant en rapport avec le sujet. Je présente le contexte, puis j’expose la problématique et le plan.</p>
+<p>Ce rapport est rédigé en utilisant Quarto et Typst.</p>
 <div style="page-break-after: always;"></div>
 </section>
-<section id="première-partie" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="première-partie"><span class="header-section-number">2</span> Première partie</h2>
-<p>Bonjour</p>
-<section id="première-sous-partie" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="première-sous-partie"><span class="header-section-number">2.1</span> Première sous-partie</h3>
+<section id="quarto-et-typst" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="quarto-et-typst"><span class="header-section-number">1</span> Quarto et Typst</h2>
+<section id="typst" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="typst"><span class="header-section-number">1.1</span> Typst</h3>
+<p><a href="https://typst.app/" target="_blank">Typst</a> est un nouveau système de composition de documents conçu pour remplacer LaTeX. Il se distingue par une syntaxe moderne, intuitive et une compilation quasi instantanée. Il offre une gestion fluide des polices et une mise en page élégante, tout en permettant de créer des templates personnalisés avec une logique de programmation simplifiée.</p>
+</section>
+<section id="quarto" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="quarto"><span class="header-section-number">1.2</span> Quarto</h3>
+<p><a href="https://quarto.org/" target="_blank">Quarto</a> est un système de publication scientifique multi-langage qui permet de mélanger texte (Markdown) et code exécutable (Python, R, Julia). Il agit comme un orchestrateur capable de transformer un document unique en formats variés (HTML, diapo, PDF…). Sa force réside dans la reproductibilité totale des analyses et des graphiques.</p>
+</section>
+<section id="typst-inclus-dans-quarto" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="typst-inclus-dans-quarto"><span class="header-section-number">1.3</span> Typst inclus dans Quarto</h3>
+<p>Typst est désormais intégré nativement dans Quarto, offrant une flexibilité d’utilisation à trois niveaux :</p>
+<ul>
+<li>un moteur de rendu automatique pour vos fichiers <em>.qmd</em></li>
+<li>la possibilité d’injecter directement du code Typst dans votre texte</li>
+<li>via des fichiers <code>.typ</code> pour créer des templates</li>
+</ul>
+<p><a href="https://quarto.org/docs/output-formats/typst.html" target="_blank">https://quarto.org/docs/output-formats/typst.html</a></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Je n’oublie pas de faire une petite phrase de transition.</p>
+</div>
+</div>
+<p>Après avoir typst et Quarto, nous allons utiliser ces outils pour créer un rapport de projet.</p>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="créer-un-rapport-de-projet" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="créer-un-rapport-de-projet"><span class="header-section-number">2</span> Créer un rapport de projet</h2>
+<p>La majorité de ce rapport est rédigée en utilisant le <em>markdown</em>. Cependant il arrive que cela ne soit pas suffisant pour avoir une gestion fine du rendu.</p>
+<p>Par exemple pour obtenir une page de garde propre, nous allons utiliser directement du code <em>typst</em></p>
+<section id="la-page-de-garde" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="la-page-de-garde"><span class="header-section-number">2.1</span> La page de garde</h3>
+<p>Ce code est placé au début de ce document et permet de créer la page de garde et la table des matières.</p>
+<pre><code>```{=typst}
+#import "model.typ": project_template
+
+#show: body =&gt; project_template(
+  title: [Créer un rapport de projet\ avec Quarto et Typst],
+  team: [Équipe 8],
+  authors: ([Jean-Guy Badiane], [Serena Williams], [François Pignon], [Anne Hathaway]),
+  tutor: [Philippe Lucas],
+  project: [Projet Statistique de 1ère année - Année 2025-2026],
+  body
+)
+```</code></pre>
+</section>
+<section id="comment-ça-fonctionne" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="comment-ça-fonctionne"><span class="header-section-number">2.2</span> Comment ça fonctionne</h3>
+<p>Nous commençons par importer le fichier <a href="./model.typ" target="_blank">model.typ</a> et sa fonction nommée <em>project_template</em>. Celle-ci contient le code typst pour créer une belle page de garde.</p>
+<p>Ensuite nous appelons cette fonction avec les paramètres adéquats pour générer la page de garde.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -541,18 +589,35 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Une petite astuce</p>
+<p>Vous noterez que cela permet de gérer également la numérotation des pages à partir de l’introduction.</p>
 </div>
 </div>
-<section id="première-sous-sous-partie" class="level4" data-number="2.1.1">
-<h4 data-number="2.1.1" class="anchored" data-anchor-id="première-sous-sous-partie"><span class="header-section-number">2.1.1</span> première sous-sous-partie</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> <span class="fu">user</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">WHERE</span> <span class="dv">1</span> <span class="op">=</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><u>Remarque :</u> le code a été déplacé dans le fichier <em>model.typ</em> pour alléger ce document et séparer le fond et la forme. Mais le résultat serait le même si vous remplaciez l’import par tout le contenu du fichier <em>model.typ</em>.</p>
 </section>
 </section>
-<section id="deuxième-sous-partie" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="deuxième-sous-partie"><span class="header-section-number">2.2</span> Deuxième sous-partie</h3>
+<section id="quelques-exemples-de-mise-en-forme" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="quelques-exemples-de-mise-en-forme"><span class="header-section-number">3</span> Quelques exemples de mise en forme</h2>
+<section id="code" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="code"><span class="header-section-number">3.1</span> Code</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> <span class="fu">user</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">WHERE</span> <span class="dv">1</span> <span class="op">=</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="code-r-exécuté" class="level4" data-number="3.1.1">
+<h4 data-number="3.1.1" class="anchored" data-anchor-id="code-r-exécuté"><span class="header-section-number">3.1.1</span> Code R exécuté</h4>
+<p>Nous pouvons exécuter du code R et en afficher le résultat</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="report_files/figure-html/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="report_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="liste" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="liste"><span class="header-section-number">3.2</span> Liste</h3>
 <ul>
 <li>Paper-based exam</li>
 <li>Duration: 1h30</li>
@@ -560,8 +625,8 @@ Tip
 <li>No calculator</li>
 </ul>
 </section>
-<section id="troisème-sous-partie" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="troisème-sous-partie"><span class="header-section-number">2.3</span> Troisème sous-partie</h3>
+<section id="tableau" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="tableau"><span class="header-section-number">3.3</span> Tableau</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 31%">
@@ -610,18 +675,114 @@ Tip
 </tr>
 </tbody>
 </table>
+</section>
+<section id="images" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="images"><span class="header-section-number">3.4</span> Images</h3>
+<p>Normalement vous n’avez pas besoin d’intégrer souvent des images, car vos figures peuvent être générées directement par du code R ou Python.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/ensai_logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="./img/ensai_logo.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></a></p>
+</figure>
+</div>
+</section>
+<section id="callout-blocks" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="callout-blocks"><span class="header-section-number">3.5</span> Callout blocks</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les callout blocks servent à casser la monotonie visuelle et à hiérarchiser l’information.</p>
+<p>Leurs intérêts principaux sont :</p>
+<ul>
+<li>Attirer l’attention sur des points cruciaux (avertissements, notes, astuces).</li>
+<li>Structurer la lecture en isolant des éléments spécifiques (définitions, conseils, exemples).</li>
+<li>Améliorer la lisibilité en créant des zones de respiration visuelle dans un texte dense.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="formules" class="level3" data-number="3.6">
+<h3 data-number="3.6" class="anchored" data-anchor-id="formules"><span class="header-section-number">3.6</span> Formules</h3>
+<ul>
+<li>with one <code>$</code> : inline <span class="math inline">\(\overline{X}_n = \frac{1}{n} \sum_{i=1}^{n}X_{i}\)</span></li>
+<li>with two <code>$$</code>: <span class="math display">\[\tilde{S}^2 = \frac{1}{n} \sum_{i=1}^{n}(X_{i} - \overline{X}_n)^{2}\]</span></li>
+</ul>
 <div style="page-break-after: always;"></div>
 </section>
 </section>
-<section id="deuxième-partie" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="deuxième-partie"><span class="header-section-number">3</span> Deuxième partie</h2>
-<blockquote class="blockquote">
-<p>citation</p>
-</blockquote>
+<section id="bonnes-pratiques" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="bonnes-pratiques"><span class="header-section-number">4</span> Bonnes pratiques</h2>
+<section id="rédaction" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="rédaction"><span class="header-section-number">4.1</span> Rédaction</h3>
+<ul>
+<li>Evitez la forme passive</li>
+<li>On a <span class="emoji" data-emoji="arrow_right">➡️</span> Nous avons</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>RELISEZ-VOUS !!!</p>
+</div>
+</div>
 </section>
-<section id="bibliographie" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="bibliographie">Bibliographie</h2>
-<p>Use bib file</p>
+<section id="figures" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="figures"><span class="header-section-number">4.2</span> Figures</h3>
+<ul>
+<li>Titre, Numéro, Source, Champ, Note de lecture</li>
+<li>Elle doit être citée dans le texte</li>
+<li>Elle doit pourvoir être comprise seule sans lire le texte</li>
+</ul>
+</section>
+<section id="graphique" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="graphique"><span class="header-section-number">4.3</span> Graphique</h3>
+<ul>
+<li>Je choisis le type le mieux adapté</li>
+<li>J’utilise une palette de couleurs harmonisées</li>
+</ul>
+</section>
+<section id="références-bibliographique" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="références-bibliographique"><span class="header-section-number">4.4</span> Références bibliographique</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Citer des références bibliographiques permet de situer notre projet dans un cadre plus large. Cela montre que nous maîtrisons le sujet et que nous avons pris connaissance des travaux de nos pairs. Une bibliographie riche et pertinente démontre la profondeur de notre recherche documentaire.</p>
+</div>
+</div>
+<p>Comme le spécifie cet article <span class="citation" data-cites="prospect_theory">[@prospect_theory]</span>, la Prospect Théory c’est pas mal.</p>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="conclusion" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Je ne rappelle pas un à un tous les résultats obtenus.</p>
+<p>Je fais un bilan, est-ce que ça répond à mes questions, est-ce que ça confirme.</p>
+<p>Quelles sont les limites ? Comment faire pour aller plus loin ?</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="annexes" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="annexes">Annexes</h2>
+<p>J’ajoute ici les éléments utiles pour la compréhension mais trop lourds pour la lecture fluide.</p>
+<div style="page-break-after: always;"></div>
 
 
 <!-- -->
@@ -1093,90 +1254,248 @@ Tip
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Rapport de projet</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Créer un rapport de projet avec Quarto et Typst"</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "Equipe 8"</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2025/04/24"</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="an">authors:</span><span class="co"> </span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">  - Laurent Costa</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">  - Ludovic Deneuville</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">  - Christophe Lesieur</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">  - Brandon Saintilan</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">  typst:</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">    papersize: a4</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">    margin:</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">      x: 1.5cm</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">      y: 2.0cm</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">    section-numbering: 1.1.a</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">    mainfont: "Calibri"</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">    fontsize: 11pt</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>{{&lt; pagebreak &gt;}}</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="sc">:construction:</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>Ne pas utiliser tinytex mais typst : <span class="ot">&lt;https://quarto.org/docs/output-formats/typst.html&gt;</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;https://typst.app/&gt;</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;https://github.com/InseeFrLab/jms2025-typst/blob/main/_extensions/jms2025/typst-template.typ&gt;</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>{{&lt; pagebreak &gt;}}</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## Première partie</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>Bonjour</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="fu">### Première sous-partie</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>Une petite astuce</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="fu">#### première sous-sous-partie</span></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sql}</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> <span class="fu">user</span></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a> <span class="kw">WHERE</span> <span class="dv">1</span> <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="fu">### Deuxième sous-partie</span></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Paper-based exam</span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Duration: 1h30</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>1 handwritten A4 sheet (front and back) allowed</span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>No calculator</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="fu">### Troisème sous-partie</span></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Modifier                <span class="pp">|</span> Same Class <span class="pp">|</span> Same Package <span class="pp">|</span> Subclasses  <span class="pp">|</span>  Everywhere   <span class="pp">|</span></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="pp">|-------------------------|------------|--------------|-------------|---------------|</span></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> public                  <span class="pp">|</span> ✅         <span class="pp">|</span> ✅          <span class="pp">|</span> ✅          <span class="pp">|</span> ✅           <span class="pp">|</span></span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> protected               <span class="pp">|</span> ✅         <span class="pp">|</span> ✅          <span class="pp">|</span> ✅          <span class="pp">|</span> ❌           <span class="pp">|</span></span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> *default* (no modifier) <span class="pp">|</span> ✅         <span class="pp">|</span> ✅          <span class="pp">|</span> ❌          <span class="pp">|</span> ❌           <span class="pp">|</span></span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> private                 <span class="pp">|</span> ✅         <span class="pp">|</span> ❌          <span class="pp">|</span> ❌          <span class="pp">|</span> ❌           <span class="pp">|</span></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>{{&lt; pagebreak &gt;}}</span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## Deuxième partie</span></span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; citation</span></span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bibliographie {.unnumbered}</span></span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>Use bib file</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> refs.bib</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">citeproc:</span><span class="co"> false</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">nocite:</span><span class="co"> "@*"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">  typst:</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">    papersize: a4</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">    margin:</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">      x: 1.5cm</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">      y: 2.0cm</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">    section-numbering: 1.1.a</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">    mainfont: "Calibri"</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">    fontsize: 11pt</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: libraries-list</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="in">```{=typst}</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="in">#import "model.typ": project_template</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="in">#show: body =&gt; project_template(</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="in">  title: [Créer un rapport de projet\ avec Quarto et Typst],</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="in">  team: [Équipe 8],</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="in">  authors: ([Jean-Guy Badiane], [Serena Williams], [François Pignon], [Anne Hathaway]),</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="in">  tutor: [Philippe Lucas],</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="in">  project: [Projet Statistique de 1ère année - Année 2025-2026],</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="in">  body</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction {.unnumbered}</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>Je commence toujours par une introduction que je ne numérote pas avec la propriété <span class="in">`unumbered`</span>. Dans l'idéal, je trouve une phrase d'accroche en citant par exemple une actualité ou un fait marquant en rapport avec le sujet. Je présente le contexte, puis j'expose la problématique et le plan.</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>Ce rapport est rédigé en utilisant Quarto et Typst.</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>{{&lt; pagebreak &gt;}}</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quarto et Typst</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="fu">### Typst</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Typst</span><span class="co">](https://typst.app/)</span>{target="_blank"} est un nouveau système de composition de documents conçu pour remplacer LaTeX. Il se distingue par une syntaxe moderne, intuitive et une compilation quasi instantanée. Il offre une gestion fluide des polices et une mise en page élégante, tout en permettant de créer des templates personnalisés avec une logique de programmation simplifiée.</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="fu">### Quarto</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>{target="_blank"} est un système de publication scientifique multi-langage qui permet de mélanger texte (Markdown) et code exécutable (Python, R, Julia). Il agit comme un orchestrateur capable de transformer un document unique en formats variés (HTML, diapo, PDF...). Sa force réside dans la reproductibilité totale des analyses et des graphiques.</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="fu">### Typst inclus dans Quarto</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>Typst est désormais intégré nativement dans Quarto, offrant une flexibilité d'utilisation à trois niveaux : </span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>un moteur de rendu automatique pour vos fichiers *.qmd*</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>la possibilité d'injecter directement du code Typst dans votre texte</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>via des fichiers <span class="in">`.typ`</span> pour créer des templates</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;https://quarto.org/docs/output-formats/typst.html&gt;</span>{target="_blank"}</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>Je n'oublie pas de faire une petite phrase de transition.</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>Après avoir typst et Quarto, nous allons utiliser ces outils pour créer un rapport de projet.</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>{{&lt; pagebreak &gt;}}</span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="fu">## Créer un rapport de projet</span></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>La majorité de ce rapport est rédigée en utilisant le *markdown*. Cependant il arrive que cela ne soit pas suffisant pour avoir une gestion fine du rendu.</span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>Par exemple pour obtenir une page de garde propre, nous allons utiliser directement du code *typst*</span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="fu">### La page de garde</span></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>Ce code est placé au début de ce document et permet de créer la page de garde et la table des matières.</span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a><span class="in">````</span></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="in">```{=typst}</span></span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a><span class="in">#import "model.typ": project_template</span></span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a><span class="in">#show: body =&gt; project_template(</span></span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a><span class="in">  title: [Créer un rapport de projet\ avec Quarto et Typst],</span></span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a><span class="in">  team: [Équipe 8],</span></span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a><span class="in">  authors: ([Jean-Guy Badiane], [Serena Williams], [François Pignon], [Anne Hathaway]),</span></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a><span class="in">  tutor: [Philippe Lucas],</span></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a><span class="in">  project: [Projet Statistique de 1ère année - Année 2025-2026],</span></span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a><span class="in">  body</span></span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a><span class="in">````</span></span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a><span class="fu">### Comment ça fonctionne</span></span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a>Nous commençons par importer le fichier <span class="co">[</span><span class="ot">model.typ</span><span class="co">](./model.typ)</span>{target="_blank"} et sa fonction nommée *project_template*. Celle-ci contient le code typst pour créer une belle page de garde.</span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a>Ensuite nous appelons cette fonction avec les paramètres adéquats pour générer la page de garde.</span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>Vous noterez que cela permet de gérer également la numérotation des pages à partir de l'introduction.</span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Remarque :</span><span class="co">]</span>{.underline} le code a été déplacé dans le fichier *model.typ* pour alléger ce document et séparer le fond et la forme. Mais le résultat serait le même si vous remplaciez l'import par tout le contenu du fichier *model.typ*.</span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quelques exemples de mise en forme</span></span>
+<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a><span class="fu">### Code</span></span>
+<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sql}</span></span>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> <span class="fu">user</span></span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a> <span class="kw">WHERE</span> <span class="dv">1</span> <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Code R exécuté</span></span>
+<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a>Nous pouvons exécuter du code R et en afficher le résultat</span>
+<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">8</span> <span class="sc">*</span> pi, <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
+<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="sc">*</span> theta</span>
+<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">theta =</span> theta, <span class="at">r =</span> r)</span>
+<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>x <span class="ot">&lt;-</span> data<span class="sc">$</span>r <span class="sc">*</span> <span class="fu">cos</span>(data<span class="sc">$</span>theta)</span>
+<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>y <span class="ot">&lt;-</span> data<span class="sc">$</span>r <span class="sc">*</span> <span class="fu">sin</span>(data<span class="sc">$</span>theta)</span>
+<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(<span class="at">color =</span> <span class="st">"darkcyan"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>)</span>
+<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a><span class="fu">### Liste</span></span>
+<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Paper-based exam</span>
+<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Duration: 1h30</span>
+<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>1 handwritten A4 sheet (front and back) allowed</span>
+<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>No calculator</span>
+<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tableau</span></span>
+<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Modifier                <span class="pp">|</span> Same Class <span class="pp">|</span> Same Package <span class="pp">|</span> Subclasses  <span class="pp">|</span>  Everywhere   <span class="pp">|</span></span>
+<span id="cb3-158"><a href="#cb3-158" aria-hidden="true" tabindex="-1"></a><span class="pp">|-------------------------|------------|--------------|-------------|---------------|</span></span>
+<span id="cb3-159"><a href="#cb3-159" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> public                  <span class="pp">|</span> ✅         <span class="pp">|</span> ✅          <span class="pp">|</span> ✅          <span class="pp">|</span> ✅           <span class="pp">|</span></span>
+<span id="cb3-160"><a href="#cb3-160" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> protected               <span class="pp">|</span> ✅         <span class="pp">|</span> ✅          <span class="pp">|</span> ✅          <span class="pp">|</span> ❌           <span class="pp">|</span></span>
+<span id="cb3-161"><a href="#cb3-161" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> *default* (no modifier) <span class="pp">|</span> ✅         <span class="pp">|</span> ✅          <span class="pp">|</span> ❌          <span class="pp">|</span> ❌           <span class="pp">|</span></span>
+<span id="cb3-162"><a href="#cb3-162" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> private                 <span class="pp">|</span> ✅         <span class="pp">|</span> ❌          <span class="pp">|</span> ❌          <span class="pp">|</span> ❌           <span class="pp">|</span></span>
+<span id="cb3-163"><a href="#cb3-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-164"><a href="#cb3-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-165"><a href="#cb3-165" aria-hidden="true" tabindex="-1"></a><span class="fu">### Images</span></span>
+<span id="cb3-166"><a href="#cb3-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-167"><a href="#cb3-167" aria-hidden="true" tabindex="-1"></a>Normalement vous n'avez pas besoin d'intégrer souvent des images, car vos figures peuvent être générées directement par du code R ou Python.</span>
+<span id="cb3-168"><a href="#cb3-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-169"><a href="#cb3-169" aria-hidden="true" tabindex="-1"></a><span class="al">![](./img/ensai_logo.png)</span>{fig-align="center" width="50%"}</span>
+<span id="cb3-170"><a href="#cb3-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-171"><a href="#cb3-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-172"><a href="#cb3-172" aria-hidden="true" tabindex="-1"></a><span class="fu">### Callout blocks</span></span>
+<span id="cb3-173"><a href="#cb3-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb3-176"><a href="#cb3-176" aria-hidden="true" tabindex="-1"></a>Les callout blocks servent à casser la monotonie visuelle et à hiérarchiser l'information.</span>
+<span id="cb3-177"><a href="#cb3-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-178"><a href="#cb3-178" aria-hidden="true" tabindex="-1"></a>Leurs intérêts principaux sont :</span>
+<span id="cb3-179"><a href="#cb3-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-180"><a href="#cb3-180" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Attirer l'attention sur des points cruciaux (avertissements, notes, astuces).</span>
+<span id="cb3-181"><a href="#cb3-181" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Structurer la lecture en isolant des éléments spécifiques (définitions, conseils, exemples).</span>
+<span id="cb3-182"><a href="#cb3-182" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Améliorer la lisibilité en créant des zones de respiration visuelle dans un texte dense.</span>
+<span id="cb3-183"><a href="#cb3-183" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-184"><a href="#cb3-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-185"><a href="#cb3-185" aria-hidden="true" tabindex="-1"></a><span class="fu">### Formules</span></span>
+<span id="cb3-186"><a href="#cb3-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-187"><a href="#cb3-187" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>with one <span class="in">`$`</span> : inline $\overline{X}_n = \frac{1}{n} \sum_{i=1}^{n}X_{i}$</span>
+<span id="cb3-188"><a href="#cb3-188" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>with two <span class="in">`$$`</span>: $$\tilde{S}^2 = \frac{1}{n} \sum_{i=1}^{n}(X_{i} - \overline{X}_n)^{2}$$</span>
+<span id="cb3-189"><a href="#cb3-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-190"><a href="#cb3-190" aria-hidden="true" tabindex="-1"></a>{{&lt; pagebreak &gt;}}</span>
+<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-192"><a href="#cb3-192" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bonnes pratiques</span></span>
+<span id="cb3-193"><a href="#cb3-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a><span class="fu">### Rédaction</span></span>
+<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Evitez la forme passive</span>
+<span id="cb3-197"><a href="#cb3-197" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On a <span class="sc">:arrow_right:</span> Nous avons</span>
+<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb3-200"><a href="#cb3-200" aria-hidden="true" tabindex="-1"></a>RELISEZ-VOUS !!!</span>
+<span id="cb3-201"><a href="#cb3-201" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-202"><a href="#cb3-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-203"><a href="#cb3-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-204"><a href="#cb3-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-205"><a href="#cb3-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-206"><a href="#cb3-206" aria-hidden="true" tabindex="-1"></a><span class="fu">### Figures</span></span>
+<span id="cb3-207"><a href="#cb3-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-208"><a href="#cb3-208" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Titre, Numéro, Source, Champ, Note de lecture</span>
+<span id="cb3-209"><a href="#cb3-209" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Elle doit être citée dans le texte</span>
+<span id="cb3-210"><a href="#cb3-210" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Elle doit pourvoir être comprise seule sans lire le texte</span>
+<span id="cb3-211"><a href="#cb3-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-212"><a href="#cb3-212" aria-hidden="true" tabindex="-1"></a><span class="fu">### Graphique</span></span>
+<span id="cb3-213"><a href="#cb3-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-214"><a href="#cb3-214" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Je choisis le type le mieux adapté</span>
+<span id="cb3-215"><a href="#cb3-215" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>J'utilise une palette de couleurs harmonisées</span>
+<span id="cb3-216"><a href="#cb3-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-217"><a href="#cb3-217" aria-hidden="true" tabindex="-1"></a><span class="fu">### Références bibliographique</span></span>
+<span id="cb3-218"><a href="#cb3-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-219"><a href="#cb3-219" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb3-220"><a href="#cb3-220" aria-hidden="true" tabindex="-1"></a>Citer des références bibliographiques permet de situer notre projet dans un cadre plus large. Cela montre que nous maîtrisons le sujet et que nous avons pris connaissance des travaux de nos pairs. Une bibliographie riche et pertinente démontre la profondeur de notre recherche documentaire.</span>
+<span id="cb3-221"><a href="#cb3-221" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-222"><a href="#cb3-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-223"><a href="#cb3-223" aria-hidden="true" tabindex="-1"></a>Comme le spécifie cet article <span class="co">[</span><span class="ot">@prospect_theory</span><span class="co">]</span>, la Prospect Théory c'est pas mal.</span>
+<span id="cb3-224"><a href="#cb3-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-225"><a href="#cb3-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-226"><a href="#cb3-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-227"><a href="#cb3-227" aria-hidden="true" tabindex="-1"></a>{{&lt; pagebreak &gt;}}</span>
+<span id="cb3-228"><a href="#cb3-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-229"><a href="#cb3-229" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion {.unnumbered}</span></span>
+<span id="cb3-230"><a href="#cb3-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-231"><a href="#cb3-231" aria-hidden="true" tabindex="-1"></a>Je ne rappelle pas un à un tous les résultats obtenus.</span>
+<span id="cb3-232"><a href="#cb3-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-233"><a href="#cb3-233" aria-hidden="true" tabindex="-1"></a>Je fais un bilan, est-ce que ça répond à mes questions, est-ce que ça confirme.</span>
+<span id="cb3-234"><a href="#cb3-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-235"><a href="#cb3-235" aria-hidden="true" tabindex="-1"></a>Quelles sont les limites ? Comment faire pour aller plus loin ?</span>
+<span id="cb3-236"><a href="#cb3-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-237"><a href="#cb3-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-238"><a href="#cb3-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-239"><a href="#cb3-239" aria-hidden="true" tabindex="-1"></a>{{&lt; pagebreak &gt;}}</span>
+<span id="cb3-240"><a href="#cb3-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-241"><a href="#cb3-241" aria-hidden="true" tabindex="-1"></a><span class="fu">## Annexes {.unnumbered}</span></span>
+<span id="cb3-242"><a href="#cb3-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-243"><a href="#cb3-243" aria-hidden="true" tabindex="-1"></a>J'ajoute ici les éléments utiles pour la compréhension mais trop lourds pour la lecture fluide.</span>
+<span id="cb3-244"><a href="#cb3-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-245"><a href="#cb3-245" aria-hidden="true" tabindex="-1"></a>{{&lt; pagebreak &gt;}}</span>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1192,6 +1511,38 @@ Tip
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
