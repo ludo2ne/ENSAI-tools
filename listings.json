@@ -7,6 +7,7 @@
       "/doc/format/parquet.html",
       "/doc/language/bash.html",
       "/doc/language/python.html",
+      "/doc/language/quality.html",
       "/doc/language/r.html",
       "/doc/format/yaml.html",
       "/doc/git/advanced.html",
@@ -20,9 +21,11 @@
       "/doc/datalab/vscode-python.html",
       "/doc/quarto/report.html",
       "/doc/quarto/markdown.html",
+      "/doc/quarto/poster.html",
       "/doc/quarto/quarto.html",
       "/doc/quarto/rstudio.html",
-      "/doc/quarto/site.html"
+      "/doc/quarto/site.html",
+      "/doc/quarto/slideshow.html"
     ]
   }
 ]

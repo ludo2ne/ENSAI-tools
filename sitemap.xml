@@ -1,103 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/language/bash.html</loc>
-    <lastmod>2026-05-27T09:39:00.185Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/language/r.html</loc>
-    <lastmod>2026-05-27T09:39:00.185Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/project/planning.html</loc>
-    <lastmod>2026-05-27T09:39:00.186Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/quarto/markdown.html</loc>
-    <lastmod>2026-05-27T09:39:00.186Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/quarto/report.html</loc>
-    <lastmod>2026-05-27T09:39:00.186Z</lastmod>
-  </url>
-  <url>
     <loc>https://ludo2ne.github.io/ENSAI-tools/doc/datalab/vscode-python.html</loc>
-    <lastmod>2026-05-27T09:39:00.181Z</lastmod>
+    <lastmod>2026-05-28T10:19:37.289Z</lastmod>
   </url>
   <url>
     <loc>https://ludo2ne.github.io/ENSAI-tools/doc/datalab/advanced.html</loc>
-    <lastmod>2026-05-27T09:39:00.181Z</lastmod>
+    <lastmod>2026-05-28T10:19:37.289Z</lastmod>
   </url>
   <url>
     <loc>https://ludo2ne.github.io/ENSAI-tools/doc/datalab/lab.html</loc>
-    <lastmod>2026-05-27T09:39:00.181Z</lastmod>
+    <lastmod>2026-05-28T10:19:37.289Z</lastmod>
   </url>
   <url>
-    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/format/parquet.html</loc>
-    <lastmod>2026-05-27T09:39:00.181Z</lastmod>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/language/quality.html</loc>
+    <lastmod>2026-05-28T10:19:37.292Z</lastmod>
   </url>
   <url>
-    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/format/csv.html</loc>
-    <lastmod>2026-05-27T09:39:00.181Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/git/lab.html</loc>
-    <lastmod>2026-05-27T09:39:00.184Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/git/glossary.html</loc>
-    <lastmod>2026-05-27T09:39:00.181Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-tools/index.html</loc>
-    <lastmod>2026-05-27T09:39:00.186Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/git/presentation-slides.html</loc>
-    <lastmod>2026-05-27T09:39:00.184Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/git/presentation.html</loc>
-    <lastmod>2026-05-27T09:39:00.184Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/git/advanced.html</loc>
-    <lastmod>2026-05-27T09:39:00.181Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/format/json.html</loc>
-    <lastmod>2026-05-27T09:39:00.181Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/format/yaml.html</loc>
-    <lastmod>2026-05-27T09:39:00.181Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/datalab/intro.html</loc>
-    <lastmod>2026-05-27T09:39:00.181Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/datalab/basics.html</loc>
-    <lastmod>2026-05-27T09:39:00.181Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/quarto/rstudio.html</loc>
-    <lastmod>2026-05-27T09:39:00.186Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/quarto/site.html</loc>
-    <lastmod>2026-05-27T09:39:00.186Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/quarto/quarto.html</loc>
-    <lastmod>2026-05-27T09:39:00.186Z</lastmod>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/language/bash.html</loc>
+    <lastmod>2026-05-28T10:19:37.291Z</lastmod>
   </url>
   <url>
     <loc>https://ludo2ne.github.io/ENSAI-tools/doc/project/lab.html</loc>
-    <lastmod>2026-05-27T09:39:00.185Z</lastmod>
+    <lastmod>2026-05-28T10:19:37.292Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/quarto/site.html</loc>
+    <lastmod>2026-05-28T10:19:37.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/quarto/rstudio.html</loc>
+    <lastmod>2026-05-28T10:19:37.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/quarto/slideshow.html</loc>
+    <lastmod>2026-05-28T10:19:37.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/format/json.html</loc>
+    <lastmod>2026-05-28T10:19:37.289Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/format/yaml.html</loc>
+    <lastmod>2026-05-28T10:19:37.289Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/git/advanced.html</loc>
+    <lastmod>2026-05-28T10:19:37.289Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/git/lab.html</loc>
+    <lastmod>2026-05-28T10:19:37.291Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/index.html</loc>
+    <lastmod>2026-05-28T10:19:37.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/git/presentation-slides.html</loc>
+    <lastmod>2026-05-28T10:19:37.291Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/git/presentation.html</loc>
+    <lastmod>2026-05-28T10:19:37.291Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/git/glossary.html</loc>
+    <lastmod>2026-05-28T10:19:37.289Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/format/parquet.html</loc>
+    <lastmod>2026-05-28T10:19:37.289Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/format/csv.html</loc>
+    <lastmod>2026-05-28T10:19:37.289Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/quarto/markdown.html</loc>
+    <lastmod>2026-05-28T10:19:37.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/quarto/poster.html</loc>
+    <lastmod>2026-05-28T10:19:37.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/quarto/quarto.html</loc>
+    <lastmod>2026-05-28T10:19:37.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/quarto/report.html</loc>
+    <lastmod>2026-05-28T10:19:37.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/project/planning.html</loc>
+    <lastmod>2026-05-28T10:19:37.292Z</lastmod>
   </url>
   <url>
     <loc>https://ludo2ne.github.io/ENSAI-tools/doc/language/python.html</loc>
-    <lastmod>2026-05-27T09:39:00.185Z</lastmod>
+    <lastmod>2026-05-28T10:19:37.292Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/language/r.html</loc>
+    <lastmod>2026-05-28T10:19:37.292Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/datalab/basics.html</loc>
+    <lastmod>2026-05-28T10:19:37.289Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-tools/doc/datalab/intro.html</loc>
+    <lastmod>2026-05-28T10:19:37.289Z</lastmod>
   </url>
 </urlset>

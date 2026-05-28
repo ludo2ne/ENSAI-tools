@@ -81,9 +81,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-8972a4b08918be08a88b3e2a59def418.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-9571ef2f724cf1554e0ac39ede2d41c9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-8972a4b08918be08a88b3e2a59def418.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-24ec17b1d118e22da9c3ce69ed03299d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-8320f7c4f68c0af75ae82ce5c8e2206e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-24ec17b1d118e22da9c3ce69ed03299d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -329,6 +329,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-coder">    
         <li>
+    <a class="dropdown-item" href="../../doc/language/quality.html">
+ <span class="dropdown-text">Qualité du code</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../doc/language/bash.html">
  <span class="dropdown-text">Bash</span></a>
   </li>  
@@ -408,10 +412,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-rédiger" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Rédiger</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-restituer-avec-quarto" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Restituer avec Quarto</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-rédiger">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-restituer-avec-quarto">    
         <li>
     <a class="dropdown-item" href="../../doc/quarto/markdown.html">
  <span class="dropdown-text">Markdown</span></a>
@@ -423,6 +427,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../../doc/quarto/report.html">
  <span class="dropdown-text">Rapport de projet</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/quarto/slideshow.html">
+ <span class="dropdown-text">Diaporama</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/quarto/poster.html">
+ <span class="dropdown-text">Poster</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../doc/quarto/site.html">
@@ -534,9 +546,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Options manuelles</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>, </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">sep =</span> <span class="st">";"</span>,           <span class="co"># Spécifier le délimiteur</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">header =</span> <span class="cn">TRUE</span>,       <span class="co"># La première ligne contient les noms de colonnes</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">dec =</span> <span class="st">","</span>,           <span class="co"># Utiliser la virgule pour les décimales</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">sep =</span> <span class="st">";"</span>,            <span class="co"># Délimiteur</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">header =</span> <span class="cn">TRUE</span>,        <span class="co"># La première ligne contient les noms de colonnes</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">dec =</span> <span class="st">","</span>,            <span class="co"># Séparateur de décimales</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">stringsAsFactors =</span> F) <span class="co"># Empêcher la conversion automatique en facteurs</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="avec-readr" class="level3" data-number="2.2">
@@ -568,11 +580,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Options courantes</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'data.csv'</span>, </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                 sep<span class="op">=</span><span class="st">';'</span>,            <span class="co"># Délimiteur (peut être ',', ';', '\t', etc.)</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                 sep<span class="op">=</span><span class="st">';'</span>,            <span class="co"># Délimiteur</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                 header<span class="op">=</span><span class="dv">0</span>,           <span class="co"># Utiliser la ligne 0 comme en-tête</span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                 index_col<span class="op">=</span><span class="st">'id'</span>,     <span class="co"># Définir une colonne comme index</span></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                 usecols<span class="op">=</span>[<span class="st">'A'</span>, <span class="st">'B'</span>], <span class="co"># Ne charger que certaines colonnes</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                 encoding<span class="op">=</span><span class="st">'utf-8'</span>,    <span class="co"># Gérer l'encodage (ex: 'latin1' si erreur)</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                 encoding<span class="op">=</span><span class="st">'utf-8'</span>,   <span class="co"># Gérer l'encodage</span></span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                 nrows<span class="op">=</span><span class="dv">100</span>)          <span class="co"># Lire seulement les 100 premières lignes</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
