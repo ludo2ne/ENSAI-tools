@@ -81,9 +81,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-24ec17b1d118e22da9c3ce69ed03299d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-8320f7c4f68c0af75ae82ce5c8e2206e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-24ec17b1d118e22da9c3ce69ed03299d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-59e81ffe88dcb738a7d077cb0a07fccd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-8aa0956bfab55cae13b6b7dc2876281c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-59e81ffe88dcb738a7d077cb0a07fccd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -329,10 +329,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-coder">    
         <li>
-    <a class="dropdown-item" href="../../doc/language/quality.html">
- <span class="dropdown-text">Qualité du code</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../../doc/language/bash.html">
  <span class="dropdown-text">Bash</span></a>
   </li>  
@@ -343,6 +339,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../../doc/language/r.html">
  <span class="dropdown-text">R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/language/quality.html">
+ <span class="dropdown-text">Qualité du code</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/language/iagen.html">
+ <span class="dropdown-text">Usages de l’IAgen</span></a>
   </li>  
     </ul>
   </li>
@@ -552,15 +556,18 @@ Caution
 <h3 data-number="3.1" class="anchored" data-anchor-id="token-principe"><span class="header-section-number">3.1</span> Token : principe</h3>
 <p>Vous travaillez actuellement sur votre service du Datalab (votre dépôt local) et vous souhaitez envoyer vos modifications vers GitHub (le dépôt distant).</p>
 <p>Dès que vous tentez d’envoyer votre code, GitHub va vous dire :</p>
-<p>— “✋ Halte là ! Qui êtes-vous ?” - “Identifiez-vous avec nom d’utilisateur et mot de passe !”</p>
+<ul>
+<li>“✋ Halte là ! Qui êtes-vous ?”</li>
+<li>“Identifiez-vous avec nom d’utilisateur et mot de passe !”</li>
+</ul>
 <p>Vous pouvez renseigner ces informations manuellement à chaque fois, mais c’est lourd et répétitif.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="La solution : le token">
+<div class="callout callout-style-default callout-tip callout-titled" title="La solution : le Token">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>La solution : le token
+<span class="screen-reader-only">Tip</span>La solution : le Token
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -580,9 +587,9 @@ Caution
 <ul class="task-list">
 <li><label><input type="checkbox">Connectez-vous à votre compte GitHub</label></li>
 <li><label><input type="checkbox">Allez dans settings <span class="emoji" data-emoji="arrow_right">➡️</span> Developer settings <span class="emoji" data-emoji="arrow_right">➡️</span> Personal access tokens <span class="emoji" data-emoji="arrow_right">➡️</span> Tokens (classic)</label></li>
-<li><label><input type="checkbox">Générez un <a href="https://github.com/settings/tokens/new" target="_blank">nouveau jeton classique</a></label>
+<li><label><input type="checkbox">Générez un <a href="https://github.com/settings/tokens/new" target="_blank">jeton classique</a></label>
 <ul>
-<li>Renseigner :
+<li>Renseignez :
 <ul>
 <li>nom du token : <em>Datalab GENES</em></li>
 <li>date d’expiration <span class="emoji" data-emoji="arrow_right">➡️</span> Custom <span class="emoji" data-emoji="arrow_right">➡️</span> <em>1 an</em></li>
@@ -624,13 +631,13 @@ Warning
 </section>
 <section id="utiliser-le-token" class="level3" data-number="3.4">
 <h3 data-number="3.4" class="anchored" data-anchor-id="utiliser-le-token"><span class="header-section-number">3.4</span> Utiliser le Token</h3>
-<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warning
+Caution
 </div>
 </div>
 <div class="callout-body-container callout-body">

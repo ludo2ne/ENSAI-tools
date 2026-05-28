@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ludovic Deneuville">
-<meta name="description" content="Utilisation du service vscode-python">
+<meta name="description" content="Tips for vscode-python service">
 
-<title>VSCode python – ENSAI tools</title>
+<title>VSCode Python – ENSAI tools</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -24,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -46,9 +81,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-24ec17b1d118e22da9c3ce69ed03299d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-8320f7c4f68c0af75ae82ce5c8e2206e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-24ec17b1d118e22da9c3ce69ed03299d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-59e81ffe88dcb738a7d077cb0a07fccd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-8aa0956bfab55cae13b6b7dc2876281c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-59e81ffe88dcb738a7d077cb0a07fccd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -294,10 +329,6 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-coder">    
         <li>
-    <a class="dropdown-item" href="../../doc/language/quality.html">
- <span class="dropdown-text">Qualité du code</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../../doc/language/bash.html">
  <span class="dropdown-text">Bash</span></a>
   </li>  
@@ -308,6 +339,14 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../../doc/language/r.html">
  <span class="dropdown-text">R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/language/quality.html">
+ <span class="dropdown-text">Qualité du code</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../doc/language/iagen.html">
+ <span class="dropdown-text">Usages de l’IAgen</span></a>
   </li>  
     </ul>
   </li>
@@ -439,9 +478,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#ouverture-port" id="toc-ouverture-port" class="nav-link active" data-scroll-target="#ouverture-port"><span class="header-section-number">1</span> Ouverture port</a></li>
+  <li><a href="#settings" id="toc-settings" class="nav-link active" data-scroll-target="#settings"><span class="header-section-number">1</span> Settings</a></li>
   <li><a href="#extensions" id="toc-extensions" class="nav-link" data-scroll-target="#extensions"><span class="header-section-number">2</span> Extensions</a></li>
-  <li><a href="#assistant-ia" id="toc-assistant-ia" class="nav-link" data-scroll-target="#assistant-ia"><span class="header-section-number">3</span> Assistant IA</a></li>
+  <li><a href="#open-a-port" id="toc-open-a-port" class="nav-link" data-scroll-target="#open-a-port"><span class="header-section-number">3</span> Open a port</a></li>
+  <li><a href="#assistant-ia" id="toc-assistant-ia" class="nav-link" data-scroll-target="#assistant-ia"><span class="header-section-number">4</span> Assistant IA</a></li>
   </ul>
 </nav>
 </nav>
@@ -455,12 +495,18 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">VSCode python</h1>
-</div>
+<h1 class="title">VSCode Python</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Settings</div>
+    <div class="quarto-category">Extension</div>
+    <div class="quarto-category">Open port</div>
+    <div class="quarto-category">IA Agent</div>
+  </div>
+  </div>
 
 <div>
   <div class="description">
-    Utilisation du service vscode-python
+    Tips for vscode-python service
   </div>
 </div>
 
@@ -483,17 +529,183 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code (VS Code)</a> is a high-performance, lightweight editor that serves as the industry standard for modern development. By bridging the gap between a simple text editor and a full IDE, it offers a versatile environment capable of handling everything from Python scripting to complex web development.</p>
+<p>The power of VS Code lies in its intelligent ecosystem. Features like IntelliSense provide context-aware code completion, while its vast extension marketplace allows you to customize your workspace with specialized tools, linters, and AI assistants. With an integrated terminal and built-in debugging, VS Code keeps your entire workflow—from writing to execution—within a single, seamless interface.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that on the Datalab, we utilize <strong>code-server</strong>, a web-based version of VS Code that runs in your browser and differs slightly from the standard desktop application.</p>
+</div>
+</div>
+<section id="settings" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="settings"><span class="header-section-number">1</span> Settings</h2>
 <p><span class="emoji" data-emoji="construction">🚧</span></p>
-<section id="ouverture-port" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="ouverture-port"><span class="header-section-number">1</span> Ouverture port</h2>
 </section>
 <section id="extensions" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="extensions"><span class="header-section-number">2</span> Extensions</h2>
+<p><span class="emoji" data-emoji="construction">🚧</span></p>
 </section>
-<section id="assistant-ia" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="assistant-ia"><span class="header-section-number">3</span> Assistant IA</h2>
+<section id="open-a-port" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="open-a-port"><span class="header-section-number">3</span> Open a port</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Services on the Datalab are launched within an isolated environment without direct internet access. Consequently, any server deployed will not be externally accessible by default.</p>
+<p>However, external access can be enabled by opening specific ports through configuration parameters during service startup.</p>
+<p>Once these ports are successfully opened, you can deploy various applications—such as APIs or web sites—which will then be accessible to all authorized users.</p>
+</div>
+</div>
+<section id="example" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="example"><span class="header-section-number">3.1</span> Example</h3>
+<p>Let’s try it</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Go to the Datalab’s catalog</label></li>
+<li><label><input type="checkbox">Select service <em>VSCode-python</em></label></li>
+<li><label><input type="checkbox">In tab <em>Network access</em>, open port <strong>5000</strong></label></li>
+<li><label><input type="checkbox">Launch the service</label></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Once the service has started, it is no longer possible to open new ports.</p>
+<p>If you forgot to open the port, you’ll have to start a new one.</p>
+</div>
+</div>
+<p>As the service starts up, you’ll notice this sentence :</p>
+<blockquote class="blockquote">
+<p>You can connect to your custom ports using the following links: Port 5000. If you access these URL without starting the corresponding services you will get a 502 bad gateway error.</p>
+</blockquote>
+<ul class="task-list">
+<li><label><input type="checkbox">Open this link</label></li>
+</ul>
+<p>You will get a <em>Bad Gateway</em> error. That’s normal because you haven’t deployed anything on it yet.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Create a Python file, paste the code below and run it</label></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>main.py</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="main.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> FastAPI</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> FastAPI()</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">@app.get</span>(<span class="st">"/"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> root():</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"message"</span>: <span class="st">"hello"</span>}</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> uvicorn</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    uvicorn.run(app, host<span class="op">=</span><span class="st">"0.0.0.0"</span>, port<span class="op">=</span><span class="dv">5000</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Refresh the link</label></li>
+</ul>
+<p><span class="emoji" data-emoji="tada">🎉</span> This API is now available worldwide via the given url.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you run your API on another port <code>uvicorn.run(app, host="0.0.0.0", port=9876)</code>:</p>
+<ul>
+<li>This port is not open to the outside</li>
+<li>You will never be able to call your API from outside the service</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="assistant-ia" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="assistant-ia"><span class="header-section-number">4</span> Assistant IA</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Integrating an AI generator directly into your IDE provides a level of utility that a standard chatbot cannot match. Unlike a chatbot, which requires the manual effort of copying and pasting code, an integrated AI possesses full environmental awareness.</p>
+<p>It can navigate your entire project structure, analyze your file tree, and read across multiple files to understand complex dependencies. Furthermore, by having access to your terminal, it can interpret error logs and execution outputs in real-time.</p>
+<p>This deep context allows the AI to provide highly accurate, project-specific solutions that are perfectly aligned with your existing codebase and environment.</p>
+</div>
+</div>
+<section id="setup" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">4.1</span> Setup</h3>
+<p>To send messages to the AI, you’ll need to call an API. The first step is to retrieve the key so you can use it.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Go to <a href="https://llm.lab.sspcloud.fr/" target="_blank">https://llm.lab.sspcloud.fr/</a></label></li>
+<li><label><input type="checkbox">Click on your avatar in the upper right corner</label></li>
+<li><label><input type="checkbox">Choose <em>Settings</em> then select tab <em>Account</em> <span class="emoji" data-emoji="arrow_right">➡️</span></label></li>
+<li><label><input type="checkbox">Copy the <em>API key</em></label></li>
+</ul>
+<p>Now you will enter the key into the SSPCloud</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Go to <a href="https://datalab.sspcloud.fr/account" target="_blank">My account</a></label></li>
+<li><label><input type="checkbox">Enable <em>AI Assistant</em></label>
+<ul>
+<li>Default model: <em>gemma4-26b-moe</em></li>
+<li>Provider: <em>openai</em></li>
+<li>ModelProvider: <em>openai-chat</em></li>
+<li>EmbeddingsProvider: <em>openai</em></li>
+<li>API base URL: <code>https://llm.lab.sspcloud.fr/api/v1</code></li>
+<li>Paste your API key</li>
+</ul></li>
+</ul>
+<p>Now it’s time to launch a service.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Launch a <em>VSCode</em> service</label>
+<ul>
+<li>In tab <em>User preferences</em>, check that AI Assistant is enabled</li>
+</ul></li>
+<li><label><input type="checkbox">Open the service</label></li>
+</ul>
+<p>To chat with the agent, you will use extension called <a href="https://docs.continue.dev/" target="_blank">Continue</a>.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">In the far-left column, clic on the <em>Continue</em> icon (probably below)</label>
+<ul>
+<li>Hover your mouse over an icon to see its name</li>
+</ul></li>
+<li><label><input type="checkbox">Create a file or clone a repository</label>
+<ul>
+<li>for example : <code>https://github.com/ludo2ne/ENSAI-2A-projet-info-template.git</code></li>
+</ul></li>
+<li><label><input type="checkbox">Ask the chatbot to analyse and describe it in a few sentences</label></li>
+</ul>
+<p><span class="emoji" data-emoji="tada">🎉</span> Now you can ask the agent questions related to your project</p>
+<p><span class="emoji" data-emoji="construction">🚧</span> pre-prompt</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
