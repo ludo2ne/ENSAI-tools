@@ -28,6 +28,8 @@ website:
             text: "YAML"
       - text: Coder
         menu:
+          - href: doc/language/quality.qmd
+            text: "Qualité du code"
           - href: doc/language/bash.qmd
             text: "Bash"
           - href: doc/language/python.qmd
@@ -62,7 +64,7 @@ website:
             text: "Planning"
           - href: doc/project/lab.qmd
             text: "TP Gestion de projet"
-      - text: Rédiger
+      - text: Restituer avec Quarto
         menu:
           - href: doc/quarto/markdown.qmd
             text: "Markdown"
@@ -70,6 +72,10 @@ website:
             text: "Introduction"
           - href: doc/quarto/report.qmd
             text: "Rapport de projet"
+          - href: doc/quarto/slideshow.qmd
+            text: "Diaporama"
+          - href: doc/quarto/poster.qmd
+            text: "Poster"
           - href: doc/quarto/site.qmd
             text: "Site statique"
           - href: doc/quarto/rstudio.qmd

@@ -33,9 +33,9 @@ df <- read.csv2("data.csv")
 
 # Options manuelles
 df <- read.csv("data.csv", 
-               sep = ";",           # Spécifier le délimiteur
-               header = TRUE,       # La première ligne contient les noms de colonnes
-               dec = ",",           # Utiliser la virgule pour les décimales
+               sep = ";",            # Délimiteur
+               header = TRUE,        # La première ligne contient les noms de colonnes
+               dec = ",",            # Séparateur de décimales
                stringsAsFactors = F) # Empêcher la conversion automatique en facteurs
 ```
 
@@ -73,10 +73,10 @@ df = pd.read_csv('data.csv')
 
 # Options courantes
 df = pd.read_csv('data.csv', 
-                 sep=';',            # Délimiteur (peut être ',', ';', '\t', etc.)
+                 sep=';',            # Délimiteur
                  header=0,           # Utiliser la ligne 0 comme en-tête
                  index_col='id',     # Définir une colonne comme index
                  usecols=['A', 'B'], # Ne charger que certaines colonnes
-                 encoding='utf-8',    # Gérer l'encodage (ex: 'latin1' si erreur)
+                 encoding='utf-8',   # Gérer l'encodage
                  nrows=100)          # Lire seulement les 100 premières lignes
 ```
