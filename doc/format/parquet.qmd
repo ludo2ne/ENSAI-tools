@@ -16,7 +16,11 @@ Compression
 Chargement en mémoire
 Métadonnées
 Usages à l'INSEE, Big Data...
+
+Logiciel Tad pour lire fichier
 :::
+
+![](https://www.apache.org/logos/originals/parquet.svg)
 
 ## Parquet ?
 
@@ -49,6 +53,8 @@ Parquet est un format binaire structuré hiérarchiquement :
 | Column      | Données d'une même colonne stockées séquentiellement dans un `Row Group` |
 | Page        | Unité atomique de lecture/compression, contenant valeurs + en-têtes d'encodage |
 
+: {tbl-colwidths="[25,75]" .striped .hover}
+
 Chaque colonne utilise des encodages spécialisés (Dictionary, RLE, Delta, ByteStreamSplit) puis une compression par page (Snappy, GZIP, ZSTD). Les métadonnées incluent automatiquement les statistiques par `Row Group` (min, max, null count), permettant des optimisations comme le `predicate pushdown`.
 
 ## Utilisation typique
@@ -67,3 +73,4 @@ Chaque colonne utilise des encodages spécialisés (Dictionary, RLE, Delta, Byte
 | 📐 Schéma strict & auto-descriptif               | 🧩 Requiert des bibliothèques compatibles (PyArrow, Parquet-cpp, etc.) |
 | 🌐 Interopérable (Python, R, Java, Scala, SQL…) | 📦 Fichier monolithique : difficile à modifier partiellement |
 
+: {tbl-colwidths="[50,50]"}

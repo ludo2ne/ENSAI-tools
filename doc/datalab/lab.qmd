@@ -3,4 +3,11 @@ title: "TP découverte du Datalab"
 author: "Ines Hiverlet"
 ---
 
+
+::: {.callout-note}
+Ce TP est dispensé aux élèves de première année en début d'année scolaire.
+:::
+
+
+
 <https://github.com/ihiverlet/Ensai-1A-initiation-datalab>{target="_blank"}

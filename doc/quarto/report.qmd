@@ -127,19 +127,29 @@ SELECT *
 Nous pouvons exécuter du code R et en afficher le résultat
 
 ```{r}
+#| label: fig-maze
+#| fig-align: center
+#| fig-cap: Un labyrinthe
 #| echo: false
 
-theta <- seq(0, 8 * pi, length.out = 1000)
+n <- 2000
+theta <- seq(1, 8 * pi, length.out = n)
+
 r <- 0.5 * theta
+x1 <- r * cos(theta)
+y1 <- r * sin(theta)
+x2 <- r * cos(theta + pi)
+y2 <- r * sin(theta + pi)
 
-data <- data.frame(theta = theta, r = r)
-data$x <- data$r * cos(data$theta)
-data$y <- data$r * sin(data$theta)
+data_maze <- rbind(data.frame(x = x1, y = y1, id = 1),
+                   data.frame(x = x2, y = y2, id = 2))
 
-ggplot(data, aes(x, y)) +
-  geom_path(color = "darkcyan", linewidth = 1.5)
+ggplot(data_maze, aes(x, y, group = id)) +
+  geom_path(color = "darkcyan", linewidth = 1.5) +
+  theme_void()
 ```
 
+Je cite la @fig-maze.
 
 ### Liste
 
@@ -157,6 +167,11 @@ ggplot(data, aes(x, y)) +
 | *default* (no modifier) | ✅         | ✅          | ❌          | ❌           |
 | private                 | ✅         | ❌          | ❌          | ❌           |
 
+: Java méthods visibility {#tbl-java-visibility .bordered}
+
+---
+
+Comme indiqué ici @tbl-java-visibility, c'est facile de citer un tableau.
 
 ### Images
 
@@ -216,7 +231,7 @@ RELISEZ-VOUS !!!
 Citer des références bibliographiques permet de situer notre projet dans un cadre plus large. Cela montre que nous maîtrisons le sujet et que nous avons pris connaissance des travaux de nos pairs. Une bibliographie riche et pertinente démontre la profondeur de notre recherche documentaire.
 :::
 
-Comme le spécifie cet article [@prospect_theory], la Prospect Théory c'est pas mal.
+Comme le spécifie cet article [@prospect_theory], la Prospect Theory c'est cool.
 
 
 

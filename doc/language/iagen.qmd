@@ -1,0 +1,9 @@
+---
+title: Usages de l'IA générative
+---
+
+:construction:
+
+pré-prompt
+
+mode socratique

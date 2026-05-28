@@ -11,7 +11,7 @@ website:
   repo-branch: main
   reader-mode: true
   navbar:
-    background: "#447099"
+    background: "#CC99FF"
     left:
       - icon: house
         href: index.qmd
@@ -28,14 +28,16 @@ website:
             text: "YAML"
       - text: Coder
         menu:
-          - href: doc/language/quality.qmd
-            text: "Qualité du code"
           - href: doc/language/bash.qmd
             text: "Bash"
           - href: doc/language/python.qmd
             text: "Python"
           - href: doc/language/r.qmd
             text: "R"
+          - href: doc/language/quality.qmd
+            text: "Qualité du code"
+          - href: doc/language/iagen.qmd
+            text: "Usages de l'IAgen"
       - text: Versionner avec Git
         menu:
           - href: doc/git/presentation.qmd

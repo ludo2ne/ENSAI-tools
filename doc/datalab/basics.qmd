@@ -41,12 +41,12 @@ Vous travaillez actuellement sur votre service du Datalab (votre dépôt local) 
 
 Dès que vous tentez d'envoyer votre code, GitHub va vous dire :
 
-— "✋ Halte là ! Qui êtes-vous ?"
+- "✋ Halte là ! Qui êtes-vous ?"
 - "Identifiez-vous avec nom d'utilisateur et mot de passe !"
 
 Vous pouvez renseigner ces informations manuellement à chaque fois, mais c'est lourd et répétitif.
 
-::: {.callout-tip title="La solution : le token"}
+::: {.callout-tip title="La solution : le Token"}
 Pour éviter ces contrôles incessants, la solution est d'utiliser un **Token GitHub**. Considérez-le comme un badge d'accès permanent qui valide votre identité en une seule fois.
 
 **Remarque** : lorsque le Token est expiré, il faudra en regénérer un nouveau !
@@ -63,8 +63,8 @@ Pour éviter ces contrôles incessants, la solution est d'utiliser un **Token Gi
 
 - [ ] Connectez-vous à votre compte GitHub
 - [ ] Allez dans settings :arrow_right: Developer settings :arrow_right: Personal access tokens :arrow_right: Tokens (classic)
-- [ ] Générez un [nouveau jeton classique](https://github.com/settings/tokens/new){target="_blank"}
-  - Renseigner : 
+- [ ] Générez un [jeton classique](https://github.com/settings/tokens/new){target="_blank"}
+  - Renseignez : 
     - nom du token : *Datalab GENES*
     - date d'expiration :arrow_right: Custom :arrow_right: *1 an*
   - :white_check_mark: Cochez **repo** et **workflow**
@@ -89,7 +89,7 @@ GitHub vous a fournit un jeton. Il faut maintenant le déclarer sur le Datalab :
 
 ### Utiliser le Token
 
-::: {.callout-warning}
+::: {.callout-caution}
 Avoir déclaré son Token GitHub au datalab ≠ Avoir créé un clone en utilisant le Token.
 :::
 

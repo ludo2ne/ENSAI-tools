@@ -14,7 +14,7 @@ author: "Ludovic Deneuville"
 - **La structure :**
   - Chaque ligne du fichier correspond à une ligne du tableau.
   - Chaque colonne est séparée par un caractère spécial (le "délimiteur").
-- **Le piège :** Bien que le nom signifie "virgule", le délimiteur peut être un point-virgule `;` (très fréquent en Europe car la virgule sert aux décimales), une tabulation `\t` ou un pipe `|`.
+- **Le piège :** Bien que le nom signifie "virgule", le délimiteur peut être un point-virgule `;` (très fréquent en Europe), une tabulation `\t`, un pipe `|` ou autres.
 - **Avantages :** Léger, universel, lisible par n'importe quel éditeur de texte et très rapide à lire pour les machines.
 
 

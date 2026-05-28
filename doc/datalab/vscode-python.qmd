@@ -1,21 +1,142 @@
 ---
-title: "VSCode python"
-description: "Utilisation du service vscode-python"
+title: "VSCode Python"
+description: "Tips for vscode-python service"
 author: "Ludovic Deneuville"
+categories:
+  - Settings
+  - Extension
+  - Open port
+  - IA Agent
 ---
+
+[Visual Studio Code (VS Code)](https://code.visualstudio.com/){target="_blank"} is a high-performance, lightweight editor that serves as the industry standard for modern development. By bridging the gap between a simple text editor and a full IDE, it offers a versatile environment capable of handling everything from Python scripting to complex web development.
+
+The power of VS Code lies in its intelligent ecosystem. Features like IntelliSense provide context-aware code completion, while its vast extension marketplace allows you to customize your workspace with specialized tools, linters, and AI assistants. With an integrated terminal and built-in debugging, VS Code keeps your entire workflow—from writing to execution—within a single, seamless interface.
+
+::: {.callout-caution}
+Note that on the Datalab, we utilize **code-server**, a web-based version of VS Code that runs in your browser and differs slightly from the standard desktop application.
+:::
+
+
+## Settings
 
 :construction:
 
-## Ouverture port
-
-
-
-
 ## Extensions
 
+:construction:
+
+
+## Open a port
+
+::: {.callout-note}
+Services on the Datalab are launched within an isolated environment without direct internet access. Consequently, any server deployed will not be externally accessible by default.
+
+However, external access can be enabled by opening specific ports through configuration parameters during service startup. 
+
+Once these ports are successfully opened, you can deploy various applications—such as APIs or web sites—which will then be accessible to all authorized users.
+:::
+
+### Example
+
+Let's try it
+
+- [ ] Go to the Datalab's catalog
+- [ ] Select service *VSCode-python*
+- [ ] In tab *Network access*, open port **5000**
+- [ ] Launch the service
+
+::: {.callout-important}
+Once the service has started, it is no longer possible to open new ports.
+
+If you forgot to open the port, you'll have to start a new one.
+:::
+
+As the service starts up, you'll notice this sentence :
+
+> You can connect to your custom ports using the following links: Port 5000. If you access these URL without starting the corresponding services you will get a 502 bad gateway error.
+
+- [ ] Open this link
+
+You will get a *Bad Gateway* error. That's normal because you haven't deployed anything on it yet.
+
+- [ ] Create a Python file, paste the code below and run it
+
+```{.python filename="main.py"}
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+async def root():
+    return {"message": "hello"}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=5000)
+```
+
+- [ ] Refresh the link
+  
+:tada: This API is now available worldwide via the given url.
+
+::: {.callout-note}
+If you run your API on another port `uvicorn.run(app, host="0.0.0.0", port=9876)`:
+
+- This port is not open to the outside
+- You will never be able to call your API from outside the service
+:::
 
 
 
 ## Assistant IA
+
+::: {.callout-note}
+Integrating an AI generator directly into your IDE provides a level of utility that a standard chatbot cannot match. Unlike a chatbot, which requires the manual effort of copying and pasting code, an integrated AI possesses full environmental awareness. 
+
+It can navigate your entire project structure, analyze your file tree, and read across multiple files to understand complex dependencies. Furthermore, by having access to your terminal, it can interpret error logs and execution outputs in real-time. 
+
+This deep context allows the AI to provide highly accurate, project-specific solutions that are perfectly aligned with your existing codebase and environment.
+:::
+
+### Setup
+
+To send messages to the AI, you'll need to call an API. The first step is to retrieve the key so you can use it.
+
+- [ ] Go to <https://llm.lab.sspcloud.fr/>{target="_blank"}
+- [ ] Click on your avatar in the upper right corner
+- [ ] Choose *Settings* then select tab *Account* :arrow_right: 
+- [ ] Copy the *API key*
+
+Now you will enter the key into the SSPCloud
+
+- [ ] Go to [My account](https://datalab.sspcloud.fr/account){target="_blank"}
+- [ ] Enable *AI Assistant*
+  - Default model: *gemma4-26b-moe*
+  - Provider: *openai*
+  - ModelProvider: *openai-chat*
+  - EmbeddingsProvider: *openai*
+  - API base URL: `https://llm.lab.sspcloud.fr/api/v1`
+  - Paste your API key
+
+Now it's time to launch a service.
+
+- [ ] Launch a *VSCode* service
+  - In tab *User preferences*, check that AI Assistant is enabled
+- [ ] Open the service
+
+
+To chat with the agent, you will use extension called [Continue](https://docs.continue.dev/){target="_blank"}.
+
+- [ ] In the far-left column, clic on the *Continue* icon (probably below)
+  - Hover your mouse over an icon to see its name
+- [ ] Create a file or clone a repository
+  - for example : `https://github.com/ludo2ne/ENSAI-2A-projet-info-template.git`
+- [ ] Ask the chatbot to analyse and describe it in a few sentences
+
+:tada: Now you can ask the agent questions related to your project 
+
+:construction: pre-prompt
+
 
 
