@@ -1,0 +1,7 @@
+---
+title: "Slides avec Quarto et RevealJS"
+---
+
+:construction:
+
+format: reveal

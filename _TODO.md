@@ -1,17 +1,24 @@
-# LaSuite
+# TODO
+
+## Restituer
+
+- [ ] Poster Typst
+- [ ] Présentation reveals
+
+## LaSuite
 
 - <https://visio.numerique.gouv.fr/>
 - <https://francetransfert.numerique.gouv.fr/upload>
 
 
-## Grist
+#### Grist
 
 - <https://lasuite.numerique.gouv.fr/produits/grist>
 - <https://forum.grist.libre.sh/>
 
-# Dataviz
+## Dataviz
 
-## ggsql
+#### ggsql
 
 <https://opensource.posit.co/blog/2026-04-20_ggsql_alpha_release/>
 

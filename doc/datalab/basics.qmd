@@ -25,9 +25,131 @@ categories:
 
 ## Git
 
-### Créer et déclarer son Token
+::: {.callout-caution}
+Sur le datalab, vos services ont une [**durée de vie limitée**]{.underline}.
+
+Pour sauvegarder vos programmes, la bonne pratique est d'envoyer son code vers un dépôt git (ici nous utiliserons GitHub).
+:::
+
+Pour suivre la démarche, il faut disposer d'un compte [GitHub](https://github.com/){target="_blank"}.
+
+Il est possible de suivre une démarche similaire avec [GitLab](https://about.gitlab.com/){target="_blank"}.
+
+### Token : principe
+
+Vous travaillez actuellement sur votre service du Datalab (votre dépôt local) et vous souhaitez envoyer vos modifications vers GitHub (le dépôt distant).
+
+Dès que vous tentez d'envoyer votre code, GitHub va vous dire :
+
+— "✋ Halte là ! Qui êtes-vous ?"
+- "Identifiez-vous avec nom d'utilisateur et mot de passe !"
+
+Vous pouvez renseigner ces informations manuellement à chaque fois, mais c'est lourd et répétitif.
+
+::: {.callout-tip title="La solution : le token"}
+Pour éviter ces contrôles incessants, la solution est d'utiliser un **Token GitHub**. Considérez-le comme un badge d'accès permanent qui valide votre identité en une seule fois.
+
+**Remarque** : lorsque le Token est expiré, il faudra en regénérer un nouveau !
+:::
+
+**La marche à suivre pour l'utiliser :**
+
+1. Générez votre Token directement sur votre interface GitHub.
+2. Déclarez ce Token sur votre environnement Datalab.
+3. Clonez le dépôt en intégrant ce token dans l'URL ou la configuration.
+
+
+### Créer un Token
+
+- [ ] Connectez-vous à votre compte GitHub
+- [ ] Allez dans settings :arrow_right: Developer settings :arrow_right: Personal access tokens :arrow_right: Tokens (classic)
+- [ ] Générez un [nouveau jeton classique](https://github.com/settings/tokens/new){target="_blank"}
+  - Renseigner : 
+    - nom du token : *Datalab GENES*
+    - date d'expiration :arrow_right: Custom :arrow_right: *1 an*
+  - :white_check_mark: Cochez **repo** et **workflow**
+  - Cliquez sur [Generate token]{.green-button}
+- [ ] Copiez ce jeton commençant par `ghp_` et gardez le précieusement de côté quelques minutes
+
+::: {.callout-warning}
+- Ce jeton ne sera visible qu'une seule fois
+- si vous le perdez ou s'il est expiré, il faut en générer un nouveau
+:::
+
+### Déclarer le Token
+
+GitHub vous a fournit un jeton. Il faut maintenant le déclarer sur le Datalab :
+
+- [ ] Allez dans `Mon Compte` :arrow_right: Onglet `Git`
+- [ ] Renseignez les informations suivantes 
+  - nom d'utilisateur Git 
+  - mail (celui utilisé pour votre compte GitHub)
+- [ ] Collez votre token
+
 
 ### Utiliser le Token
 
+::: {.callout-warning}
+Avoir déclaré son Token GitHub au datalab ≠ Avoir créé un clone en utilisant le Token.
+:::
 
-https://github.com/ludo2ne/ENSAI-1A-SQL/blob/main/doc/outils/tp-datalab.qmd
+C'est super d'avoir un token, encore faut-il savoir comment l'utiliser. Deux possibilités :
+
+#### La méthode simple
+
+::: {.callout-tip}
+Au moment de lancer un service, vous allez déclarer le dépôt git sur lequel vous allez travailler.
+
+Une fois le service lancé, le dépôt sera déjà cloné en utilisant le token.
+:::
+
+- [ ] Allez dans le catalogue de services, choisissez-en un et cliquez sur **Lancer**
+- [ ] Dans les paramètres de lancement, allez sur l'onglet *GIT*
+  - Normalement sont déjà renseignés : *Name, Email et Token*
+- [ ] Renseignez l'**url https du dépôt**
+  - vous la trouvez sur la page GitHub du dépôt en cliquant sur [Code]{.green-button}
+  - exemple d'url : `https://github.com/ludo2ne/ENSAI-tools.git`
+- [ ] Lancez le service
+
+Votre service se lance et le dépôt est cloné :tada:
+
+#### La méthode pas compliquée
+
+Vous avez par exemple oublié de renseigner l'url du dépôt git au lancement du service ?
+
+Pas de panique :scream:, vous pouvez faire la même chose manuellement :
+
+- [ ] Lancez un service
+- [ ] Ouvrez un terminal
+- [ ] Intégrez le Token dans l'url https lors du clone
+  - Insérer `$GIT_PERSONAL_ACCESS_TOKEN@` jsute après *https://*
+  - exemple : `git clone https://$GIT_PERSONAL_ACCESS_TOKEN@github.com/ludo2ne/ENSAI-tools.git`
+
+::: {.callout-tip title="Explications"}
+Vous l'avez peut-être noté lorsque vous avez déclaré le Token sur le datalab, celui-ci est stoké dans une variable d'environnement nommée *GIT_PERSONAL_ACCESS_TOKEN*.
+
+Les variables d'environnement sont un système de stockage clé-valeur. Ainsi lorsque vous écrivez `$GIT_PERSONAL_ACCESS_TOKEN` dans le terminal, cela récupère la valeur de la variable i.e. le Token (*ghp_dadadada*)
+
+Pour voir si la valeur de votre Token est bien injectée dans le service : `env | grep GIT` (liste les variables d'environnement, puis n'affiche que celles contenant GIT).
+:::
+
+
+#### Vérifier ses branchements
+
+> Vous êtes du genre à vérifier cinq fois que votre porte est bien fermée à clé ?
+> Pas de soucis, voici comment vérifier que vous avez bien utilisé le Token pour cloner.
+
+- [ ] Regardez sur quel dépôt distant est branché votre clone
+  - `git remote -v`
+
+Normalement cela affiche deux lignes, par exemple :
+
+```{.txt}
+origin  https://ghp_dadadadadadadada@github.com/ludo2ne/ENSAI-tools.git (fetch)
+origin  https://ghp_dadadadadadadada@github.com/ludo2ne/ENSAI-tools.git (push)
+```
+
+Si le Token apparait tout est ok, sinon pour modifier l'url du dépôt distant :
+
+- [ ] Modifiez votre url *origin* en intégrant le token
+  - exemple : `git remote set-url origin https://$GIT_PERSONAL_ACCESS_TOKEN@github.com/ludo2ne/ENSAI-tools.git`
