@@ -46,15 +46,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-59e81ffe88dcb738a7d077cb0a07fccd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-8aa0956bfab55cae13b6b7dc2876281c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-59e81ffe88dcb738a7d077cb0a07fccd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-72593a814cfd776b270eb6f7a4a0aba6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-9c5d904a52746832de212ba972e770a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-72593a814cfd776b270eb6f7a4a0aba6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -81,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -247,216 +250,296 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">ENSAI tools</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> <i class="bi bi-house" role="img">
-</i> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-formater-les-données" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Formater les données</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-formater-les-données">    
-        <li>
-    <a class="dropdown-item" href="../../doc/format/csv.html">
- <span class="dropdown-text">CSV</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/format/parquet.html">
- <span class="dropdown-text">Parquet</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/format/json.html">
- <span class="dropdown-text">JSON</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/format/yaml.html">
- <span class="dropdown-text">YAML</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-coder" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Coder</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-coder">    
-        <li>
-    <a class="dropdown-item" href="../../doc/language/bash.html">
- <span class="dropdown-text">Bash</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/language/python.html">
- <span class="dropdown-text">Python</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/language/r.html">
- <span class="dropdown-text">R</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/language/quality.html">
- <span class="dropdown-text">Qualité du code</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/language/iagen.html">
- <span class="dropdown-text">Usages de l’IAgen</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-versionner-avec-git" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Versionner avec Git</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-versionner-avec-git">    
-        <li>
-    <a class="dropdown-item" href="../../doc/git/presentation.html">
- <span class="dropdown-text">Présentation</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/git/advanced.html">
- <span class="dropdown-text">Usages avancés</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/git/lab.html">
- <span class="dropdown-text">TP</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/git/glossary.html">
- <span class="dropdown-text">Glossaire</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-utiliser-le-datalab" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Utiliser le Datalab</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-utiliser-le-datalab">    
-        <li>
-    <a class="dropdown-item" href="../../doc/datalab/intro.html">
- <span class="dropdown-text">Introduction</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/datalab/basics.html">
- <span class="dropdown-text">Usage basique</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/datalab/advanced.html">
- <span class="dropdown-text">Usage avancé</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/datalab/vscode-python.html">
- <span class="dropdown-text">VSCode Python</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/datalab/lab.html">
- <span class="dropdown-text">TP Découverte</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-gérer-son-projet" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Gérer son Projet</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-gérer-son-projet">    
-        <li>
-    <a class="dropdown-item" href="../../doc/project/planning.html">
- <span class="dropdown-text">Planning</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/project/lab.html">
- <span class="dropdown-text">TP Gestion de projet</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-restituer-avec-quarto" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Restituer avec Quarto</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-restituer-avec-quarto">    
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/markdown.html">
- <span class="dropdown-text">Markdown</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/quarto.html">
- <span class="dropdown-text">Introduction</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/report.html">
- <span class="dropdown-text">Rapport de projet</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/slideshow.html">
- <span class="dropdown-text">Diaporama</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/poster.html">
- <span class="dropdown-text">Poster</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/site.html">
- <span class="dropdown-text">Site statique</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/rstudio.html">
- <span class="dropdown-text">Using RStudio</span></a>
-  </li>  
-    </ul>
-  </li>
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/ludo2ne/ENSAI-tools" target="_blank"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../doc/datalab/intro.html">Utiliser le Datalab</a></li><li class="breadcrumb-item"><a href="../../doc/datalab/intro.html">Introduction</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation"><span class="header-section-number">1</span> Documentation</a></li>
-  </ul>
-</nav>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">ENSAI tools</a> 
+        <div class="sidebar-tools-main">
+    <a href="{{< meta var.url-repo >}}" title="" class="quarto-navigation-tool px-1" aria-label="" target="_blank"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-house" role="img">
+</i> 
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Format de données</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/format/csv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CSV</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/format/parquet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parquet</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/format/json.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">JSON</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/format/yaml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">YAML</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Coder</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/language/bash.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bash</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/language/python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/language/r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/language/quality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Qualité du code</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/language/iagen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Usages de l’IAgen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Versionner avec Git</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/git/presentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Présentation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/git/advanced.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Usages avancés</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/git/lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/git/glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossaire</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Utiliser le Datalab</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/datalab/intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/datalab/basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Usage basique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/datalab/advanced.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Usage avancé</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/datalab/vscode-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VSCode Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/datalab/lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP Découverte</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Gérer son Projet</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/project/planning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Planning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/project/lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP Gestion de projet</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Restituer avec Quarto</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/markdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rapport de projet</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/slideshow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diaporama</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/poster.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Poster</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/site.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Site statique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using RStudio</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#pourquoi-un-datalab" id="toc-pourquoi-un-datalab" class="nav-link active" data-scroll-target="#pourquoi-un-datalab">Pourquoi un Datalab ?</a></li>
+  <li><a href="#les-services" id="toc-les-services" class="nav-link" data-scroll-target="#les-services">Les services</a></li>
+  <li><a href="#comment-ça-marche" id="toc-comment-ça-marche" class="nav-link" data-scroll-target="#comment-ça-marche">Comment ça marche ?</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../doc/datalab/intro.html">Utiliser le Datalab</a></li><li class="breadcrumb-item"><a href="../../doc/datalab/intro.html">Introduction</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Datalab SSPCloud</h1>
   <div class="quarto-categories">
@@ -492,25 +575,45 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="notes">
-<p><a href="https://github.com/ludo2ne/ENSAI-1A-SQL/blob/main/doc/outils/tp-datalab.qmd" class="uri">https://github.com/ludo2ne/ENSAI-1A-SQL/blob/main/doc/outils/tp-datalab.qmd</a></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<section id="introduction" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Le Datalab permet aux statisticiens de découvrir, d’expérimenter, d’apprendre, de se former aux outils de la data.</p>
-<section id="pourquoi-un-datalab" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="pourquoi-un-datalab">Pourquoi un Datalab ?</h3>
-<p>Dans le monde professionnel, plusieurs problèmes se posent au statisticien :</p>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le Datalab permet aux statisticiennes et statisticiens de découvrir, d’expérimenter, d’apprendre, de se former aux outils de la data.</p>
+</div>
+</div>
+<p>Liens utiles :</p>
 <ul>
-<li><span class="emoji" data-emoji="turtle">🐢</span> sa machine n’est pas assez puissante</li>
+<li><a href="https://www.sspcloud.fr/" target="_blank">https://www.sspcloud.fr/</a>
+<ul>
+<li>Le Datalab de l’INSEE : <a href="https://datalab.sspcloud.fr/" target="_blank">https://datalab.sspcloud.fr/</a></li>
+<li><a href="https://www.sspcloud.fr/catalog?path=SSPCloud%E2%90%A3Documentation" target="_blank">La documentation</a></li>
+<li>Mais aussi des tutoriels, des formations et un agent conversationnel local et basé sur des modèles d’IA open source</li>
+</ul></li>
+<li><a href="https://onyxia.lab.groupe-genes.fr/" target="_blank">Datalab de l’ENSAE-ENSAI</a></li>
+<li><a href="https://www.onyxia.sh/" target="_blank">https://www.onyxia.sh/</a> : l’application qui permet à n’importe qui de déployer des services, sans avoir besoin de connaissances techniques de l’infrastructure.</li>
+<li>Besoin d’assistance ? Contactez l’équipe du SSPCloud sur <a href="https://join.slack.com/t/3innovation/shared_invite/zt-1bo6y53oy-Y~zKzR2SRg37pq5oYgiPuA" target="_blank">Slack</a></li>
+</ul>
+<section id="pourquoi-un-datalab" class="level2">
+<h2 class="anchored" data-anchor-id="pourquoi-un-datalab">Pourquoi un Datalab ?</h2>
+<p>Dans le monde professionnel, plusieurs problèmes se posent :</p>
+<ul>
+<li><span class="emoji" data-emoji="turtle">🐢</span> la machine n’est pas assez puissante</li>
 <li><span class="emoji" data-emoji="no_entry">⛔</span> installer certains logiciels est parfois interdit et bloqué par le système</li>
-<li><span class="emoji" data-emoji="lock">🔒</span> il doit analyser des données sensibles en toute sécurité</li>
+<li><span class="emoji" data-emoji="lock">🔒</span> la nécessité d’analyser des données sensibles en toute sécurité</li>
 </ul>
 <p>À l’INSEE, un projet est né pour pallier à ce besoin : <a href="https://www.onyxia.sh/" target="_blank">Onyxia</a> porté par le <a href="https://github.com/InseeFrLab" target="_blank">lab de l’INSEE</a>.</p>
+<p><a href="https://www.onyxia.sh/assets/Dragoon-9KfxmkNo.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://www.onyxia.sh/assets/Dragoon-9KfxmkNo.svg" class="img-fluid" style="width:30.0%" alt="Dragon Onyxia"></a></p>
 <p>La première étape fut de créer une infrastructure Cloud avec des CPUs, des GPUs, de la RAM et du stockage.</p>
 <p>Ensuite, avoir plein de ressources c’est très bien, mais encore faut-il savoir les utiliser. Or lancer des services dans le cloud nécessite quelques compétences spécifiques (Docker, Kubernetes, Helm, S3…) qui ne sont pas à la portée de tous.</p>
 <p>D’où l’idée de créer une interface graphique pour pouvoir lancer des services en quelques clics. Onyxia s’appuie sur des technologies sous-jacentes (Kubernetes, Helm, S3…) pour proposer une IHM agréable pour le datascientist. Cependant, la philosophie du projet Onyxia est d’être une brique qui facilite le travail sans se rendre indispensable. L’idée est d’éviter que les utilisateurs ne s’enferment dans un choix technologique et qu’il soit couteux d’en sortir.</p>
-<p>À l’INSEE, une instance de ce logiciel a été installée sur le <a href="https://datalab.sspcloud.fr/" target="_blank">Datalab SSP Cloud</a>, ouverte à tous les agents publics. Vous pouvez y créer un compte car c’est également ouvert à tous les élèves de l’ENSAI (en utilisant votre mail ENSAI).</p>
+<p>À l’INSEE, une instance de ce logiciel a été installée sur le <a href="https://datalab.sspcloud.fr/" target="_blank">Datalab SSP Cloud</a>, ouverte à tous les agents publics. Vous pouvez y créer un compte avec votre mail ENSAI <code>prenom.nom@eleve.ensai.fr</code>.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -528,8 +631,8 @@ Warning
 <p>Onyxia est un logiciel Libre et Open Source. Chacun peut installer sa propre instance sur son infra. C’est ce qu’ont fait de nombreux organismes, ainsi que le GENES.</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/FvpNfVrxBFM" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
-<section id="les-services" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="les-services">Les services</h3>
+<section id="les-services" class="level2">
+<h2 class="anchored" data-anchor-id="les-services">Les services</h2>
 <p>Le principe est d’offrir aux utilisateurs la possibilité de lancer de nombreux services à la demande (Jupyter, Rstudio, VSCode, PostgreSQL…) avec une puissance de calcul adaptée aux besoins.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -544,29 +647,82 @@ Caution
 <p>Ces services sont éphémères, car si les ressources sont importantes, il faut savoir les partager !</p>
 <p>Le principe général est le suivant :</p>
 <ul>
-<li>Vous lancez votre service en réservant des ressources (CPU, GPU, RAM, Stockage)</li>
-<li>Vous effectuez votre travail</li>
-<li>Vous sauvegardez votre code (git) et vos résultats (MinIO)</li>
-<li>Vous supprimez votre service et libérez les ressources</li>
+<li><span class="emoji" data-emoji="rocket">🚀</span> Vous lancez votre service en réservant des ressources (CPU, GPU, RAM, Stockage)</li>
+<li><span class="emoji" data-emoji="construction_worker">👷</span> Vous effectuez votre travail</li>
+<li><span class="emoji" data-emoji="floppy_disk">💾</span> Vous sauvegardez votre code (git) et vos résultats (MinIO)</li>
+<li><span class="emoji" data-emoji="wastebasket">🗑️</span> Vous supprimez votre service et libérez les ressources</li>
 </ul>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled" title="Ce qu'il se passe sous le capot">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<section id="analogie-avec-une-location-de-pc" class="level3">
+<h3 class="anchored" data-anchor-id="analogie-avec-une-location-de-pc">Analogie avec une location de PC</h3>
+<p>Lancer un service, c’est un peu comme se servir dans un magasin informatique.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 65%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Utiliser le Datalab</th>
+<th>Location de PC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Lancer un service</td>
+<td>Louer une machine avec des logiciels installés</td>
+</tr>
+<tr class="even">
+<td>Réserver des ressources</td>
+<td>Choisir la configuration (CPU, GPU, RAM, Go…)</td>
+</tr>
+<tr class="odd">
+<td>Paramétrer votre espace</td>
+<td>Installer d’autres logiciels, packages, extensions…</td>
+</tr>
+<tr class="even">
+<td>Effectuer le travail</td>
+<td>Réaliser vos calculs ou vos analyses</td>
+</tr>
+<tr class="odd">
+<td>Sauvegarder votre code</td>
+<td>Avant de rendre la machine, envoyer votre code sur un dépôt Git</td>
+</tr>
+<tr class="even">
+<td>Sauvegarder vos données</td>
+<td>Vous exportez vos données vers le stockage S3</td>
+</tr>
+<tr class="odd">
+<td>Supprimer le service</td>
+<td>Vous rendez la machine. Elle est remise à zéro pour d’autres</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="comment-ça-marche" class="level2">
+<h2 class="anchored" data-anchor-id="comment-ça-marche">Comment ça marche ?</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Ce qu’il se passe sous le capot
+Note
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Pour plus de détails, vous pouvez consulter la vidéo en bas de la page.</p>
+<p>Si vous voulez en savoir plus sur l’histoire du projet et comment ça fonctionne.</p>
+</div>
+</div>
+<p>Une présentation complète du projet Onyxia au Devoxx 2023, de sa philosophie et de son fonctionnement par Olivier LEVITT, Joseph GARRONE et Frédéric COMTE.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/GXINfnVB21E" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>Une présentation plus courte</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/sOOVg4I19BI" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>Prenons l’exemple de ce qu’il se passe en arrière plan lorsque vous lancez un service <code>Vscode-python</code> :</p>
-<section id="construction-de-limage-docker" class="level4" data-number="0.0.1">
-<h4 data-number="0.0.1" class="anchored" data-anchor-id="construction-de-limage-docker"><span class="header-section-number">0.0.1</span> Construction de l’image Docker</h4>
+<section id="construction-de-limage-docker" class="level3">
+<h3 class="anchored" data-anchor-id="construction-de-limage-docker">Construction de l’image Docker</h3>
 <p>Une image <a href="https://www.docker.com/" target="_blank">Docker</a> est un paquet léger et autonome qui contient tout le nécessaire pour exécuter une application : le code, les bibliothèques, les dépendances, les variables d’environnement et les fichiers de configuration.</p>
 <p>Les images Docker permettent de créer des environnements isolés et cohérents, garantissant ainsi la portabilité et la reproductibilité des applications.</p>
 <ol type="1">
@@ -589,36 +745,26 @@ Caution
 </ol>
 <p>Vous avez maintenant une image Docker avec tout ce qu’il faut pour bien travailler.</p>
 </section>
-<section id="dockerhub" class="level4" data-number="0.0.2">
-<h4 data-number="0.0.2" class="anchored" data-anchor-id="dockerhub"><span class="header-section-number">0.0.2</span> DockerHub</h4>
+<section id="dockerhub" class="level3">
+<h3 class="anchored" data-anchor-id="dockerhub">DockerHub</h3>
 <p>Cette image est construite et déposée sur DockerHub <a href="https://hub.docker.com/r/inseefrlab/onyxia-vscode-python" target="_blank">onyxia-vscode-python</a>.</p>
 <p>Nous allons ensuite lancer une instance de cette image : un conteneur.</p>
 <p>Une image est comme un moule, et un conteneur est un objet fabriqué à partir de ce moule. L’image contient les instructions, et le conteneur est l’instance concrète créée à partir de ce modèle. Vous verrez le même principe dans le cours de POO avec les classes (modèles) et les objets (instances)</p>
 <p>Pour gérer tous les conteneurs lancés sur le datalab, nous avons besoin d’un orchestrateur : Kubernetes.</p>
 </section>
-<section id="chart-helm" class="level4" data-number="0.0.3">
-<h4 data-number="0.0.3" class="anchored" data-anchor-id="chart-helm"><span class="header-section-number">0.0.3</span> Chart Helm</h4>
+<section id="chart-helm" class="level3">
+<h3 class="anchored" data-anchor-id="chart-helm">Chart Helm</h3>
 <p>Cependant, nous allons d’abord utiliser <a href="https://helm.sh/" target="_blank">Helm</a> pour faciliter le déploiement.</p>
 <p>Helm simplifie le processus de déploiement d’applications sur Kubernetes en automatisant les tâches répétitives et en fournissant une gestion centralisée des configurations.</p>
 <p>Le <a href="https://github.com/InseeFrLab/helm-charts-interactive-services/tree/main/charts/vscode-python" target="_blank">chart Helm vscode-python</a> est un ensemble de fichiers de configuration qui facilite le déploiement d’application dans un envrionnement Kubernetes.</p>
 </section>
-<section id="déploiement-sur-kube" class="level4" data-number="0.0.4">
-<h4 data-number="0.0.4" class="anchored" data-anchor-id="déploiement-sur-kube"><span class="header-section-number">0.0.4</span> Déploiement sur Kube</h4>
+<section id="déploiement-sur-kube" class="level3">
+<h3 class="anchored" data-anchor-id="déploiement-sur-kube">Déploiement sur Kube</h3>
 <p><a href="https://kubernetes.io/" target="_blank">Kubernetes</a> (K8s) est un système open-source qui automatise le déploiement, la mise à l’échelle et la gestion d’applications conteneurisées. C’est un orchestrateur de conteneurs.</p>
 <p>K8s récupére via le chart Helm toutes les infos nécessaires et déploie le conteneur (créé à partir de l’image Docker) sur l’infra du datalab.</p>
-</section>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="documentation" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="documentation"><span class="header-section-number">1</span> Documentation</h2>
-<ul>
-<li><a href="https://docs.sspcloud.fr/content/principles.html" target="_blank">https://docs.sspcloud.fr/content/principles.html</a></li>
-</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1049,6 +1195,38 @@ Caution
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

@@ -81,15 +81,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-59e81ffe88dcb738a7d077cb0a07fccd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-8aa0956bfab55cae13b6b7dc2876281c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-59e81ffe88dcb738a7d077cb0a07fccd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-72593a814cfd776b270eb6f7a4a0aba6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-9c5d904a52746832de212ba972e770a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-72593a814cfd776b270eb6f7a4a0aba6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -282,217 +282,295 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">ENSAI tools</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> <i class="bi bi-house" role="img">
-</i> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-formater-les-données" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Formater les données</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-formater-les-données">    
-        <li>
-    <a class="dropdown-item" href="../../doc/format/csv.html">
- <span class="dropdown-text">CSV</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/format/parquet.html">
- <span class="dropdown-text">Parquet</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/format/json.html">
- <span class="dropdown-text">JSON</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/format/yaml.html">
- <span class="dropdown-text">YAML</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-coder" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Coder</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-coder">    
-        <li>
-    <a class="dropdown-item" href="../../doc/language/bash.html">
- <span class="dropdown-text">Bash</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/language/python.html">
- <span class="dropdown-text">Python</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/language/r.html">
- <span class="dropdown-text">R</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/language/quality.html">
- <span class="dropdown-text">Qualité du code</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/language/iagen.html">
- <span class="dropdown-text">Usages de l’IAgen</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-versionner-avec-git" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Versionner avec Git</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-versionner-avec-git">    
-        <li>
-    <a class="dropdown-item" href="../../doc/git/presentation.html">
- <span class="dropdown-text">Présentation</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/git/advanced.html">
- <span class="dropdown-text">Usages avancés</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/git/lab.html">
- <span class="dropdown-text">TP</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/git/glossary.html">
- <span class="dropdown-text">Glossaire</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-utiliser-le-datalab" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Utiliser le Datalab</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-utiliser-le-datalab">    
-        <li>
-    <a class="dropdown-item" href="../../doc/datalab/intro.html">
- <span class="dropdown-text">Introduction</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/datalab/basics.html">
- <span class="dropdown-text">Usage basique</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/datalab/advanced.html">
- <span class="dropdown-text">Usage avancé</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/datalab/vscode-python.html">
- <span class="dropdown-text">VSCode Python</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/datalab/lab.html">
- <span class="dropdown-text">TP Découverte</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-gérer-son-projet" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Gérer son Projet</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-gérer-son-projet">    
-        <li>
-    <a class="dropdown-item" href="../../doc/project/planning.html">
- <span class="dropdown-text">Planning</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/project/lab.html">
- <span class="dropdown-text">TP Gestion de projet</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-restituer-avec-quarto" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Restituer avec Quarto</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-restituer-avec-quarto">    
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/markdown.html">
- <span class="dropdown-text">Markdown</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/quarto.html">
- <span class="dropdown-text">Introduction</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/report.html">
- <span class="dropdown-text">Rapport de projet</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/slideshow.html">
- <span class="dropdown-text">Diaporama</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/poster.html">
- <span class="dropdown-text">Poster</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/site.html">
- <span class="dropdown-text">Site statique</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/rstudio.html">
- <span class="dropdown-text">Using RStudio</span></a>
-  </li>  
-    </ul>
-  </li>
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/ludo2ne/ENSAI-tools" target="_blank"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../doc/format/csv.html">Format de données</a></li><li class="breadcrumb-item"><a href="../../doc/format/yaml.html">YAML</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#quest-ce-que-yaml" id="toc-quest-ce-que-yaml" class="nav-link active" data-scroll-target="#quest-ce-que-yaml"><span class="header-section-number">1</span> Qu’est-ce que YAML ?</a></li>
-  <li><a href="#pourquoi-utiliser-yaml" id="toc-pourquoi-utiliser-yaml" class="nav-link" data-scroll-target="#pourquoi-utiliser-yaml"><span class="header-section-number">2</span> Pourquoi utiliser YAML ?</a></li>
-  <li><a href="#syntaxe" id="toc-syntaxe" class="nav-link" data-scroll-target="#syntaxe"><span class="header-section-number">3</span> Syntaxe</a></li>
-  </ul>
-</nav>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">ENSAI tools</a> 
+        <div class="sidebar-tools-main">
+    <a href="{{< meta var.url-repo >}}" title="" class="quarto-navigation-tool px-1" aria-label="" target="_blank"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-house" role="img">
+</i> 
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Format de données</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/format/csv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CSV</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/format/parquet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parquet</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/format/json.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">JSON</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/format/yaml.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">YAML</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Coder</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/language/bash.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bash</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/language/python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/language/r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/language/quality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Qualité du code</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/language/iagen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Usages de l’IAgen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Versionner avec Git</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/git/presentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Présentation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/git/advanced.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Usages avancés</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/git/lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/git/glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossaire</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Utiliser le Datalab</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/datalab/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/datalab/basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Usage basique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/datalab/advanced.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Usage avancé</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/datalab/vscode-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VSCode Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/datalab/lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP Découverte</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Gérer son Projet</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/project/planning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Planning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/project/lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP Gestion de projet</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Restituer avec Quarto</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/markdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rapport de projet</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/slideshow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diaporama</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/poster.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Poster</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/site.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Site statique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using RStudio</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#pourquoi-utiliser-yaml" id="toc-pourquoi-utiliser-yaml" class="nav-link active" data-scroll-target="#pourquoi-utiliser-yaml">Pourquoi utiliser YAML ?</a></li>
+  <li><a href="#syntaxe" id="toc-syntaxe" class="nav-link" data-scroll-target="#syntaxe">Syntaxe</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../doc/format/csv.html">Format de données</a></li><li class="breadcrumb-item"><a href="../../doc/format/yaml.html">YAML</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">YAML 101</h1>
 </div>
@@ -522,20 +600,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><span class="emoji" data-emoji="construction">🚧</span></p>
-<div class="notes">
-<ul>
-<li>Dire pas trop pour stocker de la données, plutot conf</li>
-</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<section id="quest-ce-que-yaml" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="quest-ce-que-yaml"><span class="header-section-number">1</span> Qu’est-ce que YAML ?</h2>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><a href="https://yaml.org/" target="_blank">YAML</a> est un acronyme récursif signifiant : <em>YAML Ain’t Markup Language</em> permet de stocker de la donnée structurée.</p>
 <p>C’est un format facile à lire et à écrire pour les humain. Il n’y a pas de balises, sa syntaxe est basée sur l’indentation.</p>
 <p>Il est souvent utilisé pour la configuration des fichiers, le stockage de données, et les échanges de données entre langages de programmation.</p>
-</section>
-<section id="pourquoi-utiliser-yaml" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="pourquoi-utiliser-yaml"><span class="header-section-number">2</span> Pourquoi utiliser YAML ?</h2>
+</div>
+</div>
+<section id="pourquoi-utiliser-yaml" class="level2">
+<h2 class="anchored" data-anchor-id="pourquoi-utiliser-yaml">Pourquoi utiliser YAML ?</h2>
 <ul>
 <li><strong>Lisibilité</strong>
 <ul>
@@ -557,11 +638,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </section>
-<section id="syntaxe" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="syntaxe"><span class="header-section-number">3</span> Syntaxe</h2>
+<section id="syntaxe" class="level2">
+<h2 class="anchored" data-anchor-id="syntaxe">Syntaxe</h2>
 <p>Voici quelques exemples de syntaxe avec son équivalent json.</p>
-<section id="les-types-de-base-attributs" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="les-types-de-base-attributs"><span class="header-section-number">3.1</span> Les types de base (Attributs)</h3>
+<section id="les-types-de-base-attributs" class="level3">
+<h3 class="anchored" data-anchor-id="les-types-de-base-attributs">Les types de base (Attributs)</h3>
 <p>Tout commence par l’assignation de valeurs à des clés.</p>
 <div class="columns">
 <div class="column">
@@ -595,8 +676,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="liste-de-valeurs" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="liste-de-valeurs"><span class="header-section-number">3.2</span> Liste de valeurs</h3>
+<section id="liste-de-valeurs" class="level3">
+<h3 class="anchored" data-anchor-id="liste-de-valeurs">Liste de valeurs</h3>
 <p>Une structure de données peut contenir une séquence d’éléments. En YAML, nous avons deux façons de déclarer une liste : le mode “bloc” (plus lisible) ou le mode “flux” (plus compact, identique au JSON).</p>
 <div class="columns">
 <div class="column">
@@ -658,8 +739,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="ancre-et-alias" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="ancre-et-alias"><span class="header-section-number">3.3</span> Ancre et alias</h3>
+<section id="ancre-et-alias" class="level3">
+<h3 class="anchored" data-anchor-id="ancre-et-alias">Ancre et alias</h3>
 <p>L’un des grands avantages de YAML sur JSON est sa capacité à gérer la redondance. Si une donnée est répétée plusieurs fois, on peut définir une <strong>ancre</strong> (<code>&amp;</code>) pour la nommer, et un <strong>alias</strong> (<code>*</code>) pour l’appeler.</p>
 <div class="columns">
 <div class="column">
@@ -690,8 +771,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="héritage" class="level3" data-number="3.4">
-<h3 data-number="3.4" class="anchored" data-anchor-id="héritage"><span class="header-section-number">3.4</span> Héritage</h3>
+<section id="héritage" class="level3">
+<h3 class="anchored" data-anchor-id="héritage">Héritage</h3>
 <p>L’opérateur <code>&lt;&lt;</code> permet de créer un template de base et de ne modifier que les paramètres spécifiques pour chaque instance.</p>
 <div class="columns">
 <div class="column">
@@ -737,8 +818,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="texte-multi-lignes" class="level3" data-number="3.5">
-<h3 data-number="3.5" class="anchored" data-anchor-id="texte-multi-lignes"><span class="header-section-number">3.5</span> Texte multi-lignes</h3>
+<section id="texte-multi-lignes" class="level3">
+<h3 class="anchored" data-anchor-id="texte-multi-lignes">Texte multi-lignes</h3>
 <p>Quand il s’agit de stocker de longs blocs de texte (descriptions, requêtes SQL, scripts, poèmes), YAML propose deux opérateurs très utiles pour gérer les retours à la ligne de manière explicite.</p>
 <ul>
 <li>Le pipe <code>|</code> : préserve les retours à la ligne.</li>

@@ -81,15 +81,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-59e81ffe88dcb738a7d077cb0a07fccd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-8aa0956bfab55cae13b6b7dc2876281c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-59e81ffe88dcb738a7d077cb0a07fccd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-72593a814cfd776b270eb6f7a4a0aba6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-9c5d904a52746832de212ba972e770a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-72593a814cfd776b270eb6f7a4a0aba6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -282,217 +282,296 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">ENSAI tools</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> <i class="bi bi-house" role="img">
-</i> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-formater-les-données" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Formater les données</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-formater-les-données">    
-        <li>
-    <a class="dropdown-item" href="../../doc/format/csv.html">
- <span class="dropdown-text">CSV</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/format/parquet.html">
- <span class="dropdown-text">Parquet</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/format/json.html">
- <span class="dropdown-text">JSON</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/format/yaml.html">
- <span class="dropdown-text">YAML</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-coder" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Coder</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-coder">    
-        <li>
-    <a class="dropdown-item" href="../../doc/language/bash.html">
- <span class="dropdown-text">Bash</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/language/python.html">
- <span class="dropdown-text">Python</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/language/r.html">
- <span class="dropdown-text">R</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/language/quality.html">
- <span class="dropdown-text">Qualité du code</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/language/iagen.html">
- <span class="dropdown-text">Usages de l’IAgen</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-versionner-avec-git" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Versionner avec Git</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-versionner-avec-git">    
-        <li>
-    <a class="dropdown-item" href="../../doc/git/presentation.html">
- <span class="dropdown-text">Présentation</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/git/advanced.html">
- <span class="dropdown-text">Usages avancés</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/git/lab.html">
- <span class="dropdown-text">TP</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/git/glossary.html">
- <span class="dropdown-text">Glossaire</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-utiliser-le-datalab" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Utiliser le Datalab</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-utiliser-le-datalab">    
-        <li>
-    <a class="dropdown-item" href="../../doc/datalab/intro.html">
- <span class="dropdown-text">Introduction</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/datalab/basics.html">
- <span class="dropdown-text">Usage basique</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/datalab/advanced.html">
- <span class="dropdown-text">Usage avancé</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/datalab/vscode-python.html">
- <span class="dropdown-text">VSCode Python</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/datalab/lab.html">
- <span class="dropdown-text">TP Découverte</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-gérer-son-projet" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Gérer son Projet</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-gérer-son-projet">    
-        <li>
-    <a class="dropdown-item" href="../../doc/project/planning.html">
- <span class="dropdown-text">Planning</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/project/lab.html">
- <span class="dropdown-text">TP Gestion de projet</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-restituer-avec-quarto" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Restituer avec Quarto</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-restituer-avec-quarto">    
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/markdown.html">
- <span class="dropdown-text">Markdown</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/quarto.html">
- <span class="dropdown-text">Introduction</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/report.html">
- <span class="dropdown-text">Rapport de projet</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/slideshow.html">
- <span class="dropdown-text">Diaporama</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/poster.html">
- <span class="dropdown-text">Poster</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/site.html">
- <span class="dropdown-text">Site statique</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../doc/quarto/rstudio.html">
- <span class="dropdown-text">Using RStudio</span></a>
-  </li>  
-    </ul>
-  </li>
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/ludo2ne/ENSAI-tools" target="_blank"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../doc/quarto/markdown.html">Restituer avec Quarto</a></li><li class="breadcrumb-item"><a href="../../doc/quarto/markdown.html">Markdown</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#quest-ce-que-markdown" id="toc-quest-ce-que-markdown" class="nav-link active" data-scroll-target="#quest-ce-que-markdown"><span class="header-section-number">1</span> Qu’est-ce que Markdown ?</a></li>
-  <li><a href="#pourquoi-utiliser-markdown" id="toc-pourquoi-utiliser-markdown" class="nav-link" data-scroll-target="#pourquoi-utiliser-markdown"><span class="header-section-number">2</span> Pourquoi utiliser Markdown ?</a></li>
-  <li><a href="#écrire-du-markdown" id="toc-écrire-du-markdown" class="nav-link" data-scroll-target="#écrire-du-markdown"><span class="header-section-number">3</span> Écrire du markdown</a></li>
-  </ul>
-</nav>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">ENSAI tools</a> 
+        <div class="sidebar-tools-main">
+    <a href="{{< meta var.url-repo >}}" title="" class="quarto-navigation-tool px-1" aria-label="" target="_blank"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-house" role="img">
+</i> 
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Format de données</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/format/csv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CSV</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/format/parquet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parquet</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/format/json.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">JSON</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/format/yaml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">YAML</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Coder</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/language/bash.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bash</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/language/python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/language/r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/language/quality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Qualité du code</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/language/iagen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Usages de l’IAgen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Versionner avec Git</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/git/presentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Présentation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/git/advanced.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Usages avancés</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/git/lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/git/glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossaire</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Utiliser le Datalab</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/datalab/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/datalab/basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Usage basique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/datalab/advanced.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Usage avancé</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/datalab/vscode-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VSCode Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/datalab/lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP Découverte</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Gérer son Projet</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/project/planning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Planning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/project/lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP Gestion de projet</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Restituer avec Quarto</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/markdown.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Markdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rapport de projet</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/slideshow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diaporama</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/poster.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Poster</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/site.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Site statique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/quarto/rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using RStudio</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#quest-ce-que-markdown" id="toc-quest-ce-que-markdown" class="nav-link active" data-scroll-target="#quest-ce-que-markdown">Qu’est-ce que Markdown ?</a></li>
+  <li><a href="#pourquoi-utiliser-markdown" id="toc-pourquoi-utiliser-markdown" class="nav-link" data-scroll-target="#pourquoi-utiliser-markdown">Pourquoi utiliser Markdown ?</a></li>
+  <li><a href="#écrire-du-markdown" id="toc-écrire-du-markdown" class="nav-link" data-scroll-target="#écrire-du-markdown">Écrire du markdown</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../doc/quarto/markdown.html">Restituer avec Quarto</a></li><li class="breadcrumb-item"><a href="../../doc/quarto/markdown.html">Markdown</a></li></ol></nav>
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Mardown</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
@@ -522,12 +601,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="quest-ce-que-markdown" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="quest-ce-que-markdown"><span class="header-section-number">1</span> Qu’est-ce que Markdown ?</h2>
+<section id="quest-ce-que-markdown" class="level2">
+<h2 class="anchored" data-anchor-id="quest-ce-que-markdown">Qu’est-ce que Markdown ?</h2>
 <p>Markdown est un langage de balisage léger créé par John Gruber en 2004. Son objectif de simplifier l’écriture de texte destiné au web en permettant aux utilisateurs d’écrire en utilisant un format texte brut facile à lire et à écrire.</p>
 </section>
-<section id="pourquoi-utiliser-markdown" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="pourquoi-utiliser-markdown"><span class="header-section-number">2</span> Pourquoi utiliser Markdown ?</h2>
+<section id="pourquoi-utiliser-markdown" class="level2">
+<h2 class="anchored" data-anchor-id="pourquoi-utiliser-markdown">Pourquoi utiliser Markdown ?</h2>
 <p>Markdown a été conçu comme une alternative intuitive aux balisages plus complexes du HTML. Il s’est rapidement popularisé parmi les développeurs, les blogueurs et les rédacteurs pour sa simplicité et sa lisibilité.</p>
 <ul>
 <li><span class="emoji" data-emoji="white_check_mark">✅</span> <strong>Simplicité</strong> : Facile à apprendre et à utiliser, même si vous n’êtes pas familiers avec HTML</li>
@@ -537,8 +616,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><span class="emoji" data-emoji="x">❌</span> <strong>Limitations</strong> : Markdown est conçu pour être simple, donc il ne supporte pas toutes les fonctionnalités avancées de mise en page</li>
 </ul>
 </section>
-<section id="écrire-du-markdown" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="écrire-du-markdown"><span class="header-section-number">3</span> Écrire du markdown</h2>
+<section id="écrire-du-markdown" class="level2">
+<h2 class="anchored" data-anchor-id="écrire-du-markdown">Écrire du markdown</h2>
 <p>Les fichiers markdown sont des fichiers texte qui ont pour extension <code>.md</code>.</p>
 <p>Il existe de très nombreux éditeurs de Markdown :</p>
 <ul>
@@ -550,8 +629,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>une partie édition où l’on écrit le code</li>
 <li>une partie vue où l’on voit le résultat</li>
 </ul>
-<section id="exemples" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="exemples"><span class="header-section-number">3.1</span> Exemples</h3>
+<section id="exemples" class="level3">
+<h3 class="anchored" data-anchor-id="exemples">Exemples</h3>
 <p>De très nombreuses ressources existent pour apprendre en quelques minutes le langage, par exemple <a href="https://commonmark.org/help/" target="&quot;_blank">https://commonmark.org/help/</a></p>
 <p>Quelques exemples de mise en forme :</p>
 <table class="caption-top table">
@@ -1083,64 +1162,65 @@ Note
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Mardown"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "Pour une mise en forme simple et rapide"</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Ludovic Deneuville"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">number-sections:</span><span class="co"> false</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Qu'est-ce que Markdown ?</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>Markdown est un langage de balisage léger créé par John Gruber en 2004. Son objectif de simplifier l'écriture de texte destiné au web en permettant aux utilisateurs d'écrire en utilisant un format texte brut facile à lire et à écrire.</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pourquoi utiliser Markdown ?</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>Markdown a été conçu comme une alternative intuitive aux balisages plus complexes du HTML. Il s'est rapidement popularisé parmi les développeurs, les blogueurs et les rédacteurs pour sa simplicité et sa lisibilité.</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="sc">:white_check_mark:</span> **Simplicité** : Facile à apprendre et à utiliser, même si vous n'êtes pas familiers avec HTML</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="sc">:white_check_mark:</span> **Lisibilité** : Le texte brut en Markdown reste lisible même sans être converti en HTML</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="sc">:white_check_mark:</span> **Portabilité** : Les fichiers Markdown peuvent être convertis facilement en HTML, PDF...</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="sc">:white_check_mark:</span> **Popularité** : Supporté par de nombreuses plates-formes et outils de rédaction</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="sc">:x:</span> **Limitations** : Markdown est conçu pour être simple, donc il ne supporte pas toutes les fonctionnalités avancées de mise en page</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Écrire du markdown</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>Les fichiers markdown sont des fichiers texte qui ont pour extension <span class="in">`.md`</span>.</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>Il existe de très nombreux éditeurs de Markdown :</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>en ligne, par exemple <span class="co">[</span><span class="ot">HackMd</span><span class="co">](https://hackmd.io/)</span>{target="_blank}</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>à installer sur sa machine, par exemple dans Visual Studio Code</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>Les éditeurs présentent généralement deux sections cote à cote :</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>une partie édition où l'on écrit le code</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>une partie vue où l'on voit le résultat</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exemples</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>De très nombreuses ressources existent pour apprendre en quelques minutes le langage, par exemple <span class="ot">&lt;https://commonmark.org/help/&gt;</span>{target="_blank}</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>Quelques exemples de mise en forme :</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Code Markdown                    <span class="pp">|</span> Résultat                       <span class="pp">|</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="pp">| --------------------------------</span> <span class="pp">| ------------------------------</span> <span class="pp">|</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`**texte en gras**`</span>              <span class="pp">|</span> **texte en gras**              <span class="pp">|</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`*texte en italique*`</span>            <span class="pp">|</span> *texte en italique*            <span class="pp">|</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`[lien](https://example.com)`</span>    <span class="pp">|</span> <span class="co">[</span><span class="ot">lien</span><span class="co">](https://example.com)</span>    <span class="pp">|</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`![texte alternatif](image.jpg)`</span> <span class="pp">|</span> <span class="al">![texte alternatif](image.jpg)</span> <span class="pp">|</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="sc">\`</span>code en ligne<span class="sc">\`</span>                <span class="pp">|</span> <span class="in">`code en ligne`</span>                <span class="pp">|</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`# Titre de niveau 1`</span>            <span class="pp">|</span>                                <span class="pp">|</span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`## Titre de niveau 2`</span>           <span class="pp">|</span>                                <span class="pp">|</span></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Qu'est-ce que Markdown ?</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Markdown est un langage de balisage léger créé par John Gruber en 2004. Son objectif de simplifier l'écriture de texte destiné au web en permettant aux utilisateurs d'écrire en utilisant un format texte brut facile à lire et à écrire.</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pourquoi utiliser Markdown ?</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Markdown a été conçu comme une alternative intuitive aux balisages plus complexes du HTML. Il s'est rapidement popularisé parmi les développeurs, les blogueurs et les rédacteurs pour sa simplicité et sa lisibilité.</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="sc">:white_check_mark:</span> **Simplicité** : Facile à apprendre et à utiliser, même si vous n'êtes pas familiers avec HTML</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="sc">:white_check_mark:</span> **Lisibilité** : Le texte brut en Markdown reste lisible même sans être converti en HTML</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="sc">:white_check_mark:</span> **Portabilité** : Les fichiers Markdown peuvent être convertis facilement en HTML, PDF...</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="sc">:white_check_mark:</span> **Popularité** : Supporté par de nombreuses plates-formes et outils de rédaction</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="sc">:x:</span> **Limitations** : Markdown est conçu pour être simple, donc il ne supporte pas toutes les fonctionnalités avancées de mise en page</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Écrire du markdown</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>Les fichiers markdown sont des fichiers texte qui ont pour extension <span class="in">`.md`</span>.</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>Il existe de très nombreux éditeurs de Markdown :</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>en ligne, par exemple <span class="co">[</span><span class="ot">HackMd</span><span class="co">](https://hackmd.io/)</span>{target="_blank}</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>à installer sur sa machine, par exemple dans Visual Studio Code</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>Les éditeurs présentent généralement deux sections cote à cote :</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>une partie édition où l'on écrit le code</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>une partie vue où l'on voit le résultat</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exemples</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>De très nombreuses ressources existent pour apprendre en quelques minutes le langage, par exemple <span class="ot">&lt;https://commonmark.org/help/&gt;</span>{target="_blank}</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>Quelques exemples de mise en forme :</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Code Markdown                    <span class="pp">|</span> Résultat                       <span class="pp">|</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="pp">| --------------------------------</span> <span class="pp">| ------------------------------</span> <span class="pp">|</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`**texte en gras**`</span>              <span class="pp">|</span> **texte en gras**              <span class="pp">|</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`*texte en italique*`</span>            <span class="pp">|</span> *texte en italique*            <span class="pp">|</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`[lien](https://example.com)`</span>    <span class="pp">|</span> <span class="co">[</span><span class="ot">lien</span><span class="co">](https://example.com)</span>    <span class="pp">|</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`![texte alternatif](image.jpg)`</span> <span class="pp">|</span> <span class="al">![texte alternatif](image.jpg)</span> <span class="pp">|</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="sc">\`</span>code en ligne<span class="sc">\`</span>                <span class="pp">|</span> <span class="in">`code en ligne`</span>                <span class="pp">|</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`# Titre de niveau 1`</span>            <span class="pp">|</span>                                <span class="pp">|</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`## Titre de niveau 2`</span>           <span class="pp">|</span>                                <span class="pp">|</span></span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>Cette page est elle-même écrite en Markdown ! (avec une <span class="co">[</span><span class="ot">surcouche</span><span class="co">](https://quarto.org/docs/authoring/markdown-basics.html)</span>{target="_blank})</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>Vous pouvez consulter le code en cliquant sur le bouton <span class="in">`&lt;/&gt; Code`</span> en haut à droite.</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>Un <span class="co">[</span><span class="ot">large choix d'emoji</span><span class="co">](https://gist.github.com/rxaviers/7360908)</span>{target="_blank} est également disponible en Markdown <span class="sc">:sunglasses:</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>Cette page est elle-même écrite en Markdown ! (avec une <span class="co">[</span><span class="ot">surcouche</span><span class="co">](https://quarto.org/docs/authoring/markdown-basics.html)</span>{target="_blank})</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>Vous pouvez consulter le code en cliquant sur le bouton <span class="in">`&lt;/&gt; Code`</span> en haut à droite.</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>Un <span class="co">[</span><span class="ot">large choix d'emoji</span><span class="co">](https://gist.github.com/rxaviers/7360908)</span>{target="_blank} est également disponible en Markdown <span class="sc">:sunglasses:</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
