@@ -9,15 +9,19 @@ website:
   title: "ENSAI tools"
   repo-url: "{{< meta var.url-repo >}}"
   repo-branch: main
-  reader-mode: true
-  navbar:
-    background: "#E1C1FF"
-    left:
+  sidebar:
+    tools:
+      - icon: github
+        href: "{{< meta var.url-repo >}}"
+        target: "_blank"
+    style: "docked"
+    background: "#FFCCE5"
+    contents:
       - icon: house
         href: index.qmd
         text: Home
-      - text: Formater les données
-        menu:
+      - section: Format de données
+        contents:
           - href: doc/format/csv.qmd
             text: "CSV"
           - href: doc/format/parquet.qmd
@@ -26,8 +30,8 @@ website:
             text: "JSON"
           - href: doc/format/yaml.qmd
             text: "YAML"
-      - text: Coder
-        menu:
+      - section: Coder
+        contents:
           - href: doc/language/bash.qmd
             text: "Bash"
           - href: doc/language/python.qmd
@@ -38,8 +42,8 @@ website:
             text: "Qualité du code"
           - href: doc/language/iagen.qmd
             text: "Usages de l'IAgen"
-      - text: Versionner avec Git
-        menu:
+      - section: Versionner avec Git
+        contents:
           - href: doc/git/presentation.qmd
             text: "Présentation"
           - href: doc/git/advanced.qmd
@@ -48,8 +52,8 @@ website:
             text: "TP"
           - href: doc/git/glossary.qmd
             text: "Glossaire"
-      - text: Utiliser le Datalab
-        menu:
+      - section: Utiliser le Datalab
+        contents:
           - href: doc/datalab/intro.qmd
             text: "Introduction"
           - href: doc/datalab/basics.qmd
@@ -60,14 +64,14 @@ website:
             text: "VSCode Python"
           - href: doc/datalab/lab.qmd
             text: "TP Découverte"
-      - text: Gérer son Projet
-        menu:
+      - section: Gérer son Projet
+        contents:
           - href: doc/project/planning.qmd
             text: "Planning"
           - href: doc/project/lab.qmd
             text: "TP Gestion de projet"
-      - text: Restituer avec Quarto
-        menu:
+      - section: Restituer avec Quarto
+        contents:
           - href: doc/quarto/markdown.qmd
             text: "Markdown"
           - href: doc/quarto/quarto.qmd
@@ -82,10 +86,6 @@ website:
             text: "Site statique"
           - href: doc/quarto/rstudio.qmd
             text: "Using RStudio"
-    right:
-      - icon: github
-        href: "{{< meta var.url-repo >}}"
-        target: "_blank"
   page-footer:
     right: |
       Website built with [Quarto](https://quarto.org/){.external target="_blank"} <br>
@@ -100,9 +100,14 @@ format:
       light: cosmo
       dark: solar
     toc: true
-    toc-location: left
+    toc-location: right
     toc-depth: 2
     css: styles.css
+    grid:
+      sidebar-width: 300px
+      body-width: 800px
+      margin-width: 300px
+      gutter-width: 5rem
 
 from: markdown+emoji
 number-sections: true

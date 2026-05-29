@@ -5,11 +5,6 @@ author: "Ludovic Deneuville"
 number-sections: false
 ---
 
-:::{.notes}
-- Dire pas trop pour stocker de la données, plutot conf
-:::
-
-
 ::: {.callout-note}
 [YAML](https://yaml.org/){target="_blank"} est un acronyme récursif signifiant : *YAML Ain't Markup Language* permet de stocker de la donnée structurée.
 

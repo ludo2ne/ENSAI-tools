@@ -24,6 +24,7 @@ author: "Ludovic Deneuville"
 | numpy        | Bibliothèque fondamentale pour le calcul scientifique et la gestion de tableaux multidimensionnels |
 | pytest       | Permet de lancer les tests unitaires |
 
+: {tbl-colwidths="[20,80]"}
 
 ### IDE (Integrated Development Environment)
 
@@ -52,3 +53,5 @@ Un IDE est un logiciel "tout-en-un" conçu pour faciliter le travail du dévelop
 | `self`     | Référence à l'instance de l'objet lui-même, utilisée pour accéder à ses attributs et méthodes. |
 | `super()`  | Fonction permettant d'appeler une méthode de la classe parente (héritage). |
 | abstract   | Concept de classe ou méthode qui définit une interface obligatoire pour les sous-classes, sans implémentation propre. |
+
+: {tbl-colwidths="[20,80]"}

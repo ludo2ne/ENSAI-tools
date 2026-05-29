@@ -65,7 +65,6 @@ Voici comment représenter des objets complexes :
 ]
 ```
 
-
 ::: {.callout-note title="Remarque"}
 Contrairement à un tableau SQL où chaque ligne doit respecter la même structure de colonnes, le JSON permet une structure hétérogène. Chaque objet peut posséder un nombre de propriétés différent.
 :::

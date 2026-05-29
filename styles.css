@@ -154,3 +154,8 @@ p{
   content: "$ ";
   color: #ffcc00;
 }
+
+
+.sidebar-item-text.text-start {
+  font-weight: bold !important;
+}

@@ -36,4 +36,5 @@ Depends:
 
 ## Ressources {.unnumbered}
 
-<https://juba.github.io/tidyverse/>{target="_blank"}
+- <https://juba.github.io/tidyverse/>{target="_blank"}
+- [R for Data Science](https://r4ds.hadley.nz/){target="_blank"}
