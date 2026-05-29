@@ -85,6 +85,8 @@ If you run your API on another port `uvicorn.run(app, host="0.0.0.0", port=9876)
 
 - This port is not open to the outside
 - You will never be able to call your API from outside the service
+
+From the inside call it running in a new terminal: `curl -X GET http://0.0.0.0:9876 | jq .`.
 :::
 
 

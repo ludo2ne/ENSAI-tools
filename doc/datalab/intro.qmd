@@ -2,6 +2,7 @@
 title: "Datalab SSPCloud"
 description: "Présentation du Datalab"
 author: "Ludovic Deneuville"
+number-sections: false
 categories:
   - Onyxia
   - Cloud
@@ -9,23 +10,33 @@ categories:
   - Kubernetes
 ---
 
-:::{.notes}
-<https://github.com/ludo2ne/ENSAI-1A-SQL/blob/main/doc/outils/tp-datalab.qmd>
+::: {.callout-tip}
+Le Datalab permet aux statisticiennes et statisticiens de découvrir, d'expérimenter, d'apprendre, de se former aux outils de la data.
 :::
 
-## Introduction {.unnumbered}
 
-Le Datalab permet aux statisticiens de découvrir, d'expérimenter, d'apprendre, de se former aux outils de la data.
+Liens utiles :
 
-### Pourquoi un Datalab ?  {.unnumbered}
+- <https://www.sspcloud.fr/>{target="_blank"}
+  - Le Datalab de l'INSEE : <https://datalab.sspcloud.fr/>{target="_blank"}
+  - [La documentation](https://www.sspcloud.fr/catalog?path=SSPCloud%E2%90%A3Documentation){target="_blank"}
+  - Mais aussi des tutoriels, des formations et un agent conversationnel local et basé sur des modèles d'IA open source
+- [Datalab de l'ENSAE-ENSAI](https://onyxia.lab.groupe-genes.fr/){target="_blank"}
+- <https://www.onyxia.sh/>{target="_blank"} : l'application qui permet à n'importe qui de déployer des services, sans avoir besoin de connaissances techniques de l'infrastructure.
+- Besoin d'assistance ? Contactez l'équipe du SSPCloud sur [Slack](https://join.slack.com/t/3innovation/shared_invite/zt-1bo6y53oy-Y~zKzR2SRg37pq5oYgiPuA){target="_blank"}
 
-Dans le monde professionnel, plusieurs problèmes se posent au statisticien :
 
-- :turtle: sa machine n'est pas assez puissante
+## Pourquoi un Datalab ?
+
+Dans le monde professionnel, plusieurs problèmes se posent :
+
+- :turtle: la machine n'est pas assez puissante
 - :no_entry: installer certains logiciels est parfois interdit et bloqué par le système
-- :lock: il doit analyser des données sensibles en toute sécurité
+- :lock: la nécessité d'analyser des données sensibles en toute sécurité
 
 À l'INSEE, un projet est né pour pallier à ce besoin : [Onyxia](https://www.onyxia.sh/){target="_blank"} porté par le [lab de l'INSEE](https://github.com/InseeFrLab){target="_blank"}.
+
+![](https://www.onyxia.sh/assets/Dragoon-9KfxmkNo.svg){width="30%" fig-alt="Dragon Onyxia"}
 
 La première étape fut de créer une infrastructure Cloud avec des CPUs, des GPUs, de la RAM et du stockage.
 
@@ -33,7 +44,7 @@ Ensuite, avoir plein de ressources c'est très bien, mais encore faut-il savoir 
 
 D'où l'idée de créer une interface graphique pour pouvoir lancer des services en quelques clics. Onyxia s'appuie sur des technologies sous-jacentes (Kubernetes, Helm, S3...) pour proposer une IHM agréable pour le datascientist. Cependant, la philosophie du projet Onyxia est d'être une brique qui facilite le travail sans se rendre indispensable. L'idée est d'éviter que les utilisateurs ne s'enferment dans un choix technologique et qu'il soit couteux d'en sortir.
 
-À l'INSEE, une instance de ce logiciel a été installée sur le [Datalab SSP Cloud](https://datalab.sspcloud.fr/){target="_blank"}, ouverte à tous les agents publics. Vous pouvez y créer un compte car c'est également ouvert à tous les élèves de l'ENSAI (en utilisant votre mail ENSAI).
+À l'INSEE, une instance de ce logiciel a été installée sur le [Datalab SSP Cloud](https://datalab.sspcloud.fr/){target="_blank"}, ouverte à tous les agents publics. Vous pouvez y créer un compte avec votre mail ENSAI `prenom.nom@eleve.ensai.fr`.
 
 ::: {.callout-warning}
 Ne déposez pas de données sensibles sur cette instance, ni sur celle du GENES.
@@ -45,7 +56,8 @@ Onyxia est un logiciel Libre et Open Source. Chacun peut installer sa propre ins
 
 {{< video https://www.youtube.com/watch?v=FvpNfVrxBFM >}}
 
-### Les services {.unnumbered}
+
+## Les services
 
 Le principe est d'offrir aux utilisateurs la possibilité de lancer de nombreux services à la demande (Jupyter, Rstudio, VSCode, PostgreSQL...) avec une puissance de calcul adaptée aux besoins.
 
@@ -54,22 +66,47 @@ Ces services sont éphémères, car si les ressources sont importantes, il faut 
 
 Le principe général est le suivant :
 
-- Vous lancez votre service en réservant des ressources (CPU, GPU, RAM, Stockage)
-- Vous effectuez votre travail
-- Vous sauvegardez votre code (git) et vos résultats (MinIO)
-- Vous supprimez votre service et libérez les ressources 
+- :rocket: Vous lancez votre service en réservant des ressources (CPU, GPU, RAM, Stockage)
+- :construction_worker: Vous effectuez votre travail
+- :floppy_disk: Vous sauvegardez votre code (git) et vos résultats (MinIO)
+- :wastebasket: Vous supprimez votre service et libérez les ressources 
 :::
 
 
+### Analogie avec une location de PC
 
+Lancer un service, c'est un peu comme se servir dans un magasin informatique.
 
-::: {.callout-note collapse="true" title="Ce qu'il se passe sous le capot"}
+| Utiliser le Datalab     | Location de PC                                                   |
+| ----------------------- | ---------------------------------------------------------------- |
+| Lancer un service       | Louer une machine avec des logiciels installés                   |
+| Réserver des ressources | Choisir la configuration (CPU, GPU, RAM, Go...)                  |
+| Paramétrer votre espace | Installer d'autres logiciels, packages, extensions...            |
+| Effectuer le travail    | Réaliser vos calculs ou vos analyses                             |
+| Sauvegarder votre code  | Avant de rendre la machine, envoyer votre code sur un dépôt Git  |
+| Sauvegarder vos données | Vous exportez vos données vers le stockage S3                    |
+| Supprimer le service    | Vous rendez la machine. Elle est remise à zéro pour d'autres     |
 
-Pour plus de détails, vous pouvez consulter la vidéo en bas de la page.
+: {tbl-colwidths="[35,65]"}
+
+## Comment ça marche ?
+
+::: {.callout-note}
+Si vous voulez en savoir plus sur l'histoire du projet et comment ça fonctionne.
+:::
+
+Une présentation complète du projet Onyxia au Devoxx 2023, de sa philosophie et de son fonctionnement par Olivier LEVITT, Joseph GARRONE et Frédéric COMTE.
+
+{{< video https://www.youtube.com/watch?v=GXINfnVB21E >}}
+
+Une présentation plus courte
+
+{{< video https://www.youtube.com/watch?v=sOOVg4I19BI >}}
 
 Prenons l'exemple de ce qu'il se passe en arrière plan lorsque vous lancez un service `Vscode-python` :
 
-#### Construction de l'image Docker
+
+### Construction de l'image Docker
 
 Une image [Docker](https://www.docker.com/){target="_blank"} est un paquet léger et autonome qui contient tout le nécessaire pour exécuter une application : le code, les bibliothèques, les dépendances, les variables d'environnement et les fichiers de configuration.
 
@@ -86,7 +123,7 @@ Les images Docker permettent de créer des environnements isolés et cohérents,
 
 Vous avez maintenant une image Docker avec tout ce qu'il faut pour bien travailler.
 
-#### DockerHub
+### DockerHub
 
 Cette image est construite et déposée sur DockerHub [onyxia-vscode-python](https://hub.docker.com/r/inseefrlab/onyxia-vscode-python){target="_blank"}.
 
@@ -96,7 +133,7 @@ Une image est comme un moule, et un conteneur est un objet fabriqué à partir d
 
 Pour gérer tous les conteneurs lancés sur le datalab, nous avons besoin d'un orchestrateur : Kubernetes. 
 
-#### Chart Helm
+### Chart Helm
 
 Cependant, nous allons d'abord utiliser [Helm](https://helm.sh/){target="_blank"} pour faciliter le déploiement.
 
@@ -104,13 +141,9 @@ Helm simplifie le processus de déploiement d'applications sur Kubernetes en aut
 
 Le [chart Helm vscode-python](https://github.com/InseeFrLab/helm-charts-interactive-services/tree/main/charts/vscode-python){target="_blank"} est un ensemble de fichiers de configuration qui facilite le déploiement d'application dans un envrionnement Kubernetes.
 
-#### Déploiement sur Kube
+### Déploiement sur Kube
 
 [Kubernetes](https://kubernetes.io/){target="_blank"} (K8s) est un système open-source qui automatise le déploiement, la mise à l'échelle et la gestion d'applications conteneurisées. C'est un orchestrateur de conteneurs.
 
 K8s récupére via le chart Helm toutes les infos nécessaires et déploie le conteneur (créé à partir de l'image Docker) sur l'infra du datalab.
-:::
 
-## Documentation
-
-- <https://docs.sspcloud.fr/content/principles.html>{target="_blank"}

@@ -1,6 +1,6 @@
 ---
 title: "Découverte du Datalab SSPCloud"
-description: "Utilisation basique du Datalab"
+description: "Les fondamentaux pour utiliser le Datalab"
 author: "Ludovic Deneuville"
 categories:
   - Service
@@ -8,20 +8,106 @@ categories:
   - Git
 ---
 
-:construction:
+::: {.callout-note}
+Pour une utilisation simple, vous aurez besoin de :
 
-
+- Lancer des services (RStudio, VSCode, PostreSQL...)
+- Importer / Exporter des données (fichiers parquet, csv, json...)
+- Sauvegarder votre code
+:::
 
 
 ## Lancer un service
 
+- [ ] Connectez-vous au Datalab
+- [ ] Allez dans le catalogue des service
+- [ ] Cliquez une fois sur `Lancer`
 
+Ici, vous pouvez modifier de nombreux paramètres (Ressources, etc.).
 
+- [ ] Cliquez une nouvelle fois sur `Lancer`
+
+Attendez quelques secondes, le temps que le service se lance.
+
+- [ ] Cliquez pour copier le mot de passe
+- [ ] Ouvrez le service
+- [ ] Collez le mot de passe
+  - Si l'on vous demande votre nom d'utilisateur : *onyxia*
+
+Un nouvel onglet s'ouvre et c'est parti ! :surfer:
 
 ## S3
 
+::: {.callout-note title="Définition"}
+S3 : Simple Storage System.
+
+Inventé par Amazon, ce système de stockage est devenu l'outil standard du marché pour le stockage en ligne.
+
+[MinIO](https://min.io/){target="_blank"} est une solution alternative de stockage d'objets open-source qui permet de déployer facilement un stockage évolutif et performant. Elle est compatible avec l'API [S3 d'Amazon](https://aws.amazon.com/fr/s3/){target="_blank"}, ce qui facilite l'intégration avec les applications existantes.
+
+Pour faire simple, vous pouvez vous dire que c'est comme si vous allez stocker vos fichiers dans un Drive.
+:::
+
+Lorsque l'on travaille dans le cloud, il est essentiel de [séparer les données des programmes]{.underline} pour :
+
+- mieux gérer les ressources
+- renforcer la sécurité en limitant les accès et les permissions
+- permettre une scalabilité indépendante des composants
+
+MinIO offre :
+
+- une haute disponibilité
+- une sécurité renforcée grâce au chiffrement des données et des contrôles d'accès
+- des performances élevées, particulièrement adaptées aux environnements nécessitant un accès rapide aux données, comme le Big Data et l'intelligence artificielle
 
 
+### Votre bucket
+
+::: {.callout-note title="Définition"}
+Un **bucket** est un conteneur de stockage utilisé pour regrouper des objets (fichiers et métadonnées) dans des systèmes de stockage de type cloud. Il facilite l'organisation, la gestion des permissions et l'accès aux données dans un espace de stockage structuré.
+:::
+
+Lors de votre création de compte, un bucket est créé avec votre nom d'utilisateur. Dans ce bucket, vous pouvez :
+
+- créer / supprimer des dossiers
+- importer / supprimer des fichiers
+
+Vous avez plusieurs possibilités pour gérer à votre stockage :
+
+- Depuis le Datalab, onglet *Mes fichiers*
+- Depuis la console MinIO :
+  - <https://minio-console.lab.sspcloud.fr/>{target="_blank"}
+  - <https://minio-simple.lab.groupe-genes.fr>{target="_blank"}
+- Depuis un terminal avec le client Minio (mc)
+
+
+### Stocker vos fichiers
+
+:construction:
+
+### Accéder à vos données depuis un service
+
+Sur la page d'accueil du Datalab :
+
+- [ ] Allez dans `Mon Compte`, puis dans l'onglet `Connexion au Stockage`
+
+Vous trouverez ici des informations pour vous connecter au stockage selon le language que vous utilisez : Python, R...
+
+D'ailleurs pour chaque langage, il y a même plusieurs packages qui font le job. Par exemple *s3fs* ou *boto3* pour Python.
+
+
+### Données d'autres utilisateurs
+
+Si vous créez un dossier nommé `diffusion` à la racine de votre bucket, celui-ci sera accessible en lecture à tous les utilisateurs du Datalab.
+
+De même vous pouvez accéder en lecture à tout fichier du dossier *diffusion* d'un autre utilisateur.
+
+Enfin, en parcourant le stockage, vous noterez la présence de données INSEE.
+
+
+### Exportez vos résultats vers MinIO
+
+:construction:
 
 ## Git
 

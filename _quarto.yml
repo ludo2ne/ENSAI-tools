@@ -11,7 +11,7 @@ website:
   repo-branch: main
   reader-mode: true
   navbar:
-    background: "#CC99FF"
+    background: "#E1C1FF"
     left:
       - icon: house
         href: index.qmd

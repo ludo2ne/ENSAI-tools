@@ -2,21 +2,22 @@
 title: "YAML 101"
 description: "Introduction à YAML"
 author: "Ludovic Deneuville"
+number-sections: false
 ---
-
-:construction:
 
 :::{.notes}
 - Dire pas trop pour stocker de la données, plutot conf
 :::
 
-## Qu'est-ce que YAML ?
 
+::: {.callout-note}
 [YAML](https://yaml.org/){target="_blank"} est un acronyme récursif signifiant : *YAML Ain't Markup Language* permet de stocker de la donnée structurée.
 
 C'est un format facile à lire et à écrire pour les humain. Il n'y a pas de balises, sa syntaxe est basée sur l'indentation.
 
 Il est souvent utilisé pour la configuration des fichiers, le stockage de données, et les échanges de données entre langages de programmation.
+:::
+
 
 ## Pourquoi utiliser YAML ?
 

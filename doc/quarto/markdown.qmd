@@ -2,6 +2,7 @@
 title: "Mardown"
 description: "Pour une mise en forme simple et rapide"
 author: "Ludovic Deneuville"
+number-sections: false
 format:
   html:
     code-tools: true
