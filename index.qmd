@@ -1,15 +1,10 @@
 ---
 title: Outils pour les élèves et enseignants de l'ENSAI
 number-sections: false
+format:
+  html:
+    toc: false
 listing:
-  - id: others-listing
-    type: table
-    fields: [title, categories]
-    contents: 
-      - doc/format/
-      - doc/language/
-    sort-ui: false
-    filter-ui: false
   - id: git-listing
     type: table
     fields: [title, categories]

@@ -9,16 +9,127 @@ categories:
 
 :construction:
 
-## Script de lancement
+## Script d'initialisation
+
+Il est possible d'exécuter un script après lancement d'un service, par exemple pour installer des packages, des extensions...
+
+Dans les options avant de lancer le service, onglet *Scripts d'initialisation* puis rentrez l'URL du script.
+
+::: {.callout-important}
+- L'URL du script ne doit pas être dans un dépôt privé
+- Il est possible d'ajouter des arguments au script
+:::
+
+Pour plus d'informations et avoir des exemples : [sspcloud-init-scripts](https://github.com/InseeFrLab/sspcloud-init-scripts){target="_blank"}
+
+Par exemple, le script suivant permet de :
+
+- installer *pytest*
+- ajouter l'extension VSCode Ruff
+- supprimer l'extension VSCode Flake8
+
+```{.bash filename="example.sh"}
+#!/bin/sh
+
+# Install packages and VSCode extensions
+# Expected parameters : None
+
+pip install pytest
+
+code-server --install-extension charliermarsh.ruff
+code-server --uninstall-extension ms-python.flake8
+```
+
+::: {.callout-tip}
+Si vous avez besoin de lancer réguliérement votre service avec cette config :
+
+- Lorsque vous modifiez les paramètres de lancement, cliquez sur la petite disquette
+- Vous pourrez à tout moment relancer avec la même configuration avec un raccourci dans *Mes services*
+:::
 
 
 ## Image Docker
 
+:construction:
+
+Dans les paramètres de lancement vous pouvez également définir votre propre image Docker :
+
+- Créez votre image à partir de la dernière version du service
+- Taguez cette image, puis poussez-la sur DockerHub
+- Dans les paramètres de lancement, utilisez une image personnalisée
+
+Par exemple :
+
+```{.txt filename="Dockerfile"}
+FROM inseefrlab/onyxia-vscode-python:py3.13.5-2025.07.21
+
+# Install packages
+RUN pip install pytest
+
+# Modify VSCode extensions
+RUN code-server --install-extension charliermarsh.ruff
+RUN code-server --uninstall-extension ms-python.flake8
+```
+
 
 ## Secrets
+
+::: {.callout-important title="Enigme du Père Fouras" icon="false"}
+Plus j'ai de gardiens, moins je suis gardé.
+
+Moins j'ai de gardiens, plus je suis gardé.
+
+Qui suis-je ?
+:::
+
+Certains éléments ne doivent pas être diffusés dans votre code (jetons d'accès, mots de passe...).
+
+Pour éviter d'avoir à nettoyer votre code à chaque fois que vous le poussez sur GitHub, le datalab propose de gérer vos secrets.
+
+### Créer un secret
+
+- [ ] Allez dans *Mes secrets*
+- [ ] Créez un `Nouveau secret` nommé *projet_patate*
+- [ ] Double-cliquez pour ouvrir ce secret
+- [ ] `Ajoutez une variable`
+  - Nom : PATATE_TOKEN
+  - Valeur : 123456
+  - Cliquez sur :white_check_mark: pour valider
+- [ ] Ajoutez une autre variable
+  - Nom : PATATE_PORT
+  - Valeur : 5236
+  - Cliquez sur :white_check_mark: pour valider
+
+### Utiliser dans un service
+
+- [ ] Préparez le lancement d'un service Rstudio
+- [ ] Dans la configuration, allez dans l'onglet `Vault`
+- [ ] secret : *projet_patate*
+- [ ] Lancez le service
+
+Dans votre servives, les deux variables d'environnement ont été créées. 
+
+- [ ] Vérifiez leur présence via le terminal : `env | grep PATATE` ou `echo $PATATE_TOKEN`
+- [ ] Ouvrez un notebook et récupérez la valeur de *PATATE_TOKEN*
+  ```{.python}
+  import os
+
+  token = os.environ["PATATE_TOKEN"]
+  print(token)
+  ```
+- [ ] Une fois que vous avez fini de jouer, supprimez votre service
+
+::: {.callout-note}
+Ce TP avait pour but de vous familiariser avec le Datalab. Vous pouvez l'utiliser pour faire du Python, du R, créer une base de données (prochain TP) ou utiliser de nombreux autres outils.
+:::
 
 
 
 
 ## Surveiller son service
 
+- [ ] Sur la page du Datalab, allez dans `Mes services`
+- [ ] Cliquez sur le nom du service (Jupyter-python)
+- [ ] Cliquez sur `Surveillance externe`
+
+Vous arrivez sur la page de l'outil **Grafana** qui permet d'observer les métriques de votre service.

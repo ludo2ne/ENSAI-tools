@@ -9,6 +9,8 @@ categories:
   - Open source
 ---
 
+:construction:
+
 ## Les branches
 
 Imaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.

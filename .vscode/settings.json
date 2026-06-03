@@ -1,8 +1,8 @@
 {
   "workbench.colorTheme": "Dark Modern",
   "editor.fontSize": 16,
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
   "[quarto]": {
     "editor.wordWrap": "wordWrapColumn",
     "editor.wrappingIndent": "same",

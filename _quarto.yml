@@ -50,8 +50,6 @@ website:
             text: "Usages avancés"
           - href: doc/git/lab.qmd
             text: "TP"
-          - href: doc/git/glossary.qmd
-            text: "Glossaire"
       - section: Utiliser le Datalab
         contents:
           - href: doc/datalab/intro.qmd

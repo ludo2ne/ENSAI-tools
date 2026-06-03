@@ -11,7 +11,7 @@ format:
       x: 1.5cm
       y: 2.0cm
     section-numbering: 1.1.a
-    mainfont: "Calibri"
+    mainfont: "Libertinus Serif"
     fontsize: 11pt
 ---
 
@@ -113,6 +113,11 @@ Vous noterez que cela permet de gérer également la numérotation des pages à 
 
 
 ## Quelques exemples de mise en forme
+
+### Police
+
+`quarto typst fonts` pour afficher la liste des polices disponibles sur votre machine.
+
 
 ### Code
 

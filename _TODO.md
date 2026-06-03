@@ -1,9 +1,5 @@
 # TODO
 
-## Restituer
-
-- [ ] Poster Typst
-- [ ] Présentation reveals
 
 ## LaSuite
 

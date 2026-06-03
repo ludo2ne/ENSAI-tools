@@ -20,11 +20,95 @@ Note that on the Datalab, we utilize **code-server**, a web-based version of VS 
 
 ## Settings
 
-:construction:
+::: {.callout-tip}
+Visual Studio Code allows you to define settings at different levels: user, workspace, and folder.
+
+Workspace settings apply only to the current project. They are stored in the `.vscode/settings.json` file inside your project folder.
+
+This is useful for ensuring consistency across a team, as everyone working on the project shares the same configuration (e.g., Python interpreter, formatting rules, or linting options).
+:::
+
+Below an example of workspace settings:
+
+```{.json filename="settings.json"}
+{
+  // --- UI & Visual Appearance ---
+  "workbench.colorTheme": "Dark Modern",   // Sets the overall editor theme
+  "editor.fontSize": 16,                   // Increases font size for better readability
+
+  // --- Python-Specific Configuration ---
+  "[python]": {
+    "editor.formatOnSave": true,             // Automatically formats the file on save
+    "editor.codeActionsOnSave": {            // Automated tasks performed on every save
+      "source.fixAll": "explicit",           // Automatically fixes linting errors
+      "source.organizeImports": "explicit",  // Sorts and cleans up import statements
+      "source.addMissingImports": "explicit" // Automatically adds missing imports
+    },
+    "editor.insertSpaces": true,             // Uses spaces instead of tabs for indentation
+    "editor.tabSize": 4,                     // Sets indentation width to 4 spaces
+    "editor.defaultFormatter": "charliermarsh.ruff", // Uses Ruff as the primary formatting engine
+  },
+
+  // Hides files and folders from the Explorer
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/.ruff_cache": true,
+    "**/.mypy_cache": true
+  },
+
+  "terminal.integrated.defaultProfile.linux": "bash" // Sets Bash as the default terminal
+}
+```
+
+You can define a rule at the global level and then specify it:
+
+```{.json}
+{  
+  "editor.tabSize": 2,           // Global default
+  "[python]": {
+    "editor.tabSize": 4          // Python-specific override (files *.py)
+  },
+  "[yaml]": {
+    "editor.wrappingIndent": "indent"
+  }
+}
+```
+
+How it works:
+
+- Default: Any file :arrow_right: 2
+- Python: `.py` file :arrow_right: 4 (specific value for python)
+- YAML: `.yaml` file :arrow_right: 2 (no specific value provided, global value used)
 
 ## Extensions
 
-:construction:
+A standard code editor only knows how to write plain text. An extension adds specific "intelligence" to the editor. For example:
+
+- a Language Extension teaches the editor how to "read" Python (coloring the text, suggesting commands)
+- a Formatter Extension teaches the editor how to "clean up" your code (fixing indentation)
+- a Theme Extension changes the "skin" of the editor (colors, icons)
+
+
+## Open Folder
+
+::: {.callout-important}
+The **Open Folder** option allows you to define the root directory of your project.
+
+To identify the current root folder, look at the top-left corner of the Explorer panel, where the parent folder is displayed.
+
+This choice is important because Python imports between modules rely on relative paths, which depend on the project's root structure.
+:::
+
+Two ways to open folder:
+
+- In the top-left corner, click on the three horizontal bars :arrow_right: 
+  - File
+  - Open Folder
+  - `/home/onyxia/work/<repo_name>`
+  - OK
+- In a terminal: `code-server /home/onyxia/work/<repo_name>`
+  - Close previous tab
 
 
 ## Open a port
@@ -91,7 +175,7 @@ From the inside call it running in a new terminal: `curl -X GET http://0.0.0.0:9
 
 
 
-## Assistant IA
+## IA Agent
 
 ::: {.callout-note}
 Integrating an AI generator directly into your IDE provides a level of utility that a standard chatbot cannot match. Unlike a chatbot, which requires the manual effort of copying and pasting code, an integrated AI possesses full environmental awareness. 
@@ -123,6 +207,9 @@ Now you will enter the key into the SSPCloud
 
 Now it's time to launch a service.
 
+
+### Use it
+
 - [ ] Launch a *VSCode* service
   - In tab *User preferences*, check that AI Assistant is enabled
 - [ ] Open the service
@@ -141,4 +228,68 @@ To chat with the agent, you will use extension called [Continue](https://docs.co
 :construction: pre-prompt
 
 
+## Autocompletion
+
+*code-server* (VSCode version used by datalabs) does not support Pylance, which normally provides autocompletion. 2 options for adding autocompletion:
+
+
+### Option 1
+
+- [ ] Create a virtual environment
+  - `python -m venv venv`
+- [ ] CTRL + SHIFT + P
+  - Python: Select interpreter
+  - choose *venv*
+
+::: {.callout-tip title="venv 101" collapse="true"}
+When you install Python packages globally, everything gets mixed together. 
+
+If one project needs Django 3.2 and another needs Django 5.0, they'll conflict. 
+
+Over time, your global Python also gets messy, with packages you don't remember installing, and sharing your project becomes painful :arrow_right: the classic "it works on my machine" problem.
+
+A **venv** solves this by creating a self-contained environment just for your project. 
+
+- create: `python -m venv venv`
+- activate: `source venv/bin/activate`
+
+Inside this bubble, you can install any packages you want in any version you want, completely isolated from other projects.
+
+- save dependencies for sharing: `pip freeze > requirements.txt`
+- exit the venv: `deactivate`
+
+To recreate the environment elsewhere:
+
+```{.bash}
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+:::
+
+### Option 2
+
+- [ ] install extension **BasedPyright**
+
+To remove warnings:
+
+- [ ] Create a file at the root of your project: `pyrightconfig.json`
+
+```{.json filename="pyrightconfig.json"}
+{
+  "typeCheckingMode": "off",
+  "reportMissingParameterType": "none",
+  "reportImplicitRelativeImport": "none"
+}
+```
+
+- [ ] to hide inlay hints
+
+```{.json filename=".vscode/settings.json"}
+{
+  "basedpyright.analysis.inlayHints.callArgumentNames": false,
+  "basedpyright.analysis.inlayHints.variableTypes": false,
+  "basedpyright.analysis.inlayHints.functionReturnTypes": false
+}
+```
 
