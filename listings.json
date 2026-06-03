@@ -2,17 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
-      "/doc/format/csv.html",
-      "/doc/format/json.html",
-      "/doc/format/parquet.html",
-      "/doc/language/bash.html",
-      "/doc/language/python.html",
-      "/doc/language/quality.html",
-      "/doc/language/r.html",
-      "/doc/language/iagen.html",
-      "/doc/format/yaml.html",
       "/doc/git/advanced.html",
-      "/doc/git/glossary.html",
       "/doc/git/presentation.html",
       "/doc/git/lab.html",
       "/doc/datalab/intro.html",

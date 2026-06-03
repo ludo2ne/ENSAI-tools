@@ -426,12 +426,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">TP</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../doc/git/glossary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Glossaire</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -563,8 +557,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#settings" id="toc-settings" class="nav-link active" data-scroll-target="#settings"><span class="header-section-number">1</span> Settings</a></li>
   <li><a href="#extensions" id="toc-extensions" class="nav-link" data-scroll-target="#extensions"><span class="header-section-number">2</span> Extensions</a></li>
-  <li><a href="#open-a-port" id="toc-open-a-port" class="nav-link" data-scroll-target="#open-a-port"><span class="header-section-number">3</span> Open a port</a></li>
-  <li><a href="#assistant-ia" id="toc-assistant-ia" class="nav-link" data-scroll-target="#assistant-ia"><span class="header-section-number">4</span> Assistant IA</a></li>
+  <li><a href="#open-folder" id="toc-open-folder" class="nav-link" data-scroll-target="#open-folder"><span class="header-section-number">3</span> Open Folder</a></li>
+  <li><a href="#open-a-port" id="toc-open-a-port" class="nav-link" data-scroll-target="#open-a-port"><span class="header-section-number">4</span> Open a port</a></li>
+  <li><a href="#ia-agent" id="toc-ia-agent" class="nav-link" data-scroll-target="#ia-agent"><span class="header-section-number">5</span> IA Agent</a></li>
+  <li><a href="#autocompletion" id="toc-autocompletion" class="nav-link" data-scroll-target="#autocompletion"><span class="header-section-number">6</span> Autocompletion</a></li>
   </ul>
 </nav>
     </div>
@@ -625,14 +621,115 @@ Caution
 </div>
 <section id="settings" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="settings"><span class="header-section-number">1</span> Settings</h2>
-<p><span class="emoji" data-emoji="construction">🚧</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Visual Studio Code allows you to define settings at different levels: user, workspace, and folder.</p>
+<p>Workspace settings apply only to the current project. They are stored in the <code>.vscode/settings.json</code> file inside your project folder.</p>
+<p>This is useful for ensuring consistency across a team, as everyone working on the project shares the same configuration (e.g., Python interpreter, formatting rules, or linting options).</p>
+</div>
+</div>
+<p>Below an example of workspace settings:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>settings.json</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="settings.json"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">//</span> <span class="er">---</span> <span class="er">UI</span> <span class="er">&amp;</span> <span class="er">Visual</span> <span class="er">Appearance</span> <span class="er">---</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"workbench.colorTheme"</span><span class="fu">:</span> <span class="st">"Dark Modern"</span><span class="fu">,</span>   <span class="er">//</span> <span class="er">Sets</span> <span class="er">the</span> <span class="er">overall</span> <span class="er">editor</span> <span class="er">theme</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"editor.fontSize"</span><span class="fu">:</span> <span class="dv">16</span><span class="fu">,</span>                   <span class="er">//</span> <span class="er">Increases</span> <span class="er">font</span> <span class="er">size</span> <span class="er">for</span> <span class="er">better</span> <span class="er">readability</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="er">//</span> <span class="er">---</span> <span class="er">Python-Specific</span> <span class="er">Configuration</span> <span class="er">---</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"[python]"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"editor.formatOnSave"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span>             <span class="er">//</span> <span class="er">Automatically</span> <span class="er">formats</span> <span class="er">the</span> <span class="er">file</span> <span class="er">on</span> <span class="er">save</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"editor.codeActionsOnSave"</span><span class="fu">:</span> <span class="fu">{</span>            <span class="er">//</span> <span class="er">Automated</span> <span class="er">tasks</span> <span class="er">performed</span> <span class="er">on</span> <span class="er">every</span> <span class="er">save</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"source.fixAll"</span><span class="fu">:</span> <span class="st">"explicit"</span><span class="fu">,</span>           <span class="er">//</span> <span class="er">Automatically</span> <span class="er">fixes</span> <span class="er">linting</span> <span class="er">errors</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"source.organizeImports"</span><span class="fu">:</span> <span class="st">"explicit"</span><span class="fu">,</span>  <span class="er">//</span> <span class="er">Sorts</span> <span class="er">and</span> <span class="er">cleans</span> <span class="er">up</span> <span class="er">import</span> <span class="er">statements</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"source.addMissingImports"</span><span class="fu">:</span> <span class="st">"explicit"</span> <span class="er">//</span> <span class="er">Automatically</span> <span class="er">adds</span> <span class="er">missing</span> <span class="er">imports</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"editor.insertSpaces"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span>             <span class="er">//</span> <span class="er">Uses</span> <span class="er">spaces</span> <span class="er">instead</span> <span class="er">of</span> <span class="er">tabs</span> <span class="er">for</span> <span class="er">indentation</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"editor.tabSize"</span><span class="fu">:</span> <span class="dv">4</span><span class="fu">,</span>                     <span class="er">//</span> <span class="er">Sets</span> <span class="er">indentation</span> <span class="er">width</span> <span class="er">to</span> <span class="er">4</span> <span class="er">spaces</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"editor.defaultFormatter"</span><span class="fu">:</span> <span class="st">"charliermarsh.ruff"</span><span class="fu">,</span> <span class="er">//</span> <span class="er">Uses</span> <span class="er">Ruff</span> <span class="er">as</span> <span class="er">the</span> <span class="er">primary</span> <span class="er">formatting</span> <span class="er">engine</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="er">//</span> <span class="er">Hides</span> <span class="er">files</span> <span class="er">and</span> <span class="er">folders</span> <span class="er">from</span> <span class="er">the</span> <span class="er">Explorer</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"files.exclude"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"**/__pycache__"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"**/.pytest_cache"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"**/.ruff_cache"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"**/.mypy_cache"</span><span class="fu">:</span> <span class="kw">true</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"terminal.integrated.defaultProfile.linux"</span><span class="fu">:</span> <span class="st">"bash"</span> <span class="er">//</span> <span class="er">Sets</span> <span class="er">Bash</span> <span class="er">as</span> <span class="er">the</span> <span class="er">default</span> <span class="er">terminal</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You can define a rule at the global level and then specify it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span>  </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"editor.tabSize"</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span>           <span class="er">//</span> <span class="er">Global</span> <span class="er">default</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"[python]"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"editor.tabSize"</span><span class="fu">:</span> <span class="dv">4</span>          <span class="er">//</span> <span class="er">Python-specific</span> <span class="er">override</span> <span class="er">(files</span> <span class="er">*.py)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"[yaml]"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"editor.wrappingIndent"</span><span class="fu">:</span> <span class="st">"indent"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>How it works:</p>
+<ul>
+<li>Default: Any file <span class="emoji" data-emoji="arrow_right">➡️</span> 2</li>
+<li>Python: <code>.py</code> file <span class="emoji" data-emoji="arrow_right">➡️</span> 4 (specific value for python)</li>
+<li>YAML: <code>.yaml</code> file <span class="emoji" data-emoji="arrow_right">➡️</span> 2 (no specific value provided, global value used)</li>
+</ul>
 </section>
 <section id="extensions" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="extensions"><span class="header-section-number">2</span> Extensions</h2>
-<p><span class="emoji" data-emoji="construction">🚧</span></p>
+<p>A standard code editor only knows how to write plain text. An extension adds specific “intelligence” to the editor. For example:</p>
+<ul>
+<li>a Language Extension teaches the editor how to “read” Python (coloring the text, suggesting commands)</li>
+<li>a Formatter Extension teaches the editor how to “clean up” your code (fixing indentation)</li>
+<li>a Theme Extension changes the “skin” of the editor (colors, icons)</li>
+</ul>
 </section>
-<section id="open-a-port" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="open-a-port"><span class="header-section-number">3</span> Open a port</h2>
+<section id="open-folder" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="open-folder"><span class="header-section-number">3</span> Open Folder</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>Open Folder</strong> option allows you to define the root directory of your project.</p>
+<p>To identify the current root folder, look at the top-left corner of the Explorer panel, where the parent folder is displayed.</p>
+<p>This choice is important because Python imports between modules rely on relative paths, which depend on the project’s root structure.</p>
+</div>
+</div>
+<p>Two ways to open folder:</p>
+<ul>
+<li>In the top-left corner, click on the three horizontal bars <span class="emoji" data-emoji="arrow_right">➡️</span>
+<ul>
+<li>File</li>
+<li>Open Folder</li>
+<li><code>/home/onyxia/work/&lt;repo_name&gt;</code></li>
+<li>OK</li>
+</ul></li>
+<li>In a terminal: <code>code-server /home/onyxia/work/&lt;repo_name&gt;</code>
+<ul>
+<li>Close previous tab</li>
+</ul></li>
+</ul>
+</section>
+<section id="open-a-port" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="open-a-port"><span class="header-section-number">4</span> Open a port</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -648,8 +745,8 @@ Note
 <p>Once these ports are successfully opened, you can deploy various applications—such as APIs or web sites—which will then be accessible to all authorized users.</p>
 </div>
 </div>
-<section id="example" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="example"><span class="header-section-number">3.1</span> Example</h3>
+<section id="example" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="example"><span class="header-section-number">4.1</span> Example</h3>
 <p>Let’s try it</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Go to the Datalab’s catalog</label></li>
@@ -686,17 +783,17 @@ Important
 <div class="code-with-filename-file">
 <pre><strong>main.py</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="main.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> FastAPI</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> FastAPI()</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">@app.get</span>(<span class="st">"/"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> root():</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"message"</span>: <span class="st">"hello"</span>}</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> uvicorn</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    uvicorn.run(app, host<span class="op">=</span><span class="st">"0.0.0.0"</span>, port<span class="op">=</span><span class="dv">5000</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="main.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> FastAPI</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> FastAPI()</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">@app.get</span>(<span class="st">"/"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> root():</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"message"</span>: <span class="st">"hello"</span>}</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> uvicorn</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    uvicorn.run(app, host<span class="op">=</span><span class="st">"0.0.0.0"</span>, port<span class="op">=</span><span class="dv">5000</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul class="task-list">
 <li><label><input type="checkbox">Refresh the link</label></li>
@@ -722,8 +819,8 @@ Note
 </div>
 </section>
 </section>
-<section id="assistant-ia" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="assistant-ia"><span class="header-section-number">4</span> Assistant IA</h2>
+<section id="ia-agent" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="ia-agent"><span class="header-section-number">5</span> IA Agent</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -739,8 +836,8 @@ Note
 <p>This deep context allows the AI to provide highly accurate, project-specific solutions that are perfectly aligned with your existing codebase and environment.</p>
 </div>
 </div>
-<section id="setup" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">4.1</span> Setup</h3>
+<section id="setup" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">5.1</span> Setup</h3>
 <p>To send messages to the AI, you’ll need to call an API. The first step is to retrieve the key so you can use it.</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Go to <a href="https://llm.lab.sspcloud.fr/" target="_blank">https://llm.lab.sspcloud.fr/</a></label></li>
@@ -762,6 +859,9 @@ Note
 </ul></li>
 </ul>
 <p>Now it’s time to launch a service.</p>
+</section>
+<section id="use-it" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="use-it"><span class="header-section-number">5.2</span> Use it</h3>
 <ul class="task-list">
 <li><label><input type="checkbox">Launch a <em>VSCode</em> service</label>
 <ul>
@@ -783,6 +883,89 @@ Note
 </ul>
 <p><span class="emoji" data-emoji="tada">🎉</span> Now you can ask the agent questions related to your project</p>
 <p><span class="emoji" data-emoji="construction">🚧</span> pre-prompt</p>
+</section>
+</section>
+<section id="autocompletion" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="autocompletion"><span class="header-section-number">6</span> Autocompletion</h2>
+<p><em>code-server</em> (VSCode version used by datalabs) does not support Pylance, which normally provides autocompletion. 2 options for adding autocompletion:</p>
+<section id="option-1" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="option-1"><span class="header-section-number">6.1</span> Option 1</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Create a virtual environment</label>
+<ul>
+<li><code>python -m venv venv</code></li>
+</ul></li>
+<li><label><input type="checkbox">CTRL + SHIFT + P</label>
+<ul>
+<li>Python: Select interpreter</li>
+<li>choose <em>venv</em></li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="venv 101">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>venv 101
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>When you install Python packages globally, everything gets mixed together.</p>
+<p>If one project needs Django 3.2 and another needs Django 5.0, they’ll conflict.</p>
+<p>Over time, your global Python also gets messy, with packages you don’t remember installing, and sharing your project becomes painful <span class="emoji" data-emoji="arrow_right">➡️</span> the classic “it works on my machine” problem.</p>
+<p>A <strong>venv</strong> solves this by creating a self-contained environment just for your project.</p>
+<ul>
+<li>create: <code>python -m venv venv</code></li>
+<li>activate: <code>source venv/bin/activate</code></li>
+</ul>
+<p>Inside this bubble, you can install any packages you want in any version you want, completely isolated from other projects.</p>
+<ul>
+<li>save dependencies for sharing: <code>pip freeze &gt; requirements.txt</code></li>
+<li>exit the venv: <code>deactivate</code></li>
+</ul>
+<p>To recreate the environment elsewhere:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> venv venv</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> venv/bin/activate</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="option-2" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="option-2"><span class="header-section-number">6.2</span> Option 2</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">install extension <strong>BasedPyright</strong></label></li>
+</ul>
+<p>To remove warnings:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Create a file at the root of your project: <code>pyrightconfig.json</code></label></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>pyrightconfig.json</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="pyrightconfig.json"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"typeCheckingMode"</span><span class="fu">:</span> <span class="st">"off"</span><span class="fu">,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"reportMissingParameterType"</span><span class="fu">:</span> <span class="st">"none"</span><span class="fu">,</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"reportImplicitRelativeImport"</span><span class="fu">:</span> <span class="st">"none"</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">to hide inlay hints</label></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>.vscode/settings.json</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename=".vscode/settings.json"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"basedpyright.analysis.inlayHints.callArgumentNames"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"basedpyright.analysis.inlayHints.variableTypes"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"basedpyright.analysis.inlayHints.functionReturnTypes"</span><span class="fu">:</span> <span class="kw">false</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 
 
 </section>

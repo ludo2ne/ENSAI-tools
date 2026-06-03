@@ -24,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -390,12 +425,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">TP</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../doc/git/glossary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Glossaire</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -525,7 +554,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#script-de-lancement" id="toc-script-de-lancement" class="nav-link active" data-scroll-target="#script-de-lancement"><span class="header-section-number">1</span> Script de lancement</a></li>
+  <li><a href="#script-dinitialisation" id="toc-script-dinitialisation" class="nav-link active" data-scroll-target="#script-dinitialisation"><span class="header-section-number">1</span> Script d’initialisation</a></li>
   <li><a href="#image-docker" id="toc-image-docker" class="nav-link" data-scroll-target="#image-docker"><span class="header-section-number">2</span> Image Docker</a></li>
   <li><a href="#secrets" id="toc-secrets" class="nav-link" data-scroll-target="#secrets"><span class="header-section-number">3</span> Secrets</a></li>
   <li><a href="#surveiller-son-service" id="toc-surveiller-son-service" class="nav-link" data-scroll-target="#surveiller-son-service"><span class="header-section-number">4</span> Surveiller son service</a></li>
@@ -567,17 +596,169 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><span class="emoji" data-emoji="construction">🚧</span></p>
-<section id="script-de-lancement" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="script-de-lancement"><span class="header-section-number">1</span> Script de lancement</h2>
+<section id="script-dinitialisation" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="script-dinitialisation"><span class="header-section-number">1</span> Script d’initialisation</h2>
+<p>Il est possible d’exécuter un script après lancement d’un service, par exemple pour installer des packages, des extensions…</p>
+<p>Dans les options avant de lancer le service, onglet <em>Scripts d’initialisation</em> puis rentrez l’URL du script.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>L’URL du script ne doit pas être dans un dépôt privé</li>
+<li>Il est possible d’ajouter des arguments au script</li>
+</ul>
+</div>
+</div>
+<p>Pour plus d’informations et avoir des exemples : <a href="https://github.com/InseeFrLab/sspcloud-init-scripts" target="_blank">sspcloud-init-scripts</a></p>
+<p>Par exemple, le script suivant permet de :</p>
+<ul>
+<li>installer <em>pytest</em></li>
+<li>ajouter l’extension VSCode Ruff</li>
+<li>supprimer l’extension VSCode Flake8</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>example.sh</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="example.sh"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/sh</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages and VSCode extensions</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected parameters : None</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pytest</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">code-server</span> <span class="at">--install-extension</span> charliermarsh.ruff</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">code-server</span> <span class="at">--uninstall-extension</span> ms-python.flake8</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si vous avez besoin de lancer réguliérement votre service avec cette config :</p>
+<ul>
+<li>Lorsque vous modifiez les paramètres de lancement, cliquez sur la petite disquette</li>
+<li>Vous pourrez à tout moment relancer avec la même configuration avec un raccourci dans <em>Mes services</em></li>
+</ul>
+</div>
+</div>
 </section>
 <section id="image-docker" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="image-docker"><span class="header-section-number">2</span> Image Docker</h2>
+<p><span class="emoji" data-emoji="construction">🚧</span></p>
+<p>Dans les paramètres de lancement vous pouvez également définir votre propre image Docker :</p>
+<ul>
+<li>Créez votre image à partir de la dernière version du service</li>
+<li>Taguez cette image, puis poussez-la sur DockerHub</li>
+<li>Dans les paramètres de lancement, utilisez une image personnalisée</li>
+</ul>
+<p>Par exemple :</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Dockerfile</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="Dockerfile"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FROM inseefrlab/onyxia-vscode-python:py3.13.5-2025.07.21</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a># Install packages</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>RUN pip install pytest</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a># Modify VSCode extensions</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>RUN code-server --install-extension charliermarsh.ruff</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>RUN code-server --uninstall-extension ms-python.flake8</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="secrets" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="secrets"><span class="header-section-number">3</span> Secrets</h2>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="Enigme du Père Fouras">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Enigme du Père Fouras
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Plus j’ai de gardiens, moins je suis gardé.</p>
+<p>Moins j’ai de gardiens, plus je suis gardé.</p>
+<p>Qui suis-je ?</p>
+</div>
+</div>
+<p>Certains éléments ne doivent pas être diffusés dans votre code (jetons d’accès, mots de passe…).</p>
+<p>Pour éviter d’avoir à nettoyer votre code à chaque fois que vous le poussez sur GitHub, le datalab propose de gérer vos secrets.</p>
+<section id="créer-un-secret" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="créer-un-secret"><span class="header-section-number">3.1</span> Créer un secret</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Allez dans <em>Mes secrets</em></label></li>
+<li><label><input type="checkbox">Créez un <code>Nouveau secret</code> nommé <em>projet_patate</em></label></li>
+<li><label><input type="checkbox">Double-cliquez pour ouvrir ce secret</label></li>
+<li><label><input type="checkbox"><code>Ajoutez une variable</code></label>
+<ul>
+<li>Nom : PATATE_TOKEN</li>
+<li>Valeur : 123456</li>
+<li>Cliquez sur <span class="emoji" data-emoji="white_check_mark">✅</span> pour valider</li>
+</ul></li>
+<li><label><input type="checkbox">Ajoutez une autre variable</label>
+<ul>
+<li>Nom : PATATE_PORT</li>
+<li>Valeur : 5236</li>
+<li>Cliquez sur <span class="emoji" data-emoji="white_check_mark">✅</span> pour valider</li>
+</ul></li>
+</ul>
+</section>
+<section id="utiliser-dans-un-service" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="utiliser-dans-un-service"><span class="header-section-number">3.2</span> Utiliser dans un service</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Préparez le lancement d’un service Rstudio</label></li>
+<li><label><input type="checkbox">Dans la configuration, allez dans l’onglet <code>Vault</code></label></li>
+<li><label><input type="checkbox">secret : <em>projet_patate</em></label></li>
+<li><label><input type="checkbox">Lancez le service</label></li>
+</ul>
+<p>Dans votre servives, les deux variables d’environnement ont été créées.</p>
+<ul class="task-list">
+<li><p><label><input type="checkbox">Vérifiez leur présence via le terminal : <code>env | grep PATATE</code> ou <code>echo $PATATE_TOKEN</code></label></p></li>
+<li><p><label><input type="checkbox">Ouvrez un notebook et récupérez la valeur de <em>PATATE_TOKEN</em></label></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>token <span class="op">=</span> os.environ[<span class="st">"PATATE_TOKEN"</span>]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(token)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><label><input type="checkbox">Une fois que vous avez fini de jouer, supprimez votre service</label></p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ce TP avait pour but de vous familiariser avec le Datalab. Vous pouvez l’utiliser pour faire du Python, du R, créer une base de données (prochain TP) ou utiliser de nombreux autres outils.</p>
+</div>
+</div>
+</section>
 </section>
 <section id="surveiller-son-service" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="surveiller-son-service"><span class="header-section-number">4</span> Surveiller son service</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">Sur la page du Datalab, allez dans <code>Mes services</code></label></li>
+<li><label><input type="checkbox">Cliquez sur le nom du service (Jupyter-python)</label></li>
+<li><label><input type="checkbox">Cliquez sur <code>Surveillance externe</code></label></li>
+</ul>
+<p>Vous arrivez sur la page de l’outil <strong>Grafana</strong> qui permet d’observer les métriques de votre service.</p>
 
 
 </section>
