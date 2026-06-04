@@ -367,7 +367,7 @@
     "href": "doc/quarto/quarto.html#fichier-qmd",
     "title": "Quarto",
     "section": "2 Fichier qmd",
-    "text": "2 Fichier qmd\n\n2.1 Métadonnées Yaml",
+    "text": "2 Fichier qmd\n\n2.1 Métadonnées Yaml\n\n\n2.2 render",
     "crumbs": [
       "Restituer avec Quarto",
       "Introduction"
@@ -433,7 +433,7 @@
     "href": "doc/format/csv.html",
     "title": "CSV",
     "section": "",
-    "text": "🚧",
+    "text": "CSV signifie Comma-Separated Values ➡️ Valeurs séparées par des virgules.\n\nLe concept : C’est un format de fichier texte très simple utilisé pour stocker des données tabulaires\nLa structure :\n\nChaque ligne du fichier correspond à une ligne du tableau.\nChaque colonne est séparée par un caractère spécial (le “délimiteur”).\n\nLe piège : Bien que le nom signifie “virgule”, le délimiteur peut être un point-virgule ; (très fréquent en Europe), une tabulation \\t, un pipe | ou autres.\nAvantages : Léger, universel, lisible par n’importe quel éditeur de texte et très rapide à lire pour les machines.",
     "crumbs": [
       "Format de données",
       "CSV"
@@ -443,8 +443,8 @@
     "objectID": "doc/format/csv.html#cest-quoi-un-csv",
     "href": "doc/format/csv.html#cest-quoi-un-csv",
     "title": "CSV",
-    "section": "1 C’est quoi un CSV ?",
-    "text": "1 C’est quoi un CSV ?\nCSV signifie Comma-Separated Values ➡️ Valeurs séparées par des virgules.\n\nLe concept : C’est un format de fichier texte très simple utilisé pour stocker des données tabulaires\nLa structure :\n\nChaque ligne du fichier correspond à une ligne du tableau.\nChaque colonne est séparée par un caractère spécial (le “délimiteur”).\n\nLe piège : Bien que le nom signifie “virgule”, le délimiteur peut être un point-virgule ; (très fréquent en Europe), une tabulation \\t, un pipe | ou autres.\nAvantages : Léger, universel, lisible par n’importe quel éditeur de texte et très rapide à lire pour les machines.",
+    "section": "",
+    "text": "CSV signifie Comma-Separated Values ➡️ Valeurs séparées par des virgules.\n\nLe concept : C’est un format de fichier texte très simple utilisé pour stocker des données tabulaires\nLa structure :\n\nChaque ligne du fichier correspond à une ligne du tableau.\nChaque colonne est séparée par un caractère spécial (le “délimiteur”).\n\nLe piège : Bien que le nom signifie “virgule”, le délimiteur peut être un point-virgule ; (très fréquent en Europe), une tabulation \\t, un pipe | ou autres.\nAvantages : Léger, universel, lisible par n’importe quel éditeur de texte et très rapide à lire pour les machines.",
     "crumbs": [
       "Format de données",
       "CSV"
@@ -477,7 +477,7 @@
     "href": "doc/format/parquet.html",
     "title": "Le format Parquet",
     "section": "",
-    "text": "🚧",
+    "text": "https://www.icem7.fr/outils/parquet-devrait-remplacer-le-format-csv/ https://www.datacamp.com/fr/tutorial/apache-parquet https://www.snowflake.com/fr/fundamentals/parquet/\nLecture/Ecriture Compression Chargement en mémoire Métadonnées Usages à l’INSEE, Big Data…\nLogiciel Tad pour lire fichier",
     "crumbs": [
       "Format de données",
       "Parquet"
@@ -683,7 +683,7 @@
     "href": "index.html#quarto",
     "title": "Outils pour les élèves et enseignants de l’ENSAI",
     "section": "Quarto",
-    "text": "Quarto\n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\nIntroduction\n\n\n \n\n\n\n\n\n\nMardown\n\n\n \n\n\n\n\n\n\nPoster\n\n\n \n\n\n\n\n\n\nQuarto\n\n\n \n\n\n\n\n\n\nQuarto avec Rstudio\n\n\n \n\n\n\n\n\n\nSite statique\n\n\n \n\n\n\n\n\n\nSlides avec Quarto et RevealJS\n\n\n \n\n\n\n\n\n\nNo matching items",
+    "text": "Quarto\n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\nIntroduction\n\n\n \n\n\n\n\n\n\nMardown\n\n\n \n\n\n\n\n\n\nPoster\n\n\n \n\n\n\n\n\n\nPresentation example\n\n\n \n\n\n\n\n\n\nQuarto\n\n\n \n\n\n\n\n\n\nQuarto avec Rstudio\n\n\n \n\n\n\n\n\n\nSite statique\n\n\n \n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Home"
     ]
@@ -1145,15 +1145,195 @@
     ]
   },
   {
-    "objectID": "doc/quarto/slideshow.html",
-    "href": "doc/quarto/slideshow.html",
-    "title": "Slides avec Quarto et RevealJS",
+    "objectID": "doc/quarto/slideshow-html.html",
+    "href": "doc/quarto/slideshow-html.html",
+    "title": "Presentation example",
     "section": "",
-    "text": "🚧\nformat: reveal",
+    "text": "Tip\n\n\n\nDocumentation\n\n\n\nCreate a slideshow\nUse the Speaker View (shortcut : S)\nExplain some metadata",
     "crumbs": [
       "Restituer avec Quarto",
       "Diaporama"
     ]
+  },
+  {
+    "objectID": "doc/quarto/slideshow-html.html#objectives",
+    "href": "doc/quarto/slideshow-html.html#objectives",
+    "title": "Presentation example",
+    "section": "",
+    "text": "Tip\n\n\n\nDocumentation\n\n\n\nCreate a slideshow\nUse the Speaker View (shortcut : S)\nExplain some metadata",
+    "crumbs": [
+      "Restituer avec Quarto",
+      "Diaporama"
+    ]
+  },
+  {
+    "objectID": "doc/quarto/slideshow-html.html#metadata",
+    "href": "doc/quarto/slideshow-html.html#metadata",
+    "title": "Presentation example",
+    "section": "Metadata",
+    "text": "Metadata\nThe metadata of the current document is shown at the top of the page\n\ntransition: slide : choose transmition mode\nchalkboard: true : activate chalkboard\ncontrols: true : show navigation arrows",
+    "crumbs": [
+      "Restituer avec Quarto",
+      "Diaporama"
+    ]
+  },
+  {
+    "objectID": "doc/quarto/slideshow-html.html#speaker-view",
+    "href": "doc/quarto/slideshow-html.html#speaker-view",
+    "title": "Presentation example",
+    "section": "Speaker View",
+    "text": "Speaker View\n\n::: {.notes} to add personal notes\nS to activate Speaker View\n\nUse :\n\nOn your own screen: display Speaker View\nOn the presentation screen: display the slideshow\n\n\nPersonal notes\n\nnote 1\nnote 2",
+    "crumbs": [
+      "Restituer avec Quarto",
+      "Diaporama"
+    ]
+  },
+  {
+    "objectID": "doc/quarto/slideshow-html.html#chalkboard",
+    "href": "doc/quarto/slideshow-html.html#chalkboard",
+    "title": "Presentation example",
+    "section": "Chalkboard",
+    "text": "Chalkboard\n\nB to open a blackboard\nC to draw on your slide",
+    "crumbs": [
+      "Restituer avec Quarto",
+      "Diaporama"
+    ]
+  },
+  {
+    "objectID": "doc/quarto/slideshow-html.html#lists",
+    "href": "doc/quarto/slideshow-html.html#lists",
+    "title": "Presentation example",
+    "section": "Lists",
+    "text": "Lists\n\nitem 1\n\nitem 1.1\nitem 1.2\n\nitem 2\n\nincrémental display\n\n\nitem 3\nitem 4",
+    "crumbs": [
+      "Restituer avec Quarto",
+      "Diaporama"
+    ]
+  },
+  {
+    "objectID": "doc/quarto/slideshow-html.html#table",
+    "href": "doc/quarto/slideshow-html.html#table",
+    "title": "Presentation example",
+    "section": "Table",
+    "text": "Table\n\nFrench Departments\n\n\nNumber\nName\nMain City\n\n\n\n\n01\nAin\nBourg-en-Bresse\n\n\n02\nAisne\nLaon\n\n\n03\nAllier\nMoulins\n\n\n04\nAlpes-de-Haute-Provence\nDigne-les-Bains\n\n\n05\nHautes-Alpes\nGap",
+    "crumbs": [
+      "Restituer avec Quarto",
+      "Diaporama"
+    ]
+  },
+  {
+    "objectID": "doc/quarto/slideshow-html.html#code",
+    "href": "doc/quarto/slideshow-html.html#code",
+    "title": "Presentation example",
+    "section": "Code",
+    "text": "Code\n\nCodeResultHighlight lines\n\n\n\nlibrary(ggplot2)\n\ncollatz_conjecture &lt;- function(n) {\n  sequence &lt;- c(n)\n  \n  while (n != 1) {\n    if (n %% 2 == 0) {\n      n &lt;- n / 2\n    } else {\n      n &lt;- 3 * n + 1\n    }\n    sequence &lt;- c(sequence, n)\n  }  \n  return(sequence)\n}\n\nplot_collatz &lt;- function(n) {\n  sequence &lt;- collatz_conjecture(n)\n  df &lt;- data.frame(\n    Step = seq_along(sequence),\n    Value = sequence\n  )\n  \n  p &lt;- ggplot(df, aes(x = Step, y = Value)) +\n    geom_line(color = \"darkcyan\") +\n    geom_point(color = \"darkcyan\", size = 1) +\n    labs(title = \"Collatz conjecture\", x = \"Step\", y = \"Value\") +\n    theme_minimal() +\n    theme(panel.grid.major = element_line(color = \"gray90\"),\n          panel.grid.minor = element_line(color = \"gray95\"))\n  \n  print(p)\n}\n\nplot_collatz(27)\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Collatz conjecture starting with n = 27\n\n\n\n\n\n\n\n\ncollatz_conjecture &lt;- function(n) {\n  sequence &lt;- c(n)\n  \n  while (n != 1) {\n    if (n %% 2 == 0) {\n      n &lt;- n / 2\n    } else {\n      n &lt;- 3 * n + 1\n    }\n    sequence &lt;- c(sequence, n)\n  }  \n  return(sequence)\n}\n\nplot_collatz &lt;- function(n) {\n  sequence &lt;- collatz_conjecture(n)\n  df &lt;- data.frame(Step = seq_along(sequence), Value = sequence)\n  ggplot(df, aes(x = Step, y = Value)) +\n    geom_line(color = \"darkcyan\") +\n    geom_point(color = \"darkcyan\", size = 1) +\n    labs(title = \"Collatz conjecture\", x = \"Step\", y = \"Value\") +\n    theme_minimal()\n}\n\nplot_collatz(27)",
+    "crumbs": [
+      "Restituer avec Quarto",
+      "Diaporama"
+    ]
+  },
+  {
+    "objectID": "doc/quarto/slideshow-html.html#big-text",
+    "href": "doc/quarto/slideshow-html.html#big-text",
+    "title": "Presentation example",
+    "section": "Big text",
+    "text": "Big text\nThe r-fit-text class makes text as large as possible without overflowing the slide.\n\nBig Text",
+    "crumbs": [
+      "Restituer avec Quarto",
+      "Diaporama"
+    ]
+  },
+  {
+    "objectID": "doc/quarto/slideshow-html.html#image-size-auto",
+    "href": "doc/quarto/slideshow-html.html#image-size-auto",
+    "title": "Presentation example",
+    "section": "Image size auto",
+    "text": "Image size auto\nUse class .r-stretch with your image to automatically adapt image size.",
+    "crumbs": [
+      "Restituer avec Quarto",
+      "Diaporama"
+    ]
+  },
+  {
+    "objectID": "doc/quarto/slideshow-html.html#animation",
+    "href": "doc/quarto/slideshow-html.html#animation",
+    "title": "Presentation example",
+    "section": "Animation",
+    "text": "Animation\n\n\nAnimation\n\n\n\nImplicit\nAnimation",
+    "crumbs": [
+      "Restituer avec Quarto",
+      "Diaporama"
+    ]
+  },
+  {
+    "objectID": "doc/quarto/slideshow.html#objectives",
+    "href": "doc/quarto/slideshow.html#objectives",
+    "title": "Presentation example",
+    "section": "🎯 Objectives",
+    "text": "🎯 Objectives\n\n\n\n\n\n\nTip\n\n\nDocumentation\n\n\n\n\nCreate a slideshow\nUse the Speaker View (shortcut : S)\nExplain some metadata"
+  },
+  {
+    "objectID": "doc/quarto/slideshow.html#metadata",
+    "href": "doc/quarto/slideshow.html#metadata",
+    "title": "Presentation example",
+    "section": "Metadata",
+    "text": "Metadata\nThe metadata of the current document is shown at the top of the page\n\ntransition: slide : choose transmition mode\nchalkboard: true : activate chalkboard\ncontrols: true : show navigation arrows"
+  },
+  {
+    "objectID": "doc/quarto/slideshow.html#speaker-view",
+    "href": "doc/quarto/slideshow.html#speaker-view",
+    "title": "Presentation example",
+    "section": "Speaker View",
+    "text": "Speaker View\n\n::: {.notes} to add personal notes\nS to activate Speaker View\n\nUse :\n\nOn your own screen: display Speaker View\nOn the presentation screen: display the slideshow\n\n\nPersonal notes\n\nnote 1\nnote 2"
+  },
+  {
+    "objectID": "doc/quarto/slideshow.html#chalkboard",
+    "href": "doc/quarto/slideshow.html#chalkboard",
+    "title": "Presentation example",
+    "section": "Chalkboard",
+    "text": "Chalkboard\n\nB to open a blackboard\nC to draw on your slide"
+  },
+  {
+    "objectID": "doc/quarto/slideshow.html#lists",
+    "href": "doc/quarto/slideshow.html#lists",
+    "title": "Presentation example",
+    "section": "Lists",
+    "text": "Lists\n\nitem 1\n\nitem 1.1\nitem 1.2\n\nitem 2\n\nincrémental display\n\nitem 3\nitem 4"
+  },
+  {
+    "objectID": "doc/quarto/slideshow.html#table",
+    "href": "doc/quarto/slideshow.html#table",
+    "title": "Presentation example",
+    "section": "Table",
+    "text": "Table\n\nFrench Departments\n\n\nNumber\nName\nMain City\n\n\n\n\n01\nAin\nBourg-en-Bresse\n\n\n02\nAisne\nLaon\n\n\n03\nAllier\nMoulins\n\n\n04\nAlpes-de-Haute-Provence\nDigne-les-Bains\n\n\n05\nHautes-Alpes\nGap"
+  },
+  {
+    "objectID": "doc/quarto/slideshow.html#code",
+    "href": "doc/quarto/slideshow.html#code",
+    "title": "Presentation example",
+    "section": "Code",
+    "text": "Code\n\nCodeResultHighlight lines\n\n\n\nlibrary(ggplot2)\n\ncollatz_conjecture &lt;- function(n) {\n  sequence &lt;- c(n)\n  \n  while (n != 1) {\n    if (n %% 2 == 0) {\n      n &lt;- n / 2\n    } else {\n      n &lt;- 3 * n + 1\n    }\n    sequence &lt;- c(sequence, n)\n  }  \n  return(sequence)\n}\n\nplot_collatz &lt;- function(n) {\n  sequence &lt;- collatz_conjecture(n)\n  df &lt;- data.frame(\n    Step = seq_along(sequence),\n    Value = sequence\n  )\n  \n  p &lt;- ggplot(df, aes(x = Step, y = Value)) +\n    geom_line(color = \"darkcyan\") +\n    geom_point(color = \"darkcyan\", size = 1) +\n    labs(title = \"Collatz conjecture\", x = \"Step\", y = \"Value\") +\n    theme_minimal() +\n    theme(panel.grid.major = element_line(color = \"gray90\"),\n          panel.grid.minor = element_line(color = \"gray95\"))\n  \n  print(p)\n}\n\nplot_collatz(27)\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Collatz conjecture starting with n = 27\n\n\n\n\n\n\n\n\ncollatz_conjecture &lt;- function(n) {\n  sequence &lt;- c(n)\n  \n  while (n != 1) {\n    if (n %% 2 == 0) {\n      n &lt;- n / 2\n    } else {\n      n &lt;- 3 * n + 1\n    }\n    sequence &lt;- c(sequence, n)\n  }  \n  return(sequence)\n}\n\nplot_collatz &lt;- function(n) {\n  sequence &lt;- collatz_conjecture(n)\n  df &lt;- data.frame(Step = seq_along(sequence), Value = sequence)\n  ggplot(df, aes(x = Step, y = Value)) +\n    geom_line(color = \"darkcyan\") +\n    geom_point(color = \"darkcyan\", size = 1) +\n    labs(title = \"Collatz conjecture\", x = \"Step\", y = \"Value\") +\n    theme_minimal()\n}\n\nplot_collatz(27)"
+  },
+  {
+    "objectID": "doc/quarto/slideshow.html#big-text",
+    "href": "doc/quarto/slideshow.html#big-text",
+    "title": "Presentation example",
+    "section": "Big text",
+    "text": "Big text\nThe r-fit-text class makes text as large as possible without overflowing the slide.\n\nBig Text"
+  },
+  {
+    "objectID": "doc/quarto/slideshow.html#image-size-auto",
+    "href": "doc/quarto/slideshow.html#image-size-auto",
+    "title": "Presentation example",
+    "section": "Image size auto",
+    "text": "Image size auto\nUse class .r-stretch with your image to automatically adapt image size."
+  },
+  {
+    "objectID": "doc/quarto/slideshow.html#animation",
+    "href": "doc/quarto/slideshow.html#animation",
+    "title": "Presentation example",
+    "section": "Animation",
+    "text": "Animation"
   },
   {
     "objectID": "doc/quarto/rstudio.html",
@@ -1248,7 +1428,51 @@
     "href": "doc/project/lab.html",
     "title": "TP Gérer son projet",
     "section": "",
-    "text": "🚧\n\n\nBonnes pratiques de gestion de projet • Organisation des ressources : o code (GitHub) o données (S3) o suivi (Kanban GitHub, carnet de bord, fichier de suivi)\nMise en place du dépôt de projet • Création d’un dépôt GitHub commun • Fourniture d’un template (arborescence + fichiers essentiels) • Rappels pratiques (clone, push/pull, travail collaboratif)\nUtilisation de RStudio sur SSPCloud • Bonnes pratiques de code (lisibilité, modularité, reproductibilité) • Gestion des packages et projet (.Rproj) • Créer un premier script R pour : o charger les données brutes (depuis S3) o nettoyage o sauvegarde des données propres (S3) • Création d’un premier document Quarto (statistiques descriptives simples) • Proposer également le même code en Python\nOutils de gestion de projet • Mise à disposition d’outils légers et centralisés (idéalement sur GitHub) • diagramme de Gantt • Kanban GitHub ? • suivi hebdomadaire / carnet de bord ? Adapter les outils déjà fournis\nRédaction de rapports • Fourniture d’un template Quarto simple ENSAI-Report-Template • Mise à disposition d’un exemple complet (modèle de Gabriel/Christophe) pour que les élèves puissent piocher dedans • Rappels méthodologiques : o structure : recherche biblio, énoncé de problématique, expériences, bilan (est-ce que ça confirme/infirme), limites, ouverture) o la conclusion n’est pas une reformulation de l’introduction o qualité rédactionnelle (titres informatifs, figures commentées, conclusion argumentée)",
+    "text": "🚧",
+    "crumbs": [
+      "Gérer son Projet",
+      "TP Gestion de projet"
+    ]
+  },
+  {
+    "objectID": "doc/project/lab.html#créer-et-organiser-son-dépôt",
+    "href": "doc/project/lab.html#créer-et-organiser-son-dépôt",
+    "title": "TP Gérer son projet",
+    "section": "1 Créer et organiser son dépôt",
+    "text": "1 Créer et organiser son dépôt\n\nREADME\n.Rproj\nRappel git",
+    "crumbs": [
+      "Gérer son Projet",
+      "TP Gestion de projet"
+    ]
+  },
+  {
+    "objectID": "doc/project/lab.html#une-première-analyse",
+    "href": "doc/project/lab.html#une-première-analyse",
+    "title": "TP Gérer son projet",
+    "section": "2 Une première analyse",
+    "text": "2 Une première analyse\n\nLancer un service\nCloner\nCharger les données brutes depuis S3/diffusion\nScript de nettoyage\nExporter\nStats desc",
+    "crumbs": [
+      "Gérer son Projet",
+      "TP Gestion de projet"
+    ]
+  },
+  {
+    "objectID": "doc/project/lab.html#organisation-suivi-et-gestion",
+    "href": "doc/project/lab.html#organisation-suivi-et-gestion",
+    "title": "TP Gérer son projet",
+    "section": "3 Organisation, suivi et gestion",
+    "text": "3 Organisation, suivi et gestion\n\nGantt\nCarnet de bord\nKanban",
+    "crumbs": [
+      "Gérer son Projet",
+      "TP Gestion de projet"
+    ]
+  },
+  {
+    "objectID": "doc/project/lab.html#initier-son-rapport",
+    "href": "doc/project/lab.html#initier-son-rapport",
+    "title": "TP Gérer son projet",
+    "section": "4 Initier son rapport",
+    "text": "4 Initier son rapport\n\nTemplate\nStructure\nFond / Forme\nErreurs à éviter\nSoigner les figures",
     "crumbs": [
       "Gérer son Projet",
       "TP Gestion de projet"
@@ -1259,7 +1483,7 @@
     "href": "doc/language/iagen.html",
     "title": "Usages de l’IA générative",
     "section": "",
-    "text": "🚧\npré-prompt\nmode socratique",
+    "text": "🚧\n\npré-prompt\nmode socratique\nexemple de prompts",
     "crumbs": [
       "Coder",
       "Usages de l'IAgen"
@@ -1369,7 +1593,7 @@
     "href": "doc/datalab/basics.html#s3",
     "title": "Découverte du Datalab SSPCloud",
     "section": "2 S3",
-    "text": "2 S3\n\n\n\n\n\n\nNoteDéfinition\n\n\n\nS3 : Simple Storage System.\nInventé par Amazon, ce système de stockage est devenu l’outil standard du marché pour le stockage en ligne.\nMinIO est une solution alternative de stockage d’objets open-source qui permet de déployer facilement un stockage évolutif et performant. Elle est compatible avec l’API S3 d’Amazon, ce qui facilite l’intégration avec les applications existantes.\nPour faire simple, vous pouvez vous dire que c’est comme si vous allez stocker vos fichiers dans un Drive.\n\n\nLorsque l’on travaille dans le cloud, il est essentiel de séparer les données des programmes pour :\n\nmieux gérer les ressources\nrenforcer la sécurité en limitant les accès et les permissions\npermettre une scalabilité indépendante des composants\n\nMinIO offre :\n\nune haute disponibilité\nune sécurité renforcée grâce au chiffrement des données et des contrôles d’accès\ndes performances élevées, particulièrement adaptées aux environnements nécessitant un accès rapide aux données, comme le Big Data et l’intelligence artificielle\n\n\n2.1 Votre bucket\n\n\n\n\n\n\nNoteDéfinition\n\n\n\nUn bucket est un conteneur de stockage utilisé pour regrouper des objets (fichiers et métadonnées) dans des systèmes de stockage de type cloud. Il facilite l’organisation, la gestion des permissions et l’accès aux données dans un espace de stockage structuré.\n\n\nLors de votre création de compte, un bucket est créé avec votre nom d’utilisateur. Dans ce bucket, vous pouvez :\n\ncréer / supprimer des dossiers\nimporter / supprimer des fichiers\n\nVous avez plusieurs possibilités pour gérer à votre stockage :\n\nDepuis le Datalab, onglet Mes fichiers\nDepuis la console MinIO :\n\nhttps://minio-console.lab.sspcloud.fr/\nhttps://minio-simple.lab.groupe-genes.fr\n\nDepuis un terminal avec le client Minio (mc)\n\n\n\n2.2 Stocker vos fichiers\n🚧\n\n\n2.3 Accéder à vos données depuis un service\nSur la page d’accueil du Datalab :\n\nAllez dans Mon Compte, puis dans l’onglet Connexion au Stockage\n\nVous trouverez ici des informations pour vous connecter au stockage selon le language que vous utilisez : Python, R…\nD’ailleurs pour chaque langage, il y a même plusieurs packages qui font le job. Par exemple s3fs ou boto3 pour Python.\n\n\n2.4 Données d’autres utilisateurs\nSi vous créez un dossier nommé diffusion à la racine de votre bucket, celui-ci sera accessible en lecture à tous les utilisateurs du Datalab.\nDe même vous pouvez accéder en lecture à tout fichier du dossier diffusion d’un autre utilisateur.\nEnfin, en parcourant le stockage, vous noterez la présence de données INSEE.\n\n\n2.5 Exportez vos résultats vers MinIO\n🚧",
+    "text": "2 S3\n\n\n\n\n\n\nNoteDéfinition\n\n\n\nS3 : Simple Storage System.\nInventé par Amazon, ce système de stockage est devenu l’outil standard du marché pour le stockage en ligne.\nMinIO est une solution alternative de stockage d’objets open-source qui permet de déployer facilement un stockage évolutif et performant. Elle est compatible avec l’API S3 d’Amazon, ce qui facilite l’intégration avec les applications existantes.\nPour faire simple, vous pouvez vous dire que c’est comme si vous allez stocker vos fichiers dans un Drive.\n\n\nLorsque l’on travaille dans le cloud, il est essentiel de séparer les données des programmes pour :\n\nmieux gérer les ressources\nrenforcer la sécurité en limitant les accès et les permissions\npermettre une scalabilité indépendante des composants\n\nMinIO offre :\n\nune haute disponibilité\nune sécurité renforcée grâce au chiffrement des données et des contrôles d’accès\ndes performances élevées, particulièrement adaptées aux environnements nécessitant un accès rapide aux données, comme le Big Data et l’intelligence artificielle\n\nVos données seront stockées dans un bucket.\n\n2.1 Votre bucket\n\n\n\n\n\n\nNoteDéfinition\n\n\n\nUn bucket est un conteneur de stockage utilisé pour regrouper des objets (fichiers et métadonnées) dans des systèmes de stockage de type cloud. Il facilite l’organisation, la gestion des permissions et l’accès aux données dans un espace de stockage structuré.\n\n\nLors de votre création de compte, un bucket est créé avec votre nom d’utilisateur. Dans ce bucket, vous pouvez :\n\ncréer / supprimer des dossiers\nimporter / supprimer des fichiers\n\nVous avez plusieurs possibilités pour gérer votre stockage :\n\nUne interface dans le Datalab, onglet Stockage de données\nDepuis le terminal d’un service\n\n\n\n\n\n\n\nNoteCommandes\n\n\n\n\n\nQuelques commandes :\n$ aws s3 ls s3://ludo2ne                                        # Lister les fichiers d'un dossier\n\n$ aws s3 cp README.md s3://ludo2ne                              # Copier S3 -&gt; Service\nupload: ./README.md to s3://ludo2ne/README.md     \n\n$ aws s3 mv s3://ludo2ne/README.md s3://ludo2ne/READ.txt        # Renommer dans S3\nmove: s3://ludo2ne/README.md to s3://ludo2ne/READ.txt\n\n$ aws s3 cp s3://ludo2ne/READ.txt .                             # Copier Service -&gt; S3\ndownload: s3://ludo2ne/READ.txt to ./READ.txt\n\n\n\n\n\n2.2 Accéder à vos données depuis un service\nSur la page d’accueil du Datalab :\n\nAllez dans Mon Compte, puis dans l’onglet Connexion au Stockage\n\nVous trouverez ici des informations pour vous connecter au stockage selon le language que vous utilisez : Python, R…\nD’ailleurs pour chaque langage, il y a même plusieurs packages qui font le job. Par exemple s3fs ou boto3 pour Python.\n🚧 Scripts faciles R & Python pour accéder aux données\n\n\n2.3 Données d’autres utilisateurs\nSi vous créez un dossier nommé diffusion à la racine de votre bucket, celui-ci sera accessible en lecture à tous les utilisateurs du Datalab.\nDe même vous pouvez accéder en lecture à tout fichier du dossier diffusion d’un autre utilisateur.\nEnfin, en parcourant le stockage, vous noterez la présence de données INSEE.\n\n\n2.4 Exportez vos résultats vers MinIO\n🚧",
     "crumbs": [
       "Utiliser le Datalab",
       "Usage basique"

@@ -13,10 +13,10 @@
       "/doc/quarto/report.html",
       "/doc/quarto/markdown.html",
       "/doc/quarto/poster.html",
+      "/doc/quarto/slideshow-html.html",
       "/doc/quarto/quarto.html",
       "/doc/quarto/rstudio.html",
-      "/doc/quarto/site.html",
-      "/doc/quarto/slideshow.html"
+      "/doc/quarto/site.html"
     ]
   }
 ]
