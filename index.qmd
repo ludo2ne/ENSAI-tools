@@ -36,8 +36,8 @@ Les TP suivants seront dispensés aux élèves de première année :
 
 - [Découverte du Datalab](./doc/datalab/lab.qmd){target="_blank"}
 - [Introduction à Git](./doc/git/lab.qmd){target="_blank"}
-- Gérer votre projet
-- Hello Quarto (via un TP de *Stats avec R*)
+- [Bien gérer votre projet](./doc/project/lab.qmd){target="_blank"}
+- TP Quarto (cours *Stats avec R*)
 
 ## Git
 

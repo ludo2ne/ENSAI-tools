@@ -41,6 +41,33 @@ categories:
   o	structure : recherche biblio, énoncé de problématique, expériences, bilan (est-ce que ça confirme/infirme), limites,  ouverture)
   o	la conclusion n'est pas une reformulation de l'introduction
   o	qualité rédactionnelle (titres informatifs, figures commentées, conclusion argumentée)
-
 :::
 
+## Créer et organiser son dépôt
+
+- README
+- .Rproj
+- Rappel git
+
+## Une première analyse
+
+- Lancer un service
+- Cloner
+- Charger les données brutes depuis S3/diffusion
+- Script de nettoyage
+- Exporter
+- Stats desc
+
+## Organisation, suivi et gestion
+
+- Gantt
+- Carnet de bord
+- Kanban
+
+## Initier son rapport
+
+- Template
+- Structure
+- Fond / Forme
+- Erreurs à éviter
+- Soigner les figures

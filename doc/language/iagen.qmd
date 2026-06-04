@@ -4,6 +4,10 @@ title: Usages de l'IA générative
 
 :construction:
 
+:::{.notes}
 pré-prompt
 
 mode socratique
+
+exemple de prompts
+:::

@@ -4,8 +4,6 @@ description: "Le format simple pour stocker de la donnée"
 author: "Ludovic Deneuville"
 ---
 
-:construction:
-
 ## C'est quoi un CSV ?
 
 **CSV** signifie *Comma-Separated Values* :arrow_right: Valeurs séparées par des virgules.

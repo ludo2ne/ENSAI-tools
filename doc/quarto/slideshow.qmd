@@ -1,7 +1,236 @@
 ---
-title: "Slides avec Quarto et RevealJS"
+title: "Presentation example"
+description: "[Slides](slideshow.html)"
+subtitle: "Slideshow using Quarto and Reveal.js"
+author: "Ludovic Deneuville"
+number-sections: false
+format:
+  revealjs:
+    theme: moon
+    slide-number: c/t                              # collapsed/total
+    slide-level: 3                                 # Title 3 will create a new slide
+    chalkboard: true
+    controls: true
+    transition: slide
+    footer: "[Index](../../index.html) --- [back to html](slideshow-html.html)"
+  html:
+    code-tools: true
+    output-file: slideshow-html.html
 ---
 
-:construction:
 
-format: reveal
+## :dart: Objectives
+
+::: {.callout-tip}
+[Documentation](https://quarto.org/docs/presentations/revealjs/)
+:::
+
+
+
+- [ ] Create a slideshow
+- [ ] Use the Speaker View (shortcut : S)
+- [ ] Explain some metadata
+
+
+## Metadata
+
+The metadata of the current document is shown at the top of the page
+
+- `transition: slide` : choose transmition mode
+- `chalkboard: true` : activate chalkboard
+- `controls: true` : show navigation arrows
+
+
+## Speaker View
+
+- `::: {.notes}` to add personal notes
+- `S` to activate `Speaker View`
+
+Use :
+
+- On your own screen: display Speaker View
+- On the presentation screen: display the slideshow
+
+::: {.notes}
+Personal notes
+
+- note 1
+- note 2
+:::
+
+
+## Chalkboard
+
+* `B` to open a blackboard
+* `C` to draw on your slide
+
+
+## Lists
+
+- item 1
+  - item 1.1
+  - item 1.2
+- item 2
+
+incrémental display
+
+::: incremental
+- item 3
+- item 4
+:::
+
+
+## Table
+
+| Number | Name                    | Main City          |
+| ------ | ----------------------- | ------------------ |
+| 01     | Ain                     | Bourg-en-Bresse    |
+| 02     | Aisne                   | Laon               |
+| 03     | Allier                  | Moulins            |
+| 04     | Alpes-de-Haute-Provence | Digne-les-Bains    |
+| 05     | Hautes-Alpes            | Gap                |
+
+: French Departments {.striped .hover .success}
+
+
+## Code{.smaller}
+
+::: {.panel-tabset .nav-pills}
+
+### Code
+
+```{r}
+#| label: collatz-echo
+#| eval: false
+#| echo: true
+library(ggplot2)
+
+collatz_conjecture <- function(n) {
+  sequence <- c(n)
+  
+  while (n != 1) {
+    if (n %% 2 == 0) {
+      n <- n / 2
+    } else {
+      n <- 3 * n + 1
+    }
+    sequence <- c(sequence, n)
+  }  
+  return(sequence)
+}
+
+plot_collatz <- function(n) {
+  sequence <- collatz_conjecture(n)
+  df <- data.frame(
+    Step = seq_along(sequence),
+    Value = sequence
+  )
+  
+  p <- ggplot(df, aes(x = Step, y = Value)) +
+    geom_line(color = "darkcyan") +
+    geom_point(color = "darkcyan", size = 1) +
+    labs(title = "Collatz conjecture", x = "Step", y = "Value") +
+    theme_minimal() +
+    theme(panel.grid.major = element_line(color = "gray90"),
+          panel.grid.minor = element_line(color = "gray95"))
+  
+  print(p)
+}
+
+plot_collatz(27)
+```
+
+
+### Result
+
+```{r}
+#| label: fig-collatz27
+#| fig-cap: "Collatz conjecture starting with n = 27"
+library(ggplot2)
+
+collatz_conjecture <- function(n) {
+  sequence <- c(n)
+  while (n != 1) {
+    if (n %% 2 == 0) { n <- n / 2 } else { n <- 3 * n + 1 }
+    sequence <- c(sequence, n)
+  }
+  return(sequence)
+}
+
+plot_collatz <- function(n) {
+  sequence <- collatz_conjecture(n)
+  df <- data.frame(Step = seq_along(sequence), Value = sequence)
+
+  ggplot(df, aes(x = Step, y = Value)) +
+    geom_line(color = "darkcyan") +
+    geom_point(color = "darkcyan", size = 1) +
+    labs(title = "Collatz conjecture", x = "Step", y = "Value") +
+    theme_minimal()
+}
+
+plot_collatz(27)
+```
+
+### Highlight lines
+
+```{r}
+#| label: collatz-highlight
+#| eval: false
+#| echo: true
+#| code-line-numbers: "4-10"
+collatz_conjecture <- function(n) {
+  sequence <- c(n)
+  
+  while (n != 1) {
+    if (n %% 2 == 0) {
+      n <- n / 2
+    } else {
+      n <- 3 * n + 1
+    }
+    sequence <- c(sequence, n)
+  }  
+  return(sequence)
+}
+
+plot_collatz <- function(n) {
+  sequence <- collatz_conjecture(n)
+  df <- data.frame(Step = seq_along(sequence), Value = sequence)
+  ggplot(df, aes(x = Step, y = Value)) +
+    geom_line(color = "darkcyan") +
+    geom_point(color = "darkcyan", size = 1) +
+    labs(title = "Collatz conjecture", x = "Step", y = "Value") +
+    theme_minimal()
+}
+
+plot_collatz(27)
+```
+
+:::
+
+## Big text
+
+The `r-fit-text` class makes text as large as possible without overflowing the slide.
+
+::: {.r-fit-text}
+Big Text
+:::
+
+
+## Image size auto
+
+Use class `.r-stretch` with your image to automatically adapt image size.
+
+![](./img/ensai_logo.png){.r-stretch}
+
+
+## Animation
+
+### {auto-animate=true}
+
+Animation
+
+### {auto-animate=true}
+
+Implicit
+
+Animation

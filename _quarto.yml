@@ -12,7 +12,7 @@ website:
   sidebar:
     tools:
       - icon: github
-        href: "{{< meta var.url-repo >}}"
+        href: "https://github.com/ludo2ne/ENSAI-tools"
         target: "_blank"
     style: "docked"
     background: "#FFCCE5"

@@ -4,8 +4,6 @@ description: "Accélérez l'analyse de données grâce au stockage orienté colo
 author: "Ludovic Deneuville"
 ---
 
-:construction:
-
 :::{.notes}
 <https://www.icem7.fr/outils/parquet-devrait-remplacer-le-format-csv/>
 <https://www.datacamp.com/fr/tutorial/apache-parquet>
