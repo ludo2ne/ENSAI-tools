@@ -63,6 +63,9 @@ categories:
 - Gantt
 - Carnet de bord
 - Kanban
+- Ecrire un mail
+- Préparer une réunion (de suivi)
+- Gérer son temps
 
 ## Initier son rapport
 

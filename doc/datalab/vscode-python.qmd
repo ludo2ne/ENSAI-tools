@@ -225,7 +225,48 @@ To chat with the agent, you will use extension called [Continue](https://docs.co
 
 :tada: Now you can ask the agent questions related to your project 
 
-:construction: pre-prompt
+:construction: 
+
+- @File, @CurrentFile, @ OpenFile
+- CTRL+L : select code
+- CTRL+I : fix the code
+- pre-prompt
+
+
+Here is the condensed version in English, using text and lists instead of a table:
+
+### Continue Modes
+
+Chat (The Advisor):
+
+- Role: Conversational Q&A.
+- Capability: Explains code and provides snippets, but **cannot** modify your workspace.
+- Best For: Explaining concepts, debugging snippets, or asking "how-to" questions.
+
+Plan (The Architect):
+
+- Role: Strategic planning.
+- Capability: Deconstructs complex requests into a step-by-step roadmap **before** writing any code.
+- Best For: Validating logic and strategy for large-scale changes or complex refactoring.
+
+Agent (The Developer):
+
+- Role: Autonomous execution.
+- Capability: An autonomous loop that can **read files, edit code, and run terminal commands** to achieve a goal.
+- Best For: End-to-end tasks (e.g., *"Implement X feature across the project"*) and auto-fixing bugs using terminal feedback.
+
+In short: **Chat** talks about code, **Plan** outlines the strategy, and **Agent** executes the work.
+
+
+:::callout-caution
+What if you use the wrong mode?
+
+Using Chat for complex tasks: You'll get long code snippets to copy-paste manually, but the AI won't touch your files or run tests. You do all the heavy lifting.
+
+Using Plan for simple questions: The AI might over-analyze, giving you a "roadmap" for a task that only required a one-sentence answer.
+
+Using Agent for trivial questions: You might waste tokens and time as the Agent scans your entire directory and attempts to "verify" things that didn't need it.
+:::
 
 
 ## Autocompletion

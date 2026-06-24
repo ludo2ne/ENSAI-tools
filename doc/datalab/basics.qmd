@@ -224,7 +224,7 @@ Pas de panique :scream:, vous pouvez faire la même chose manuellement :
 - [ ] Lancez un service
 - [ ] Ouvrez un terminal
 - [ ] Intégrez le Token dans l'url https lors du clone
-  - Insérer `$GIT_PERSONAL_ACCESS_TOKEN@` jsute après *https://*
+  - Insérer `$GIT_PERSONAL_ACCESS_TOKEN@` juste après *https://*
   - exemple : `git clone https://$GIT_PERSONAL_ACCESS_TOKEN@github.com/ludo2ne/ENSAI-tools.git`
 
 ::: {.callout-tip title="Explications"}

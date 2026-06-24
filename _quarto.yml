@@ -20,7 +20,7 @@ website:
       - icon: house
         href: index.qmd
         text: Home
-      - section: Format de données
+      - section: Formats et échanges de données
         contents:
           - href: doc/format/csv.qmd
             text: "CSV"
@@ -30,6 +30,8 @@ website:
             text: "JSON"
           - href: doc/format/yaml.qmd
             text: "YAML"
+          - href: doc/format/api.qmd
+            text: "API"
       - section: Coder
         contents:
           - href: doc/language/bash.qmd
