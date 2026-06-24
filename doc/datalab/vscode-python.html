@@ -81,9 +81,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-72593a814cfd776b270eb6f7a4a0aba6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-9c5d904a52746832de212ba972e770a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-72593a814cfd776b270eb6f7a4a0aba6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-476d9a1ad471d385a187a77ea8b74d69.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-1d5da96c224844900e3f42bd3b741d3e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-476d9a1ad471d385a187a77ea8b74d69.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -326,7 +326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Format de données</span></a>
+ <span class="menu-text">Formats et échanges de données</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -354,6 +354,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../doc/format/yaml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">YAML</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/format/api.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">API</span></a>
   </div>
 </li>
       </ul>
@@ -882,7 +888,52 @@ Note
 <li><label><input type="checkbox">Ask the chatbot to analyse and describe it in a few sentences</label></li>
 </ul>
 <p><span class="emoji" data-emoji="tada">🎉</span> Now you can ask the agent questions related to your project</p>
-<p><span class="emoji" data-emoji="construction">🚧</span> pre-prompt</p>
+<p><span class="emoji" data-emoji="construction">🚧</span></p>
+<ul>
+<li><span class="citation" data-cites="File">@File</span>, <span class="citation" data-cites="CurrentFile">@CurrentFile</span>, @ OpenFile</li>
+<li>CTRL+L : select code</li>
+<li>CTRL+I : fix the code</li>
+<li>pre-prompt</li>
+</ul>
+<p>Here is the condensed version in English, using text and lists instead of a table:</p>
+</section>
+<section id="continue-modes" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="continue-modes"><span class="header-section-number">5.3</span> Continue Modes</h3>
+<p>Chat (The Advisor):</p>
+<ul>
+<li>Role: Conversational Q&amp;A.</li>
+<li>Capability: Explains code and provides snippets, but <strong>cannot</strong> modify your workspace.</li>
+<li>Best For: Explaining concepts, debugging snippets, or asking “how-to” questions.</li>
+</ul>
+<p>Plan (The Architect):</p>
+<ul>
+<li>Role: Strategic planning.</li>
+<li>Capability: Deconstructs complex requests into a step-by-step roadmap <strong>before</strong> writing any code.</li>
+<li>Best For: Validating logic and strategy for large-scale changes or complex refactoring.</li>
+</ul>
+<p>Agent (The Developer):</p>
+<ul>
+<li>Role: Autonomous execution.</li>
+<li>Capability: An autonomous loop that can <strong>read files, edit code, and run terminal commands</strong> to achieve a goal.</li>
+<li>Best For: End-to-end tasks (e.g., <em>“Implement X feature across the project”</em>) and auto-fixing bugs using terminal feedback.</li>
+</ul>
+<p>In short: <strong>Chat</strong> talks about code, <strong>Plan</strong> outlines the strategy, and <strong>Agent</strong> executes the work.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What if you use the wrong mode?</p>
+<p>Using Chat for complex tasks: You’ll get long code snippets to copy-paste manually, but the AI won’t touch your files or run tests. You do all the heavy lifting.</p>
+<p>Using Plan for simple questions: The AI might over-analyze, giving you a “roadmap” for a task that only required a one-sentence answer.</p>
+<p>Using Agent for trivial questions: You might waste tokens and time as the Agent scans your entire directory and attempts to “verify” things that didn’t need it.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="autocompletion" class="level2" data-number="6">
@@ -902,7 +953,7 @@ Note
 </ul></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled" title="venv 101">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -911,7 +962,7 @@ Note
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>When you install Python packages globally, everything gets mixed together.</p>
 <p>If one project needs Django 3.2 and another needs Django 5.0, they’ll conflict.</p>
