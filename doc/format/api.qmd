@@ -1,0 +1,600 @@
+---
+title: "Web APIs"
+description: "Interacting with APIs and Understanding the Client-Server Model"
+author: "Ludovic Deneuville"
+number-sections: false
+categories:
+  - Client-Server Model
+  - HTTP protocol
+  - Consume an API
+  - Create an API
+---
+
+This page introduces the basics of Web APIs and how to interact with them.
+
+::: {.callout-note title="Concepts covered"}
+- Interact with a Web API manually (browser, curl, Swagger)
+- Consume an API using Python
+- Convert JSON data into Python objects or pandas DataFrames
+- Overview of API creation tools (json-server, FastAPI)
+:::
+
+
+## What is a Web API?
+
+A **Web API** (Application Programming Interface) is a way for two software systems to communicate over HTTP protocol.
+
+It allows a program (client) to request data or actions from another system (server), often located on a remote machine.
+
+In practice, a Web API exposes resources (data) through URLs called endpoints.
+
+For example:
+
+- `GET https://myawsomeapi.io/users` :arrow_right: list all users
+- `GET https://myawsomeapi.io/users/12` :arrow_right: get user with id 12
+- `GET https://myawsomeapi.io/games` :arrow_right: list games
+- `POST https://myawsomeapi.io/games` :arrow_right: create a game
+
+A Web API typically uses:
+
+- **HTTP methods** (GET, POST, PUT, DELETE)
+- **JSON** as the main data format
+- A client-server architecture
+- **Endpoints (URLs)** to access resources
+
+
+### Client–Server model
+
+A Web API sits between a **client** (your program, browser, or script) and a **server** (remote system hosting data and logic).
+
+1. The client sends a request
+2. The server processes it
+3. The server returns a response
+
+This response is often in **JSON format**, which is easy to read and process in most programming languages.
+
+```{mermaid}
+sequenceDiagram
+    participant Client
+    participant API
+    participant Server
+
+    Client->>API: HTTP Request (GET /data)
+    API->>Server: Query data
+    Server-->>API: Raw data
+    API-->>Client: JSON response
+```
+
+### HTTP methods
+
+| Method | Meaning     | Example            |
+| ------ | ----------- | ------------------ |
+| GET    | Read data   | Get a resource     |
+| POST   | Create data | Add a new resource |
+| PUT    | Update data | Modify a resource  |
+| DELETE | Remove data | Delete a resource  |
+
+
+## First calls using a Browser
+
+The simplest way to interact with an API is via your browser (Firefox, Chrome, etc.). However, browsers are limited to **GET requests** (to read data).
+
+So let's start with the simplest requests, which require only a URL.
+
+### Simple requests
+
+Example API: <https://www.anapioficeandfire.com/>{target="_blank"}
+
+A Web API exposes data or services through one or more URLs, called endpoints. Here we have 3 endpoints provided: books, houses, characters.
+
+Let's explore characters:
+
+- <https://www.anapioficeandfire.com/api/characters/2041>{target="_blank"} to get the character with ID equal to 2041
+- <https://www.anapioficeandfire.com/api/characters/>{target="_blank"} to get all characters
+
+The first query returns a dictionary; the second returns a list of dictionaries.
+
+Each character is represented as a dictionary.
+
+```{.json}
+[
+  { "name": "John",
+    "key1": "value1",
+    ...
+  },
+  { "name": "Cersei"
+  }
+]
+```
+
+::: {.callout-note}
+"The value" can sometimes also be a list, for example, if a character appears in several books.
+:::
+
+You'll notice that the last query returns only 10 characters.
+
+[The documentation](https://github.com/joakimskoog/AnApiOfIceAndFire/wiki/Pagination){target="_blank"} explains that, by default, a query will return only the first 10 results.
+
+How can I get them all?
+
+### Parameters
+
+A request can include query parameters to filter, sort, or limit the returned data.
+
+Let's  (50 is the maximum value) at the end of the request:
+
+- <https://www.anapioficeandfire.com/api/characters?pageSize=50>{target="_blank"}
+  - add parameter *pageSize* to have 50 characters displayed
+- <https://www.anapioficeandfire.com/api/characters?pageSize=50&page=2>{target="_blank"}
+  - add a new parameter *page* to get the next 50
+
+Example of other parameters available:
+
+- <https://www.anapioficeandfire.com/api/characters?culture=Valyrian&gender=female>{target="_blank"}
+
+To learn about the available settings, refer to the documentation.
+
+
+## More complete requests
+
+What if we now want to not only read data but also interact with the API (create, update, delete)?
+
+To perform more complex actions (such as `POST`, `PUT`, or `DELETE`), a web browser is not enough. You will need a specialized tool to build your requests and inspect the responses.
+
+### Method, Header, Body
+
+Let's imagine an api `http://pikapi.io` that offers an endpoint (/pokemon) where you can create a new Pokémon.
+
+Providing just a URL `http://pikapi.io/pokemon` isn't enough. You need to specify:
+
+- I want to create :arrow_right: Method: POST
+- The pokemon's attributes :arrow_right: Body
+- Perhaps this endpoint is reserved for authenticated users :arrow_right: Headers including a Token
+
+```{.json}
+POST http://pikapi.io/pokemon 
+
+// Headers
+Content-Type: application/json 
+Authorization: Bearer abc123xyz 
+
+// Body
+{
+  "name": "Psykokwak",
+  "type": "Water",
+  "level": 12,
+  "hp": 35
+}
+```
+
+To manage all this information, you can use an API client.
+
+### API Clients
+
+These desktop applications are powerful tools that you download and install:
+
+- [Bruno](https://www.usebruno.com/){target="_blank"}
+- [Insomnia](https://insomnia.rest/){target="_blank"}
+
+Online Tools, no installation required. Perfect for a quick test directly in your browser:
+
+- <https://httpie.io/app>{target="_blank"}
+- <https://hoppscotch.io/>{target="_blank"}
+- <https://reqbin.com/>{target="_blank"}
+
+
+### Command line
+
+[curl](https://curl.se/){target="_blank"} is a command-line tool that also does the job very well.
+
+A simple GET request: `curl https://swapi.info/api/people/1`
+
+You can also specify method (-X), headers (-H) and body (-d):
+
+```{.bash}
+curl -X POST http://pikapi.io/pokemon \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer abc123xyz" \
+  -d '{
+    "name": "Psykokwak",
+    "type": "Water",
+    "level": 12,
+    "hp": 35
+  }' | jq .
+```
+
+:bulb: add `| jq .` at the end, if you want a pretty-printed response.
+
+
+### Swagger
+
+Many APIs provide interactive documentation, usually available at `/docs` endpoint.
+
+It allows you to:
+
+- explore endpoints
+- test requests directly
+- generate curl commands automatically
+
+Example: <https://petstore.swagger.io/>{target="_blank"}
+
+
+## Consuming an API with Python
+
+Here is an example to retrieve peoples from star wars API.
+
+We will use package [requests](https://requests.readthedocs.io/en/latest/user/quickstart/){target="_blank"}.
+
+### Step1: Call the web service
+
+Run the query as you would with another tool and store the response in a variable.
+
+```{.python}
+import requests
+
+response = requests.get(url="https://swapi.info/api/people/")
+```
+
+### Step2: Check response
+
+Then, see if the answer is useful.
+
+If everything goes well, you can retrieve the JSON content.
+
+```{.python}
+import json
+
+if response.status_code != 200:
+    raise Exception(f"Cannot reach (HTTP {response.status_code}): {response.text}")
+else:
+    raw_json = response.json()
+    print(json.dumps(raw_json, indent=2))  # Pretty print
+```
+
+### Step3: Convert into objects
+
+Imagine you have a *People* (name, birth, hair, bmi) class.
+
+```{.python filename="people.py"}
+class People:
+    def __init__(self, name, birth, hair, bmi):
+        self.name = name
+        self.birth = birth
+        self.hair = hair
+        self.bmi = bmi
+```
+
+You will have to iterate among all elements to create *People*:
+
+```{.python filename="load_from_api.py"}
+peoples = []
+
+for elt in raw_json:
+    # Create an object
+    p = People(
+        name=elt["name"],
+        birth=elt["birth_year"],
+        hair=elt["hair_color"],
+        bmi=compute_bmi(elt.get("mass"), elt.get("height"))
+    )
+
+    # If it succeed, add to the list
+    if p:
+      peoples.append(p)
+
+def compute_bmi(mass_raw, height_raw) -> float:
+    """Calculates BMI based on weight and height in centimeters."""
+    try:
+        mass = float(mass_raw)
+        height = float(height_raw) / 100
+        return round(mass / (height**2), 2)
+    except (ValueError, TypeError, ZeroDivisionError):
+        return None
+```
+
+::: {.callout-note}
+You can use some fields directly as attributes, and others as BMI (Body Mass Index) you won't find it directly, you have to compute it.
+:::
+
+:tada: You have converted a dictionary list into a list of business objects that can be used directly by your methods.
+
+### Step3bis: Convert into dataframe
+
+If you just need to perform data analysis, you can convert the result into a pandas or Polars dataframe:
+
+```{.python}
+import pandas as pd
+
+df = pd.DataFrame(raw_json)
+
+df.head()
+```
+
+
+## Creating simple APIs
+
+You can also easily create your own APIs.
+
+We will explore two simple ways: 
+
+- [FastAPI](https://fastapi.tiangolo.com/){target="_blank"} (Python)
+- [json-server](https://github.com/typicode/json-server){target="_blank"}
+
+### FastAPI Hello World
+
+Below is the code and command to create and launch the simplest possible API using FastAPI. A single endpoint that responds with "hello world"
+
+:arrow_right: **Step1: Create the API**
+
+```{.python filename="main.py"}
+from fastapi import FastAPI
+
+app = FastAPI()                                 # 1. Create the application instance
+
+@app.get("/")                                   # 2. Define a root endpoint
+async def read_root():
+    return {"message": "Hello World"}
+```
+
+:arrow_right: **Step2: Launch the Server**
+
+Launch it with command: `uvicorn main:app --host 0.0.0.0 --port 5000 --reload`
+
+::: {.callout-note}
+- uvicorn: The ASGI server that runs your application
+- main:app: Refers to your file **main.py** and the FastAPI instance inside it *app*
+- --host 0.0.0.0: Makes the server accessible on your local network
+- --port 5000: Sets the port the API will listen on
+- --reload: it automatically restarts the server whenever you save a file
+:::
+
+:arrow_right: **Step3: Query the API**
+
+Using `curl -X GET http://0.0.0.0:5000/ | jq .` or another client.
+
+Expected output:
+
+```{.json}
+{"message": "Hello World"}
+```
+
+A production-ready API does much more than just return a single message; it uses various HTTP methods, handles query parameters, and navigates structured URL paths to interact with complex data.
+
+
+### FastApi: gear second
+
+Here we have an API that lets you manage a list of Pokemons (each Pokémon is identified only by its name)
+
+```{.python}
+from fastapi import FastAPI, HTTPException
+
+app = FastAPI()
+
+pokemons = set()                # initialize a set of Pokemons (no duplicates)
+
+# CREATE
+@app.post("/pokemon")
+def create_pokemon(name: str):
+    if name in pokemons:
+        raise HTTPException(status_code=400, detail="Pokemon already exists")
+    pokemons.add(name)
+    return {"name": name}
+
+# READ ALL
+@app.get("/pokemon")
+def get_pokemons():
+    return list(pokemons)
+
+# READ ONE
+@app.get("/pokemon/{name}")
+def get_by_name(name: str):
+    if name not in pokemons:
+        raise HTTPException(status_code=404, detail="Pokemon not found")
+    return {"name": name}
+
+# DELETE
+@app.delete("/pokemon/{name}")
+def delete_by_name(name: str):
+    if name not in pokemons:
+        raise HTTPException(status_code=404, detail="Pokemon not found")
+    pokemons.remove(name)
+    return {"message": "deleted", "name": name}
+```
+
+
+### Fake API with json-server
+
+json-server is a lightweight tool that turns a simple JSON file into a fully functional REST API in seconds, supporting all standard HTTP methods.
+
+#### Installation
+
+First, ensure you have **Node.js** and **npm** installed on your system. Then, install *json-server* globally.
+
+```bash
+sudo apt update
+sudo apt install nodejs npm
+npm install -g json-server
+```
+
+#### Setting Up the Mock Data
+
+The behavior of the API is entirely determined by a local **JSON** file. This file acts as your "database."
+
+- [ ] Create a file named **db.json**
+
+```{.json filename="db.json"}
+{
+  "games": [
+    {
+      "id": "1",
+      "players_list": ["Alice", "Bob"],
+      "winner_name": "Alice",
+      "location_name": "Arena 1",
+      "duration_seconds": 120,
+      "mode_type": "coinflip"
+    },
+    {
+      "id": "2",
+      "players_list": ["Eve", "Frank"],
+      "winner_name": "Eve",
+      "location_name": "Secret Cave",
+      "duration_seconds": 300,
+      "mode_type": "dice"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
+```
+
+::: {.callout title="Games data" collapse="true"}
+```{.json}
+{
+  "games": [
+    {
+      "id": "1",
+      "players_list": [
+        "Alice",
+        "Bob"
+      ],
+      "winner_name": "Alice",
+      "location_name": "Arena 1",
+      "duration_seconds": 120,
+      "mode_type": "coinflip"
+    },
+    {
+      "id": "2",
+      "players_list": [
+        "Eve",
+        "Frank"
+      ],
+      "winner_name": "Eve",
+      "location_name": "Secret Cave",
+      "duration_seconds": 300,
+      "mode_type": "dice"
+    },
+    {
+      "id": "3",
+      "players_list": [
+        "Eve",
+        "Boris"
+      ],
+      "winner_name": "Eve",
+      "location_name": "Secret Cave",
+      "duration_seconds": 300,
+      "mode_type": "dice"
+    },
+    {
+      "id": "4",
+      "players_list": [
+        "Eve",
+        "Boris"
+      ],
+      "winner_name": "Eve",
+      "location_name": "Secret Cave",
+      "duration_seconds": 300,
+      "mode_type": "dice"
+    },
+    {
+      "uuid_match": 103,
+      "players_list": [
+        "Eve",
+        "Boris"
+      ],
+      "winner_name": "Eve",
+      "location_name": "Secret Cave",
+      "duration_seconds": 300,
+      "mode_type": "dice",
+      "id": "FIWBuFDQqUQ"
+    },
+    {
+      "uuid_match": 103,
+      "players_list": [
+        "Eve",
+        "Boris"
+      ],
+      "winner_name": "Eve",
+      "location_name": "Secret Cave",
+      "duration_seconds": 300,
+      "mode_type": "dice",
+      "id": "jSIh2DO8Be4"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
+```
+:::
+
+
+#### Launching the Server
+
+To start the API, run the following command in your terminal. The `--watch` flag ensures that any changes you make to **db.json** are immediately reflected in the API.
+
+```bash
+json-server --watch db.json --port 5000
+```
+
+::: {.callout-note title="Endpoint URL"}
+Your API is now live at `http://localhost:5000`. The keys in your JSON file (e.g., `"games"`) become the resource endpoints (e.g., `/games`).
+:::
+
+
+#### Testing the API
+
+You can interact with your new server using **cURL** or any professional API client like **Bruno** or **Insomnia**.
+
+:arrow_right: READ Operations
+
+To retrieve the list of all games:
+
+```{.bash}
+curl -X GET http://localhost:5000/games
+```
+
+:arrow_right: WRITE Operations
+
+To create a new game entry, send a `POST` request with a **JSON** body. `json-server` will automatically generate a unique *id* for the new entry.
+
+
+```{.bash}
+curl -X POST http://localhost:5000/games \
+     -H "Content-Type: application/json" \
+     -d '{
+           "uuid_match": 103,
+           "players_list": ["Eve", "Boris"],
+           "winner_name": "Eve",
+           "location_name": "Secret Cave",
+           "duration_seconds": 300,
+           "mode_type": "dice"
+         }'
+```
+
+:arrow_right: UPDATE Operations
+
+To modify an existing resource, use `PUT`. You must specify the *id* of the resource in the URL path.
+
+
+```{.bash}
+curl -X PUT http://localhost:5000/games/1 \
+     -H "Content-Type: application/json" \
+     -d '{
+           "uuid_match": 101,
+           "players_list": ["Alice", "Bob"],
+           "winner_name": "Bob",
+           "location_name": "Arena 1 (Updated)",
+           "duration_seconds": 150,
+           "mode_type": "coinflip"
+         }'
+```
+
+:arrow_right: DELETE Operations
+
+To remove a resource from your mock database:
+
+
+```{.bash}
+curl -X DELETE http://localhost:5000/games/2
+```
+
+::: {.callout-warning title="Data Persistence"}
+Because `json-server` is a mock tool, it writes changes directly to your **db.json** file. Be careful when performing `DELETE` or `PUT` operations, as they will permanently alter your local file.
+:::
