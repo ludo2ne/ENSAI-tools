@@ -6,11 +6,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Ludovic Deneuville">
   <title>ENSAI tools – Introduction à Git</title>
@@ -23,10 +23,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -207,7 +210,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Ludovic Deneuville 
+Ludovic Deneuville
 </div>
 </div>
 </div>
@@ -409,22 +412,22 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <div class="code-with-filename-file">
 <pre><strong>analyse.R</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="analyse.R"><pre class="sourceCode numberSource R number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">length=</span><span class="dv">100</span>))</span>
-<span id="cb3-4"><a></a>data<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(data<span class="sc">$</span>x)</span>
-<span id="cb3-5"><a></a></span>
-<span id="cb3-6"><a></a><span class="co"># plot(data$x, data$y, type="l", lwd=2, col="blue",</span></span>
-<span id="cb3-7"><a></a><span class="co">#      main="Densité de la loi normale centrée réduite",</span></span>
-<span id="cb3-8"><a></a><span class="co">#      xlab="x", ylab="Densité")</span></span>
-<span id="cb3-9"><a></a><span class="co"># abline(h=0, col="gray")</span></span>
-<span id="cb3-10"><a></a></span>
-<span id="cb3-11"><a></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb3-12"><a></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb3-13"><a></a>  <span class="fu">ggtitle</span>(<span class="st">"Densité de la loi normale centrée réduite"</span>) <span class="sc">+</span></span>
-<span id="cb3-14"><a></a>  <span class="fu">xlab</span>(<span class="st">"x"</span>) <span class="sc">+</span></span>
-<span id="cb3-15"><a></a>  <span class="fu">ylab</span>(<span class="st">"Densité"</span>) <span class="sc">+</span></span>
-<span id="cb3-16"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="analyse.R"><pre class="sourceCode numberSource R number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a aria-label="2"></a></span>
+<span id="cb3-3"><a aria-label="3"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">length=</span><span class="dv">100</span>))</span>
+<span id="cb3-4"><a aria-label="4"></a>data<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(data<span class="sc">$</span>x)</span>
+<span id="cb3-5"><a aria-label="5"></a></span>
+<span id="cb3-6"><a aria-label="6"></a><span class="co"># plot(data$x, data$y, type="l", lwd=2, col="blue",</span></span>
+<span id="cb3-7"><a aria-label="7"></a><span class="co">#      main="Densité de la loi normale centrée réduite",</span></span>
+<span id="cb3-8"><a aria-label="8"></a><span class="co">#      xlab="x", ylab="Densité")</span></span>
+<span id="cb3-9"><a aria-label="9"></a><span class="co"># abline(h=0, col="gray")</span></span>
+<span id="cb3-10"><a aria-label="10"></a></span>
+<span id="cb3-11"><a aria-label="11"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb3-12"><a aria-label="12"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb3-13"><a aria-label="13"></a>  <span class="fu">ggtitle</span>(<span class="st">"Densité de la loi normale centrée réduite"</span>) <span class="sc">+</span></span>
+<span id="cb3-14"><a aria-label="14"></a>  <span class="fu">xlab</span>(<span class="st">"x"</span>) <span class="sc">+</span></span>
+<span id="cb3-15"><a aria-label="15"></a>  <span class="fu">ylab</span>(<span class="st">"Densité"</span>) <span class="sc">+</span></span>
+<span id="cb3-16"><a aria-label="16"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-2-2">
@@ -432,29 +435,29 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <div class="code-with-filename-file">
 <pre><strong>analyse.R - Commit 05016ab - Date 2024.06.02 - Author tryphon</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="analyse.R - Commit 05016ab - Date 2024.06.02 - Author tryphon"><pre class="sourceCode numberSource R number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>data<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(data<span class="sc">$</span>x)</span>
-<span id="cb4-2"><a></a></span>
-<span id="cb4-3"><a></a><span class="fu">plot</span>(data<span class="sc">$</span>x, data<span class="sc">$</span>y, <span class="at">type=</span><span class="st">"l"</span>, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">"blue"</span>,</span>
-<span id="cb4-4"><a></a>     <span class="at">main=</span><span class="st">"Densité de la loi normale centrée réduite"</span>,</span>
-<span id="cb4-5"><a></a>     <span class="at">xlab=</span><span class="st">"x"</span>, <span class="at">ylab=</span><span class="st">"Densité"</span>)</span>
-<span id="cb4-6"><a></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"gray"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="analyse.R - Commit 05016ab - Date 2024.06.02 - Author tryphon"><pre class="sourceCode numberSource R number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>data<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(data<span class="sc">$</span>x)</span>
+<span id="cb4-2"><a aria-label="2"></a></span>
+<span id="cb4-3"><a aria-label="3"></a><span class="fu">plot</span>(data<span class="sc">$</span>x, data<span class="sc">$</span>y, <span class="at">type=</span><span class="st">"l"</span>, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">"blue"</span>,</span>
+<span id="cb4-4"><a aria-label="4"></a>     <span class="at">main=</span><span class="st">"Densité de la loi normale centrée réduite"</span>,</span>
+<span id="cb4-5"><a aria-label="5"></a>     <span class="at">xlab=</span><span class="st">"x"</span>, <span class="at">ylab=</span><span class="st">"Densité"</span>)</span>
+<span id="cb4-6"><a aria-label="6"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"gray"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><br></p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>analyse.R - Commit f97f766 - Date 2024.06.04 - Author bianca</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="analyse.R - Commit f97f766 - Date 2024.06.04 - Author bianca"><pre class="sourceCode numberSource R number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb5-2"><a></a></span>
-<span id="cb5-3"><a></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">length=</span><span class="dv">100</span>))</span>
-<span id="cb5-4"><a></a>data<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(data<span class="sc">$</span>x)</span>
-<span id="cb5-5"><a></a></span>
-<span id="cb5-6"><a></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb5-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb5-8"><a></a>  <span class="fu">ggtitle</span>(<span class="st">"Densité de la loi normale centrée réduite"</span>) <span class="sc">+</span></span>
-<span id="cb5-9"><a></a>  <span class="fu">xlab</span>(<span class="st">"x"</span>) <span class="sc">+</span></span>
-<span id="cb5-10"><a></a>  <span class="fu">ylab</span>(<span class="st">"Densité"</span>) <span class="sc">+</span></span>
-<span id="cb5-11"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="analyse.R - Commit f97f766 - Date 2024.06.04 - Author bianca"><pre class="sourceCode numberSource R number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a aria-label="2"></a></span>
+<span id="cb5-3"><a aria-label="3"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">length=</span><span class="dv">100</span>))</span>
+<span id="cb5-4"><a aria-label="4"></a>data<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(data<span class="sc">$</span>x)</span>
+<span id="cb5-5"><a aria-label="5"></a></span>
+<span id="cb5-6"><a aria-label="6"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb5-7"><a aria-label="7"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb5-8"><a aria-label="8"></a>  <span class="fu">ggtitle</span>(<span class="st">"Densité de la loi normale centrée réduite"</span>) <span class="sc">+</span></span>
+<span id="cb5-9"><a aria-label="9"></a>  <span class="fu">xlab</span>(<span class="st">"x"</span>) <span class="sc">+</span></span>
+<span id="cb5-10"><a aria-label="10"></a>  <span class="fu">ylab</span>(<span class="st">"Densité"</span>) <span class="sc">+</span></span>
+<span id="cb5-11"><a aria-label="11"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -786,12 +789,12 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <section id="commandes-unix---exemples" class="slide level3">
 <h3>Commandes Unix - Exemples</h3>
 <p>Pour chaque commande, de nombreuses options sont disponibles</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="fu">ls</span> <span class="pp">*</span>.py              <span class="co"># liste tous les fichiers python du répertoire courant</span></span>
-<span id="cb6-2"><a></a><span class="fu">ls</span> <span class="pp">*</span>.py <span class="op">&gt;</span> a.txt      <span class="co"># crée un fichier a.txt contenant le résultat de la commande</span></span>
-<span id="cb6-3"><a></a><span class="bu">cd</span> ..                <span class="co"># se positionne dans le répertoire parent</span></span>
-<span id="cb6-4"><a></a><span class="bu">cd</span> ../projet/src     <span class="co"># remonter dans le dossier parent puis aller dans projet puis src</span></span>
-<span id="cb6-5"><a></a><span class="fu">cp</span> /p/image.jpg .    <span class="co"># copie le fichier image.jpg du disque P dans le dossier courant</span></span>
-<span id="cb6-6"><a></a><span class="ex">./setup.sh</span>           <span class="co"># lance le programme setup.sh du répertoire courant</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a aria-label="1"></a><span class="fu">ls</span> <span class="pp">*</span>.py              <span class="co"># liste tous les fichiers python du répertoire courant</span></span>
+<span id="cb6-2"><a aria-label="2"></a><span class="fu">ls</span> <span class="pp">*</span>.py <span class="op">&gt;</span> a.txt      <span class="co"># crée un fichier a.txt contenant le résultat de la commande</span></span>
+<span id="cb6-3"><a aria-label="3"></a><span class="bu">cd</span> ..                <span class="co"># se positionne dans le répertoire parent</span></span>
+<span id="cb6-4"><a aria-label="4"></a><span class="bu">cd</span> ../projet/src     <span class="co"># remonter dans le dossier parent puis aller dans projet puis src</span></span>
+<span id="cb6-5"><a aria-label="5"></a><span class="fu">cp</span> /p/image.jpg .    <span class="co"># copie le fichier image.jpg du disque P dans le dossier courant</span></span>
+<span id="cb6-6"><a aria-label="6"></a><span class="ex">./setup.sh</span>           <span class="co"># lance le programme setup.sh du répertoire courant</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -982,20 +985,20 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">v0</a></li><li><a href="#tabset-4-2">Je code</a></li><li><a href="#tabset-4-3">v1</a></li><li><a href="#tabset-4-4">Schéma</a></li></ul>
 <div class="tab-content nav-pills">
 <div id="tabset-4-1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a></a>├─── Projet info</span>
-<span id="cb7-2"><a></a>│   ├─── src</span>
-<span id="cb7-3"><a></a>│   │   ├─── main.py</span>
-<span id="cb7-4"><a></a>│   └─── doc</span>
-<span id="cb7-5"><a></a>│   │   └─── Rapport.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a aria-label="1"></a>├─── Projet info</span>
+<span id="cb7-2"><a aria-label="2"></a>│   ├─── src</span>
+<span id="cb7-3"><a aria-label="3"></a>│   │   ├─── main.py</span>
+<span id="cb7-4"><a aria-label="4"></a>│   └─── doc</span>
+<span id="cb7-5"><a aria-label="5"></a>│   │   └─── Rapport.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Votre dépôt avant de commencer à coder.</p>
 </div>
 <div id="tabset-4-2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a></a>├─── Projet info</span>
-<span id="cb8-2"><a></a>│   ├─── src</span>
-<span id="cb8-3"><a></a>│   │   ├─── main.py               &lt;- fichier modifié</span>
-<span id="cb8-4"><a></a>│   │   ├─── velo.py               &lt;- nouveau fichier</span>
-<span id="cb8-5"><a></a>│   └─── doc</span>
-<span id="cb8-6"><a></a>│   │   └─── Rapport.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a aria-label="1"></a>├─── Projet info</span>
+<span id="cb8-2"><a aria-label="2"></a>│   ├─── src</span>
+<span id="cb8-3"><a aria-label="3"></a>│   │   ├─── main.py               &lt;- fichier modifié</span>
+<span id="cb8-4"><a aria-label="4"></a>│   │   ├─── velo.py               &lt;- nouveau fichier</span>
+<span id="cb8-5"><a aria-label="5"></a>│   └─── doc</span>
+<span id="cb8-6"><a aria-label="6"></a>│   │   └─── Rapport.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Vous avez :</p>
 <ul>
 <li>modifié un fichier</li>
@@ -1389,13 +1392,13 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 </section>
 <section id="git-push---si-votre-dépôt-local-nest-pas-à-jour" class="slide level3">
 <h3>git push - si votre dépôt local n’est pas à jour</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a></a>! [rejected]        main -&gt; main (fetch first)</span>
-<span id="cb9-2"><a></a>error: failed to push some refs</span>
-<span id="cb9-3"><a></a>hint: Updates were rejected because the remote contains work that you do not</span>
-<span id="cb9-4"><a></a>hint: have locally. This is usually caused by another repository pushing to</span>
-<span id="cb9-5"><a></a>hint: the same ref. If you want to integrate the remote changes, use</span>
-<span id="cb9-6"><a></a>hint: 'git pull' before pushing again.</span>
-<span id="cb9-7"><a></a>hint: See the 'Note about fast-forwards' in 'git push --help' for details.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a aria-label="1"></a>! [rejected]        main -&gt; main (fetch first)</span>
+<span id="cb9-2"><a aria-label="2"></a>error: failed to push some refs</span>
+<span id="cb9-3"><a aria-label="3"></a>hint: Updates were rejected because the remote contains work that you do not</span>
+<span id="cb9-4"><a aria-label="4"></a>hint: have locally. This is usually caused by another repository pushing to</span>
+<span id="cb9-5"><a aria-label="5"></a>hint: the same ref. If you want to integrate the remote changes, use</span>
+<span id="cb9-6"><a aria-label="6"></a>hint: 'git pull' before pushing again.</span>
+<span id="cb9-7"><a aria-label="7"></a>hint: See the 'Note about fast-forwards' in 'git push --help' for details.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Le message est assez explicite.</p>
 </section>
 <section id="git-push---fichier-disparu" class="slide level3">
@@ -1502,9 +1505,9 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <div class="code-with-filename-file">
 <pre><strong>velo.py</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-filename="velo.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="kw">class</span> Velo:</span>
-<span id="cb10-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
-<span id="cb10-3"><a></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"bleu"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-filename="velo.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-label="1"></a><span class="kw">class</span> Velo:</span>
+<span id="cb10-2"><a aria-label="2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
+<span id="cb10-3"><a aria-label="3"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"bleu"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-5-2">
@@ -1512,9 +1515,9 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <div class="code-with-filename-file">
 <pre><strong>velo.py</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-filename="velo.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="kw">class</span> Velo:</span>
-<span id="cb11-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
-<span id="cb11-3"><a></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"blanc"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-filename="velo.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a aria-label="1"></a><span class="kw">class</span> Velo:</span>
+<span id="cb11-2"><a aria-label="2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
+<span id="cb11-3"><a aria-label="3"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"blanc"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-5-3">
@@ -1522,9 +1525,9 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <div class="code-with-filename-file">
 <pre><strong>velo.py</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-filename="velo.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="kw">class</span> Velo:</span>
-<span id="cb12-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
-<span id="cb12-3"><a></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"noir"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-filename="velo.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-label="1"></a><span class="kw">class</span> Velo:</span>
+<span id="cb12-2"><a aria-label="2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
+<span id="cb12-3"><a aria-label="3"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"noir"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1584,14 +1587,14 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <li>En haut : votre version</li>
 <li>En bas : celle provenant du dépôt distant</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="kw">class</span> Velo:</span>
-<span id="cb13-2"><a></a><span class="op">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
-<span id="cb13-3"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, vitesse_max):</span>
-<span id="cb13-4"><a></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"noir"</span></span>
-<span id="cb13-5"><a></a><span class="op">=======</span></span>
-<span id="cb13-6"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, marque):</span>
-<span id="cb13-7"><a></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"blanc"</span></span>
-<span id="cb13-8"><a></a><span class="op">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> a57ae9120dbf97dbab78f82db81f5fc8f48f3821</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a aria-label="1"></a><span class="kw">class</span> Velo:</span>
+<span id="cb13-2"><a aria-label="2"></a><span class="op">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
+<span id="cb13-3"><a aria-label="3"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, vitesse_max):</span>
+<span id="cb13-4"><a aria-label="4"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"noir"</span></span>
+<span id="cb13-5"><a aria-label="5"></a><span class="op">=======</span></span>
+<span id="cb13-6"><a aria-label="6"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, marque):</span>
+<span id="cb13-7"><a aria-label="7"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"blanc"</span></span>
+<span id="cb13-8"><a aria-label="8"></a><span class="op">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> a57ae9120dbf97dbab78f82db81f5fc8f48f3821</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="tabset-6-3">
 <p>Pour résoudre ce conflit, 3 possibilités :</p>

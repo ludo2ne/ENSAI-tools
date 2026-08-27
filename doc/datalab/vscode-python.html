@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -14,10 +14,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -76,14 +79,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-476d9a1ad471d385a187a77ea8b74d69.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-1d5da96c224844900e3f42bd3b741d3e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-476d9a1ad471d385a187a77ea8b74d69.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-8fa8a3b1ae6ff6f9c6b8419171c65b8c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-8835989284bd62f7cac90e8613e3e611.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-8fa8a3b1ae6ff6f9c6b8419171c65b8c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -856,7 +859,7 @@ Note
 <li><label><input type="checkbox">Go to <a href="https://datalab.sspcloud.fr/account" target="_blank">My account</a></label></li>
 <li><label><input type="checkbox">Enable <em>AI Assistant</em></label>
 <ul>
-<li>Default model: <em>gemma4-26b-moe</em></li>
+<li>Default model: <em>gemma4-26b-moe</em> or <em>qwen3-6-35b-moe</em></li>
 <li>Provider: <em>openai</em></li>
 <li>ModelProvider: <em>openai-chat</em></li>
 <li>EmbeddingsProvider: <em>openai</em></li>
@@ -864,6 +867,20 @@ Note
 <li>Paste your API key</li>
 </ul></li>
 </ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Models hosted natively on SSPCloud have limited computing power. To check service availability and server load, please refer to <a href="https://status.lab.sspcloud.fr/status/sspcloud" target="_blank">https://status.lab.sspcloud.fr/status/sspcloud</a>.</p>
+<p>You can connect to third-party models (e.g., <code>codestral</code>) by modifying the Provider and API URL. Please note that using external services is subject to <strong>token limitations</strong>.</p>
+</div>
+</div>
 <p>Now it’s time to launch a service.</p>
 </section>
 <section id="use-it" class="level3" data-number="5.2">
@@ -888,17 +905,57 @@ Note
 <li><label><input type="checkbox">Ask the chatbot to analyse and describe it in a few sentences</label></li>
 </ul>
 <p><span class="emoji" data-emoji="tada">🎉</span> Now you can ask the agent questions related to your project</p>
-<p><span class="emoji" data-emoji="construction">🚧</span></p>
+<div class="notes">
+<p>TODO <span class="emoji" data-emoji="construction">🚧</span></p>
 <ul>
 <li><span class="citation" data-cites="File">@File</span>, <span class="citation" data-cites="CurrentFile">@CurrentFile</span>, @ OpenFile</li>
 <li>CTRL+L : select code</li>
 <li>CTRL+I : fix the code</li>
 <li>pre-prompt</li>
 </ul>
-<p>Here is the condensed version in English, using text and lists instead of a table:</p>
+</div>
 </section>
-<section id="continue-modes" class="level3" data-number="5.3">
-<h3 data-number="5.3" class="anchored" data-anchor-id="continue-modes"><span class="header-section-number">5.3</span> Continue Modes</h3>
+<section id="other-models" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="other-models"><span class="header-section-number">5.3</span> Other models</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Once more: Models hosted natively on SSPCloud have limited computing power.</p>
+<p>If all students use the same model, it may cause the hosting server to crash due to resource exhaustion.</p>
+</div>
+</div>
+<p>To add other models, edit file <code>/home/onyxia/.continue/config.yaml</code>, adding new models:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>config.yaml</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="config.yaml"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">models</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> </span><span class="st">"qwen3-6-35b-moe"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">model</span><span class="kw">:</span><span class="at"> </span><span class="st">"qwen3-6-35b-moe"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">provider</span><span class="kw">:</span><span class="at"> </span><span class="st">"openai"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">apiBase</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://llm.lab.sspcloud.fr/api/v1"</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">apiKey</span><span class="kw">:</span><span class="at"> </span><span class="st">"??????"</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> </span><span class="st">"codestral-latest"</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">model</span><span class="kw">:</span><span class="at"> </span><span class="st">"codestral-latest"</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">provider</span><span class="kw">:</span><span class="at"> </span><span class="st">"mistral"</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">apiBase</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://api.mistral.ai/v1"</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">apiKey</span><span class="kw">:</span><span class="at"> </span><span class="st">"??????"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>For example, to use <em>codestral</em> (or another Mistral model):</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Create an account on <a href="https://console.mistral.ai">Mistral</a></label></li>
+<li><label><input type="checkbox">Create an <a href="https://console.mistral.ai/api-keys" target="_blank">API key</a></label></li>
+<li><label><input type="checkbox">Keep an eye on your monthly token usage to avoid having your account blocked</label></li>
+</ul>
+<div class="notes">
+<p>Continue Modes</p>
 <p>Chat (The Advisor):</p>
 <ul>
 <li>Role: Conversational Q&amp;A.</li>
@@ -917,22 +974,10 @@ Note
 <li>Capability: An autonomous loop that can <strong>read files, edit code, and run terminal commands</strong> to achieve a goal.</li>
 <li>Best For: End-to-end tasks (e.g., <em>“Implement X feature across the project”</em>) and auto-fixing bugs using terminal feedback.</li>
 </ul>
-<p>In short: <strong>Chat</strong> talks about code, <strong>Plan</strong> outlines the strategy, and <strong>Agent</strong> executes the work.</p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <p>What if you use the wrong mode?</p>
 <p>Using Chat for complex tasks: You’ll get long code snippets to copy-paste manually, but the AI won’t touch your files or run tests. You do all the heavy lifting.</p>
 <p>Using Plan for simple questions: The AI might over-analyze, giving you a “roadmap” for a task that only required a one-sentence answer.</p>
 <p>Using Agent for trivial questions: You might waste tokens and time as the Agent scans your entire directory and attempts to “verify” things that didn’t need it.</p>
-</div>
 </div>
 </section>
 </section>
@@ -953,7 +998,7 @@ Caution
 </ul></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled" title="venv 101">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -962,7 +1007,7 @@ Caution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>When you install Python packages globally, everything gets mixed together.</p>
 <p>If one project needs Django 3.2 and another needs Django 5.0, they’ll conflict.</p>
@@ -978,9 +1023,9 @@ Caution
 <li>exit the venv: <code>deactivate</code></li>
 </ul>
 <p>To recreate the environment elsewhere:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> venv venv</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> venv/bin/activate</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> venv venv</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> venv/bin/activate</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -998,11 +1043,11 @@ Caution
 <div class="code-with-filename-file">
 <pre><strong>pyrightconfig.json</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="pyrightconfig.json"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"typeCheckingMode"</span><span class="fu">:</span> <span class="st">"off"</span><span class="fu">,</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"reportMissingParameterType"</span><span class="fu">:</span> <span class="st">"none"</span><span class="fu">,</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"reportImplicitRelativeImport"</span><span class="fu">:</span> <span class="st">"none"</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename="pyrightconfig.json"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"typeCheckingMode"</span><span class="fu">:</span> <span class="st">"off"</span><span class="fu">,</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"reportMissingParameterType"</span><span class="fu">:</span> <span class="st">"none"</span><span class="fu">,</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"reportImplicitRelativeImport"</span><span class="fu">:</span> <span class="st">"none"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul class="task-list">
 <li><label><input type="checkbox">to hide inlay hints</label></li>
@@ -1011,11 +1056,11 @@ Caution
 <div class="code-with-filename-file">
 <pre><strong>.vscode/settings.json</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename=".vscode/settings.json"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"basedpyright.analysis.inlayHints.callArgumentNames"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"basedpyright.analysis.inlayHints.variableTypes"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"basedpyright.analysis.inlayHints.functionReturnTypes"</span><span class="fu">:</span> <span class="kw">false</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-filename=".vscode/settings.json"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"basedpyright.analysis.inlayHints.callArgumentNames"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"basedpyright.analysis.inlayHints.variableTypes"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"basedpyright.analysis.inlayHints.functionReturnTypes"</span><span class="fu">:</span> <span class="kw">false</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 
