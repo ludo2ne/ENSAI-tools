@@ -28,7 +28,6 @@ listing:
     filter-ui: false
 ---
 
-:construction:
 
 Vous trouverez ici les outils indispensables pour mener à bien vos projets et stages.
 
@@ -38,6 +37,8 @@ Les TP suivants seront dispensés aux élèves de première année :
 - [Introduction à Git](./doc/git/lab.qmd){target="_blank"}
 - [Bien gérer votre projet](./doc/project/lab.qmd){target="_blank"}
 - TP Quarto (cours *Stats avec R*)
+
+> :construction: Certaines pages sont encore en construction
 
 ## Git
 

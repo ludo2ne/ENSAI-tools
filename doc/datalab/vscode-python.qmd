@@ -185,6 +185,7 @@ It can navigate your entire project structure, analyze your file tree, and read 
 This deep context allows the AI to provide highly accurate, project-specific solutions that are perfectly aligned with your existing codebase and environment.
 :::
 
+
 ### Setup
 
 To send messages to the AI, you'll need to call an API. The first step is to retrieve the key so you can use it.
@@ -198,15 +199,21 @@ Now you will enter the key into the SSPCloud
 
 - [ ] Go to [My account](https://datalab.sspcloud.fr/account){target="_blank"}
 - [ ] Enable *AI Assistant*
-  - Default model: *gemma4-26b-moe*
+  - Default model: *gemma4-26b-moe* or *qwen3-6-35b-moe*
   - Provider: *openai*
   - ModelProvider: *openai-chat*
   - EmbeddingsProvider: *openai*
   - API base URL: `https://llm.lab.sspcloud.fr/api/v1`
   - Paste your API key
 
-Now it's time to launch a service.
+::: {.callout-caution}
+Models hosted natively on SSPCloud have limited computing power. To check service availability and server load, please refer to <https://status.lab.sspcloud.fr/status/sspcloud>{target="_blank"}.
 
+You can connect to third-party models (e.g., `codestral`) by modifying the Provider and API URL. Please note that using external services is subject to **token limitations**.
+:::
+
+
+Now it's time to launch a service.
 
 ### Use it
 
@@ -225,17 +232,48 @@ To chat with the agent, you will use extension called [Continue](https://docs.co
 
 :tada: Now you can ask the agent questions related to your project 
 
-:construction: 
+:::{.notes}
+TODO :construction: 
 
 - @File, @CurrentFile, @ OpenFile
 - CTRL+L : select code
 - CTRL+I : fix the code
 - pre-prompt
+:::
+
+### Other models
+
+::: {.callout-important}
+Once more: Models hosted natively on SSPCloud have limited computing power.
+
+If all students use the same model, it may cause the hosting server to crash due to resource exhaustion.
+:::
+
+To add other models, edit file `/home/onyxia/.continue/config.yaml`, adding new models:
+
+```{.yml filename="config.yaml"}
+models:
+  - name: "qwen3-6-35b-moe"
+    model: "qwen3-6-35b-moe"
+    provider: "openai"
+    apiBase: "https://llm.lab.sspcloud.fr/api/v1"
+    apiKey: "??????"
+  - name: "codestral-latest"
+    model: "codestral-latest"
+    provider: "mistral"
+    apiBase: "https://api.mistral.ai/v1"
+    apiKey: "??????"
+```
+
+For example, to use *codestral* (or another Mistral model):
+
+- [ ] Create an account on [Mistral](https://console.mistral.ai)
+- [ ] Create an [API key](https://console.mistral.ai/api-keys){target="_blank"}
+- [ ] Keep an eye on your monthly token usage to avoid having your account blocked
 
 
-Here is the condensed version in English, using text and lists instead of a table:
-
-### Continue Modes
+:::{.notes}
+Continue Modes
 
 Chat (The Advisor):
 
@@ -255,10 +293,8 @@ Agent (The Developer):
 - Capability: An autonomous loop that can **read files, edit code, and run terminal commands** to achieve a goal.
 - Best For: End-to-end tasks (e.g., *"Implement X feature across the project"*) and auto-fixing bugs using terminal feedback.
 
-In short: **Chat** talks about code, **Plan** outlines the strategy, and **Agent** executes the work.
 
 
-:::callout-caution
 What if you use the wrong mode?
 
 Using Chat for complex tasks: You'll get long code snippets to copy-paste manually, but the AI won't touch your files or run tests. You do all the heavy lifting.
