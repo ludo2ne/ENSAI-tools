@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-8fa8a3b1ae6ff6f9c6b8419171c65b8c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-8835989284bd62f7cac90e8613e3e611.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-8fa8a3b1ae6ff6f9c6b8419171c65b8c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-edb6c92ac4857650852916241193df99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ecff36e8869ebbc8362da441c997d0a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-edb6c92ac4857650852916241193df99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -372,26 +372,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../doc/format/csv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CSV</span></a>
+  <a href="../../doc/format/parquet-csv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parquet, CSV</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../doc/format/parquet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Parquet</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../doc/format/json.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">JSON</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../doc/format/yaml.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">YAML</span></a>
+  <a href="../../doc/format/json-yaml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">JSON, YAML</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -423,24 +411,6 @@ window.Quarto = {
  <span class="menu-text">Python</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../doc/language/r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../doc/language/quality.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Qualité du code</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../doc/language/iagen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Usages de l’IAgen</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -467,7 +437,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../doc/git/lab.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TP</span></a>
+ <span class="menu-text">TP Git</span></a>
   </div>
 </li>
       </ul>
@@ -524,12 +494,6 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../doc/project/planning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Planning</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../doc/project/lab.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TP Gestion de projet</span></a>
   </div>
@@ -554,7 +518,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../doc/quarto/quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text">Introduction à Quarto</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -567,18 +531,6 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../doc/quarto/slideshow-html.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Diaporama</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../doc/quarto/poster.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Poster</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../doc/quarto/site.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Site statique</span></a>
   </div>
 </li>
           <li class="sidebar-item">
