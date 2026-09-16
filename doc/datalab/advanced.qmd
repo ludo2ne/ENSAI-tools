@@ -2,12 +2,10 @@
 title: "Usage avancé du Datalab"
 author: "Ludovic Deneuville"
 categories:
-  - Script
+  - Init script
   - Secrets
   - Docker
 ---
-
-:construction:
 
 ## Script d'initialisation
 

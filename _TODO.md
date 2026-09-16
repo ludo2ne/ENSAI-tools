@@ -1,5 +1,13 @@
 # TODO
 
+- [ ] TP Projet
+- [ ] R
+- [ ] Usages IAgen
+- [ ] Code quality
+- [ ] Git advanced
+- [ ] Quarto poster
+- [ ] Quarto site
+
 
 ## LaSuite
 

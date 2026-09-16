@@ -5,3 +5,5 @@ title: "Poster"
 :construction:
 
 typst A3
+
+<https://github.com/quarto-ext/typst-templates/tree/main/poster>

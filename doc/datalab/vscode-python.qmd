@@ -191,7 +191,7 @@ This deep context allows the AI to provide highly accurate, project-specific sol
 To send messages to the AI, you'll need to call an API. The first step is to retrieve the key so you can use it.
 
 - [ ] Go to <https://llm.lab.sspcloud.fr/>{target="_blank"}
-- [ ] Click on your avatar in the upper right corner
+- [ ] Click on your avatar in the bottom left corner
 - [ ] Choose *Settings* then select tab *Account* :arrow_right: 
 - [ ] Copy the *API key*
 

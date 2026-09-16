@@ -22,14 +22,10 @@ website:
         text: Home
       - section: Formats et échanges de données
         contents:
-          - href: doc/format/csv.qmd
-            text: "CSV"
-          - href: doc/format/parquet.qmd
-            text: "Parquet"
-          - href: doc/format/json.qmd
-            text: "JSON"
-          - href: doc/format/yaml.qmd
-            text: "YAML"
+          - href: doc/format/parquet-csv.qmd
+            text: "Parquet, CSV"
+          - href: doc/format/json-yaml.qmd
+            text: "JSON, YAML"
           - href: doc/format/api.qmd
             text: "API"
       - section: Coder
@@ -38,12 +34,6 @@ website:
             text: "Bash"
           - href: doc/language/python.qmd
             text: "Python"
-          - href: doc/language/r.qmd
-            text: "R"
-          - href: doc/language/quality.qmd
-            text: "Qualité du code"
-          - href: doc/language/iagen.qmd
-            text: "Usages de l'IAgen"
       - section: Versionner avec Git
         contents:
           - href: doc/git/presentation.qmd
@@ -51,7 +41,7 @@ website:
           - href: doc/git/advanced.qmd
             text: "Usages avancés"
           - href: doc/git/lab.qmd
-            text: "TP"
+            text: "TP Git"
       - section: Utiliser le Datalab
         contents:
           - href: doc/datalab/intro.qmd
@@ -66,8 +56,6 @@ website:
             text: "TP Découverte"
       - section: Gérer son Projet
         contents:
-          - href: doc/project/planning.qmd
-            text: "Planning"
           - href: doc/project/lab.qmd
             text: "TP Gestion de projet"
       - section: Restituer avec Quarto
@@ -75,15 +63,11 @@ website:
           - href: doc/quarto/markdown.qmd
             text: "Markdown"
           - href: doc/quarto/quarto.qmd
-            text: "Introduction"
+            text: "Introduction à Quarto"
           - href: doc/quarto/report.qmd
             text: "Rapport de projet"
           - href: doc/quarto/slideshow.qmd
             text: "Diaporama"
-          - href: doc/quarto/poster.qmd
-            text: "Poster"
-          - href: doc/quarto/site.qmd
-            text: "Site statique"
           - href: doc/quarto/rstudio.qmd
             text: "Using RStudio"
   page-footer:

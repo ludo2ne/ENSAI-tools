@@ -6,20 +6,25 @@ author: "Ludovic Deneuville"
 
 :construction:
 
-## Pourquoi Quarto
-
-historique  :
+:::{.notes}
+historique, Pourquoi Quarto  :
 
 - R avec commentaire
 - Copier coller les figures
 - Rmd
 
-## Fichier qmd
+Fichier qmd
+Métadonnées Yaml
+render, comment ça fonctionne
+:::
 
 
-### Métadonnées Yaml
+::: {.callout-note}
+Ce site est réalisé avec Quarto.
+:::
 
 
-### render
+- [Hello Quarto](https://quarto.org/docs/get-started/hello/vscode.html){target="_blank"}
+- [Quarto-tuto](https://ludo2ne.github.io/Quarto-tuto/){target="_blank"}
 
 

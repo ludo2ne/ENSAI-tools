@@ -38,3 +38,6 @@ Depends:
 
 - <https://juba.github.io/tidyverse/>{target="_blank"}
 - [R for Data Science](https://r4ds.hadley.nz/){target="_blank"}
+- [Guide-R](https://larmarange.github.io/guide-R/){target="_blank"}
+- [UtilitR](https://www.utilitr.org/){target="_blank"}
+- <https://thinkr.fr/blog/>
