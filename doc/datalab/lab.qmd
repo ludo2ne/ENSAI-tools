@@ -3,11 +3,17 @@ title: "TP découverte du Datalab"
 author: "Ines Hiverlet"
 ---
 
-
 ::: {.callout-note}
 Ce TP est dispensé aux élèves de première année en début d'année scolaire.
 :::
 
-
-
 Sujet : <https://github.com/ihiverlet/Ensai-1A-initiation-datalab>{target="_blank"}
+
+## Créer un compte
+
+- [ ] Allez sur <https://datalab.sspcloud.fr>{target="_blank"}
+- [ ] Cliquez sur `Connexion` :arrow_right: Créez un compte 
+- [ ] Renseignez les champs demandés
+  - mail : `prenom.nom@eleve.ensai.fr`
+- [ ] Validez par mail
+
