@@ -516,8 +516,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#json" id="toc-json" class="nav-link active" data-scroll-target="#json"><span class="header-section-number">1</span> JSON</a></li>
-  <li><a href="#yaml" id="toc-yaml" class="nav-link" data-scroll-target="#yaml"><span class="header-section-number">2</span> YAML</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#json" id="toc-json" class="nav-link" data-scroll-target="#json"><span class="header-section-number">2</span> JSON</a></li>
+  <li><a href="#yaml" id="toc-yaml" class="nav-link" data-scroll-target="#yaml"><span class="header-section-number">3</span> YAML</a></li>
   </ul>
 </nav>
     </div>
@@ -528,7 +529,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../doc/format/parquet-csv.html">Formats et échanges de données</a></li><li class="breadcrumb-item"><a href="../../doc/format/json-yaml.html">JSON, YAML</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">JSON, YAML</h1>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">JSON</div>
+    <div class="quarto-category">YAML</div>
+  </div>
+  </div>
 
 <div>
   <div class="description">
@@ -555,8 +560,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="json" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="json"><span class="header-section-number">1</span> JSON</h2>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>Il existe différents formats pour structurer des données textuelles. Nous verrons ici :</p>
+<ul>
+<li><strong>JSON</strong> : rigoureux, structuré, et standard pour l’échange de données entre applications (API)</li>
+<li><strong>YAML</strong> : épuré, lisible et structuré par l’indentation, idéal pour la configuration</li>
+</ul>
+</section>
+<section id="json" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="json"><span class="header-section-number">2</span> JSON</h2>
 <p>JSON (JavaScript Object Notation) est un format de sérialisation de données textuel, léger et indépendant du langage.</p>
 <p>Il est aujourd’hui utilisé pour l’échange de données entre un client et un serveur. Il est à la fois :</p>
 <ul>
@@ -564,16 +577,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Léger</li>
 <li>Structuré de manière hiérarchique</li>
 </ul>
-<section id="utilisation" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="utilisation"><span class="header-section-number">1.1</span> Utilisation</h3>
+<section id="utilisation" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="utilisation"><span class="header-section-number">2.1</span> Utilisation</h3>
 <p>vous rencontrerez le format JSON dans :</p>
 <ol type="1">
 <li>Fichiers de Configuration : De nombreux outils modernes utilisent le JSON pour stocker des réglages (ex: <code>settings.json</code> de Visual Studio Code).</li>
 <li>Les API REST : Lorsqu’une application demande des données à un serveur</li>
 </ol>
 </section>
-<section id="syntaxe" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="syntaxe"><span class="header-section-number">1.2</span> Syntaxe</h3>
+<section id="syntaxe" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="syntaxe"><span class="header-section-number">2.2</span> Syntaxe</h3>
 <p>Un fichier JSON repose sur deux structures de données fondamentales :</p>
 <ul>
 <li>L’Objet <code>{ }</code> : Un ensemble de paires <code>clé: valeur</code></li>
@@ -624,8 +637,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="yaml" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="yaml"><span class="header-section-number">2</span> YAML</h2>
+<section id="yaml" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="yaml"><span class="header-section-number">3</span> YAML</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -641,8 +654,8 @@ Note
 <p>Il est souvent utilisé pour la configuration des fichiers, le stockage de données, et les échanges de données entre langages de programmation.</p>
 </div>
 </div>
-<section id="pourquoi-utiliser-yaml" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="pourquoi-utiliser-yaml"><span class="header-section-number">2.1</span> Pourquoi utiliser YAML ?</h3>
+<section id="pourquoi-utiliser-yaml" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="pourquoi-utiliser-yaml"><span class="header-section-number">3.1</span> Pourquoi utiliser YAML ?</h3>
 <ul>
 <li><strong>Lisibilité</strong>
 <ul>
@@ -665,8 +678,8 @@ Note
 </ul>
 <p>Voici quelques exemples de syntaxe avec son équivalent json.</p>
 </section>
-<section id="les-types-de-base-attributs" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="les-types-de-base-attributs"><span class="header-section-number">2.2</span> Les types de base (Attributs)</h3>
+<section id="les-types-de-base-attributs" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="les-types-de-base-attributs"><span class="header-section-number">3.2</span> Les types de base (Attributs)</h3>
 <p>Tout commence par l’assignation de valeurs à des clés.</p>
 <div class="columns">
 <div class="column">
@@ -700,8 +713,8 @@ Note
 </div>
 </div>
 </section>
-<section id="liste-de-valeurs" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="liste-de-valeurs"><span class="header-section-number">2.3</span> Liste de valeurs</h3>
+<section id="liste-de-valeurs" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="liste-de-valeurs"><span class="header-section-number">3.3</span> Liste de valeurs</h3>
 <p>Une structure de données peut contenir une séquence d’éléments. En YAML, nous avons deux façons de déclarer une liste : le mode “bloc” (plus lisible) ou le mode “flux” (plus compact, identique au JSON).</p>
 <div class="columns">
 <div class="column">
@@ -763,8 +776,8 @@ Note
 </div>
 </div>
 </section>
-<section id="ancre-et-alias" class="level3" data-number="2.4">
-<h3 data-number="2.4" class="anchored" data-anchor-id="ancre-et-alias"><span class="header-section-number">2.4</span> Ancre et alias</h3>
+<section id="ancre-et-alias" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="ancre-et-alias"><span class="header-section-number">3.4</span> Ancre et alias</h3>
 <p>L’un des grands avantages de YAML sur JSON est sa capacité à gérer la redondance. Si une donnée est répétée plusieurs fois, on peut définir une <strong>ancre</strong> (<code>&amp;</code>) pour la nommer, et un <strong>alias</strong> (<code>*</code>) pour l’appeler.</p>
 <div class="columns">
 <div class="column">
@@ -795,8 +808,8 @@ Note
 </div>
 </div>
 </section>
-<section id="héritage" class="level3" data-number="2.5">
-<h3 data-number="2.5" class="anchored" data-anchor-id="héritage"><span class="header-section-number">2.5</span> Héritage</h3>
+<section id="héritage" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="héritage"><span class="header-section-number">3.5</span> Héritage</h3>
 <p>L’opérateur <code>&lt;&lt;</code> permet de créer un template de base et de ne modifier que les paramètres spécifiques pour chaque instance.</p>
 <div class="columns">
 <div class="column">
@@ -842,8 +855,8 @@ Note
 </div>
 </div>
 </section>
-<section id="texte-multi-lignes" class="level3" data-number="2.6">
-<h3 data-number="2.6" class="anchored" data-anchor-id="texte-multi-lignes"><span class="header-section-number">2.6</span> Texte multi-lignes</h3>
+<section id="texte-multi-lignes" class="level3" data-number="3.6">
+<h3 data-number="3.6" class="anchored" data-anchor-id="texte-multi-lignes"><span class="header-section-number">3.6</span> Texte multi-lignes</h3>
 <p>Quand il s’agit de stocker de longs blocs de texte (descriptions, requêtes SQL, scripts, poèmes), YAML propose deux opérateurs très utiles pour gérer les retours à la ligne de manière explicite.</p>
 <ul>
 <li>Le pipe <code>|</code> : préserve les retours à la ligne.</li>
