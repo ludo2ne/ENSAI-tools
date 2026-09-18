@@ -1,6 +1,6 @@
 ---
 title: "TP Gérer son projet"
-description: "Bonne pratiques en projet"
+description: "Bonnes pratiques en projet"
 categories:
   - Dépôts
   - Planification

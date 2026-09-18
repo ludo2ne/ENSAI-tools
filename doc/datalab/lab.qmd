@@ -5,6 +5,12 @@ author: "Ines Hiverlet"
 
 ::: {.callout-note}
 Ce TP est dispensé aux élèves de première année en début d'année scolaire.
+
+Vous allez utiliser les services du Datalab dans de nombreux TP, par exemple :
+
+- RStudio (ou Jupyther-python) pour les TP stats
+- VSCode-python pour les TP et projets informatiques
+- PostgreSQL et cloudBeaver pour les TP de bases de données relationnelles
 :::
 
 Sujet : <https://github.com/ihiverlet/Ensai-1A-initiation-datalab>{target="_blank"}

@@ -10,20 +10,22 @@ categories:
   - Kubernetes
 ---
 
-::: {.callout-tip}
-Le Datalab permet aux statisticiennes et statisticiens de découvrir, d'expérimenter, d'apprendre, de se former aux outils de la data.
-:::
-
+> Le Datalab permet aux statisticiennes et statisticiens de découvrir, d'expérimenter, d'apprendre, de se former aux outils de la data.
 
 Liens utiles :
 
 - <https://www.sspcloud.fr/>{target="_blank"}
-  - Le Datalab de l'INSEE : <https://datalab.sspcloud.fr/>{target="_blank"}
+  - <https://datalab.sspcloud.fr/>{target="_blank"} : le Datalab de l'INSEE
   - [La documentation](https://www.sspcloud.fr/catalog?path=SSPCloud%E2%90%A3Documentation){target="_blank"}
-  - Mais aussi des tutoriels, des formations et un agent conversationnel local et basé sur des modèles d'IA open source
+  - Mais aussi des tutos, des formations et un agent basé sur des modèles d'IA open source
+  - [Healthcheck](https://status.lab.sspcloud.fr){target="_blank"}
 - [Datalab de l'ENSAE-ENSAI](https://onyxia.lab.groupe-genes.fr/){target="_blank"}
 - <https://www.onyxia.sh/>{target="_blank"} : l'application qui permet à n'importe qui de déployer des services, sans avoir besoin de connaissances techniques de l'infrastructure.
-- Besoin d'assistance ? Contactez l'équipe du SSPCloud sur [Slack](https://join.slack.com/t/3innovation/shared_invite/zt-1bo6y53oy-Y~zKzR2SRg37pq5oYgiPuA){target="_blank"}
+- [Le SSPCloud : une fabrique créative pour accompagner les expérimentations des statisticiens publics](https://www.insee.fr/fr/information/6035940?sommaire=6035950){target="_blank"}, Courrier des statistiques N7 - 2022
+
+::: {.callout-tip}
+Besoin d'assistance :question: Contactez l'équipe du SSPCloud sur [Slack](https://join.slack.com/t/3innovation/shared_invite/zt-1bo6y53oy-Y~zKzR2SRg37pq5oYgiPuA){target="_blank"}
+:::
 
 
 ## Pourquoi un Datalab ?
@@ -91,9 +93,7 @@ Lancer un service, c'est un peu comme se servir dans un magasin informatique.
 
 ## Comment ça marche ?
 
-::: {.callout-note}
-Si vous voulez en savoir plus sur l'histoire du projet et comment ça fonctionne.
-:::
+> Si vous voulez en savoir plus sur l'histoire du projet et comment ça fonctionne.
 
 Une présentation complète du projet Onyxia au Devoxx 2023, de sa philosophie et de son fonctionnement par Olivier LEVITT, Joseph GARRONE et Frédéric COMTE.
 

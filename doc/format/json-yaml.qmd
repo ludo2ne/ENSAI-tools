@@ -2,7 +2,18 @@
 title: "JSON, YAML"
 description: "Les Formats de Configuration et d'échanges légers"
 author: "Ludovic Deneuville"
+categories:
+  - JSON
+  - YAML
 ---
+
+## Introduction
+
+Il existe différents formats pour structurer des données textuelles. Nous verrons ici :
+
+- **JSON** : rigoureux, structuré, et standard pour l'échange de données entre applications (API)
+- **YAML** : épuré, lisible et structuré par l'indentation, idéal pour la configuration
+
 
 ## JSON
 

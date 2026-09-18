@@ -2,6 +2,11 @@
 title: "Les commandes Bash"
 description: "Utiliser un terminal Unix"
 author: "Ludovic Deneuville"
+categories:
+  - Bash
+  - Terminal
+  - Commandes
+  - Variables d'environnement
 ---
 
 

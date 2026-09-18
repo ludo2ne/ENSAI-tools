@@ -6,12 +6,14 @@ number-sections: false
 format:
   html:
     code-tools: true
+categories:
+  - Markdown
 ---
 
 
 ## Qu'est-ce que Markdown ?
 
-Markdown est un langage de balisage léger créé par John Gruber en 2004. Son objectif de simplifier l'écriture de texte destiné au web en permettant aux utilisateurs d'écrire en utilisant un format texte brut facile à lire et à écrire.
+Markdown est un langage de balisage léger créé par [John Gruber](https://daringfireball.net/projects/markdown/){target="_blank"} en 2004. Son objectif de simplifier l'écriture de texte destiné au web en permettant aux utilisateurs d'écrire en utilisant un format texte brut facile à lire et à écrire.
 
 ## Pourquoi utiliser Markdown ?
 
@@ -39,7 +41,7 @@ Les éditeurs présentent généralement deux sections cote à cote :
 
 ### Exemples
 
-De très nombreuses ressources existent pour apprendre en quelques minutes le langage, par exemple <https://commonmark.org/help/>{target="_blank}
+> De très nombreuses ressources existent pour apprendre en quelques minutes le langage, par exemple <https://commonmark.org/help/>{target="_blank}
 
 Quelques exemples de mise en forme :
 
@@ -53,9 +55,22 @@ Quelques exemples de mise en forme :
 | `# Titre de niveau 1`            |                                |
 | `## Titre de niveau 2`           |                                |
 
+```{.txt filename="Liste et sous-liste"}
+- choux
+  - choux fleur
+  - choux romanesco
+- carotte
+- concombre
+```
+
+```{.txt filename="Liste numérotée"}
+1. Amanda
+2. Blandine
+3. Claire
+```
 
 ::: {.callout-note}
-Cette page est elle-même écrite en Markdown ! (avec une [surcouche](https://quarto.org/docs/authoring/markdown-basics.html){target="_blank})
+Cette page est elle-même écrite en Markdown ! (avec une [surcouche Quarto](https://quarto.org/docs/authoring/markdown-basics.html){target="_blank}) qui ajoute quelques mises en forme supplémentaires (par exemple cet encadré).
 
 Vous pouvez consulter le code en cliquant sur le bouton `</> Code` en haut à droite.
 :::
