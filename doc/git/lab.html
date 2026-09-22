@@ -449,7 +449,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../doc/datalab/lab.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TP Découverte</span></a>
+ <span class="menu-text">TP Datalab</span></a>
   </div>
 </li>
       </ul>
@@ -525,11 +525,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#à-faire-à-la-maison" id="toc-à-faire-à-la-maison" class="nav-link active" data-scroll-target="#à-faire-à-la-maison">À faire à la maison</a></li>
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#environnement-de-travail" id="toc-environnement-de-travail" class="nav-link" data-scroll-target="#environnement-de-travail"><span class="header-section-number">1</span> Environnement de travail</a></li>
-  <li><a href="#git-bash-et-unix" id="toc-git-bash-et-unix" class="nav-link" data-scroll-target="#git-bash-et-unix"><span class="header-section-number">2</span> Git Bash et Unix</a></li>
-  <li><a href="#dépôts-git" id="toc-dépôts-git" class="nav-link" data-scroll-target="#dépôts-git"><span class="header-section-number">3</span> Dépôts Git</a></li>
-  <li><a href="#premiers-pas" id="toc-premiers-pas" class="nav-link" data-scroll-target="#premiers-pas"><span class="header-section-number">4</span> Premiers pas</a></li>
-  <li><a href="#simulation-de-travail-en-groupe" id="toc-simulation-de-travail-en-groupe" class="nav-link" data-scroll-target="#simulation-de-travail-en-groupe"><span class="header-section-number">5</span> Simulation de travail en groupe</a></li>
-  <li><a href="#ci" id="toc-ci" class="nav-link" data-scroll-target="#ci"><span class="header-section-number">6</span> CI</a></li>
+  <li><a href="#vscode" id="toc-vscode" class="nav-link" data-scroll-target="#vscode"><span class="header-section-number">2</span> VSCode</a></li>
+  <li><a href="#git-bash-et-unix" id="toc-git-bash-et-unix" class="nav-link" data-scroll-target="#git-bash-et-unix"><span class="header-section-number">3</span> Git Bash et Unix</a></li>
+  <li><a href="#dépôts-git" id="toc-dépôts-git" class="nav-link" data-scroll-target="#dépôts-git"><span class="header-section-number">4</span> Dépôts Git</a></li>
+  <li><a href="#premiers-pas" id="toc-premiers-pas" class="nav-link" data-scroll-target="#premiers-pas"><span class="header-section-number">5</span> Premiers pas</a></li>
+  <li><a href="#simulation-de-travail-en-groupe" id="toc-simulation-de-travail-en-groupe" class="nav-link" data-scroll-target="#simulation-de-travail-en-groupe"><span class="header-section-number">6</span> Simulation de travail en groupe</a></li>
+  <li><a href="#ci" id="toc-ci" class="nav-link" data-scroll-target="#ci"><span class="header-section-number">7</span> CI</a></li>
   <li><a href="#git-sur-la-vm-ensai" id="toc-git-sur-la-vm-ensai" class="nav-link" data-scroll-target="#git-sur-la-vm-ensai">Git sur la VM ENSAI</a></li>
   </ul>
 </nav>
@@ -546,6 +547,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="quarto-category">Clone</div>
     <div class="quarto-category">Add, commit, push</div>
     <div class="quarto-category">Conflit</div>
+    <div class="quarto-category">CI</div>
   </div>
   </div>
 
@@ -702,73 +704,41 @@ Note
 <p>Les commandes seront saisies dans un terminal Git Bash.</p>
 <p>Vous allez utiliser un service Vscode-python du datalab. Celui-ci inclus Git Bash.</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Connectez-vous à un datalab</label>
+<li><label><input type="checkbox">Connectez-vous sur <a href="https://datalab.sspcloud.fr/" target="_blank">https://datalab.sspcloud.fr/</a></label>
 <ul>
-<li><a href="https://onyxia.lab.groupe-genes.fr/" target="_blank">https://onyxia.lab.groupe-genes.fr/</a></li>
-<li><a href="https://datalab.sspcloud.fr/" target="_blank">https://datalab.sspcloud.fr/</a> (create an account using <code>firstname.lastname@eleve.ensai.fr</code>)</li>
+<li>alternative : <a href="https://onyxia.lab.groupe-genes.fr/" target="_blank">https://onyxia.lab.groupe-genes.fr/</a></li>
 </ul></li>
 </ul>
-<p>Durant ce TP, vous allez transférer du code entre votre dépôt local (service VSCode) et votre dépôt distant (sur GitHub). Pour valider ces transfert un processus d’authentification est naturellement requis.</p>
-<section id="génération-dun-token" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="génération-dun-token"><span class="header-section-number">1.1</span> Génération d’un Token</h3>
-<div class="callout callout-style-default callout-note callout-titled" title="Ce que vous allez faire">
+<p>Durant ce TP, vous allez transférer du code entre votre dépôt local (service VSCode du datalab) et votre dépôt distant (sur GitHub). Pour valider ces transfert un processus d’authentification est naturellement requis.</p>
+<section id="génération-et-déclaration-dun-token" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="génération-et-déclaration-dun-token"><span class="header-section-number">1.1</span> Génération et déclaration d’un Token</h3>
+<blockquote class="blockquote">
+<p>Pour éviter d’avoir à vous authentifier (user+password) à chaque commande Git, vous allez utiliser un jeton.</p>
+</blockquote>
+<ul class="task-list">
+<li><label><input type="checkbox">Ouvrez <a href="../../doc/datalab/basics.html">cette page</a> qui contient les instructions suivantes</label></li>
+<li><label><input type="checkbox">Lisez le principe du Token</label></li>
+<li><label><input type="checkbox">Créez un Token sur GitHub</label></li>
+<li><label><input type="checkbox">Déclarez-le sur le SSPCloud</label></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Ce que vous allez faire
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Ce paramétrage n’est à faire qu’une seule fois, jusqu’à expiration du jeton.</p>
-<ul>
-<li>Générer un jeton sur GitHub</li>
-<li>Déclarer ce jeton sur le datalab</li>
-</ul>
-<p>Ainsi, à chaque fois que vous lancerez un service du datalab :</p>
-<ul>
-<li>Le jeton sera injecté dans une variable d’environnement</li>
-<li>vous pourrez donc le récupérer et l’utiliser pour communiquer avec GitHub de manière sécurisée</li>
-</ul>
 </div>
 </div>
-<ul class="task-list">
-<li><label><input type="checkbox">Connectez-vous à votre compte <a href="https://github.com/" target="_blank">GitHub</a></label></li>
-<li><label><input type="checkbox">Allez sur ce lien : <a href="https://github.com/settings/tokens" target="_blank">Personal Access Token</a></label>
-<ul>
-<li>pour créer un nouveau <u>token <strong>classic</strong></u></li>
-<li>Note: for ENSAI datalabs</li>
-<li>Expiration: 30/06/2026</li>
-<li>cochez repo and workflow</li>
-<li><span class="green-button">Generate token</span></li>
-</ul></li>
-<li><label><input type="checkbox">Copiez le token (ghp_xxxxxxxxxx)</label></li>
-</ul>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Attention sa valeur ne sera affichée qu’une seule fois. En cas de perte, il faut le supprimer et en recréer un nouveau.</p>
-</div>
-</div>
-<p>Nous allons maintenant déclarer ce jeton sur votre compte du datalab.</p>
 </section>
-<section id="déclaration-du-token-au-datalab" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="déclaration-du-token-au-datalab"><span class="header-section-number">1.2</span> Déclaration du Token au Datalab</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Allez dans <em>Mon Compte</em>, puis onglet <em>Git</em></label></li>
-<li><label><input type="checkbox">Collez le token</label></li>
-</ul>
-<p>Ce jeton est maintenant accessible dans la plupart des services du datalab (VSCode, Jupyter, RStudio…) Vous pourrez alors l’utiliser pour communiquer avec vos dépôts GitHub.</p>
-<p>Aujourd’hui nous allons utiliser un service VSCode. Ce logiciel sera utilisé pour la majorité des cours d’informatique de l’ENSAI.</p>
-<p>C’est un IDE (Integrated Development Environment) i.e.&nbsp;une application qui offre des outils complets pour le développement logiciel (éditeur de Code, compilateur / interpréteur, gestionnaire de projet, terminal Intégré, nombreuses extensions…)</p>
+</section>
+<section id="vscode" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="vscode"><span class="header-section-number">2</span> VSCode</h2>
+<p>Vous allez travailler dans un service VSCode. C’est ici que sera hébergé votre dépôt local.</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Lancez, puis ouvrez un service <strong>Vscode-python</strong></label></li>
 </ul>
@@ -804,14 +774,13 @@ Caution
 </ul></li>
 </ul>
 </section>
-</section>
-<section id="git-bash-et-unix" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="git-bash-et-unix"><span class="header-section-number">2</span> Git Bash et Unix</h2>
+<section id="git-bash-et-unix" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="git-bash-et-unix"><span class="header-section-number">3</span> Git Bash et Unix</h2>
 <p>Avant de nous lancer avec git, prenons quelques minutes pour découvrir le terminal Git Bash et les principales commandes Unix.</p>
 <p>En tant qu’ingénieur, cela vous sera sans doute utile un jour.</p>
 <p>Pour vous aider, voici la <a href="presentation.html#commandes-unix" target="_blank">liste des commandes principales</a>.</p>
-<section id="un-terminal" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="un-terminal"><span class="header-section-number">2.1</span> Un terminal ?</h3>
+<section id="un-terminal" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="un-terminal"><span class="header-section-number">3.1</span> Un terminal ?</h3>
 <p>Un terminal est une interface texte qui permet de donner des commandes à l’ordinateur.</p>
 <p>C’est une alternative à la souris pour naviguer, créer des fichiers, lancer des programmes.</p>
 <p>Git Bash est un terminal qui :</p>
@@ -836,8 +805,8 @@ Tip
 </div>
 </div>
 </section>
-<section id="démystifions-la-bête" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="démystifions-la-bête"><span class="header-section-number">2.2</span> Démystifions la bête</h3>
+<section id="démystifions-la-bête" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="démystifions-la-bête"><span class="header-section-number">3.2</span> Démystifions la bête</h3>
 <p><a href="./img/Git-bash2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="./img/Git-bash2.jpg" class="img-fluid"></a></p>
 <p>Dans le terminal, vous avez :</p>
 <ul>
@@ -852,8 +821,8 @@ Tip
 <li>à droite, vous avez vos terminaux (c’est possible d’en ouvrir plusieurs)</li>
 </ul>
 </section>
-<section id="premières-commandes" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="premières-commandes"><span class="header-section-number">2.3</span> Premières commandes</h3>
+<section id="premières-commandes" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="premières-commandes"><span class="header-section-number">3.3</span> Premières commandes</h3>
 <p>Commençons par quelques commandes simples :</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Affichez le répertoire courant</label></li>
@@ -863,8 +832,8 @@ Tip
 <li><label><input type="checkbox">Créez deux dossiers nommés <em>clone1</em> et <em>clone2</em></label></li>
 </ul>
 </section>
-<section id="fichiers" class="level3" data-number="2.4">
-<h3 data-number="2.4" class="anchored" data-anchor-id="fichiers"><span class="header-section-number">2.4</span> Fichiers</h3>
+<section id="fichiers" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="fichiers"><span class="header-section-number">3.4</span> Fichiers</h3>
 <p>Faisons maintenant quelques manipulations sur des fichiers :</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Créez un fichier <em>a.txt</em> contenant le résultat de la commande <code>env</code></label>
@@ -908,8 +877,8 @@ Tip
 </div>
 </section>
 </section>
-<section id="dépôts-git" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="dépôts-git"><span class="header-section-number">3</span> Dépôts Git</h2>
+<section id="dépôts-git" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="dépôts-git"><span class="header-section-number">4</span> Dépôts Git</h2>
 <p>Passons maintenant au thème central de ce TP : Git et la synchronisation des dépôts.</p>
 <p>Avant de se lancer, exécutez ces deux commandes qui vous éviterons peut-être d’être bloqué par la suite :</p>
 <ul class="task-list">
@@ -917,7 +886,7 @@ Tip
 <li><label><input type="checkbox"><code>git config --global core.mergeoptions --no-edit</code></label></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled" title="Explication détaillée">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -926,7 +895,7 @@ Tip
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><code>git config --global core.editor "code-server --wait"</code></p>
 <p>Cette commande définit l’éditeur de texte que Git utilisera par défaut pour les opérations nécessitant l’édition d’un message, comme les commits, les tags ou la résolution de conflits de fusion (merge).</p>
@@ -959,8 +928,8 @@ Tip
 </div>
 </div>
 <p>Commençons par créer un remote sur GitHub.</p>
-<section id="créez-un-dépôt-distant" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="créez-un-dépôt-distant"><span class="header-section-number">3.1</span> Créez un dépôt distant</h3>
+<section id="créez-un-dépôt-distant" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="créez-un-dépôt-distant"><span class="header-section-number">4.1</span> Créez un dépôt distant</h3>
 <ul class="task-list">
 <li><label><input type="checkbox">Créez un <a href="https://github.com/new" target="_blank">nouveau Repository</a> sur GitHub</label>
 <ul>
@@ -989,8 +958,8 @@ Important
 </div>
 </div>
 </section>
-<section id="privé-public" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="privé-public"><span class="header-section-number">3.2</span> Privé, public ?</h3>
+<section id="privé-public" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="privé-public"><span class="header-section-number">4.2</span> Privé, public ?</h3>
 <p>Vous avez déclaré votre dépôt <strong>Privé</strong>. C’est adapté dans ce cas, car nous sommes dans le cadre d’un exercice où l’idée n’est pas de faire du code propre mais de pratiquer.</p>
 <p>À l’inverse, n’hésitez pas à déclarer public vos travaux aboutis, non confidentiels.</p>
 <table class="caption-top table">
@@ -1047,8 +1016,8 @@ Important
 </div>
 </div>
 </section>
-<section id="créez-un-dépôt-local" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="créez-un-dépôt-local"><span class="header-section-number">3.3</span> Créez un dépôt local</h3>
+<section id="créez-un-dépôt-local" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="créez-un-dépôt-local"><span class="header-section-number">4.3</span> Créez un dépôt local</h3>
 <p>Vous allez maintenant créer une copie locale du remote en le clonant.</p>
 <p>Sur la page GitHub de votre repo :</p>
 <ul class="task-list">
@@ -1088,8 +1057,8 @@ Important
 </ul>
 </section>
 </section>
-<section id="premiers-pas" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="premiers-pas"><span class="header-section-number">4</span> Premiers pas</h2>
+<section id="premiers-pas" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="premiers-pas"><span class="header-section-number">5</span> Premiers pas</h2>
 <p>Dans ce dépôt local, vous allez commencer par créer de nouveaux dossiers et fichiers sur votre dépôt local.</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Créez un dossier <em>src</em></label></li>
@@ -1125,8 +1094,8 @@ Important
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"La voiture </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>nom<span class="sc">}</span><span class="ss"> de couleur </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>couleur<span class="sc">}</span><span class="ss"> roule à </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>vitesse<span class="sc">}</span><span class="ss"> km/h."</span>  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Vous venez de créez quelques nouveaux éléments sur votre clone, envoyons-les maintenant au remote.</p>
-<section id="add-commit-et-push" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="add-commit-et-push"><span class="header-section-number">4.1</span> Add, Commit et Push</h3>
+<section id="add-commit-et-push" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="add-commit-et-push"><span class="header-section-number">5.1</span> Add, Commit et Push</h3>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1261,8 +1230,8 @@ Important
 <li><label><input type="checkbox">Comme précédemment, faites un <em>commit</em></label></li>
 </ul>
 </section>
-<section id="historique-du-dépôt" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="historique-du-dépôt"><span class="header-section-number">4.2</span> Historique du dépôt</h3>
+<section id="historique-du-dépôt" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="historique-du-dépôt"><span class="header-section-number">5.2</span> Historique du dépôt</h3>
 <p>Pour accéder à l’historique d’un repo :</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Sur GitHub, vous pouvez consulter l’historique du dépôt distant</label>
@@ -1329,8 +1298,8 @@ Important
 </ul></li>
 </ul>
 </section>
-<section id="exercice-dapplication" class="level3" data-number="4.3">
-<h3 data-number="4.3" class="anchored" data-anchor-id="exercice-dapplication"><span class="header-section-number">4.3</span> Exercice d’application</h3>
+<section id="exercice-dapplication" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="exercice-dapplication"><span class="header-section-number">5.3</span> Exercice d’application</h3>
 <p>C’est le moment d’appliquer ce que nous venons de voir, à vous :</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Créez un fichier <code>src/test_voiture.py</code> avec ce code</label></li>
@@ -1383,8 +1352,8 @@ Important
 <li><label><input type="checkbox">Affichez votre historique</label></li>
 </ul>
 </section>
-<section id="le-fichier-.gitignore" class="level3" data-number="4.4">
-<h3 data-number="4.4" class="anchored" data-anchor-id="le-fichier-.gitignore"><span class="header-section-number">4.4</span> Le fichier .gitignore</h3>
+<section id="le-fichier-.gitignore" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="le-fichier-.gitignore"><span class="header-section-number">5.4</span> Le fichier .gitignore</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1435,15 +1404,15 @@ Note
 <p>Autre exemple : lors du projet info de 2e année, votre application python se connectera à une base de données. Or les infos de connexions à cette bdd ne devront pas atterrir sur GitHub !</p>
 </section>
 </section>
-<section id="simulation-de-travail-en-groupe" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="simulation-de-travail-en-groupe"><span class="header-section-number">5</span> Simulation de travail en groupe</h2>
+<section id="simulation-de-travail-en-groupe" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="simulation-de-travail-en-groupe"><span class="header-section-number">6</span> Simulation de travail en groupe</h2>
 <p>Pour les questions suivantes, vous allez avoir besoin de 2 dépôts locaux branchés sur un même dépôt distant. Il y a 2 possibilités :</p>
 <ul>
 <li>soit vous travaillez en bînome (vous avez chacun votre dépôt local)</li>
 <li>soit vous faîtes seul (mais vous gérez 2 dépôts locaux différents)</li>
 </ul>
-<section id="mise-en-place-des-clones" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="mise-en-place-des-clones"><span class="header-section-number">5.1</span> Mise en place des clones</h3>
+<section id="mise-en-place-des-clones" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="mise-en-place-des-clones"><span class="header-section-number">6.1</span> Mise en place des clones</h3>
 <div class="callout callout-style-default callout-note callout-titled" title="Si vous travaillez à 2">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1472,7 +1441,7 @@ Note
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Si vous faîtes seul">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1481,7 +1450,7 @@ Note
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul class="task-list">
 <li><label><input type="checkbox">Ouvrez un nouveau terminal</label></li>
@@ -1498,8 +1467,8 @@ Note
 </div>
 </div>
 </section>
-<section id="synchronisation-des-dépôts" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="synchronisation-des-dépôts"><span class="header-section-number">5.2</span> Synchronisation des dépôts</h3>
+<section id="synchronisation-des-dépôts" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="synchronisation-des-dépôts"><span class="header-section-number">6.2</span> Synchronisation des dépôts</h3>
 <p>Ici, un membre va coder et l’autre va devoir récupérer son code.</p>
 <ul class="task-list">
 <li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> crée un fichier <em>src/moto.py</em> avec le code suivant dans son dépôt local :</label></li>
@@ -1533,8 +1502,8 @@ Note
 </ul>
 <p>Nous allons maintenant illustrer le fait que votre dépôt local doit être impérativement à jour pour pousser du code.</p>
 </section>
-<section id="coder-en-équipe" class="level3" data-number="5.3">
-<h3 data-number="5.3" class="anchored" data-anchor-id="coder-en-équipe"><span class="header-section-number">5.3</span> Coder en équipe</h3>
+<section id="coder-en-équipe" class="level3" data-number="6.3">
+<h3 data-number="6.3" class="anchored" data-anchor-id="coder-en-équipe"><span class="header-section-number">6.3</span> Coder en équipe</h3>
 <p>Maintenant les deux membres vont coder en même temps mais sur des fichiers différents.</p>
 <blockquote class="blockquote">
 <p>Attention : 1, 2, 3, partez <span class="emoji" data-emoji="checkered_flag">🏁</span></p>
@@ -1613,8 +1582,8 @@ Important
 <li><label><input type="checkbox">Synchronisez vos dépôts pour avoir tous la dernière version</label></li>
 </ul>
 </section>
-<section id="un-premier-conflit" class="level3" data-number="5.4">
-<h3 data-number="5.4" class="anchored" data-anchor-id="un-premier-conflit"><span class="header-section-number">5.4</span> Un premier conflit</h3>
+<section id="un-premier-conflit" class="level3" data-number="6.4">
+<h3 data-number="6.4" class="anchored" data-anchor-id="un-premier-conflit"><span class="header-section-number">6.4</span> Un premier conflit</h3>
 <p>Pour le moment vous avez travaillé sur des fichiers différents, donc git arrive à gérer la situation.</p>
 <p>Maintenant, que se passe-t-il si vous modifiez tous les deux le même fichier ?</p>
 <p>Vous allez tous les 2 travailler sur le fichier <code>voiture.py</code>. Dans la méthode <em>accelere()</em> :</p>
@@ -1711,8 +1680,8 @@ Avoir un conflit, ce n’est pas grave !</p>
 </div>
 </div>
 </section>
-<section id="exercice-dapplication-1" class="level3" data-number="5.5">
-<h3 data-number="5.5" class="anchored" data-anchor-id="exercice-dapplication-1"><span class="header-section-number">5.5</span> Exercice d’application</h3>
+<section id="exercice-dapplication-1" class="level3" data-number="6.5">
+<h3 data-number="6.5" class="anchored" data-anchor-id="exercice-dapplication-1"><span class="header-section-number">6.5</span> Exercice d’application</h3>
 <p>Dans le constructeur de la classe <em>Voiture</em> :</p>
 <ul class="task-list">
 <li><p><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> ajoute un attribut <em>vitesse_max</em> qui vaut par défaut 130</label></p>
@@ -1743,8 +1712,11 @@ Avoir un conflit, ce n’est pas grave !</p>
 </ul>
 </section>
 </section>
-<section id="ci" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="ci"><span class="header-section-number">6</span> CI</h2>
+<section id="ci" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="ci"><span class="header-section-number">7</span> CI</h2>
+<blockquote class="blockquote">
+<p>Bonus</p>
+</blockquote>
 <p>L’intégration continue permet d’automatiser certaines tâches lorsque l’on pousse du code vers un remote, par exemple :</p>
 <ul>
 <li>compiler le projet ou générer un paquet</li>
@@ -1753,8 +1725,8 @@ Avoir un conflit, ce n’est pas grave !</p>
 </ul>
 <p>Il existe également le Déploiement Continu (CD) qui va installer automatiquement le programme sur un serveur.</p>
 <p>Il est possible de créer des pipelines automatisés pour mettre en place du CI/CD.</p>
-<section id="notre-premier-pipeline" class="level3" data-number="6.1">
-<h3 data-number="6.1" class="anchored" data-anchor-id="notre-premier-pipeline"><span class="header-section-number">6.1</span> Notre premier pipeline</h3>
+<section id="notre-premier-pipeline" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="notre-premier-pipeline"><span class="header-section-number">7.1</span> Notre premier pipeline</h3>
 <p>Nous allons créer un pipeline qui va exécuter sur une machine virtuelle vierge :</p>
 <ul>
 <li>installer <em>ubuntu</em></li>
@@ -1887,7 +1859,7 @@ Warning
 </ul></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled" title="SSH : Comment ça marche ?">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1896,7 +1868,7 @@ Warning
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>SSH (Secure Shell) est un protocole permettant de se connecter à un autre ordinateur sur un réseau de manière sécurisée.</p>
 <p>SSH chiffre toutes les informations échangées afin de protéger les données.</p>

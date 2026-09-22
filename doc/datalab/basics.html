@@ -443,7 +443,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../doc/datalab/lab.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TP Découverte</span></a>
+ <span class="menu-text">TP Datalab</span></a>
   </div>
 </li>
       </ul>
@@ -763,7 +763,7 @@ Caution
 <li>Renseignez :
 <ul>
 <li>nom du token : <em>Datalab GENES</em></li>
-<li>date d’expiration <span class="emoji" data-emoji="arrow_right">➡️</span> Custom <span class="emoji" data-emoji="arrow_right">➡️</span> <em>1 an</em></li>
+<li>date d’expiration <span class="emoji" data-emoji="arrow_right">➡️</span> Custom <span class="emoji" data-emoji="arrow_right">➡️</span> <code>31/07/&lt;next year&gt;</code></li>
 </ul></li>
 <li><span class="emoji" data-emoji="white_check_mark">✅</span> Cochez <strong>repo</strong> et <strong>workflow</strong></li>
 <li>Cliquez sur <span class="green-button">Generate token</span></li>
@@ -797,8 +797,11 @@ Warning
 <li>nom d’utilisateur Git</li>
 <li>mail (celui utilisé pour votre compte GitHub)</li>
 </ul></li>
-<li><label><input type="checkbox">Collez votre token</label></li>
+<li><label><input type="checkbox">Collez votre token et Validez</label></li>
 </ul>
+<blockquote class="blockquote">
+<p>Ainsi dans chaque service que vous lancerez, sera présente une variable d’environnement nommée <code>GIT_PERSONAL_ACCESS_TOKEN</code> contenant la valeur de votre token.</p>
+</blockquote>
 </section>
 <section id="utiliser-le-token" class="level3" data-number="3.4">
 <h3 data-number="3.4" class="anchored" data-anchor-id="utiliser-le-token"><span class="header-section-number">3.4</span> Utiliser le Token</h3>
