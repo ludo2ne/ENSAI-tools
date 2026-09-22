@@ -7,6 +7,7 @@ categories:
   - Clone
   - Add, commit, push
   - Conflit
+  - CI
 ---
 
 ::: {.callout-note}
@@ -94,57 +95,29 @@ Les commandes seront saisies dans un terminal Git Bash.
 
 Vous allez utiliser un service Vscode-python du datalab. Celui-ci inclus Git Bash.
 
-- [ ] Connectez-vous à un datalab
-  - <https://onyxia.lab.groupe-genes.fr/>{target="_blank"}
-  - <https://datalab.sspcloud.fr/>{target="_blank"} (create an account using `firstname.lastname@eleve.ensai.fr`)
+- [ ] Connectez-vous sur <https://datalab.sspcloud.fr/>{target="_blank"}
+  - alternative : <https://onyxia.lab.groupe-genes.fr/>{target="_blank"}
 
-Durant ce TP, vous allez transférer du code entre votre dépôt local (service VSCode) et votre dépôt distant (sur GitHub). Pour valider ces transfert un processus d'authentification est naturellement requis.
+Durant ce TP, vous allez transférer du code entre votre dépôt local (service VSCode du datalab) et votre dépôt distant (sur GitHub). Pour valider ces transfert un processus d'authentification est naturellement requis.
 
-### Génération d'un Token
+### Génération et déclaration d'un Token
 
-::: {.callout-note title="Ce que vous allez faire"}
+> Pour éviter d'avoir à vous authentifier (user+password) à chaque commande Git, vous allez utiliser un jeton.
+
+- [ ] Ouvrez [cette page](../datalab/basics.qmd) qui contient les instructions suivantes
+- [ ] Lisez le principe du Token
+- [ ] Créez un Token sur GitHub
+- [ ] Déclarez-le sur le SSPCloud
+
+::: {.callout-note}
 Ce paramétrage n'est à faire qu'une seule fois, jusqu'à expiration du jeton.
-
-- Générer un jeton sur GitHub
-- Déclarer ce jeton sur le datalab
-
-Ainsi, à chaque fois que vous lancerez un service du datalab :
-
-- Le jeton sera injecté dans une variable d'environnement
-- vous pourrez donc le récupérer et l'utiliser pour communiquer avec GitHub de manière sécurisée
 :::
 
-- [ ] Connectez-vous à votre compte [GitHub](https://github.com/){target="_blank"}
-- [ ] Allez sur ce lien : [Personal Access Token](https://github.com/settings/tokens){target="_blank"}
-  - pour créer un nouveau [token **classic**]{.underline}
-  - Note: for ENSAI datalabs
-  - Expiration: 30/06/2026
-  - cochez repo and workflow
-  - [Generate token]{.green-button}
-- [ ] Copiez le token (ghp_xxxxxxxxxx)
+## VSCode
 
-::: {.callout-caution}
-Attention sa valeur ne sera affichée qu'une seule fois. En cas de perte, il faut le supprimer et en recréer un nouveau.
-:::
-
-Nous allons maintenant déclarer ce jeton sur votre compte du datalab.
-
-
-### Déclaration du Token au Datalab
-
-- [ ] Allez dans *Mon Compte*, puis onglet *Git*
-- [ ] Collez le token
-
-Ce jeton est maintenant accessible dans la plupart des services du datalab (VSCode, Jupyter, RStudio...)
-Vous pourrez alors l'utiliser pour communiquer avec vos dépôts GitHub.
-
-Aujourd'hui nous allons utiliser un service VSCode. Ce logiciel sera utilisé pour la majorité des cours d'informatique de l'ENSAI.
-
-C'est un IDE (Integrated Development Environment) i.e. une application qui offre des outils complets pour le développement logiciel (éditeur de Code, compilateur / interpréteur, gestionnaire de projet, terminal Intégré, nombreuses extensions...)
-
+Vous allez travailler dans un service VSCode. C'est ici que sera hébergé votre dépôt local.
 
 - [ ] Lancez, puis ouvrez un service **Vscode-python**
-
 
 ::: {.callout-important title="à la fin du TP"}
 N'oubliez pas de supprimer votre service !
@@ -160,7 +133,6 @@ Une fois votre travail terminé :
 - exportez vos résultats : par exemple en utilisant le stockage S3
 - libérez ces ressources : supprimez vos service
 :::
-
 
 - [ ] Ouvrez un terminal
   - 3 petits traits horizontaux > Terminal > New
@@ -870,6 +842,8 @@ Dans le constructeur de la classe *Voiture* :
 
 
 ## CI
+
+> Bonus
 
 L'intégration continue permet d'automatiser certaines tâches lorsque l'on pousse du code vers un remote, par exemple :
 

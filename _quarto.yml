@@ -53,7 +53,7 @@ website:
           - href: doc/datalab/vscode-python.qmd
             text: "VSCode Python"
           - href: doc/datalab/lab.qmd
-            text: "TP Découverte"
+            text: "TP Datalab"
       - section: Gérer son Projet
         contents:
           - href: doc/project/lab.qmd

@@ -168,7 +168,7 @@ Pour éviter ces contrôles incessants, la solution est d'utiliser un **Token Gi
 - [ ] Générez un [jeton classique](https://github.com/settings/tokens/new){target="_blank"}
   - Renseignez : 
     - nom du token : *Datalab GENES*
-    - date d'expiration :arrow_right: Custom :arrow_right: *1 an*
+    - date d'expiration :arrow_right: Custom :arrow_right: `31/07/<next year>`
   - :white_check_mark: Cochez **repo** et **workflow**
   - Cliquez sur [Generate token]{.green-button}
 - [ ] Copiez ce jeton commençant par `ghp_` et gardez le précieusement de côté quelques minutes
@@ -186,8 +186,9 @@ GitHub vous a fournit un jeton. Il faut maintenant le déclarer sur le Datalab :
 - [ ] Renseignez les informations suivantes 
   - nom d'utilisateur Git 
   - mail (celui utilisé pour votre compte GitHub)
-- [ ] Collez votre token
+- [ ] Collez votre token et Validez
 
+> Ainsi dans chaque service que vous lancerez, sera présente une variable d'environnement nommée `GIT_PERSONAL_ACCESS_TOKEN` contenant la valeur de votre token.
 
 ### Utiliser le Token
 
