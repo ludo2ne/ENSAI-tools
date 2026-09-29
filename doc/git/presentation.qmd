@@ -26,8 +26,11 @@ categories:
 ## Introduction
 
 - Outil indispensable
-- Pas d'évaluation immédiate 
-  - mais utilisé toute la scolarité et vie pro
+- Utilisation :
+  - TP informatiques, R
+  - Dans tous les projets
+  - Dans votre vie professionnelle
+
 
 ::: {.notes}
 - Présentation perso en 1min
@@ -56,9 +59,11 @@ Vous faites parti d'une équipe de 5 personnes qui doit coder une application de
 
 ## Au programme
 
+::: {.incremental}
 - :pushpin: Versionner son code
 - :floppy_disk: Historique des modifications
 - :construction_worker: Travail en équipe
+:::
 
 :::{.notes}
 2 grandes problèmatiques :
@@ -76,7 +81,8 @@ Vous faites parti d'une équipe de 5 personnes qui doit coder une application de
 ::: {.notes}
 - les questions que l'on peut se poser en projet
 - Mais qui a écrit cette merde ???
-  - ah ben c'est moi...
+  - ah ben c'est moi... il y a 2 ans
+  - plutôt bon signe -> ça veut dire qu'on progresse
 :::
 
 
@@ -96,30 +102,31 @@ Solutions naïves :
 
 ::: {.panel-tabset .nav-pills}
 
-#### Pas bien
+#### Pas bien :poop:
 
 ```
 ├─── Projet info
 │   ├─── old
-│   │   ├─── Rapport.txt
-│   │   ├─── Rapport_new.txt
-│   │   ├─── Rapport_v1.0.txt
-│   │   └─── Rapport_v1.2.txt
-│   ├─── Rapport_old.txt
-│   ├─── Rapport_2022.05.15.txt
-│   └─── Rapport_2022.05.15_new.txt
+│   │   ├─── Rapport.qmd
+│   │   ├─── Rapport_new.qmd
+│   │   ├─── Rapport_v1.0.qmd
+│   │   ├─── Rapport_v1.0_new_old.qmd
+│   │   └─── Rapport_v1.1.qmd
+│   ├─── Rapport_old.qmd
+│   ├─── Rapport_2022.05.15.qmd
+│   └─── Rapport_2022.05.15_lastest.qmd
 ```
 
 :confused: Quelle est la bonne version du fichier ?
 
-#### Bien
+#### Bien :+1:
 
 :blush: Un seul fichier + l'historique des modifications
 
 ```
 ├───Projet info
 │   └───Livrables
-│     └───Rapport.txt
+│     └───Rapport.qmd
 
 Date         Heure   Auteur      Message commit
 ----         -----   ------      --------------
@@ -130,7 +137,7 @@ Date         Heure   Auteur      Message commit
 2022.05.29   20h12   tryphon     "Création du rapport"
 ```
 
-#### Objectif
+#### Objectif :dart:
 
 ::: {#fig-thinkr}
 ![](img/thinkR_git_avec_sans.png){width=40%}
@@ -138,6 +145,14 @@ Date         Heure   Auteur      Message commit
 Source : [ThinkR](https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionner-son-code/){target="_blank"}
 ::: 
 
+:::
+
+### Un exemple à ne pas suivre
+
+![](img/revision-reglement-scola.png){.r-stretch}
+
+:::{.notes}
+J'ai pris un exemple dans une école au hasard, c'est pas chez nous
 :::
 
 
@@ -151,7 +166,7 @@ Mais vous vous dites que c'est mieux de garder l'ancien code au cas où...
 
 ::: {.panel-tabset .nav-pills}
 
-#### Pas bien
+#### Pas bien :poop:
 
 ```{.R filename="analyse.R"}
 library(ggplot2)
@@ -173,7 +188,7 @@ ggplot(data, aes(x = x, y = y)) +
 ```
 
 
-#### Bien
+#### Bien :+1:
 
 ```{.R filename="analyse.R - Commit 05016ab - Date 2024.06.02 - Author tryphon"}
 data$y <- dnorm(data$x)
@@ -226,12 +241,10 @@ La solution, tous en choeur, c'est ...
 
 ### Historique
 
-::: {.incremental}
 - Créé par Linus Torvalds en 2005 
 - Pour gérer le développement du noyau Linux
 - Le standard incontournable de la gestion de versions
 - Anciens outils : CVS, SVN
-:::
 
 ::: {.notes}
 - Standard : produit qui s'est imposé par l'usage (ex : Moteur de recherche Google, TCP/IP)
@@ -265,12 +278,9 @@ Il existe aussi des interfaces graphiques mais elles sont souvent imparfaites et
 
 ### Késako
 
-- **Git**
-  - Logiciel de gestion de versions
-- **Git Bash**
-  - Terminal pour écrire des commandes git
-- **GitHub / GitLab**
-  - Plateforme de développement collaboratif
+- **Git** :arrow_right: Logiciel de gestion de versions
+- **Git Bash** :arrow_right: Terminal pour écrire des commandes git
+- **GitHub / GitLab** :arrow_right: Plateforme de développement collaboratif
   - Héberge des dépôts Git
   - Propose d'autres fonctionnalités (CI/CD, wiki, gestion des incidents...)
 
@@ -294,7 +304,9 @@ Conseil : lors de l'installation de Git, choisissez le terminal Unix
 - 2e ligne (commence par $) : commande
 - 3e ligne : résultat de la commande
 
-Bref apparté sur les commandes Unix
+Bref apparté sur les commandes Unix.
+
+Il fut un temps où tout se faisait par ce biais (pas d'explorer)
 :::
 
 ### Commandes Unix {.smaller}
@@ -374,14 +386,16 @@ La ligne de commande reste très utilisée :
 - rapide, efficace
 - automatisation
   - exemple : renommer 1000 fichiers d'un dossier
+
+`git add .`: add current
 :::
 
 
 ### Copier-Coller
 
 ::: {.callout-warning}
-- CTRL + C et CTRL + V ne fonctionnent pas toujours !
-- CTRL + C : stopper un processus (très utile)
+- [CTRL]{.keyboard} + [C]{.keyboard} et [CTRL]{.keyboard} + [V]{.keyboard} ne fonctionnent pas toujours !
+- [CTRL]{.keyboard} + [C]{.keyboard} : stopper un processus (très utile)
 :::
 
 2 possibilités pour coller du texte :
@@ -389,6 +403,13 @@ La ligne de commande reste très utilisée :
 - Clic droit
 - MAJ + INSERT
 
+::: {.notes}
+Raccourcis indispensables:
+
+- CTRL + A : select all
+- TABULATION: autocomplete
+- HISTORIQUE :arrow_up: et :arrow_down:
+:::
 
 ## Versionner son code
 
@@ -406,7 +427,7 @@ La ligne de commande reste très utilisée :
 - :x: outputs : logs, .pdf, .doc
 
 ::: {.notes}
-- un dépôt doit rester mince
+- un dépôt doit rester léger
 - quelques Mo max
 - possible de mettre du doc ou pdf
   - mais git ne sait comparer que du txt, csv, md
@@ -456,7 +477,7 @@ https://talks.freelancerepublik.com/git-commandes-indispensables-developpeurs/
 
 ::: {.panel-tabset .nav-pills}
 
-#### v0
+#### v2.0
 
 ```{.txt}
 ├─── Projet info
@@ -484,7 +505,7 @@ Vous avez :
 - modifié un fichier
 - créé un nouveau fichier
 
-#### v1
+#### v2.1
 
 Vous ajoutez les fichiers créés ou modifiés à l'index :
 
@@ -506,8 +527,11 @@ Vous créez un point de sauvegarde
 <!--
 ```{mermaid}
 gitGraph:
-  commit tag:"v0"
-  commit tag:"v1"
+  commit id:"v1.0"
+  commit id:"v1.1"
+  commit id:"v1.2"
+  commit id:"v2.0"
+  commit id:"v2.1"
 ```
 -->
 
@@ -535,6 +559,14 @@ Utilisez un **préfixe** à votre message selon le pattern `<type>: <sujet>`:
 ::: {.notes}
 Suffixe WIP
 :::
+
+### Mon petit commit
+
+Privilégiez de nombreux petits commits à un gros commit final :
+
+- Un commit = une modification cohérente
+- Plus facile de comprendre l'historique
+- Plus facile de revenir en arrière
 
 ### Retour arrière {.smaller}
 
@@ -577,6 +609,20 @@ Cela est utile, pour exclure par exemple du dépôt Git :
   - ensuite regardons comment communiquer avec le dépôt distant
 ::: 
 
+### Exemple
+
+```{.txt filename=".gitignore"}
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+
+*.log
+
+doc/exams/**/*2026*
+```
+
 
 ## Travailler en équipe
 
@@ -584,7 +630,7 @@ Cela est utile, pour exclure par exemple du dépôt Git :
 
 - 1 dépôt distant
   - appelé aussi **remote**
-  - hébergé sur une forge (GitHub, GitLab, Bitbucket...)
+  - hébergé sur une forge (GitHub, GitLab...)
 - n dépôts locaux
   - **clone** sur votre machine
   - git permet la synchronisation des dépôts
@@ -628,17 +674,17 @@ flowchart
 - `git pull` : mettre à jour son dépôt local à partir du dépôt distant
 - `git push` : envoyer ses commits locaux sur le dépôt distant
 
+::: {.callout-warning}
+Il est important de push et pull réguliérement son code pour garder son dépôt à jour.
+:::
+
 ::: {.callout-important}
-Il est important de pousser et puller réguliérement son code pour garder son dépôt à jour.
+- Vous faites toujours vos actions sur un dépôt local
+- Vous ne modifiez jamais le dépôt distant.
 :::
 
 ::: {.notes}
-- sinon vos versions vont diverger
-
-IMPORTANT : 
-
-- Vous faites toujours vos actions sur un dépôt local
-- Vous ne modifiez jamais le dépôt distant
+- push and pull réguliers sinon vos versions vont diverger
 :::
 
 
@@ -845,6 +891,8 @@ Est-ce que votre dépôt local est en avance de n commit par rapport au dépôt 
 
 ## Cloner un dépôt
 
+Pour créer votre dépôt local.
+
 ### git clone
 
 - Allez sur la page du dépôt distant (GitHub, GitLab...)
@@ -954,11 +1002,10 @@ clone : bouton vert code sur GitHub, GitLab
 :::
 
 
-## Travailler dans le cloud
+## Travailler sur le Datalab
 
-- Autre manière de travailler
 - Services non perennes
-- Sauvegarder votre code
+- Sauvegardez votre code
 
 ::: {.notes}
 - vous ne travaillerez pas toujours en local

@@ -128,21 +128,21 @@ Souvent la commande `ll` (alias de `ls -al`) est définie et permet d'avoir un a
 La touche Tabulation **⇄**
 
 - Elle sert à faire de l’autocomplétion. Elle complète automatiquement les commandes.
-- `cd bac` + TAB :arrow_right: `cd backend`
+- `cd bac` + [TAB]{.keyboard} :arrow_right: `cd backend`
 :::
 
 Autres touches utiles :
 
-- ENTREE : Pour exécuter la commande
-- CTRL + C : stopper la commande en cours
-- Double TAB : affiche toutes les possibilités
+- [ENTER]{.keyboard} : Pour exécuter la commande
+- [CTRL]{.keyboard} + [C]{.keyboard} : stopper la commande en cours
+- Double [TAB]{.keyboard} : affiche toutes les possibilités
   - pratique si plusieurs dossiers commencent par *bac*
-- ↑ : Accéder à l'historique des commandes exécutées
-  - ↓ : pour naviguer également dans l'historique
+- [↑]{.keyboard} : Accéder à l'historique des commandes exécutées
+  - [↓]{.keyboard} : pour naviguer également dans l'historique
   - `history` : historique des commandes exécutées
-- CTRL + A : Début de ligne
-  - CTRL + ← (ou →) : Se déplacer de mot en mot
-- MAJ + INSER : Coller
+- [CTRL]{.keyboard} + [A]{.keyboard} : Début de ligne
+  - [CTRL]{.keyboard} + [←]{.keyboard} (ou [→]{.keyboard}) : Se déplacer de mot en mot
+- [MAJ]{.keyboard} + [INSER]{.keyboard} : Coller
   - ou **Clic Droit**
 
 

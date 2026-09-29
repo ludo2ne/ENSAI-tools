@@ -314,7 +314,7 @@ Using Agent for trivial questions: You might waste tokens and time as the Agent 
 
 - [ ] Create a virtual environment
   - `python -m venv venv`
-- [ ] CTRL + SHIFT + P
+- [ ] [CTRL]{.keyboard} + [SHIFT]{.keyboard} + [P]{.keyboard}
   - Python: Select interpreter
   - choose *venv*
 
