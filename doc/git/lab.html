@@ -1123,7 +1123,7 @@ Tip
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"La voiture </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>nom<span class="sc">}</span><span class="ss"> de couleur </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>couleur<span class="sc">}</span><span class="ss"> roule à </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>vitesse<span class="sc">}</span><span class="ss"> km/h."</span>  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"La voiture </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>nom<span class="sc">}</span><span class="ss"> de couleur </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>couleur<span class="sc">}</span><span class="ss"> roule à </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>vitesse<span class="sc">}</span><span class="ss"> km/h."</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Vous venez de créer quelques nouveaux éléments sur votre clone, envoyons-les maintenant au remote.</p>
 <div class="code-with-filename">
@@ -1731,13 +1731,13 @@ Important
 <li>Pour 🐸 qui a poussé son code en premier ➡️ tout s’est bien passé</li>
 <li>Pour 🐱, il a du recevoir ce genre de message lors du push</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>! [rejected]        main -&gt; dev (fetch first)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>error: failed to push some refs to 'git@github.com:ludo2ne/tp-git.git'</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>hint: Updates were rejected because the remote contains work that you do</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>hint: not have locally. This is usually caused by another repository pushing</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>hint: to the same ref. You may want to first integrate the remote changes</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>hint: (e.g., 'git pull ...') before pushing again.</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>hint: See the 'Note about fast-forwards' in 'git push --help' for details.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="dark-code-block"><code>! [rejected]        main -&gt; dev (fetch first)
+error: failed to push some refs to 'git@github.com:ludo2ne/tp-git.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code></pre>
 </div>
 </div>
 <p>Si vous prenez le temps de lire le message, c’est assez clair :</p>
