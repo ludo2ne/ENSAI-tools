@@ -346,7 +346,8 @@ class Voiture:
         self.vitesse = 0
 
     def __str__(self):
-        return f"La voiture {self.nom} de couleur {self.couleur} roule à {self.vitesse} km/h."  
+        return f"La voiture {self.nom} de couleur {self.couleur} roule à {self.vitesse} km/h."
+
 ```
 
 Vous venez de créer quelques nouveaux éléments sur votre clone, envoyons-les maintenant au remote.
@@ -567,6 +568,7 @@ def test_accelere_limite_increment():
 
     # THEN
     assert v.vitesse == 10
+
 ```
 
 - [ ] Envoyez-le sur le remote (GitHub)
@@ -735,7 +737,7 @@ stateDiagram
 - Pour 🐸 qui a poussé son code en premier ➡️ tout s'est bien passé
 - Pour 🐱, il a du recevoir ce genre de message lors du push
   
-```{.default}
+```{.dark-code-block}
 ! [rejected]        main -> dev (fetch first)
 error: failed to push some refs to 'git@github.com:ludo2ne/tp-git.git'
 hint: Updates were rejected because the remote contains work that you do
