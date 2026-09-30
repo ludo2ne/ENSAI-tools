@@ -225,7 +225,7 @@ Avant de se lancer, exécutez ces deux commandes qui vous éviteront peut-être 
 - [ ] `git config --global core.editor "code-server --wait"`
 - [ ] `git config --global core.mergeoptions --no-edit`
 
-::: {.callout-note title="Explication détaillée" collapse="true"}
+::: {.callout-note title="Explications" collapse="true"}
 - `git config --global core.editor "code-server --wait"` 
   - ↪️ configure VS Code comme l'éditeur par défaut pour Git à la place de Nano. 
 - `git config --global core.mergeoptions --no-edit`
@@ -339,7 +339,7 @@ class Voiture:
     vitesse : int
         la vitesse de la voiture (initialisée à 0).
     """
-    def __init__(self, nom, couleur):
+    def __init__(self, nom: str, couleur: str):
         """Constructeur"""
         self.nom = nom
         self.couleur = couleur
@@ -463,11 +463,11 @@ Retournez sur VSCode :
 ```{.python filename="voiture.py"}
     # ...
 
-    def accelere(self, increment):
+    def accelere(self, increment:int) -> None:
         """Augmente la vitesse de la voiture.
 
         L'incrément maximal est de 10 km/h.
-        La Vitesse maximale est de 130 km/h.
+        La vitesse maximale est de 130 km/h.
 
         Parameters
         ----------
@@ -680,12 +680,12 @@ Vous allez ainsi avoir deux clones dans votre service VSCode. Une autre alternat
   
 ```{.python filename="moto.py"}
 class Moto:
-    def __init__(self, nom, couleur):
+    def __init__(self, nom: str, couleur: str):
         self.couleur = couleur
         self.nom = nom
         self.vitesse = 0
 
-    def accelere(self, increment):
+    def accelere(self, increment: int):
         if increment > 15:
             increment = 15
         self.vitesse = min(150, self.vitesse + increment)
@@ -807,7 +807,7 @@ Un conflit est généré quand les mêmes lignes d'un fichier sont modifiés par
 Votre code ressemble à cela désormais à ceci :
 
 ```{.python}
-    def accelere(self, increment) -> None:
+    def accelere(self, increment: int) -> None:
         if increment > 10:
             increment = 10
 <<<<<<< HEAD
@@ -863,23 +863,27 @@ En effet, si vous codez pendant 5 jours sans jamais pousser votre code, vous pre
 Dans le constructeur de la classe *Voiture* :
 
 - [ ] 🐱 ajoute un attribut *vitesse_max* qui vaut par défaut 130
-  ```{.python filename="voiture.py"}
-      def __init__(self, nom, couleur, vitesse_max=130):
-        """Constructeur"""
-        self.nom = nom
-        self.couleur = couleur
-        self.vitesse = 0
-        self.vitesse_max = vitesse_max
-  ```
+
+```{.python filename="voiture.py"}
+    def __init__(self, nom: str, couleur: str, vitesse_max: int=130):
+      """Constructeur"""
+      self.nom = nom
+      self.couleur = couleur
+      self.vitesse = 0
+      self.vitesse_max = vitesse_max
+```
+
 - [ ] 🐸 ajoute un attribut *carburant*
-  ```{.python filename="voiture.py"}
-      def __init__(self, nom, couleur, carburant):
-        """Constructeur"""
-        self.nom = nom
-        self.couleur = couleur
-        self.vitesse = 0
-        self.carburant = carburant
-  ```
+  
+```{.python filename="voiture.py"}
+    def __init__(self, nom: str, couleur: str, carburant: str):
+      """Constructeur"""
+      self.nom = nom
+      self.couleur = couleur
+      self.vitesse = 0
+      self.carburant = carburant
+```
+
 - [ ] Synchronisez vos dépôts et résolvez les conflits
 
 Vous avez maintenant tous les outils pour un usage simple de git.
@@ -924,6 +928,7 @@ et ensuite :
 
 - lancer les tests unitaires
 - lancer *pylint*, un outil pour évaluer la qualité du code
+- vérifier les failles de sécurité avec *bandit*
 
 La fonctionnalité GitHub qui permet de faire cela se nomme *GitHub actions*. GitLab a un équivalent.
 
@@ -952,12 +957,13 @@ jobs:
         pip install -r requirements.txt
 
     - name: Unit Tests with pytest
-      run: |
-        pytest
+      run: pytest
 
     - name: Analysing the code with pylint
-      run: |
-        pylint --output-format=colorized --disable=C0114,C0411,C0415,W0718 $(git ls-files '*.py') --fail-under=7.5
+      run: pylint --output-format=colorized --disable=C0114,C0411,C0415,W0718 $(git ls-files '*.py') --fail-under=7.5
+        
+    - name: Security scan
+      run: bandit -r .
 ```
 
 - [ ] Créez un dossier *.github* puis dans celui-ci un dossier *workflows*
