@@ -6,9 +6,9 @@ Outils pour les élèves et les enseignants
 
 Site construit avec [Quarto](https://quarto.org/) ([Tutoriel](https://ludo2ne.github.io/Quarto-tuto/))
 
-- Générer les pages en local : `quarto render` :arrow_right: dossier *_site*
+- Générer les pages en local : `quarto render` ➡️ dossier *_site*
   - Installer Quarto et R
-- Déployer sur GitHub :arrow_right: voir fichier `.github/workflows/publish.yml`
+- Déployer sur GitHub ➡️ voir fichier `.github/workflows/publish.yml`
 
 ## Licence
 

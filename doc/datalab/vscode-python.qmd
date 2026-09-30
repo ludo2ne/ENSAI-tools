@@ -77,9 +77,9 @@ You can define a rule at the global level and then specify it:
 
 How it works:
 
-- Default: Any file :arrow_right: 2
-- Python: `.py` file :arrow_right: 4 (specific value for python)
-- YAML: `.yaml` file :arrow_right: 2 (no specific value provided, global value used)
+- Default: Any file ➡️ 2
+- Python: `.py` file ➡️ 4 (specific value for python)
+- YAML: `.yaml` file ➡️ 2 (no specific value provided, global value used)
 
 ## Extensions
 
@@ -102,7 +102,7 @@ This choice is important because Python imports between modules rely on relative
 
 Two ways to open folder:
 
-- In the top-left corner, click on the three horizontal bars :arrow_right: 
+- In the top-left corner, click on the three horizontal bars ➡️ 
   - File
   - Open Folder
   - `/home/onyxia/work/<repo_name>`
@@ -192,7 +192,7 @@ To send messages to the AI, you'll need to call an API. The first step is to ret
 
 - [ ] Go to <https://llm.lab.sspcloud.fr/>{target="_blank"}
 - [ ] Click on your avatar in the bottom left corner
-- [ ] Choose *Settings* then select tab *Account* :arrow_right: 
+- [ ] Choose *Settings* then select tab *Account* ➡️ 
 - [ ] Copy the *API key*
 
 Now you will enter the key into the SSPCloud
@@ -233,7 +233,7 @@ To chat with the agent, you will use extension called [Continue](https://docs.co
 :tada: Now you can ask the agent questions related to your project 
 
 :::{.notes}
-TODO :construction: 
+TODO 🚧 
 
 - @File, @CurrentFile, @ OpenFile
 - CTRL+L : select code
@@ -323,7 +323,7 @@ When you install Python packages globally, everything gets mixed together.
 
 If one project needs Django 3.2 and another needs Django 5.0, they'll conflict. 
 
-Over time, your global Python also gets messy, with packages you don't remember installing, and sharing your project becomes painful :arrow_right: the classic "it works on my machine" problem.
+Over time, your global Python also gets messy, with packages you don't remember installing, and sharing your project becomes painful ➡️ the classic "it works on my machine" problem.
 
 A **venv** solves this by creating a self-contained environment just for your project. 
 

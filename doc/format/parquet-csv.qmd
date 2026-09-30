@@ -30,7 +30,7 @@ Il existe de multiples façon de stocker de la données. Nous verrons ici :
 
 ## CSV
 
-**CSV** signifie *Comma-Separated Values* :arrow_right: Valeurs séparées par des virgules.
+**CSV** signifie *Comma-Separated Values* ➡️ Valeurs séparées par des virgules.
 
 C'est un format de fichier texte très simple utilisé pour stocker des données tabulaires
 

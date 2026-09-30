@@ -15,25 +15,23 @@ Les consignes de ce TP sont données pour une utilisation de GitHub.
 
 Il est possible de réaliser ce TP avec GitLab dont l'interface est très ressemblante.
 
-:warning: Il y a tout de même quelques différences, par exemple : GitHub Repository = GitLab Projet
+⚠️ Il y a tout de même quelques différences, par exemple : GitHub Repository = GitLab Projet
 :::
 
 ## À faire à la maison{.unnumbered}
 
 - [ ] Lire l'introduction
 - [ ] Créer un compte sur [GitHub](https://github.com/){target="_blank"}
-  - GitHub :fast_forward: [Sign up](https://github.com/signup){target="_blank"}
+  - GitHub ⏩ [Sign up](https://github.com/signup){target="_blank"}
 
 
 ::: {.callout-tip title="Ajoutez un mail perso"}
 Lors de la création de compte, si vous utilisez votre adresse mail ENSAI, nous vous conseillons d'ajouter un mail personnel :
 
-- GitHub :fast_forward: Settings :gear: :fast_forward: Email ([lien direct](https://github.com/settings/emails){target="_blank"})
+- GitHub ⏩ Settings ⚙️ ⏩ Email ([lien direct](https://github.com/settings/emails){target="_blank"})
 
 Comme vous ne serez pas étudiant toute votre vie, cela vous évitera de perdre votre accès par la suite.
 :::
-
-
 
 
 ## Introduction {.unnumbered}
@@ -44,16 +42,16 @@ Cet historique est conservé dans ce que l'on appelle un *dépôt git*.
 
 Sa conception décentralisée fait qu'il est quasi impossible de perdre une donnée définitivement avec git. En particulier, la perte totale d'un ordinateur hébergeant votre code ne représentera qu'une perte minime de code si vous utilisez git correctement.
 
-En outre, de nombreux outils de *CI/CD* (*Continuous Intégration / Continuous Deployment*) qui rendent possible l'automatisation de l'intégration et du déploiement de votre code s'appuient sur un *dépôt git*.
+En outre, de nombreux outils de *CI/CD* (*Continuous Integration / Continuous Deployment*) qui rendent possible l'automatisation de l'intégration et du déploiement de votre code s'appuient sur un *dépôt git*.
 
 ### Concepts Clés {.unnumbered}
 
-Comme tout logiciel, git demande un peu d'apprentissage, et de la pratique. 
+Comme tout logiciel, git demande un peu d'apprentissage, et de la pratique. 🧠
 
 Pour commencer, nous aurons besoin de certains concepts essentiels pour une utilisation efficace. Par sa conception décentralisée, un dépôt git peut exister en plusieurs endroits en même temps : 
 
 - sur notre machine
-- sur chaque machine des membre du projet
+- sur chaque machine des membres du projet
 - ou sur un serveur hébergeant le projet
 
 Nous parlerons de la *copie distante* (*remote* en anglais) du dépôt dans le cas du serveur distant. En général, une seule copie distante est utilisée, mais par sa nature décentralisée, plusieurs copies distantes sont possibles (possibilité non incluse dans ce TP).
@@ -62,7 +60,7 @@ La copie sur notre machine est la *copie locale* (*local* en anglais). Il s'agit
 
 ### Programme {.unnumbered}
 
-Dans ce TP, nous allons créer un dépôt distant et deux dépôt locaux. Ensuite nous allons les faire évoluer et les synchroniser.
+Dans ce TP, nous allons créer un dépôt distant et deux dépôt locaux. Ensuite nous allons les faire évoluer et les synchroniser. 🔄
 
 ```{mermaid}
 flowchart
@@ -84,20 +82,20 @@ Pour ce TP de découverte, les commandes suivantes suffiront :
 | `git status`                | Voir où l'on en est                      |
 | `git add <file>`            | Ajouter pour le prochain commit          |
 | `git commit -m "<msg>"`     | Créer un point de sauvegarde             |
-| `git pull`                  | dépôt local :arrow_left: dépôt distant   |
-| `git push`                  | dépôt local :arrow_right: dépôt distant  |
+| `git pull`                  | dépôt local ⬅️ dépôt distant   |
+| `git push`                  | dépôt local ➡️ dépôt distant  |
 
 
 ## Environnement de travail
 
 Les commandes seront saisies dans un terminal Git Bash.
 
-Vous allez utiliser un service Vscode-python du datalab. Celui-ci inclus Git Bash.
+Vous allez utiliser un service Vscode-python du datalab. Celui-ci inclut Git Bash.
 
 - [ ] Connectez-vous sur <https://datalab.sspcloud.fr/>{target="_blank"}
   - alternative : <https://onyxia.lab.groupe-genes.fr/>{target="_blank"}
 
-Durant ce TP, vous allez transférer du code entre votre dépôt local (service VSCode du datalab) et votre dépôt distant (hébergé sur GitHub). Pour valider ces transferts un processus d'authentification est naturellement requis.
+Durant ce TP, vous allez transférer du code entre votre dépôt local (service VSCode du datalab) et votre dépôt distant (hébergé sur GitHub). Pour valider ces transferts un processus d'authentification est naturellement requis. 🔒 🔑
 
 ### Génération et déclaration d'un Token
 
@@ -116,7 +114,7 @@ Ce paramétrage n'est à faire qu'une seule fois, jusqu'à expiration du jeton.
 
 Vous allez travailler dans un service VSCode. C'est ici que sera hébergé votre dépôt local.
 
-- [ ] Lancez, puis ouvrez un service **Vscode-python**
+- [ ] Lancez, puis ouvrez un service **Vscode-python** 🚀
 
 ::: {.callout-important title="à la fin du TP"}
 N'oubliez pas de supprimer votre service !
@@ -134,7 +132,7 @@ Une fois votre travail terminé :
 :::
 
 - [ ] Ouvrez un terminal
-  - 3 petits traits horizontaux :fast_forward: Terminal :fast_forward: New
+  - ☰ (en haut à gauche) ⏩ Terminal ⏩ New
   - raccourci : [CTRL]{.keyboard} + [ù]{.keyboard}
 
 
@@ -157,7 +155,7 @@ Git Bash est un terminal qui :
 - inclus les commandes Git
 
 ::: {.callout-tip}
-Le terminal, c'est sobre, c'est rapide, c'est efficace.
+Le terminal, c'est sobre, c'est rapide, c'est efficace. 😎
 
 Le terminal reste un outil très utilisé en informatique, même à l'ère du tout *clic-bouton*. Il permet d'aller droit au but sans passer par des menus parfois longs et compliqués.
 
@@ -173,12 +171,13 @@ Les développeurs et administrateurs l'utilisent au quotidien pour automatiser e
 Dans le terminal, vous avez :
 
 - un prompt (username, host, folder)
-  - vous êtes connecté avec l'utilisateur *onyxia* sur la machine virutelle *vscode-python-345194-0*
+  - vous êtes connecté avec l'utilisateur *onyxia* sur la machine virtuelle *vscode-python-345194-0*
   - vous êtes positionné dans le dossier `~/work` (~ est le dossier personnel de l'utilisateur)
   - il se termine par un `$`
 - à côté, vous pouvez écrire une commande
 - en dessous, vous avez le résultat de la commande
 - à droite, vous avez vos terminaux (c'est possible d'en ouvrir plusieurs)
+  - 💡 ça peut-être utile de les renommer, sinon ils s'appellent tous pareil
 
 
 ### Premières commandes
@@ -211,38 +210,37 @@ Vous devriez retrouver ici votre token. Les variables d'environnement sont un sy
 - [ ] `echo $GIT_PERSONAL_ACCESS_TOKEN`
 
 ::: {.callout-tip title="Raccourcis très utiles"}
-- Les flèches :arrow_up: et :arrow_down: pour naviguer dans l'historique des dernières commandes et éviter de retaper 10 fois la même commande
-- [TAB]{.keyboard} pour l'autocomplétion
-  - Tapez `cat b`, puis appuyez sur la touche [TAB]{.keyboard}
+- Les flèches [🠥]{.keyboard} et [🠧]{.keyboard} pour naviguer dans l'historique des dernières commandes et éviter de retaper 10 fois la même commande
+- [⇆]{.keyboard} (tabulation) pour l'autocomplétion (située à gauche du clavier dessous [²]{.keyboard} et dessus [:lock:]{.keyboard})
+  - Tapez `cat b`, puis appuyez sur la touche [⇆]{.keyboard}
   - Il n'y a qu'un seul fichier commençant par *b* donc l'autocomplétion s'effectue
-  - La touche [TAB]{.keyboard} se situe à gauche du clavier dessous [²]{.keyboard} et dessus [:lock:]{.keyboard}
 :::
 
 ## Dépôts Git
 
 > Passons maintenant au thème central de ce TP : Git et la synchronisation des dépôts.
 
-Avant de se lancer, exécutez ces deux commandes qui vous éviterons peut-être d'être bloqué par la suite :
+Avant de se lancer, exécutez ces deux commandes qui vous éviteront peut-être d'être bloqué par la suite :
 
 - [ ] `git config --global core.editor "code-server --wait"`
 - [ ] `git config --global core.mergeoptions --no-edit`
 
 ::: {.callout-note title="Explication détaillée" collapse="true"}
 - `git config --global core.editor "code-server --wait"` 
-  - :arrow_right_hook: configure VS Code comme l'éditeur par défaut pour Git à la place de Nano. 
+  - ↪️ configure VS Code comme l'éditeur par défaut pour Git à la place de Nano. 
 - `git config --global core.mergeoptions --no-edit`
-  - :arrow_right_hook: configure Git pour qu'il n'ouvre pas l'éditeur de texte lors d'une fusion réussie, utilisant directement le message de commit de fusion par défaut.
+  - ↪️ configure Git pour qu'il n'ouvre pas l'éditeur de texte lors d'une fusion réussie, utilisant directement le message de commit de fusion par défaut.
 :::
 
-Commençons par créer un remote sur GitHub.
 
 ### Créez un dépôt distant
 
-- [ ] Créez un [nouveau Repository](https://github.com/new){target="_blank"} sur GitHub
-  - GitHub :fast_forward: Repositories :fast_forward: [New]{.green-button}
+> Commençons par créer notre remote sur GitHub.
+
+- [ ] Créez un [nouveau Repository](https://github.com/new){target="_blank"} sur GitHub (GitHub ⏩ Repositories ⏩ [New]{.green-button})
   - Repository name : *tp-git*
   - Visibility Level : *Private*
-  - :white_check_mark: Cochez *Add a README file*
+  - ☑ Cochez *Add a README file*
   - Add .gitignore : *Python*
   - Choose a license : *MIT Licence*
   - Cliquez sur [Create Repository]{.green-button}
@@ -250,7 +248,8 @@ Commençons par créer un remote sur GitHub.
 Votre remote est maintenant créé.
 
 ::: {.callout-important}
-Dans le cadre de ce TP, il est interdit d'éditer des fichiers directement sur GitHub. Ce n'est pas une bonne pratique.
+Dans le cadre de ce TP, il est interdit d'éditer des fichiers directement sur GitHub. ⛔ \
+Ce n'est pas une bonne pratique.
 
 Toutes les modifications doivent être faites sur votre clone local et ensuite envoyées vers GitHub.
 :::
@@ -272,26 +271,26 @@ Vous avez déclaré votre dépôt **Privé**. C'est adapté dans ce cas, car nou
 : {tbl-colwidths="[30,35,35]"}
 
 ::: {.callout-note title="Invitations"}
-Que le dépôt soit public ou privé, vous devez faire parti des collaborateurs pour y contribuer. Dépôt public signifie que tout le monde peut le voir mais pas le modifier directement.
+Que le dépôt soit public ou privé, vous devez faire partie des collaborateurs pour y contribuer. "Dépôt public" signifie que tout le monde peut le voir, mais pas le modifier directement.
 
 Pour autoriser des personnes à écrire sur votre dépôt vous devez les inviter :
 
-- Sur la page du repo :fast_forward: Settings :fast_forward: Collaborators :fast_forward: Add people
+- Sur la page du repo ⏩ Settings ⏩ Collaborators ⏩ Add people
 :::
 
 
 ### Créez un dépôt local
 
-Vous allez maintenant créer une copie locale du remote en le clonant.
+> Vous allez maintenant créer une copie locale du remote en le clonant.
 
 Sur la page GitHub de votre repo :
 
-- [ ] Cliquez sur [Code]{.green-button}
+- [ ] Cliquez sur [<> Code]{.green-button}
 - [ ] Copiez la ligne *Clone with HTTPS*
 
 Vous obtenez une url de ce type : `https://github.com/<username>/tp-git.git`
 
-- [ ] Modifiez-là pour y intégrer votre token avant *github.com*
+- [ ] Modifiez-là ainsi pour y intégrer votre token avant *github.com*
   - `https://$GIT_PERSONAL_ACCESS_TOKEN@github.com/<username>/tp-git.git`
 
 ::: {.callout-tip}
@@ -310,17 +309,17 @@ Dans le terminal Git Bash de VSCode :
 
 Vous êtes maintenant dans un repo git, vous pouvez donc exécuter des commandes git !
 
-- [ ] Vérifiez sur quel dépôt distant votre clone est branché
+- [ ] Vérifiez sur quel dépôt distant votre clone est branché 🔌
   - `git remote -v`
   - Vous devez voir ici votre token et l'url du remote
 - [ ] Listez le contenu
 - [ ] Comparez à ce que vous avez sur GitHub : `https://github.com/<username>/tp-git`
 
-Vous avez maintenant tout ce qu'il faut pour travailler.
+Vous avez maintenant tout ce qu'il faut pour travailler avec git.
 
 ## Premiers pas
 
-Dans ce dépôt local, vous allez commencer par créer de nouveaux dossiers et fichiers sur votre dépôt local. :file_folder:
+Dans ce dépôt local, vous allez commencer par créer de nouveaux dossiers et fichiers sur votre dépôt local. 📁
 
 - [ ] Créez un dossier *src*
 - [ ] Dans ce dossier, créez un fichier *voiture.py*
@@ -338,7 +337,7 @@ class Voiture:
     couleur : str
         la couleur de la voiture.
     vitesse : int
-        la vitesse de la voiture (initalisée à 0).
+        la vitesse de la voiture (initialisée à 0).
     """
     def __init__(self, nom, couleur):
         """Constructeur"""
@@ -350,8 +349,16 @@ class Voiture:
         return f"La voiture {self.nom} de couleur {self.couleur} roule à {self.vitesse} km/h."  
 ```
 
-Vous venez de créez quelques nouveaux éléments sur votre clone, envoyons-les maintenant au remote.
+Vous venez de créer quelques nouveaux éléments sur votre clone, envoyons-les maintenant au remote.
 
+```{.txt filename="Votre dépôt"}
+tp-git/
+├── .gitignore
+├── LICENSE
+├── README.md
+└── src/
+    └── voiture.py
+```
 
 ### Add, Commit et Push
 
@@ -386,20 +393,21 @@ Enfin, nous souhaitons envoyer notre commit vers le remote.
 
 - [ ] `git push`
   - pousse vos commits vers le dépôt distant. 
-  - :warning: si vous avez modifié des fichiers qui ne sont pas dans un commit, ces modifications n'apparaitront pas sur le dépôt distant
+  - ⚠️ si vous avez modifié des fichiers qui ne sont pas dans un commit, ces modifications n'apparaitront pas sur le dépôt distant
 
 Allez sur la page GitHub de votre repo et vérifiez que vos fichiers sont bien arrivés.
 
 ::: {.callout-warning title="Ça ne marche pas"}
-Vous avez tout bien fait mais votre fichier *voiture.py* n'est pas à jour sur GitHub. :confused:
+Vous avez tout bien fait mais votre fichier *voiture.py* n'est pas à jour sur GitHub. 😕
 
 - est-ce que votre fichier *voiture.py* a bien été enregistré ? 
-  - sinon recommencez (Add, Commit, Pull et Push). :weary:
+  - sinon recommencez (Add, Commit, Pull et Push). 😩
 - Est-ce que vous êtes bien connecté au remote avec votre token ?
   - `git remote -v` pour vérifier
   - `git remote set-url origin https://$GIT_PERSONAL_ACCESS_TOKEN@github.com/<username>/tp-git.git` si besoin pour corriger l'url du remote
 :::
 
+### Les états Git
 
 Pour résumer voilà ce que vous avez fait :
 
@@ -413,8 +421,40 @@ sequenceDiagram
 ```
 :::
 
+> Comprendre les états Git :
+
+- **Workspace (Répertoire de travail)** : C'est votre espace de création. C'est le dossier sur votre ordinateur où vous créez, modifiez ou supprimez concrètement vos fichiers. À ce stade, vos modifications sont "volatiles" et ne sont pas encore suivies par Git.
+- **Staging Index (Zone de transit)** : C'est une zone de préparation (un "panier"). Elle vous permet de sélectionner précisément les modifications que vous souhaitez inclure dans votre prochain commit. Cela évite d'envoyer des fichiers accidentels ou incomplets.
+- **Local Repository (Dépôt Local)** : C'est la base de données Git située sur votre machine. Une fois un changement "commité", il est sauvegardé de manière permanente dans l'historique de votre projet. Vous pouvez ainsi voyager dans le temps et revenir à n'importe quelle version précédente.
+- **Remote Repository (Dépôt Distant)** : C'est la version de votre projet hébergée sur un serveur (comme GitHub). Il sert de point de synchronisation pour partager votre travail avec d'autres collaborateurs ou pour disposer d'une sauvegarde en ligne.
 
 
+> Pour rendre ces concepts plus intuitifs, imaginons que vous êtes un photographe de studio.
+
+| Transition | Commande | Analogie du Photographe 📷 |
+| ---------- | -------- | --------------------------- |
+| **Workspace → Staging** | `git add` | **La Mise en Scène** : Vous disposez les modèles et les accessoires sur le plateau. Vous ajustez la lumière et la position. Tout est prêt pour la photo, mais rien n'est encore figé. |
+| **Staging → Local Repo** | `git commit` | **Le Clic** : Vous déclenchez l'obturateur. **CLIC !** L'image est capturée et enregistrée sur votre carte mémoire. La scène est désormais figée dans le temps. |
+| **Local Repo → Remote Repo** | `git push` | **La Publication** : Vous téléchargez vos clichés sur un album partagé en ligne pour que vos amis puissent les voir. |
+| **Remote Repo → Workspace** | `git pull` | **La Mise à jour** : Un ami a ajouté des photos à l'album partagé ; vous les téléchargez et les intégrez directement dans votre studio pour travailler dessus. |
+
+: {tbl-colwidths="[28,15,57]"}
+
+
+::: {.callout-tip title="Aller plus haut (Maîtriser la synchronisation)"}
+En réalité, le `git pull` récupère les modifications du dépôt distant avec `git fetch`, puis les intègre avec `git merge`.
+
+| Transition | Commande | Analogie du Photographe 📷 |
+| ---------- | -------- | --------------------------- |
+| **Remote Repo $\rightarrow$ Local Repo** | `git fetch` | **La Consultation** : Vous ouvrez l'album partagé pour voir s'il y a du nouveau. Vous voyez qu'il y a de nouvelles photos, mais vous ne les avez pas encore téléchargées sur votre propre appareil. |
+| **Local Repo $\rightarrow$ Local Repo** | `git merge` | **L'Intégration** : Vous prenez les nouvelles photos que vous venez de consulter et vous les fusionnez avec votre propre collection pour qu'elles fassent partie de votre historique. |
+
+: {tbl-colwidths="[28,15,57]"}
+
+:::
+
+
+### One more time
 
 Retournez sur VSCode :
 
@@ -453,9 +493,11 @@ Dans le terminal *Git Bash* :
 Pour accéder à l'historique d'un repo :
 
 - [ ] Sur GitHub, vous pouvez consulter l'historique du dépôt distant
-  - en cliquant sur *Commit* (en dessous du bouton [Code]{.green-button})
+  - en cliquant sur *Commit* (en dessous du bouton [<> Code]{.green-button})
   - historique d'un fichier en ouvrant ce fichier et en cliquant sur *History*
-- [ ] Sur votre dépôt local avec l'extension Git Graph de VS Code ou la commande `git log`
+- [ ] Sur votre dépôt local avec l'extension Git Graph de VS Code
+  - à gauche, sous l'icone 🔍
+- [ ] Via le terminal : `git log`
   - ce n'est pas aisément lisible
   - heureusement il est possible d'améliorer cette commande
 
@@ -506,34 +548,32 @@ C'est le moment d'appliquer ce que nous venons de voir, à vous :
 ```{.python filename="test_voiture.py"}
 from voiture import Voiture
 
-class TestVoiture:
+def test_accelere_incremente_vitesse():
+    # GIVEN
+    v = Voiture("4L", "verte")
 
-    def test_accelere_incremente_vitesse():
-        # GIVEN
-        v = Voiture("4L", "verte")
+    # WHEN
+    v.accelere(5)
 
-        # WHEN
-        v.accelere(5)
+    # THEN
+    assert v.vitesse == 5
 
-        # THEN
-        assert v.vitesse == 5
+def test_accelere_limite_increment():
+    # GIVEN
+    v = Voiture("4L", "verte")
 
-    def test_accelere_limite_increment():
-        # GIVEN
-        v = Voiture("4L", "verte")
+    # WHEN
+    v.accelere(20)
 
-        # WHEN
-        v.accelere(20)
-
-        # THEN
-        assert v.vitesse == 10
+    # THEN
+    assert v.vitesse == 10
 ```
 
 - [ ] Envoyez-le sur le remote (GitHub)
 - [ ] Créez un fichier `requirements.txt` avec le contenu suivant
   - c'est le nom classique du fichier qui liste les packages python nécessaires au projet
   - `pip install -r requirements.txt` : pour installer les packages du fichier
-  - même si dans les projets plus récents vous utiliserez un fichier `pyproject.toml`
+  - même si dans les projets plus récents vous utiliserez un fichier nommé `pyproject.toml`
 
 ```{.txt filename="requirements.txt"}
 bandit
@@ -556,7 +596,6 @@ Certains fichiers ont vocation à rester seulement sur votre dépôt local, par 
 - fichiers contenant des mots de passe
 - fichiers de logs
 :::
-
 
 Grâce au *.gitignore*, vous pouvez dire à Git d'ignorer certains fichiers.
 
@@ -582,13 +621,18 @@ id_joueuse,nom,prenom,date_naissance,pays
 
 > Autre exemple : lors du projet info de 2e année, votre application python se connectera à une base de données. Or les infos de connexions à cette bdd ne devront pas atterrir sur GitHub !
 
+::: {.callout-caution}
+Ajouter un fichier déjà suivi par Git dans `.gitignore` ne suffit pas à arrêter son suivi : Git continuera à le suivre et à détecter ses modifications.
+:::
+
 
 ## Simulation de travail en groupe
 
-Pour les questions suivantes, vous allez avoir besoin de 2 dépôts locaux branchés sur un même dépôt distant. Il y a 2 possibilités : 
+Pour les questions suivantes, vous allez avoir besoin de 2 dépôts locaux branchés sur un même dépôt distant. \
+Il y a 2 possibilités : 
 
-- soit vous travaillez en bînome (vous avez chacun votre dépôt local)
-- soit vous faîtes seul (mais vous gérez 2 dépôts locaux différents)
+- soit vous travaillez en bînome 👩🏾‍🤝‍👨🏼 (vous avez chacun votre dépôt local)
+- soit vous faites seul 🐙 (mais vous gérez 2 dépôts locaux différents)
 
 ```{mermaid}
 flowchart
@@ -605,11 +649,11 @@ flowchart
 :::{.callout-note title="Si vous travaillez à 2"}
 Un des deux membres va créer un dépôt local à partir du dépôt distant de l'autre.
 
-- [ ] :frog: fournit à :cat: l'adresse https de son repo
-- [ ] :frog: donne accès à :cat: à son repo
-  - page GitHub du repo :fast_forward: Settings :fast_forward: Collaborators
+- [ ] 🐸 fournit à 🐱 l'adresse https de son repo
+- [ ] 🐸 donne accès à 🐱 à son repo
+  - page GitHub du repo ⏩ Settings ⏩ Collaborators
   - [Add people]{.green-button}
-- [ ] :cat: clone le dépôt distant
+- [ ] 🐱 clone le dépôt distant
   - `cd /home/onyxia/work/clone2`
   - `git clone https://$GIT_PERSONAL_ACCESS_TOKEN@github.com/<username_frog>/tp-git.git`
   - `cd tp-git` pour entrer dans le dépôt Git
@@ -625,14 +669,14 @@ Un des deux membres va créer un dépôt local à partir du dépôt distant de l
 
 Vous allez ainsi avoir deux clones dans votre service VSCode. Une autre alternative pour l'exercice serait de lancer un autre service VSCode-python et d'y créer un clone.
 
-:bulb: Pour ne pas vous-y perdre, n'hésitez pas à renommer vos dossiers et vos terminaux.
+💡 Pour ne pas vous-y perdre, n'hésitez pas à renommer vos dossiers et vos terminaux.
 :::
 
 ### Synchronisation des dépôts
 
-Ici, un membre va coder et l'autre va devoir récupérer son code.
+> Ici, un membre va coder et l'autre va devoir récupérer son code.
 
-- [ ] :frog: crée un fichier *src/moto.py* avec le code suivant dans son dépôt local :
+- [ ] 🐸 crée un fichier *src/moto.py* avec le code suivant dans son dépôt local :
   
 ```{.python filename="moto.py"}
 class Moto:
@@ -648,12 +692,12 @@ class Moto:
 
 ```
 
-- [ ] :frog: envoie ce fichier vers le dépôt distant : *add*, *commit* et *push*
-- [ ] :cat: fait ensuite `git pull`
-  - il récupére le fichier *moto.py* dans son dépôt local
+- [ ] 🐸 envoie ce fichier vers le dépôt distant : *add*, *commit* et *push*
+- [ ] 🐱 fait ensuite `git pull`
+  - il récupère le fichier *moto.py* dans son dépôt local
 - [ ] Inversez les rôles (optionnel)
-  - :cat: crée un fichier *velo.py* et le pousse
-  - :frog: le récupère
+  - 🐱 crée un fichier *velo.py* et le pousse
+  - 🐸 le récupère
 
 
 Nous allons maintenant illustrer le fait que votre dépôt local doit être impérativement à jour pour pousser du code.
@@ -662,10 +706,10 @@ Nous allons maintenant illustrer le fait que votre dépôt local doit être imp�
 
 Maintenant les deux membres vont coder en même temps mais sur des fichiers différents.
 
-> Attention : 1, 2, 3, partez :checkered_flag:
+> Attention : 1, 2, 3, partez 🏁
 
-- [ ] :cat: crée le fichier *src/trottinette.py* en s'inspirant de *moto.py*
-- [ ] :frog: crée un dossier *doc* et à l'intérieur le fichier *state-diag.qmd* avec ce code
+- [ ] 🐱 crée le fichier *src/trottinette.py* en s'inspirant de *moto.py*
+- [ ] 🐸 crée un dossier *doc* et à l'intérieur le fichier *state-diag.qmd* avec ce code
   
 ````{.markdown filename="state-diag.qmd"}
 ```{mermaid}
@@ -682,14 +726,14 @@ stateDiagram
 ```
 ````
 
-- [ ] :frog: envoie son code vers le dépôt distant, ensuite :cat: fait de même
+- [ ] 🐸 envoie son code vers le dépôt distant, ensuite 🐱 fait de même
   - `git add .`
   - `git commit -m "<complétez>"`
   - `git push`
 
 ::: {.callout-important}
-- Pour :frog: qui a poussé son code en premier :arrow_right: tout s'est bien passé
-- Pour :cat:, il a du recevoir ce genre de message lors du push
+- Pour 🐸 qui a poussé son code en premier ➡️ tout s'est bien passé
+- Pour 🐱, il a du recevoir ce genre de message lors du push
   
 ```{.default}
 ! [rejected]        main -> dev (fetch first)
@@ -702,47 +746,48 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 ```
 :::
 
-Si vous lisez le message, c'est assez clair :
+Si vous prenez le temps de lire le message, c'est assez clair :
 
 - votre dépôt local est en retard de version par rapport au dépôt distant
 - vous devez donc mettre à jour votre dépôt local avant de pousser
 - il faut commencer par pull
 
+::: {.callout-tip title="rebase"}
 Nous allons ajouter l'option *rebase* pour placer les commits locaux "par-dessus" ceux du remote pour obtenir un historique linéaire, clair et facile à suivre, tout en évitant les commits de fusion superflus.
+:::
 
-- [ ] :cat: commence par `git pull --rebase`
-- [ ] :cat: fait enfin `git push`
+- [ ] 🐱 commence par `git pull --rebase`
+- [ ] 🐱 fait enfin `git push`
 
-Maintenant c'est :frog: qui a son dépôt local en retard.
+Maintenant c'est 🐸 qui a son dépôt local en retard.
 
-- [ ] :frog: peut faire un simple *pull* car il n'a pas de commits locaux
+- [ ] 🐸 peut faire un simple *pull* car il n'a pas de commits locaux
 
 Exercice d'application :
 
-- [ ] :cat: modifie et pousse le fichier `voiture.py`
-- [ ] :frog: modifie et pousse le fichier `moto.py`
+- [ ] 🐱 modifie et pousse le fichier `voiture.py`
+- [ ] 🐸 modifie et pousse le fichier `moto.py`
 - [ ] Synchronisez vos dépôts pour avoir tous la dernière version
 
 
 ### Un premier conflit
 
-Pour le moment vous avez travaillé sur des fichiers différents, donc git arrive à gérer la situation.
-
-Maintenant, que se passe-t-il si vous modifiez tous les deux le même fichier ?
+> Pour le moment vous avez travaillé sur des fichiers différents, donc git arrive à gérer la situation. \
+> Maintenant, que se passe-t-il si vous modifiez tous les deux le même fichier ?
 
 Vous allez tous les 2 travailler sur le fichier `voiture.py`. Dans la méthode *accelere()* :
 
-- [ ] :cat: remplace 130 par 150
-- [ ] :cat: commit et pousse son code (*add*, *commit*, *push*)
-- [ ] De son côté, :frog: remplace 130 par 110
-- [ ] :frog: commit et pousse son code (*add*, *commit*, *push*)
+- [ ] 🐱 remplace 130 par 150
+- [ ] 🐱 commit et pousse son code (*add*, *commit*, *push*)
+- [ ] De son côté, 🐸 remplace 130 par 110
+- [ ] 🐸 commit et pousse son code (*add*, *commit*, *push*)
 
 Si vous avez bien compris, vous savez que le push ne va pas fonctionner.
 
-- [ ] :frog: doit commencer par mettre à jour son dépôt local : `git pull`
+- [ ] 🐸 doit commencer par mettre à jour son dépôt local : `git pull`
   - Et là c'est le conflit...
 
-```{.default}
+```{.dark-code-block}
 remote: Enumerating objects: 7, done.
 remote: Counting objects: 100% (7/7), done.
 remote: Compressing objects: 100% (3/3), done.
@@ -772,23 +817,23 @@ Votre code ressemble à cela désormais à ceci :
 >>>>>>> 05380ea70dbd5d4e49371af8da7c0ac1df13a010
 ```
 
-- La première partie (entre `<<<<<<< HEAD` et `=======`) correspond au code en que vous aviez dans votre copie de travail
+- La première partie (entre `<<<<<<< HEAD` et `=======`) correspond au code que vous aviez dans votre copie de travail
 - La seconde partie est le code provenant du dépôt distant
 
 Plusieurs choix s'offrent à vous :
   
-- Imposer votre version (110)
-- Accepter la version de :cat: (150)
+- Imposer votre version 💪 (110)
+- Accepter la version de 🐱 (150)
 - Choisir une toute autre version (par exemple 120)
 
 Résolvons ce conflit :
 
-- [ ] :frog: conserve uniquement la ligne avec 110
+- [ ] 🐸 conserve uniquement la ligne avec 110
   - et supprime toutes les autres lignes de  `<<<<<<<` à `>>>>>>>`
   - autre possibilité offerte par VSCode, cliquer sur *Accept Current Change*
-- [ ] :frog: sauvegarde le fichier 
-- [ ] :frog: commit et pousse son code (*add*, *commit -m "resolve merge"*, *push*)
-- [ ] :cat: fait un *pull* pour mettre à jour son dépôt local
+- [ ] 🐸 sauvegarde le fichier 
+- [ ] 🐸 commit et pousse son code (*add*, *commit -m "resolve merge"*, *push*)
+- [ ] 🐱 fait un *pull* pour mettre à jour son dépôt local
 
 ::: {.callout-important}
 Avoir un conflit, ce n'est pas grave !  
@@ -801,6 +846,8 @@ Avoir un conflit, ce n'est pas grave !
 
 Cela arrive simplement quand Git rencontre deux versions et il n'a pas de :crystal_ball:, ni de :game_die: pour choisir laquelle est la bonne.
 :::
+
+Maintenant si nous pouvons éviter, c'est pas plus mal !
 
 ::: {.callout-tip title="Éviter les conflits"}
 - Essayez de ne pas coder en même temps sur les mêmes fichiers
@@ -815,7 +862,7 @@ En effet, si vous codez pendant 5 jours sans jamais pousser votre code, vous pre
 
 Dans le constructeur de la classe *Voiture* :
 
-- [ ] :cat: ajoute un attribut *vitesse_max* qui vaut par défaut 130
+- [ ] 🐱 ajoute un attribut *vitesse_max* qui vaut par défaut 130
   ```{.python filename="voiture.py"}
       def __init__(self, nom, couleur, vitesse_max=130):
         """Constructeur"""
@@ -824,7 +871,7 @@ Dans le constructeur de la classe *Voiture* :
         self.vitesse = 0
         self.vitesse_max = vitesse_max
   ```
-- [ ] :frog: ajoute un attribut *carburant*
+- [ ] 🐸 ajoute un attribut *carburant*
   ```{.python filename="voiture.py"}
       def __init__(self, nom, couleur, carburant):
         """Constructeur"""
@@ -835,6 +882,20 @@ Dans le constructeur de la classe *Voiture* :
   ```
 - [ ] Synchronisez vos dépôts et résolvez les conflits
 
+Vous avez maintenant tous les outils pour un usage simple de git.
+
+::: {.callout-important title="À retenir"}
+- Git permet de versionner les fichiers d'un projet et de conserver leur historique.
+- Le dépôt local contient une copie complète de l'historique du projet.
+- Un dépôt distant permet de partager et de synchroniser le projet avec d'autres personnes.
+- `git status` permet de connaître l'état du dépôt.
+- `git add` prépare les modifications pour le prochain commit.
+- `git commit` enregistre les modifications dans l'historique local.
+- `git push` envoie les commits vers le dépôt distant.
+- `git pull` récupère les modifications du dépôt distant et les intègre au dépôt local.
+- Les conflits apparaissent lorsque Git ne peut pas intégrer automatiquement des modifications concurrentes.
+- `.gitignore` permet d'indiquer à Git quels fichiers ne doivent pas être suivis.
+:::
 
 ## CI
 
@@ -906,7 +967,7 @@ jobs:
 
 Lors d'un push, cela va maintenant déclencher un pipeline sur GitHub.
 
-- [ ] Sur la page du repo GitHub, allez dans l'onglet *Action*
+- [ ] Sur la page du repo GitHub, allez dans l'onglet *Actions*
 
 
 ## Git sur la VM ENSAI {.unnumbered}
@@ -935,7 +996,7 @@ Pour permettre de faire dialoguer notre dépôt local avec le dépôt distant de
 - déclarer votre clé publique à GitHub
 
 ::: {.callout-warning}
-Ce paramètrage SSH est réalisé au niveau de la machine.
+Ce paramétrage SSH est réalisé au niveau de la machine.
 
 Si par exemple, vous souhaitez utiliser Git sur votre ordinateur personnel, il faudra faire également ce paramétrage.
 :::
@@ -952,7 +1013,7 @@ Dans Git Bash :
 
 Déclarez votre clé publique à *GitHub*, pour pouvoir ensuite faire communiquer dépôts locaux avec les dépôts distants :
 
-- [ ] GitHub :fast_forward: cliquez sur votre avatar :fast_forward: Settings :fast_forward: SSH and GPG keys
+- [ ] GitHub ⏩ cliquez sur votre avatar ⏩ Settings ⏩ SSH and GPG keys
   - [lien direct](https://github.com/settings/keys){target="_blank"}
 - [ ] Cliquez sur [New SSH key]{.green-button}
   - Title : VM ENSAI
@@ -972,7 +1033,7 @@ SSH utilise un mécanisme de clés cryptographiques pour authentifier les ordina
 - `Clé privée` : C'est comme la clé de votre maison. Vous la gardez en sécurité avec vous et ne la partagez avec personne. Cette clé reste sur votre ordinateur et sert à prouver votre identité.
 - `Clé publique` : Elle serait comme votre adresse postale. Vous pouvez la partager avec d'autres. Dans SSH, vous placez votre clé publique sur les serveurs ou les ordinateurs auxquels vous souhaitez vous connecter.
 
-Ces deux clés sont liées. Un message chiffré par la clé publique n'est déchiffrable que par celui qui posséde la clé privée.
+Ces deux clés sont liées. Un message chiffré par la clé publique n'est déchiffrable que par celui qui possède la clé privée.
 Lorsque vous chiffrez un message avec votre clé privée, vous prouvez à tous votre identité car chacun peut déchiffrer ce message avec la clé publique.
 
 {{< video https://www.youtube.com/watch?v=Y-S6GtdLaSU&ab_channel=Grafikart.fr >}}

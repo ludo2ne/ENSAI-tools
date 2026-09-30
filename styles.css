@@ -157,6 +157,11 @@ p{
   color: green;
 }
 
+.dark-code-block {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+}
+
 .terminal {
   background-color: #1e1e1e;
   color: #33ff33;

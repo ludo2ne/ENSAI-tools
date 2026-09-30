@@ -10,7 +10,7 @@ author: "Ludovic Deneuville"
 - [ ] Connectez-vous à [GitHub](https://github.com/){target="_blank"}
 - [ ] Vérifiez que vous avez un [token actif](https://github.com/settings/tokens){target="_blank"}
 - [ ] Créer un nouveau Repository
-  - Public :arrow_right: obligatoire si vous voulez ensuite déployer un site Quarto
+  - Public ➡️ obligatoire si vous voulez ensuite déployer un site Quarto
   - Cochez Add README
 - [ ] Copiez l'url https du dépôt
 
@@ -18,8 +18,8 @@ author: "Ludovic Deneuville"
 - [ ] Generate a [new classic token](https://github.com/settings/tokens/new){target="_blank"}
   - Fill in:
     - token name: SSPCloud
-    - expiration date :arrow_right: Custom :arrow_right: 31 July
-  - :white_check_mark: Tick repo and workflow boxes
+    - expiration date ➡️ Custom ➡️ 31 July
+  - ☑ Tick repo and workflow boxes
   - Click on [Generate token]{.green-button}
 - [ ] Copy the token starting with `ghp_` and keep it safe for a few minutes
 - [ ] Once you're logged in to SSPCloud, go to My Account > Settings > Git and paste it there

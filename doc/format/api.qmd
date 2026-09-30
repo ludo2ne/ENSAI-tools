@@ -30,10 +30,10 @@ In practice, a Web API exposes resources (data) through URLs called endpoints.
 
 For example:
 
-- `GET https://myawsomeapi.io/users` :arrow_right: list all users
-- `GET https://myawsomeapi.io/users/12` :arrow_right: get user with id 12
-- `GET https://myawsomeapi.io/games` :arrow_right: list games
-- `POST https://myawsomeapi.io/games` :arrow_right: create a game
+- `GET https://myawsomeapi.io/users` ➡️ list all users
+- `GET https://myawsomeapi.io/users/12` ➡️ get user with id 12
+- `GET https://myawsomeapi.io/games` ➡️ list games
+- `POST https://myawsomeapi.io/games` ➡️ create a game
 
 A Web API typically uses:
 
@@ -147,9 +147,9 @@ Let's imagine an api `http://pikapi.io` that offers an endpoint (/pokemon) where
 
 Providing just a URL `http://pikapi.io/pokemon` isn't enough. You need to specify:
 
-- I want to create :arrow_right: Method: POST
-- The pokemon's attributes :arrow_right: Body
-- Perhaps this endpoint is reserved for authenticated users :arrow_right: Headers including a Token
+- I want to create ➡️ Method: POST
+- The pokemon's attributes ➡️ Body
+- Perhaps this endpoint is reserved for authenticated users ➡️ Headers including a Token
 
 ```{.json}
 POST http://pikapi.io/pokemon 
@@ -203,7 +203,7 @@ curl -X POST http://pikapi.io/pokemon \
   }' | jq .
 ```
 
-:bulb: add `| jq .` at the end, if you want a pretty-printed response.
+💡 add `| jq .` at the end, if you want a pretty-printed response.
 
 
 ### Swagger
@@ -324,7 +324,7 @@ We will explore two simple ways:
 
 Below is the code and command to create and launch the simplest possible API using FastAPI. A single endpoint that responds with "hello world"
 
-:arrow_right: **Step1: Create the API**
+➡️ **Step1: Create the API**
 
 ```{.python filename="main.py"}
 from fastapi import FastAPI
@@ -336,7 +336,7 @@ async def read_root():
     return {"message": "Hello World"}
 ```
 
-:arrow_right: **Step2: Launch the Server**
+➡️ **Step2: Launch the Server**
 
 Launch it with command: `uvicorn main:app --host 0.0.0.0 --port 5000 --reload`
 
@@ -348,7 +348,7 @@ Launch it with command: `uvicorn main:app --host 0.0.0.0 --port 5000 --reload`
 - --reload: it automatically restarts the server whenever you save a file
 :::
 
-:arrow_right: **Step3: Query the API**
+➡️ **Step3: Query the API**
 
 Using `curl -X GET http://0.0.0.0:5000/ | jq .` or another client.
 
@@ -363,7 +363,7 @@ A production-ready API does much more than just return a single message; it uses
 
 ### FastApi: gear second
 
-Here we have an API that lets you manage a list of Pokemons (each Pokémon is identified only by its name)
+Here we have an API that lets you manage a list of Pokemons (each Pokémon is identified only by its name).
 
 ```{.python}
 from fastapi import FastAPI, HTTPException
@@ -542,7 +542,7 @@ Your API is now live at `http://localhost:5000`. The keys in your JSON file (e.g
 
 You can interact with your new server using **cURL** or any professional API client like **Bruno** or **Insomnia**.
 
-:arrow_right: READ Operations
+➡️ READ Operations
 
 To retrieve the list of all games:
 
@@ -550,7 +550,7 @@ To retrieve the list of all games:
 curl -X GET http://localhost:5000/games
 ```
 
-:arrow_right: WRITE Operations
+➡️ WRITE Operations
 
 To create a new game entry, send a `POST` request with a **JSON** body. `json-server` will automatically generate a unique *id* for the new entry.
 
@@ -568,7 +568,7 @@ curl -X POST http://localhost:5000/games \
          }'
 ```
 
-:arrow_right: UPDATE Operations
+➡️ UPDATE Operations
 
 To modify an existing resource, use `PUT`. You must specify the *id* of the resource in the URL path.
 
@@ -586,7 +586,7 @@ curl -X PUT http://localhost:5000/games/1 \
          }'
 ```
 
-:arrow_right: DELETE Operations
+➡️ DELETE Operations
 
 To remove a resource from your mock database:
 

@@ -61,16 +61,16 @@ La branche principale se nomme généralement *main* ou *master*.
 
 ## Gitflow
 
-:construction:
+🚧
 
 
 ## Pull request
 
-:construction:
+🚧
 
 
 ## Open source
 
-:construction:
+🚧
 
 [Pôle open source et communs numériques](https://code.gouv.fr/fr/){target="_blank"}

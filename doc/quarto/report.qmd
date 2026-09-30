@@ -210,7 +210,7 @@ Leurs intérêts principaux sont :
 ### Rédaction
 
 - Evitez la forme passive
-- On a :arrow_right: Nous avons
+- On a ➡️ Nous avons
 
 ::: {.callout-warning}
 RELISEZ-VOUS !!!

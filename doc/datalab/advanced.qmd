@@ -48,7 +48,7 @@ Si vous avez besoin de lancer réguliérement votre service avec cette config :
 
 ## Image Docker
 
-:construction:
+🚧
 
 Dans les paramètres de lancement vous pouvez également définir votre propre image Docker :
 
@@ -92,11 +92,11 @@ Pour éviter d'avoir à nettoyer votre code à chaque fois que vous le poussez s
 - [ ] `Ajoutez une variable`
   - Nom : PATATE_TOKEN
   - Valeur : 123456
-  - Cliquez sur :white_check_mark: pour valider
+  - Cliquez sur ☑ pour valider
 - [ ] Ajoutez une autre variable
   - Nom : PATATE_PORT
   - Valeur : 5236
-  - Cliquez sur :white_check_mark: pour valider
+  - Cliquez sur ☑ pour valider
 
 ### Utiliser dans un service
 

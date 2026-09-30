@@ -128,7 +128,7 @@ Souvent la commande `ll` (alias de `ls -al`) est définie et permet d'avoir un a
 La touche Tabulation **⇄**
 
 - Elle sert à faire de l’autocomplétion. Elle complète automatiquement les commandes.
-- `cd bac` + [TAB]{.keyboard} :arrow_right: `cd backend`
+- `cd bac` + [TAB]{.keyboard} ➡️ `cd backend`
 :::
 
 Autres touches utiles :
@@ -196,7 +196,7 @@ env | grep GIT                    # Liste des variables contenant GIT
 
 Dans la dernière commande le pipe (`|`) permet d'envoyer la sortie de la commande `env` comme paramètre d'entrée de la commande grep.
 
-> `f(x) | g` :arrow_right: traduit en langage matheux signifie : $g(f(x))$
+> `f(x) | g` ➡️ traduit en langage matheux signifie : $g(f(x))$
 
 Variables courantes :
 
@@ -246,7 +246,7 @@ Le premier caractère représente le type d'élément :
 - `d` : Répertoire
 - `l` : Lien symbolique
 
-Les 9 caractères suivants :arrow_right: Les permissions(divisées en 3 groupes de 3)
+Les 9 caractères suivants ➡️ Les permissions(divisées en 3 groupes de 3)
 
 - `rwx` (les 2-4) : Droits du Propriétaire
 - `r-x` (les 5-7) : Droits du Groupe

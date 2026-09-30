@@ -2,6 +2,6 @@
 title: Qualité, Reproductibilité
 ---
 
-:construction:
+🚧
 
 Rapide topo sur la qualité, reproductibilité, README, doc, tests, découpage en petites fonctions...

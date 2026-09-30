@@ -28,7 +28,7 @@ categories:
 - Outil indispensable
 - Utilisation :
   - TP informatiques, R
-  - Dans tous les projets
+  - Dans tous vos projets
   - Dans votre vie professionnelle
 
 
@@ -36,7 +36,7 @@ categories:
 - Présentation perso en 1min
 - Évalué en Compléments d'info 2A
 - Suivi d'un TP
-- :warning: valable pour tous les TP
+- ⚠️ valable pour tous les TP
   - n'allez pas trop vite
   - suivez précisément les consignes
   - réfléchissez (il peut y avoir des coquilles)
@@ -46,11 +46,11 @@ categories:
 
 ## Introduction
 
-Vous faites parti d'une équipe de 5 personnes qui doit coder une application de jeux de cartes.
+Vous faites partie d'une équipe de 5 personnes qui doit coder une application de jeux de cartes.
 
 :confused: Comment mettre en commun votre code ?
 
-- Vous développez chacun de votre coté et à la fin, vous mettez tout en commun
+- Vous développez chacun de votre côté et à la fin, vous mettez tout en commun
 - Vous envoyez vos programmes par mail
 - Vous créez un dossier commun
 
@@ -66,7 +66,7 @@ Vous faites parti d'une équipe de 5 personnes qui doit coder une application de
 :::
 
 :::{.notes}
-2 grandes problèmatiques :
+2 grandes problématiques :
 
 - Versionner le code
 - Partager du code
@@ -86,7 +86,7 @@ Vous faites parti d'une équipe de 5 personnes qui doit coder une application de
 :::
 
 
-### Pour connaitre la véritable dernière version
+### Pour connaître la véritable dernière version
 
 ::: {.notes}
 Même si vous êtes bien intentionné, ça finira par déraper
@@ -95,7 +95,7 @@ Solutions naïves :
 
 - Pas de versionnage
   - vous écrasez les anciens fichiers
-- Copiez intégralement le dossier à chaque modif
+- Copier intégralement le dossier à chaque modif
   - projet_v1, projet_v2
 - incrémenter les noms de fichier
 :::
@@ -114,7 +114,7 @@ Solutions naïves :
 │   │   └─── Rapport_v1.1.qmd
 │   ├─── Rapport_old.qmd
 │   ├─── Rapport_2022.05.15.qmd
-│   └─── Rapport_2022.05.15_lastest.qmd
+│   └─── Rapport_2022.05.15_latest.qmd
 ```
 
 :confused: Quelle est la bonne version du fichier ?
@@ -269,7 +269,7 @@ Il existe aussi des interfaces graphiques mais elles sont souvent imparfaites et
   - code source est ouvert et disponible
   - permettant à quiconque de l'utiliser, le modifier, et le distribuer librement
   - différent de gratuit
-  - légérement différent de Open source
+  - légèrement différent de Open source
     - Open Source : avantages pratiques et collaboratifs
     - Libre : libertés et les droits éthiques des utilisateurs
 - Décentralisé
@@ -278,9 +278,9 @@ Il existe aussi des interfaces graphiques mais elles sont souvent imparfaites et
 
 ### Késako
 
-- **Git** :arrow_right: Logiciel de gestion de versions
-- **Git Bash** :arrow_right: Terminal pour écrire des commandes git
-- **GitHub / GitLab** :arrow_right: Plateforme de développement collaboratif
+- **Git** ➡️ Logiciel de gestion de versions
+- **Git Bash** ➡️ Terminal pour écrire des commandes git
+- **GitHub / GitLab** ➡️ Plateforme de développement collaboratif
   - Héberge des dépôts Git
   - Propose d'autres fonctionnalités (CI/CD, wiki, gestion des incidents...)
 
@@ -304,7 +304,7 @@ Conseil : lors de l'installation de Git, choisissez le terminal Unix
 - 2e ligne (commence par $) : commande
 - 3e ligne : résultat de la commande
 
-Bref apparté sur les commandes Unix.
+Bref aparté sur les commandes Unix.
 
 Il fut un temps où tout se faisait par ce biais (pas d'explorer)
 :::
@@ -420,8 +420,8 @@ Raccourcis indispensables:
 
 ### Que versionne-t-on ?
 
-- :white_check_mark: des fichiers de type texte (légers)
-- :white_check_mark: du code source
+- ☑ des fichiers de type texte (légers)
+- ☑ du code source
 - :x: fichiers de données
 - :x: mots de passe
 - :x: outputs : logs, .pdf, .doc
@@ -451,7 +451,7 @@ Retenir Local et Remote, mais en fait c'est un peu plus complexe :
 
 - ça fait un peu peur, pas intuitif au début
 - workspace : tous les fichiers de votre dossier
-- staging : fichier reconnus par git
+- staging : fichiers reconnus par git
 - local : sauvegardes du dépôt local
 
 Plus facile dans un sens que l'autre
@@ -591,8 +591,8 @@ Attention avec les commandes contenant les mots *force*, *hard*...
 :::{.callout-tip title="Le fichier .gitignore"}
 `.gitignore` est un fichier présent à la racine du dépôt permettant de dire à Git quels fichiers il doit ignorer. Par exemple, s'il contient : 
 
-- `*.csv` :arrow_right: tous les fichiers *csv* seront ignorés par Git
-- `data/` :arrow_right: le dossier *data* et son contenu sera ignoré
+- `*.csv` ➡️ tous les fichiers *csv* seront ignorés par Git
+- `data/` ➡️ le dossier *data* et son contenu sera ignoré
 
 Cela est utile, pour exclure par exemple du dépôt Git :
 
@@ -603,7 +603,7 @@ Cela est utile, pour exclure par exemple du dépôt Git :
 
 ::: {.notes}
 - En info, il y a souvent plein de fichiers de config
-- :warning: Mots de passe :arrow_right: git garde tout l'historique
+- ⚠️ Mots de passe ➡️ git garde tout l'historique
 - Next
   - c'était pour la partie "gestion du dépôt local"
   - ensuite regardons comment communiquer avec le dépôt distant
@@ -675,7 +675,7 @@ flowchart
 - `git push` : envoyer ses commits locaux sur le dépôt distant
 
 ::: {.callout-warning}
-Il est important de push et pull réguliérement son code pour garder son dépôt à jour.
+Il est important de push et pull régulièrement son code pour garder son dépôt à jour.
 :::
 
 ::: {.callout-important}
@@ -690,7 +690,7 @@ Il est important de push et pull réguliérement son code pour garder son dépô
 
 ### git push
 
-Dépôt local :arrow_right: Dépôt distant
+Dépôt local ➡️ Dépôt distant
 
 <!-- ne passe pas bien avec revealJS
 ```{mermaid}
@@ -735,7 +735,7 @@ Le message est assez explicite.
 - Mais votre fichier n'apparait pas sur le dépôt distant...
 - Probablement parce que vous avez oublié de l'ajouter à l'index avec `git add <mon_fichier>`
 
-Autre possibilité : votre fichier est ignoré par git car il fait parti du `.gitignore`
+Autre possibilité : votre fichier est ignoré par git car il fait partie du `.gitignore`
 
 ::: {.notes}
 ça arrive quand vous voulez aller trop vite
@@ -743,7 +743,7 @@ Autre possibilité : votre fichier est ignoré par git car il fait parti du `.gi
 
 ### git pull
 
-Dépôt local :arrow_left: Dépôt distant
+Dépôt local ⬅️ Dépôt distant
 
 - Mise à jour de votre dépôt local
 - S'il y a eu des modifications sur le dépôt distant
@@ -759,7 +759,7 @@ Que se passe-t-il si :
 - Alice a modifié un fichier et poussé sa modification sur le dépôt distant
 - Vous avez également modifié le même fichier et vous faites un `git pull` pour mettre à jour votre dépôt à partir du dépôt distant
 
-:fearful: Un conflit ! Git ne sait pas choisir quelle est la bonne version entre la votre et celle d'Alice.
+:fearful: Un conflit ! Git ne sait pas choisir quelle est la bonne version entre la vôtre et celle d'Alice.
 
 ### git pull - conflit
 
@@ -769,7 +769,7 @@ Que se passe-t-il si :
 - `git add` puis `git commit` pour valider la résolution du conflit
 
 ::: {.notes}
-Il apparait sur votre dépôt local.
+Il apparaît sur votre dépôt local.
 
 - conflit ≠ erreur
 - ça arrive
@@ -815,16 +815,16 @@ class Velo:
 
 ::: {.notes}
 - Contexte
-  - Permier arrivé, premier servi
+  - Premier arrivé, premier servi
   - Le conflit (après votre pull)
 - Conflit
   - Git n'est pas un juge
   - VSCode : accept incoming/current/both change
 - Résolution
-  - supprimez les `<<<<<<<` et `=======` :arrow_right: pas du python
+  - supprimez les `<<<<<<<` et `=======` ➡️ pas du python
   - si vous relancez votre programme comme ça, il va pas aimer
 
-Le conflit se résoud sur son dépôt local !
+Le conflit se résout sur son dépôt local !
 :::
 
 ::: {.panel-tabset .nav-pills}
@@ -832,7 +832,7 @@ Le conflit se résoud sur son dépôt local !
 #### Contexte
 
 - Alice a poussé son code avant vous
-- Vous faîtes donc un `git pull`
+- Vous faites donc un `git pull`
   - En effet, vous devez impérativement mettre à jour votre dépôt local avant de pousser votre code
 - 2 versions s'opposent sur votre dépôt local
   - `self.couleur = "noir"` vs `self.couleur = "blanc"`
@@ -942,7 +942,7 @@ Cependant ce cas d'utilisation est assez marginal.
   - clé publique / clé privée -> config machine
   - vous générez un secret depuis votre machine
 - https : 
-  - GitHub génére un token
+  - GitHub génère un token
 :::
 
 
@@ -954,8 +954,8 @@ Cependant ce cas d'utilisation est assez marginal.
 | `git status`                | Voir où l'on en est                      |
 | `git add <file>`            | Ajouter pour le prochain commit          |
 | `git commit -m "<msg>"`     | Créer un point de sauvegarde             |
-| `git pull`                  | dépôt local :arrow_right: dépôt distant  |
-| `git push`                  | dépôt local :arrow_left: dépôt distant   |
+| `git pull`                  | dépôt local ⬅️ dépôt distant  |
+| `git push`                  | dépôt local ➡️ dépôt distant  |
 
 :::{.notes}
 clone : bouton vert code sur GitHub, GitLab
@@ -1004,7 +1004,7 @@ clone : bouton vert code sur GitHub, GitLab
 
 ## Travailler sur le Datalab
 
-- Services non perennes
+- Services non pérennes
 - Sauvegardez votre code
 
 ::: {.notes}
@@ -1031,8 +1031,8 @@ clone : bouton vert code sur GitHub, GitLab
 | GitHub           | Plateforme Git          | Service web pour héberger et collaborer sur des dépôts Git |
 | Git Bash         | Terminal                | Terminal pour lancer des commandes Git |
 | Dépôt            | Repository, Repo        | Dossier contenant un projet Git (code + historique) |
-| Remote           | Dépôt distant           | Dépôt hébergée sur un serveur (GitHub, GitLab…) |
-| Local            | Dépôt local, Clone      | Copie d'un Remote sur ordinateur, ton service |
+| Remote           | Dépôt distant           | Dépôt hébergé sur un serveur (GitHub, GitLab…) |
+| Local            | Dépôt local, Clone      | Copie d'un Remote sur ordinateur, ou dans ton service |
 | Commit           | Point de sauvegarde     | État du projet à un instant donné |
 | Push             | Envoyer                 | Transmettre les commits locaux vers le dépôt remote |
 | Pull             | Récupérer               | Ramener les commits du remote vers le local et les fusionner |

@@ -4,7 +4,7 @@ description: "Introduction à Quarto"
 author: "Ludovic Deneuville"
 ---
 
-:construction:
+🚧
 
 :::{.notes}
 historique, Pourquoi Quarto  :

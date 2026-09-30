@@ -8,7 +8,7 @@ categories:
   - Reproductibilité
 ---
 
-:construction:
+🚧
 
 :::{.notes}
 1. Bonnes pratiques de gestion de projet
