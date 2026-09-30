@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-edb6c92ac4857650852916241193df99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-ecff36e8869ebbc8362da441c997d0a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-edb6c92ac4857650852916241193df99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-48afaec27bfe3050e097d8a4c60c27f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-8906adfb68f861914aea8ffb10afb9a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-48afaec27bfe3050e097d8a4c60c27f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -692,7 +692,7 @@ Note
 </ul>
 <p>Vous trouverez ici des informations pour vous connecter au stockage selon le language que vous utilisez : Python, R…</p>
 <p>D’ailleurs pour chaque langage, il y a même plusieurs packages qui font le job. Par exemple <em>s3fs</em> ou <em>boto3</em> pour Python.</p>
-<p><span class="emoji" data-emoji="construction">🚧</span> Scripts faciles R &amp; Python pour accéder aux données</p>
+<p>🚧 Scripts faciles R &amp; Python pour accéder aux données</p>
 </section>
 <section id="données-dautres-utilisateurs" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="données-dautres-utilisateurs"><span class="header-section-number">2.3</span> Données d’autres utilisateurs</h3>
@@ -702,7 +702,7 @@ Note
 </section>
 <section id="exportez-vos-résultats-vers-minio" class="level3" data-number="2.4">
 <h3 data-number="2.4" class="anchored" data-anchor-id="exportez-vos-résultats-vers-minio"><span class="header-section-number">2.4</span> Exportez vos résultats vers MinIO</h3>
-<p><span class="emoji" data-emoji="construction">🚧</span></p>
+<p>🚧</p>
 </section>
 </section>
 <section id="git" class="level2" data-number="3">
@@ -757,15 +757,15 @@ Caution
 <h3 data-number="3.2" class="anchored" data-anchor-id="créer-un-token"><span class="header-section-number">3.2</span> Créer un Token</h3>
 <ul class="task-list">
 <li><label><input type="checkbox">Connectez-vous à votre compte GitHub</label></li>
-<li><label><input type="checkbox">Allez dans settings <span class="emoji" data-emoji="arrow_right">➡️</span> Developer settings <span class="emoji" data-emoji="arrow_right">➡️</span> Personal access tokens <span class="emoji" data-emoji="arrow_right">➡️</span> Tokens (classic)</label></li>
+<li><label><input type="checkbox">Allez dans settings ➡️ Developer settings ➡️ Personal access tokens ➡️ Tokens (classic)</label></li>
 <li><label><input type="checkbox">Générez un <a href="https://github.com/settings/tokens/new" target="_blank">jeton classique</a></label>
 <ul>
 <li>Renseignez :
 <ul>
 <li>nom du token : <em>Datalab GENES</em></li>
-<li>date d’expiration <span class="emoji" data-emoji="arrow_right">➡️</span> Custom <span class="emoji" data-emoji="arrow_right">➡️</span> <code>31/07/&lt;next year&gt;</code></li>
+<li>date d’expiration ➡️ Custom ➡️ <code>31/07/&lt;next year&gt;</code></li>
 </ul></li>
-<li><span class="emoji" data-emoji="white_check_mark">✅</span> Cochez <strong>repo</strong> et <strong>workflow</strong></li>
+<li>☑ Cochez <strong>repo</strong> et <strong>workflow</strong></li>
 <li>Cliquez sur <span class="green-button">Generate token</span></li>
 </ul></li>
 <li><label><input type="checkbox">Copiez ce jeton commençant par <code>ghp_</code> et gardez le précieusement de côté quelques minutes</label></li>
@@ -791,7 +791,7 @@ Warning
 <h3 data-number="3.3" class="anchored" data-anchor-id="déclarer-le-token"><span class="header-section-number">3.3</span> Déclarer le Token</h3>
 <p>GitHub vous a fournit un jeton. Il faut maintenant le déclarer sur le Datalab :</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Allez dans <code>Mon Compte</code> <span class="emoji" data-emoji="arrow_right">➡️</span> Onglet <code>Git</code></label></li>
+<li><label><input type="checkbox">Allez dans <code>Mon Compte</code> ➡️ Onglet <code>Git</code></label></li>
 <li><label><input type="checkbox">Renseignez les informations suivantes</label>
 <ul>
 <li>nom d’utilisateur Git</li>
@@ -843,7 +843,7 @@ Tip
 </ul></li>
 <li><label><input type="checkbox">Renseignez l’<strong>url https du dépôt</strong></label>
 <ul>
-<li>vous la trouvez sur la page GitHub du dépôt en cliquant sur <span class="green-button">Code</span></li>
+<li>vous la trouvez sur la page GitHub du dépôt en cliquant sur <span class="green-button">&lt;&gt; Code</span></li>
 <li>exemple d’url : <code>https://github.com/ludo2ne/ENSAI-tools.git</code></li>
 </ul></li>
 <li><label><input type="checkbox">Lancez le service</label></li>

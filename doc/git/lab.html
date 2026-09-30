@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-edb6c92ac4857650852916241193df99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-ecff36e8869ebbc8362da441c997d0a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-edb6c92ac4857650852916241193df99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-48afaec27bfe3050e097d8a4c60c27f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-8906adfb68f861914aea8ffb10afb9a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-48afaec27bfe3050e097d8a4c60c27f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -121,6 +121,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -588,7 +617,7 @@ Note
 <div class="callout-body-container callout-body">
 <p>Les consignes de ce TP sont données pour une utilisation de GitHub.</p>
 <p>Il est possible de réaliser ce TP avec GitLab dont l’interface est très ressemblante.</p>
-<p><span class="emoji" data-emoji="warning">⚠️</span> Il y a tout de même quelques différences, par exemple : GitHub Repository = GitLab Projet</p>
+<p>⚠️ Il y a tout de même quelques différences, par exemple : GitHub Repository = GitLab Projet</p>
 </div>
 </div>
 <section id="à-faire-à-la-maison" class="level2 unnumbered">
@@ -597,8 +626,7 @@ Note
 <li><label><input type="checkbox">Lire l’introduction</label></li>
 <li><label><input type="checkbox">Créer un compte sur <a href="https://github.com/" target="_blank">GitHub</a></label>
 <ul>
-<li>GitHub &gt; Sign up</li>
-<li>ou avec <a href="https://github.com/signup" target="_blank">ce lien direct</a></li>
+<li>GitHub ⏩ <a href="https://github.com/signup" target="_blank">Sign up</a></li>
 </ul></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled" title="Ajoutez un mail perso">
@@ -613,7 +641,7 @@ Note
 <div class="callout-body-container callout-body">
 <p>Lors de la création de compte, si vous utilisez votre adresse mail ENSAI, nous vous conseillons d’ajouter un mail personnel :</p>
 <ul>
-<li>GitHub &gt; Settings <span class="emoji" data-emoji="gear">⚙️</span> &gt; Email (<a href="https://github.com/settings/emails" target="_blank">lien direct</a>)</li>
+<li>GitHub ⏩ Settings ⚙️ ⏩ Email (<a href="https://github.com/settings/emails" target="_blank">lien direct</a>)</li>
 </ul>
 <p>Comme vous ne serez pas étudiant toute votre vie, cela vous évitera de perdre votre accès par la suite.</p>
 </div>
@@ -624,14 +652,14 @@ Note
 <p><a href="https://git-scm.com/" target="_blank">Git</a> est un <strong>formidable</strong> outil de versionnage de fichiers qui va vous permettre de conserver efficacement l’historique de votre code aussi bien si vous travaillez seul mais également quand vous travaillez à plusieurs.</p>
 <p>Cet historique est conservé dans ce que l’on appelle un <em>dépôt git</em>.</p>
 <p>Sa conception décentralisée fait qu’il est quasi impossible de perdre une donnée définitivement avec git. En particulier, la perte totale d’un ordinateur hébergeant votre code ne représentera qu’une perte minime de code si vous utilisez git correctement.</p>
-<p>En outre, de nombreux outils de <em>CI/CD</em> (<em>Continuous Intégration / Continuous Deployment</em>) qui rendent possible l’automatisation de l’intégration et du déploiement de votre code s’appuient sur un <em>dépôt git</em>.</p>
+<p>En outre, de nombreux outils de <em>CI/CD</em> (<em>Continuous Integration / Continuous Deployment</em>) qui rendent possible l’automatisation de l’intégration et du déploiement de votre code s’appuient sur un <em>dépôt git</em>.</p>
 <section id="concepts-clés" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="concepts-clés">Concepts Clés</h3>
-<p>Comme tout logiciel, git demande un peu d’apprentissage, et de la pratique.</p>
+<p>Comme tout logiciel, git demande un peu d’apprentissage, et de la pratique. 🧠</p>
 <p>Pour commencer, nous aurons besoin de certains concepts essentiels pour une utilisation efficace. Par sa conception décentralisée, un dépôt git peut exister en plusieurs endroits en même temps :</p>
 <ul>
 <li>sur notre machine</li>
-<li>sur chaque machine des membre du projet</li>
+<li>sur chaque machine des membres du projet</li>
 <li>ou sur un serveur hébergeant le projet</li>
 </ul>
 <p>Nous parlerons de la <em>copie distante</em> (<em>remote</em> en anglais) du dépôt dans le cas du serveur distant. En général, une seule copie distante est utilisée, mais par sa nature décentralisée, plusieurs copies distantes sont possibles (possibilité non incluse dans ce TP).</p>
@@ -639,7 +667,7 @@ Note
 </section>
 <section id="programme" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="programme">Programme</h3>
-<p>Dans ce TP, nous allons créer un dépôt distant et deux dépôt locaux. Ensuite nous allons les faire évoluer et les synchroniser.</p>
+<p>Dans ce TP, nous allons créer un dépôt distant et deux dépôt locaux. Ensuite nous allons les faire évoluer et les synchroniser. 🔄</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -689,11 +717,11 @@ Note
 </tr>
 <tr class="odd">
 <td><code>git pull</code></td>
-<td>dépôt local <span class="emoji" data-emoji="arrow_right">➡️</span> dépôt distant</td>
+<td>dépôt local ⬅️ dépôt distant</td>
 </tr>
 <tr class="even">
 <td><code>git push</code></td>
-<td>dépôt local <span class="emoji" data-emoji="arrow_left">⬅️</span> dépôt distant</td>
+<td>dépôt local ➡️ dépôt distant</td>
 </tr>
 </tbody>
 </table>
@@ -702,18 +730,18 @@ Note
 <section id="environnement-de-travail" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="environnement-de-travail"><span class="header-section-number">1</span> Environnement de travail</h2>
 <p>Les commandes seront saisies dans un terminal Git Bash.</p>
-<p>Vous allez utiliser un service Vscode-python du datalab. Celui-ci inclus Git Bash.</p>
+<p>Vous allez utiliser un service Vscode-python du datalab. Celui-ci inclut Git Bash.</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Connectez-vous sur <a href="https://datalab.sspcloud.fr/" target="_blank">https://datalab.sspcloud.fr/</a></label>
 <ul>
 <li>alternative : <a href="https://onyxia.lab.groupe-genes.fr/" target="_blank">https://onyxia.lab.groupe-genes.fr/</a></li>
 </ul></li>
 </ul>
-<p>Durant ce TP, vous allez transférer du code entre votre dépôt local (service VSCode du datalab) et votre dépôt distant (sur GitHub). Pour valider ces transfert un processus d’authentification est naturellement requis.</p>
+<p>Durant ce TP, vous allez transférer du code entre votre dépôt local (service VSCode du datalab) et votre dépôt distant (hébergé sur GitHub). Pour valider ces transferts un processus d’authentification est naturellement requis. 🔒 🔑</p>
 <section id="génération-et-déclaration-dun-token" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="génération-et-déclaration-dun-token"><span class="header-section-number">1.1</span> Génération et déclaration d’un Token</h3>
 <blockquote class="blockquote">
-<p>Pour éviter d’avoir à vous authentifier (user+password) à chaque commande Git, vous allez utiliser un jeton.</p>
+<p>Pour éviter de vous authentifier (user+password) à chaque commande Git, vous allez utiliser un jeton. <span class="emoji" data-emoji="coin">🪙</span></p>
 </blockquote>
 <ul class="task-list">
 <li><label><input type="checkbox">Ouvrez <a href="../../doc/datalab/basics.html">cette page</a> qui contient les instructions suivantes</label></li>
@@ -740,7 +768,7 @@ Note
 <h2 data-number="2" class="anchored" data-anchor-id="vscode"><span class="header-section-number">2</span> VSCode</h2>
 <p>Vous allez travailler dans un service VSCode. C’est ici que sera hébergé votre dépôt local.</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Lancez, puis ouvrez un service <strong>Vscode-python</strong></label></li>
+<li><label><input type="checkbox">Lancez, puis ouvrez un service <strong>Vscode-python</strong> 🚀</label></li>
 </ul>
 <div class="callout callout-style-default callout-important callout-titled" title="à la fin du TP">
 <div class="callout-header d-flex align-content-center">
@@ -762,23 +790,22 @@ Note
 <ul>
 <li>sauvegardez votre code : envoi au remote avec git</li>
 <li>exportez vos résultats : par exemple en utilisant le stockage S3</li>
-<li>libérez ces ressources : supprimez vos service</li>
+<li>libérez ces ressources : supprimez vos services (ou mettez en pause)</li>
 </ul>
 </div>
 </div>
 <ul class="task-list">
 <li><label><input type="checkbox">Ouvrez un terminal</label>
 <ul>
-<li>3 petits traits horizontaux &gt; Terminal &gt; New</li>
-<li>ou CTRL + ù</li>
+<li>☰ (en haut à gauche) ⏩ Terminal ⏩ New</li>
+<li>raccourci : <span class="keyboard">CTRL</span> + <span class="keyboard">ù</span></li>
 </ul></li>
 </ul>
 </section>
 <section id="git-bash-et-unix" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="git-bash-et-unix"><span class="header-section-number">3</span> Git Bash et Unix</h2>
 <p>Avant de nous lancer avec git, prenons quelques minutes pour découvrir le terminal Git Bash et les principales commandes Unix.</p>
-<p>En tant qu’ingénieur, cela vous sera sans doute utile un jour.</p>
-<p>Pour vous aider, voici la <a href="presentation.html#commandes-unix" target="_blank">liste des commandes principales</a>.</p>
+<p>En tant qu’ingénieur, cela vous sera utile un jour. Pour vous aider, voici la <a href="presentation.html#commandes-unix" target="_blank">liste des commandes principales</a>.</p>
 <section id="un-terminal" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="un-terminal"><span class="header-section-number">3.1</span> Un terminal ?</h3>
 <p>Un terminal est une interface texte qui permet de donner des commandes à l’ordinateur.</p>
@@ -798,7 +825,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Le terminal, c’est sobre, c’est rapide, c’est efficace.</p>
+<p>Le terminal, c’est sobre, c’est rapide, c’est efficace. 😎</p>
 <p>Le terminal reste un outil très utilisé en informatique, même à l’ère du tout <em>clic-bouton</em>. Il permet d’aller droit au but sans passer par des menus parfois longs et compliqués.</p>
 <p>Rapide et léger, il s’adapte aussi bien aux petites tâches qu’aux opérations plus techniques.</p>
 <p>Les développeurs et administrateurs l’utilisent au quotidien pour automatiser et gagner du temps.</p>
@@ -812,13 +839,16 @@ Tip
 <ul>
 <li>un prompt (username, host, folder)
 <ul>
-<li>vous êtes connecté avec l’utilisateur <em>onyxia</em> sur la machine virutelle <em>vscode-python-345194-0</em></li>
+<li>vous êtes connecté avec l’utilisateur <em>onyxia</em> sur la machine virtuelle <em>vscode-python-345194-0</em></li>
 <li>vous êtes positionné dans le dossier <code>~/work</code> (~ est le dossier personnel de l’utilisateur)</li>
 <li>il se termine par un <code>$</code></li>
 </ul></li>
 <li>à côté, vous pouvez écrire une commande</li>
 <li>en dessous, vous avez le résultat de la commande</li>
-<li>à droite, vous avez vos terminaux (c’est possible d’en ouvrir plusieurs)</li>
+<li>à droite, vous avez vos terminaux (c’est possible d’en ouvrir plusieurs)
+<ul>
+<li>💡 ça peut-être utile de les renommer, sinon ils s’appellent tous pareil</li>
+</ul></li>
 </ul>
 </section>
 <section id="premières-commandes" class="level3" data-number="3.3">
@@ -865,12 +895,11 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Les flèches <span class="emoji" data-emoji="arrow_up">⬆️</span> et <span class="emoji" data-emoji="arrow_down">⬇️</span> pour naviguer dans l’historique des dernières commandes et éviter de retaper 10 fois la même commande</li>
-<li>TAB pour l’autocomplétion
+<li>Les flèches <span class="keyboard">🠥</span> et <span class="keyboard">🠧</span> pour naviguer dans l’historique des dernières commandes et éviter de retaper 10 fois la même commande</li>
+<li><span class="keyboard">⇆</span> (tabulation) pour l’autocomplétion (située à gauche du clavier dessous <span class="keyboard">²</span> et dessus <span class="keyboard"><span class="emoji" data-emoji="lock">🔒</span></span>)
 <ul>
-<li>Tapez <code>cat b</code>, puis appuyez sur la touche <em>TAB</em></li>
+<li>Tapez <code>cat b</code>, puis appuyez sur la touche <span class="keyboard">⇆</span></li>
 <li>Il n’y a qu’un seul fichier commençant par <em>b</em> donc l’autocomplétion s’effectue</li>
-<li>La touche <em>TAB</em> se situe à gauche du clavier dessous <code>²</code> et dessus <span class="emoji" data-emoji="lock">🔒</span></li>
 </ul></li>
 </ul>
 </div>
@@ -879,8 +908,10 @@ Tip
 </section>
 <section id="dépôts-git" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="dépôts-git"><span class="header-section-number">4</span> Dépôts Git</h2>
+<blockquote class="blockquote">
 <p>Passons maintenant au thème central de ce TP : Git et la synchronisation des dépôts.</p>
-<p>Avant de se lancer, exécutez ces deux commandes qui vous éviterons peut-être d’être bloqué par la suite :</p>
+</blockquote>
+<p>Avant de se lancer, exécutez ces deux commandes qui vous éviteront peut-être d’être bloqué par la suite :</p>
 <ul class="task-list">
 <li><label><input type="checkbox"><code>git config --global core.editor "code-server --wait"</code></label></li>
 <li><label><input type="checkbox"><code>git config --global core.mergeoptions --no-edit</code></label></li>
@@ -897,46 +928,30 @@ Tip
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><code>git config --global core.editor "code-server --wait"</code></p>
-<p>Cette commande définit l’éditeur de texte que Git utilisera par défaut pour les opérations nécessitant l’édition d’un message, comme les commits, les tags ou la résolution de conflits de fusion (merge).</p>
 <ul>
-<li><code>git config</code>: La commande de base pour obtenir et définir les options de configuration de Git.</li>
-<li><code>--global</code>: Indique que le paramètre est appliqué à tous les dépôts Git de l’utilisateur sur la machine actuelle. La configuration est stockée dans le fichier <code>~/.gitconfig</code>.</li>
-<li><code>core.editor</code>: La variable de configuration spécifique qui détermine l’éditeur.</li>
-<li><code>"code-server --wait"</code>: La valeur définie pour l’éditeur.
+<li><code>git config --global core.editor "code-server --wait"</code>
 <ul>
-<li><code>code-server</code>: C’est une version de Visual Studio Code (VS Code) fonctionnant dans un navigateur sur un serveur distant, ce qui est souvent utilisé dans les environnements de développement cloud.</li>
-<li><code>--wait</code>: Cet argument est crucial. Il indique à Git de patienter jusqu’à ce que l’éditeur (<code>code-server</code>) soit fermé avant de continuer l’opération Git. Par exemple, lorsque vous faites un <code>git commit</code>, VS Code s’ouvre, vous éditez le message, vous fermez l’éditeur, et seulement à ce moment-là Git finalise le commit.</li>
+<li>↪️ configure VS Code comme l’éditeur par défaut pour Git à la place de Nano.</li>
+</ul></li>
+<li><code>git config --global core.mergeoptions --no-edit</code>
+<ul>
+<li>↪️ configure Git pour qu’il n’ouvre pas l’éditeur de texte lors d’une fusion réussie, utilisant directement le message de commit de fusion par défaut.</li>
 </ul></li>
 </ul>
-<p>Elle configure VS Code comme l’éditeur par défaut pour Git à la place de Nano.</p>
-<hr>
-<p><code>git config --global core.mergeoptions --no-edit</code></p>
-<p>Cette commande modifie les options par défaut utilisées lors de la fusion de branches (<code>git merge</code>).</p>
-<ul>
-<li><code>git config</code>: La commande de base de configuration.</li>
-<li><code>--global</code>: Applique le paramètre à tous les dépôts de l’utilisateur.</li>
-<li><code>core.mergeoptions</code>: La variable de configuration qui permet de définir des options par défaut pour la commande <code>git merge</code>.</li>
-<li><code>--no-edit</code>: L’option ajoutée.
-<ul>
-<li>Lors d’une fusion réussie (sans conflit), Git génère un message de commit de fusion par défaut. Normalement, Git ouvre l’éditeur (<code>core.editor</code>) pour vous permettre de modifier ce message.</li>
-<li>L’option <code>--no-edit</code> désactive l’ouverture automatique de l’éditeur pour la modification du message de commit de fusion. Git utilisera le message de commit de fusion par défaut sans intervention de l’utilisateur.</li>
-</ul></li>
-</ul>
-<p>Elle configure Git pour qu’il n’ouvre pas l’éditeur de texte lors d’une fusion réussie, utilisant directement le message de commit de fusion par défaut.</p>
 </div>
 </div>
 </div>
-<p>Commençons par créer un remote sur GitHub.</p>
 <section id="créez-un-dépôt-distant" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="créez-un-dépôt-distant"><span class="header-section-number">4.1</span> Créez un dépôt distant</h3>
+<blockquote class="blockquote">
+<p>Commençons par créer notre remote sur GitHub.</p>
+</blockquote>
 <ul class="task-list">
-<li><label><input type="checkbox">Créez un <a href="https://github.com/new" target="_blank">nouveau Repository</a> sur GitHub</label>
+<li><label><input type="checkbox">Créez un <a href="https://github.com/new" target="_blank">nouveau Repository</a> sur GitHub (GitHub ⏩ Repositories ⏩ <span class="green-button">New</span>)</label>
 <ul>
-<li>GitHub &gt; Repositories &gt; <span class="green-button">New</span></li>
 <li>Repository name : <em>tp-git</em></li>
 <li>Visibility Level : <em>Private</em></li>
-<li>Cochez <em>Add a README file</em></li>
+<li>☑ Cochez <em>Add a README file</em></li>
 <li>Add .gitignore : <em>Python</em></li>
 <li>Choose a license : <em>MIT Licence</em></li>
 <li>Cliquez sur <span class="green-button">Create Repository</span></li>
@@ -953,7 +968,8 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Dans le cadre de ce TP, il est interdit d’éditer des fichiers directement sur GitHub. Ce n’est pas une bonne pratique.</p>
+<p>Dans le cadre de ce TP, il est interdit d’éditer des fichiers directement sur GitHub. ⛔<br>
+Ce n’est pas une bonne pratique.</p>
 <p>Toutes les modifications doivent être faites sur votre clone local et ensuite envoyées vers GitHub.</p>
 </div>
 </div>
@@ -964,15 +980,15 @@ Important
 <p>À l’inverse, n’hésitez pas à déclarer public vos travaux aboutis, non confidentiels.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 15%">
-<col style="width: 39%">
-<col style="width: 45%">
+<col style="width: 30%">
+<col style="width: 35%">
+<col style="width: 35%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Critère</th>
-<th>Dépôt <strong>Public</strong></th>
-<th>Dépôt <strong>Privé</strong></th>
+<th>Dépôt Public</th>
+<th>Dépôt Privé</th>
 </tr>
 </thead>
 <tbody>
@@ -1008,29 +1024,44 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Que le dépôt soit public ou privé, vous devez faire parti des collaborateurs pour y contribuer. Dépôt public signifie que tout le monde peut le voir mais pas le modifier directement.</p>
+<p>Que le dépôt soit public ou privé, vous devez faire partie des collaborateurs pour y contribuer. “Dépôt public” signifie que tout le monde peut le voir, mais pas le modifier directement.</p>
 <p>Pour autoriser des personnes à écrire sur votre dépôt vous devez les inviter :</p>
 <ul>
-<li>Sur la page du repo &gt; Settings &gt; Collaborators &gt; Add people</li>
+<li>Sur la page du repo ⏩ Settings ⏩ Collaborators ⏩ Add people</li>
 </ul>
 </div>
 </div>
 </section>
 <section id="créez-un-dépôt-local" class="level3" data-number="4.3">
 <h3 data-number="4.3" class="anchored" data-anchor-id="créez-un-dépôt-local"><span class="header-section-number">4.3</span> Créez un dépôt local</h3>
+<blockquote class="blockquote">
 <p>Vous allez maintenant créer une copie locale du remote en le clonant.</p>
+</blockquote>
 <p>Sur la page GitHub de votre repo :</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Cliquez sur <span class="green-button">Code</span></label></li>
+<li><label><input type="checkbox">Cliquez sur <span class="green-button">&lt;&gt; Code</span></label></li>
 <li><label><input type="checkbox">Copiez la ligne <em>Clone with HTTPS</em></label></li>
 </ul>
 <p>Vous obtenez une url de ce type : <code>https://github.com/&lt;username&gt;/tp-git.git</code></p>
 <ul class="task-list">
-<li><label><input type="checkbox">Modifiez-là pour y intégrer votre token avant <em>github.com</em></label>
+<li><label><input type="checkbox">Modifiez-là ainsi pour y intégrer votre token avant <em>github.com</em></label>
 <ul>
 <li><code>https://$GIT_PERSONAL_ACCESS_TOKEN@github.com/&lt;username&gt;/tp-git.git</code></li>
 </ul></li>
 </ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous êtes dans VSCode, créez un fichier texte pour faire ces modifications.</p>
+</div>
+</div>
 <p>Dans le terminal Git Bash de VSCode :</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Positionnez-vous dans le dossier <em>clone1</em></label></li>
@@ -1047,7 +1078,7 @@ Important
 </ul>
 <p>Vous êtes maintenant dans un repo git, vous pouvez donc exécuter des commandes git !</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Vérifiez sur quel dépôt distant votre clone est branché</label>
+<li><label><input type="checkbox">Vérifiez sur quel dépôt distant votre clone est branché 🔌</label>
 <ul>
 <li><code>git remote -v</code></li>
 <li>Vous devez voir ici votre token et l’url du remote</li>
@@ -1055,18 +1086,19 @@ Important
 <li><label><input type="checkbox">Listez le contenu</label></li>
 <li><label><input type="checkbox">Comparez à ce que vous avez sur GitHub : <code>https://github.com/&lt;username&gt;/tp-git</code></label></li>
 </ul>
+<p>Vous avez maintenant tout ce qu’il faut pour travailler avec git.</p>
 </section>
 </section>
 <section id="premiers-pas" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="premiers-pas"><span class="header-section-number">5</span> Premiers pas</h2>
-<p>Dans ce dépôt local, vous allez commencer par créer de nouveaux dossiers et fichiers sur votre dépôt local.</p>
+<p>Dans ce dépôt local, vous allez commencer par créer de nouveaux dossiers et fichiers sur votre dépôt local. 📁</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Créez un dossier <em>src</em></label></li>
 <li><label><input type="checkbox">Dans ce dossier, créez un fichier <em>voiture.py</em></label>
 <ul>
 <li><code>touch src/voiture.py</code></li>
 </ul></li>
-<li><label><input type="checkbox">Ouvrez ce fichier, collez ce code et <u><strong>enregistrez</strong></u></label></li>
+<li><label><input type="checkbox">Ouvrez ce fichier, collez ce code et <u><strong>enregistrez</strong></u> (<span class="keyboard">CTRL</span> + <span class="keyboard">S</span> )</label></li>
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -1082,7 +1114,7 @@ Important
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    couleur : str</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">        la couleur de la voiture.</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    vitesse : int</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">        la vitesse de la voiture (initalisée à 0).</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">        la vitesse de la voiture (initialisée à 0).</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur):</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Constructeur"""</span></span>
@@ -1093,7 +1125,18 @@ Important
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"La voiture </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>nom<span class="sc">}</span><span class="ss"> de couleur </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>couleur<span class="sc">}</span><span class="ss"> roule à </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>vitesse<span class="sc">}</span><span class="ss"> km/h."</span>  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Vous venez de créez quelques nouveaux éléments sur votre clone, envoyons-les maintenant au remote.</p>
+<p>Vous venez de créer quelques nouveaux éléments sur votre clone, envoyons-les maintenant au remote.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Votre dépôt</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="Votre dépôt"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tp-git/</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>├── .gitignore</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>├── LICENSE</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>├── README.md</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>└── src/</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    └── voiture.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <section id="add-commit-et-push" class="level3" data-number="5.1">
 <h3 data-number="5.1" class="anchored" data-anchor-id="add-commit-et-push"><span class="header-section-number">5.1</span> Add, Commit et Push</h3>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -1116,7 +1159,7 @@ Important
 <ul>
 <li>différences entre la version de travail du code et le commit le plus récent</li>
 <li>le dossier <em>src</em> apparait dans <em>Untracked files</em></li>
-<li>cela signifie que Git a repéré ce dossier mais qu’il ne le versionnera pas</li>
+<li>cela signifie que Git a repéré ce dossier mais qu’il ne le versionnera pas pour le moment</li>
 </ul></li>
 <li><label><input type="checkbox"><code>git add src</code></label>
 <ul>
@@ -1146,7 +1189,7 @@ Important
 <li><label><input type="checkbox"><code>git push</code></label>
 <ul>
 <li>pousse vos commits vers le dépôt distant.</li>
-<li><span class="emoji" data-emoji="warning">⚠️</span> si vous avez modifié des fichiers qui ne sont pas dans un commit, ces modifications n’apparaitront pas sur le dépôt distant</li>
+<li>⚠️ si vous avez modifié des fichiers qui ne sont pas dans un commit, ces modifications n’apparaitront pas sur le dépôt distant</li>
 </ul></li>
 </ul>
 <p>Allez sur la page GitHub de votre repo et vérifiez que vos fichiers sont bien arrivés.</p>
@@ -1160,20 +1203,23 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Vous avez tout bien fait mais votre fichier <em>voiture.py</em> n’est pas à jour sur GitHub. <span class="emoji" data-emoji="confused">😕</span></p>
+<p>Vous avez tout bien fait mais votre fichier <em>voiture.py</em> n’est pas à jour sur GitHub. 😕</p>
 <ul>
 <li>est-ce que votre fichier <em>voiture.py</em> a bien été enregistré ?
 <ul>
-<li>sinon recommencez (Add, Commit, Pull et Push). <span class="emoji" data-emoji="weary">😩</span></li>
+<li>sinon recommencez (Add, Commit, Pull et Push). 😩</li>
 </ul></li>
 <li>Est-ce que vous êtes bien connecté au remote avec votre token ?
 <ul>
 <li><code>git remote -v</code> pour vérifier</li>
-<li><code>git remote set-url origin https://$GIT_PERSONAL_ACCESS_TOKEN@github.com/&lt;username&gt;/tp-git.git</code></li>
+<li><code>git remote set-url origin https://$GIT_PERSONAL_ACCESS_TOKEN@github.com/&lt;username&gt;/tp-git.git</code> si besoin pour corriger l’url du remote</li>
 </ul></li>
 </ul>
 </div>
 </div>
+</section>
+<section id="les-états-git" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="les-états-git"><span class="header-section-number">5.2</span> Les états Git</h3>
 <p>Pour résumer voilà ce que vous avez fait :</p>
 <div class="white-box">
 <div class="cell" data-layout-align="default">
@@ -1193,6 +1239,96 @@ Important
 </div>
 </div>
 </div>
+<blockquote class="blockquote">
+<p>Comprendre les états Git :</p>
+</blockquote>
+<ul>
+<li><strong>Workspace (Répertoire de travail)</strong> : C’est votre espace de création. C’est le dossier sur votre ordinateur où vous créez, modifiez ou supprimez concrètement vos fichiers. À ce stade, vos modifications sont “volatiles” et ne sont pas encore suivies par Git.</li>
+<li><strong>Staging Index (Zone de transit)</strong> : C’est une zone de préparation (un “panier”). Elle vous permet de sélectionner précisément les modifications que vous souhaitez inclure dans votre prochain commit. Cela évite d’envoyer des fichiers accidentels ou incomplets.</li>
+<li><strong>Local Repository (Dépôt Local)</strong> : C’est la base de données Git située sur votre machine. Une fois un changement “commité”, il est sauvegardé de manière permanente dans l’historique de votre projet. Vous pouvez ainsi voyager dans le temps et revenir à n’importe quelle version précédente.</li>
+<li><strong>Remote Repository (Dépôt Distant)</strong> : C’est la version de votre projet hébergée sur un serveur (comme GitHub). Il sert de point de synchronisation pour partager votre travail avec d’autres collaborateurs ou pour disposer d’une sauvegarde en ligne.</li>
+</ul>
+<blockquote class="blockquote">
+<p>Pour rendre ces concepts plus intuitifs, imaginons que vous êtes un photographe de studio.</p>
+</blockquote>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 15%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Transition</th>
+<th>Commande</th>
+<th>Analogie du Photographe 📷</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Workspace → Staging</strong></td>
+<td><code>git add</code></td>
+<td><strong>La Mise en Scène</strong> : Vous disposez les modèles et les accessoires sur le plateau. Vous ajustez la lumière et la position. Tout est prêt pour la photo, mais rien n’est encore figé.</td>
+</tr>
+<tr class="even">
+<td><strong>Staging → Local Repo</strong></td>
+<td><code>git commit</code></td>
+<td><strong>Le Clic</strong> : Vous déclenchez l’obturateur. <strong>CLIC !</strong> L’image est capturée et enregistrée sur votre carte mémoire. La scène est désormais figée dans le temps.</td>
+</tr>
+<tr class="odd">
+<td><strong>Local Repo → Remote Repo</strong></td>
+<td><code>git push</code></td>
+<td><strong>La Publication</strong> : Vous téléchargez vos clichés sur un album partagé en ligne pour que vos amis puissent les voir.</td>
+</tr>
+<tr class="even">
+<td><strong>Remote Repo → Workspace</strong></td>
+<td><code>git pull</code></td>
+<td><strong>La Mise à jour</strong> : Un ami a ajouté des photos à l’album partagé ; vous les téléchargez et les intégrez directement dans votre studio pour travailler dessus.</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled" title="Aller plus haut (Maîtriser la synchronisation)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Aller plus haut (Maîtriser la synchronisation)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En réalité, le <code>git pull</code> récupère les modifications du dépôt distant avec <code>git fetch</code>, puis les intègre avec <code>git merge</code>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 15%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Transition</th>
+<th>Commande</th>
+<th>Analogie du Photographe 📷</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Remote Repo <span class="math inline">\(\rightarrow\)</span> Local Repo</strong></td>
+<td><code>git fetch</code></td>
+<td><strong>La Consultation</strong> : Vous ouvrez l’album partagé pour voir s’il y a du nouveau. Vous voyez qu’il y a de nouvelles photos, mais vous ne les avez pas encore téléchargées sur votre propre appareil.</td>
+</tr>
+<tr class="even">
+<td><strong>Local Repo <span class="math inline">\(\rightarrow\)</span> Local Repo</strong></td>
+<td><code>git merge</code></td>
+<td><strong>L’Intégration</strong> : Vous prenez les nouvelles photos que vous venez de consulter et vous les fusionnez avec votre propre collection pour qu’elles fassent partie de votre historique.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="one-more-time" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="one-more-time"><span class="header-section-number">5.3</span> One more time</h3>
 <p>Retournez sur VSCode :</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Ajoutez à la fin du fichier <code>voiture.py</code> ce code et <u><strong>enregistrez</strong></u></label></li>
@@ -1201,20 +1337,22 @@ Important
 <div class="code-with-filename-file">
 <pre><strong>voiture.py</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelere(<span class="va">self</span>, increment):</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Augmente la vitesse de la voiture.</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">        L'incrément maximal est de 10 km/h.</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">        La Vitesse maximale est de 130 km/h.</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">        Parameters</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">        ----------</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">        increment : int</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">            la valeur de l'accélération demandée (limité à 10)</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> increment <span class="op">&gt;</span> <span class="dv">10</span>:</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            increment <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="dv">130</span>, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ...</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelere(<span class="va">self</span>, increment):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Augmente la vitesse de la voiture.</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">        L'incrément maximal est de 10 km/h.</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">        La Vitesse maximale est de 130 km/h.</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">        Parameters</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">        ----------</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">        increment : int</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">            la valeur de l'accélération demandée (limité à 10)</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> increment <span class="op">&gt;</span> <span class="dv">10</span>:</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            increment <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="dv">130</span>, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Dans le terminal <em>Git Bash</em> :</p>
 <ul class="task-list">
@@ -1222,7 +1360,7 @@ Important
 <ul>
 <li>le fichier <em>voiture.py</em> a été modifié</li>
 </ul></li>
-<li><label><input type="checkbox"><code>git diff</code> pour voir les différence depuis le dernier commit</label>
+<li><label><input type="checkbox"><code>git diff</code> pour voir les différences depuis le dernier commit</label>
 <ul>
 <li><em>q</em> pour quitter</li>
 </ul></li>
@@ -1230,16 +1368,20 @@ Important
 <li><label><input type="checkbox">Comme précédemment, faites un <em>commit</em></label></li>
 </ul>
 </section>
-<section id="historique-du-dépôt" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="historique-du-dépôt"><span class="header-section-number">5.2</span> Historique du dépôt</h3>
+<section id="historique-du-dépôt" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="historique-du-dépôt"><span class="header-section-number">5.4</span> Historique du dépôt</h3>
 <p>Pour accéder à l’historique d’un repo :</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Sur GitHub, vous pouvez consulter l’historique du dépôt distant</label>
 <ul>
-<li>en cliquant sur <em>Commit</em> (en dessous du bouton <span class="green-button">Code</span>)</li>
+<li>en cliquant sur <em>Commit</em> (en dessous du bouton <span class="green-button">&lt;&gt; Code</span>)</li>
 <li>historique d’un fichier en ouvrant ce fichier et en cliquant sur <em>History</em></li>
 </ul></li>
-<li><label><input type="checkbox">Sur votre dépôt local avec <code>git log</code></label>
+<li><label><input type="checkbox">Sur votre dépôt local avec l’extension Git Graph de VS Code</label>
+<ul>
+<li>à gauche, sous l’icone 🔍</li>
+</ul></li>
+<li><label><input type="checkbox">Via le terminal : <code>git log</code></label>
 <ul>
 <li>ce n’est pas aisément lisible</li>
 <li>heureusement il est possible d’améliorer cette commande</li>
@@ -1298,62 +1440,64 @@ Important
 </ul></li>
 </ul>
 </section>
-<section id="exercice-dapplication" class="level3" data-number="5.3">
-<h3 data-number="5.3" class="anchored" data-anchor-id="exercice-dapplication"><span class="header-section-number">5.3</span> Exercice d’application</h3>
+<section id="exercice-dapplication" class="level3" data-number="5.5">
+<h3 data-number="5.5" class="anchored" data-anchor-id="exercice-dapplication"><span class="header-section-number">5.5</span> Exercice d’application</h3>
 <p>C’est le moment d’appliquer ce que nous venons de voir, à vous :</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Créez un fichier <code>src/test_voiture.py</code> avec ce code</label></li>
+<li><label><input type="checkbox">Créez sur votre dépôt local un fichier <code>src/test_voiture.py</code> contenant ce code :</label></li>
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>test_voiture.py</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="test_voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> voiture <span class="im">import</span> Voiture</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TestVoiture:</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_accelere_incremente_vitesse():</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="co"># GIVEN</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        v <span class="op">=</span> Voiture(<span class="st">"4L"</span>, <span class="st">"verte"</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="co"># WHEN</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        v.accelere(<span class="dv">5</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># THEN</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> v.vitesse <span class="op">==</span> <span class="dv">5</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_accelere_limite_increment():</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># GIVEN</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        v <span class="op">=</span> Voiture(<span class="st">"4L"</span>, <span class="st">"verte"</span>)</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># WHEN</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        v.accelere(<span class="dv">20</span>)</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># THEN</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> v.vitesse <span class="op">==</span> <span class="dv">10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="test_voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> voiture <span class="im">import</span> Voiture</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_accelere_incremente_vitesse():</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># GIVEN</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> Voiture(<span class="st">"4L"</span>, <span class="st">"verte"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># WHEN</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    v.accelere(<span class="dv">5</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># THEN</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> v.vitesse <span class="op">==</span> <span class="dv">5</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_accelere_limite_increment():</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># GIVEN</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> Voiture(<span class="st">"4L"</span>, <span class="st">"verte"</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># WHEN</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    v.accelere(<span class="dv">20</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># THEN</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> v.vitesse <span class="op">==</span> <span class="dv">10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul class="task-list">
-<li><label><input type="checkbox">Envoyez le sur la copie distante de votre projet GitHub</label></li>
+<li><label><input type="checkbox">Envoyez-le sur le remote (GitHub)</label></li>
 <li><label><input type="checkbox">Créez un fichier <code>requirements.txt</code> avec le contenu suivant</label>
 <ul>
-<li>c’est le nom standard du fichier qui liste les packages python nécessaires au projet</li>
+<li>c’est le nom classique du fichier qui liste les packages python nécessaires au projet</li>
+<li><code>pip install -r requirements.txt</code> : pour installer les packages du fichier</li>
+<li>même si dans les projets plus récents vous utiliserez un fichier nommé <code>pyproject.toml</code></li>
 </ul></li>
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>requirements.txt</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="requirements.txt"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pylint</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>pytest</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="requirements.txt"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>bandit</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>duckdb</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>polars</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>pytest</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>ruff</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul class="task-list">
-<li><label><input type="checkbox">Envoyez le sur la copie distante de votre projet GitHub</label></li>
+<li><label><input type="checkbox">Envoyez-le sur le remote</label></li>
 <li><label><input type="checkbox">Affichez votre historique</label></li>
 </ul>
 </section>
-<section id="le-fichier-.gitignore" class="level3" data-number="5.4">
-<h3 data-number="5.4" class="anchored" data-anchor-id="le-fichier-.gitignore"><span class="header-section-number">5.4</span> Le fichier .gitignore</h3>
+<section id="le-fichier-.gitignore" class="level3" data-number="5.6">
+<h3 data-number="5.6" class="anchored" data-anchor-id="le-fichier-.gitignore"><span class="header-section-number">5.6</span> Le fichier .gitignore</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1381,12 +1525,12 @@ Note
 <div class="code-with-filename-file">
 <pre><strong>joueuses.csv</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="joueuses.csv"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>id_joueuse,nom,prenom,date_naissance,pays</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>1,Sebag,Marie,1986-10-15,France</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>2,Polgar,Judit,1976-07-23,Hongrie</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>3,Hou,Yifan,1994-02-27,Chine</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>4,Kosteniuk,Alexandra,1984-04-23,Suisse</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>5,Ju,Wenjun,1991-01-31,Chine</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename="joueuses.csv"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>id_joueuse,nom,prenom,date_naissance,pays</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>1,Sebag,Marie,1986-10-15,France</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>2,Polgar,Judit,1976-07-23,Hongrie</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>3,Hou,Yifan,1994-02-27,Chine</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>4,Kosteniuk,Alexandra,1984-04-23,Suisse</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>5,Ju,Wenjun,1991-01-31,Chine</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul class="task-list">
 <li><label><input type="checkbox">Regardez l’état du dépôt</label>
@@ -1401,16 +1545,50 @@ Note
 <li>il est bien présent dans votre dépôt local mais il n’arrivera donc jamais sur le dépôt distant</li>
 </ul></li>
 </ul>
+<blockquote class="blockquote">
 <p>Autre exemple : lors du projet info de 2e année, votre application python se connectera à une base de données. Or les infos de connexions à cette bdd ne devront pas atterrir sur GitHub !</p>
+</blockquote>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ajouter un fichier déjà suivi par Git dans <code>.gitignore</code> ne suffit pas à arrêter son suivi : Git continuera à le suivre et à détecter ses modifications.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="simulation-de-travail-en-groupe" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="simulation-de-travail-en-groupe"><span class="header-section-number">6</span> Simulation de travail en groupe</h2>
-<p>Pour les questions suivantes, vous allez avoir besoin de 2 dépôts locaux branchés sur un même dépôt distant. Il y a 2 possibilités :</p>
+<p>Pour les questions suivantes, vous allez avoir besoin de 2 dépôts locaux branchés sur un même dépôt distant.<br>
+Il y a 2 possibilités :</p>
 <ul>
-<li>soit vous travaillez en bînome (vous avez chacun votre dépôt local)</li>
-<li>soit vous faîtes seul (mais vous gérez 2 dépôts locaux différents)</li>
+<li>soit vous travaillez en bînome 👩🏾‍🤝‍👨🏼 (vous avez chacun votre dépôt local)</li>
+<li>soit vous faites seul 🐙 (mais vous gérez 2 dépôts locaux différents)</li>
 </ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart
+    github[(Dépôt distant)]
+    dev1[(Dépôt local 1)]
+    dev2[(Dépôt local 2)]
+    
+    github &lt;--&gt; dev1
+    github &lt;--&gt; dev2
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <section id="mise-en-place-des-clones" class="level3" data-number="6.1">
 <h3 data-number="6.1" class="anchored" data-anchor-id="mise-en-place-des-clones"><span class="header-section-number">6.1</span> Mise en place des clones</h3>
 <div class="callout callout-style-default callout-note callout-titled" title="Si vous travaillez à 2">
@@ -1425,13 +1603,13 @@ Note
 <div class="callout-body-container callout-body">
 <p>Un des deux membres va créer un dépôt local à partir du dépôt distant de l’autre.</p>
 <ul class="task-list">
-<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> fournit à <span class="emoji" data-emoji="cat">🐱</span> l’adresse https de son repo</label></li>
-<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> donne accès à <span class="emoji" data-emoji="cat">🐱</span> à son repo</label>
+<li><label><input type="checkbox">🐸 fournit à 🐱 l’adresse https de son repo</label></li>
+<li><label><input type="checkbox">🐸 donne accès à 🐱 à son repo</label>
 <ul>
-<li>page GitHub du repo &gt; Settings &gt; Collaborators</li>
+<li>page GitHub du repo ⏩ Settings ⏩ Collaborators</li>
 <li><span class="green-button">Add people</span></li>
 </ul></li>
-<li><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> clone le dépôt distant</label>
+<li><label><input type="checkbox">🐱 clone le dépôt distant</label>
 <ul>
 <li><code>cd /home/onyxia/work/clone2</code></li>
 <li><code>git clone https://$GIT_PERSONAL_ACCESS_TOKEN@github.com/&lt;username_frog&gt;/tp-git.git</code></li>
@@ -1441,7 +1619,7 @@ Note
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Si vous faîtes seul">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1450,7 +1628,7 @@ Note
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul class="task-list">
 <li><label><input type="checkbox">Ouvrez un nouveau terminal</label></li>
@@ -1462,42 +1640,44 @@ Note
 <li><label><input type="checkbox">puis <code>cd tp-git</code> pour entrer dans le dépôt Git</label></li>
 </ul>
 <p>Vous allez ainsi avoir deux clones dans votre service VSCode. Une autre alternative pour l’exercice serait de lancer un autre service VSCode-python et d’y créer un clone.</p>
-<p><span class="emoji" data-emoji="bulb">💡</span> Pour ne pas vous-y perdre, n’hésitez pas à renommer vos dossiers et vos terminaux.</p>
+<p>💡 Pour ne pas vous-y perdre, n’hésitez pas à renommer vos dossiers et vos terminaux.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="synchronisation-des-dépôts" class="level3" data-number="6.2">
 <h3 data-number="6.2" class="anchored" data-anchor-id="synchronisation-des-dépôts"><span class="header-section-number">6.2</span> Synchronisation des dépôts</h3>
+<blockquote class="blockquote">
 <p>Ici, un membre va coder et l’autre va devoir récupérer son code.</p>
+</blockquote>
 <ul class="task-list">
-<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> crée un fichier <em>src/moto.py</em> avec le code suivant dans son dépôt local :</label></li>
+<li><label><input type="checkbox">🐸 crée un fichier <em>src/moto.py</em> avec le code suivant dans son dépôt local :</label></li>
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>moto.py</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename="moto.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Moto:</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur):</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.couleur <span class="op">=</span> couleur</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.nom <span class="op">=</span> nom</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelere(<span class="va">self</span>, increment):</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> increment <span class="op">&gt;</span> <span class="dv">15</span>:</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>            increment <span class="op">=</span> <span class="dv">15</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="dv">150</span>, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-filename="moto.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Moto:</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur):</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.couleur <span class="op">=</span> couleur</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.nom <span class="op">=</span> nom</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelere(<span class="va">self</span>, increment):</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> increment <span class="op">&gt;</span> <span class="dv">15</span>:</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>            increment <span class="op">=</span> <span class="dv">15</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="dv">150</span>, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul class="task-list">
-<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> envoie ce fichier vers le dépôt distant : <em>add</em>, <em>commit</em> et <em>push</em></label></li>
-<li><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> fait ensuite <code>git pull</code></label>
+<li><label><input type="checkbox">🐸 envoie ce fichier vers le dépôt distant : <em>add</em>, <em>commit</em> et <em>push</em></label></li>
+<li><label><input type="checkbox">🐱 fait ensuite <code>git pull</code></label>
 <ul>
-<li>il récupére le fichier <em>moto.py</em> dans son dépôt local</li>
+<li>il récupère le fichier <em>moto.py</em> dans son dépôt local</li>
 </ul></li>
 <li><label><input type="checkbox">Inversez les rôles (optionnel)</label>
 <ul>
-<li><span class="emoji" data-emoji="cat">🐱</span> crée un fichier <em>velo.py</em> et le pousse</li>
-<li><span class="emoji" data-emoji="frog">🐸</span> le récupère</li>
+<li>🐱 crée un fichier <em>velo.py</em> et le pousse</li>
+<li>🐸 le récupère</li>
 </ul></li>
 </ul>
 <p>Nous allons maintenant illustrer le fait que votre dépôt local doit être impérativement à jour pour pousser du code.</p>
@@ -1506,31 +1686,31 @@ Note
 <h3 data-number="6.3" class="anchored" data-anchor-id="coder-en-équipe"><span class="header-section-number">6.3</span> Coder en équipe</h3>
 <p>Maintenant les deux membres vont coder en même temps mais sur des fichiers différents.</p>
 <blockquote class="blockquote">
-<p>Attention : 1, 2, 3, partez <span class="emoji" data-emoji="checkered_flag">🏁</span></p>
+<p>Attention : 1, 2, 3, partez 🏁</p>
 </blockquote>
 <ul class="task-list">
-<li><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> crée le fichier <em>src/trottinette.py</em> en s’inspirant de <em>moto.py</em></label></li>
-<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> crée un dossier <em>doc</em> et à l’intérieur le fichier <em>state-diag.md</em> avec ce code</label></li>
+<li><label><input type="checkbox">🐱 crée le fichier <em>src/trottinette.py</em> en s’inspirant de <em>moto.py</em></label></li>
+<li><label><input type="checkbox">🐸 crée un dossier <em>doc</em> et à l’intérieur le fichier <em>state-diag.qmd</em> avec ce code</label></li>
 </ul>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>state-diag.md</strong></pre>
+<pre><strong>state-diag.qmd</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-filename="state-diag.md"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```mermaid</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>stateDiagram</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    login : Se connecter</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    menu_joueur : Menu Joueur</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    logon : Créer un compte      </span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    [<span class="ot">*</span>] --&gt; Accueil      </span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    Accueil --&gt; login</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    login --&gt; menu_joueur      </span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    Accueil --&gt; logon      </span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    Accueil --&gt; quitter</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    quitter --&gt; [<span class="ot">*</span>]</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-filename="state-diag.qmd"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>stateDiagram</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    login : Se connecter</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    menu_joueur : Menu Joueur</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    logon : Créer un compte      </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    [<span class="ot">*</span>] --&gt; Accueil      </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    Accueil --&gt; login</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    login --&gt; menu_joueur      </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    Accueil --&gt; logon      </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    Accueil --&gt; quitter</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    quitter --&gt; [<span class="ot">*</span>]</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul class="task-list">
-<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> envoie son code vers le dépôt distant, ensuite <span class="emoji" data-emoji="cat">🐱</span> fait de même</label>
+<li><label><input type="checkbox">🐸 envoie son code vers le dépôt distant, ensuite 🐱 fait de même</label>
 <ul>
 <li><code>git add .</code></li>
 <li><code>git commit -m "&lt;complétez&gt;"</code></li>
@@ -1548,99 +1728,113 @@ Important
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Pour <span class="emoji" data-emoji="frog">🐸</span> qui a poussé son code en premier <span class="emoji" data-emoji="arrow_right">➡️</span> tout s’est bien passé</p></li>
-<li><p>Pour <span class="emoji" data-emoji="cat">🐱</span>, il a du recevoir ce genre de message lors du push</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>! [rejected]        main -&gt; dev (fetch first)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>error: failed to push some refs to 'git@github.com:ludo2ne/tp-git.git'</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>hint: Updates were rejected because the remote contains work that you do</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>hint: not have locally. This is usually caused by another repository pushing</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>hint: to the same ref. You may want to first integrate the remote changes</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>hint: (e.g., 'git pull ...') before pushing again.</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>hint: See the 'Note about fast-forwards' in 'git push --help' for details.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li>Pour 🐸 qui a poussé son code en premier ➡️ tout s’est bien passé</li>
+<li>Pour 🐱, il a du recevoir ce genre de message lors du push</li>
 </ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>! [rejected]        main -&gt; dev (fetch first)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>error: failed to push some refs to 'git@github.com:ludo2ne/tp-git.git'</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>hint: Updates were rejected because the remote contains work that you do</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>hint: not have locally. This is usually caused by another repository pushing</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>hint: to the same ref. You may want to first integrate the remote changes</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>hint: (e.g., 'git pull ...') before pushing again.</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>hint: See the 'Note about fast-forwards' in 'git push --help' for details.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
-<p>Si vous lisez le message, c’est assez clair :</p>
+<p>Si vous prenez le temps de lire le message, c’est assez clair :</p>
 <ul>
 <li>votre dépôt local est en retard de version par rapport au dépôt distant</li>
 <li>vous devez donc mettre à jour votre dépôt local avant de pousser</li>
 <li>il faut commencer par pull</li>
 </ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="rebase">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>rebase
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Nous allons ajouter l’option <em>rebase</em> pour placer les commits locaux “par-dessus” ceux du remote pour obtenir un historique linéaire, clair et facile à suivre, tout en évitant les commits de fusion superflus.</p>
+</div>
+</div>
 <ul class="task-list">
-<li><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> commence par <code>git pull --rebase</code></label></li>
-<li><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> fait enfin <code>git push</code></label></li>
+<li><label><input type="checkbox">🐱 commence par <code>git pull --rebase</code></label></li>
+<li><label><input type="checkbox">🐱 fait enfin <code>git push</code></label></li>
 </ul>
-<p>Maintenant c’est <span class="emoji" data-emoji="frog">🐸</span> qui a son dépôt local en retard.</p>
+<p>Maintenant c’est 🐸 qui a son dépôt local en retard.</p>
 <ul class="task-list">
-<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> peut faire un simple <em>pull</em> car il n’a pas de commits locaux</label></li>
+<li><label><input type="checkbox">🐸 peut faire un simple <em>pull</em> car il n’a pas de commits locaux</label></li>
 </ul>
 <p>Exercice d’application :</p>
 <ul class="task-list">
-<li><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> modifie et pousse le fichier <code>voiture.py</code></label></li>
-<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> modifie et pousse le fichier <code>moto.py</code></label></li>
+<li><label><input type="checkbox">🐱 modifie et pousse le fichier <code>voiture.py</code></label></li>
+<li><label><input type="checkbox">🐸 modifie et pousse le fichier <code>moto.py</code></label></li>
 <li><label><input type="checkbox">Synchronisez vos dépôts pour avoir tous la dernière version</label></li>
 </ul>
 </section>
 <section id="un-premier-conflit" class="level3" data-number="6.4">
 <h3 data-number="6.4" class="anchored" data-anchor-id="un-premier-conflit"><span class="header-section-number">6.4</span> Un premier conflit</h3>
-<p>Pour le moment vous avez travaillé sur des fichiers différents, donc git arrive à gérer la situation.</p>
-<p>Maintenant, que se passe-t-il si vous modifiez tous les deux le même fichier ?</p>
+<blockquote class="blockquote">
+<p>Pour le moment vous avez travaillé sur des fichiers différents, donc git arrive à gérer la situation.<br>
+Maintenant, que se passe-t-il si vous modifiez tous les deux le même fichier ?</p>
+</blockquote>
 <p>Vous allez tous les 2 travailler sur le fichier <code>voiture.py</code>. Dans la méthode <em>accelere()</em> :</p>
 <ul class="task-list">
-<li><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> remplace 130 par 150</label></li>
-<li><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> commit et pousse son code (<em>add</em>, <em>commit</em>, <em>push</em>)</label></li>
-<li><label><input type="checkbox">De son côté, <span class="emoji" data-emoji="frog">🐸</span> remplace 130 par 110</label></li>
-<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> commit et pousse son code (<em>add</em>, <em>commit</em>, <em>push</em>)</label></li>
+<li><label><input type="checkbox">🐱 remplace 130 par 150</label></li>
+<li><label><input type="checkbox">🐱 commit et pousse son code (<em>add</em>, <em>commit</em>, <em>push</em>)</label></li>
+<li><label><input type="checkbox">De son côté, 🐸 remplace 130 par 110</label></li>
+<li><label><input type="checkbox">🐸 commit et pousse son code (<em>add</em>, <em>commit</em>, <em>push</em>)</label></li>
 </ul>
 <p>Si vous avez bien compris, vous savez que le push ne va pas fonctionner.</p>
 <ul class="task-list">
-<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> doit commencer par mettre à jour son dépôt local : <code>git pull</code></label>
+<li><label><input type="checkbox">🐸 doit commencer par mettre à jour son dépôt local : <code>git pull</code></label>
 <ul>
 <li>Et là c’est le conflit…</li>
 </ul></li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>remote: Enumerating objects: 7, done.</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>remote: Counting objects: 100% (7/7), done.</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>remote: Compressing objects: 100% (3/3), done.</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>remote: Total 4 (delta 2), reused 0 (delta 0), pack-reused 0</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>Unpacking objects: 100% (4/4), 1015 bytes | 8.00 KiB/s, done.</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>From github.com:ludo2ne/tp-git</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>   c27c708..05380ea  main       -&gt; origin/main</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>Auto-merging src/voiture.py</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>CONFLICT (content): Merge conflict in src/voiture.py</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>Automatic merge failed; fix conflicts and then commit the result.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Git vous prévient qu’il n’est pas arrivé à fusionner les commits automatiquement</p>
+<pre class="dark-code-block"><code>remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (4/4), 1015 bytes | 8.00 KiB/s, done.
+From github.com:ludo2ne/tp-git
+   c27c708..05380ea  main       -&gt; origin/main
+Auto-merging src/voiture.py
+CONFLICT (content): Merge conflict in src/voiture.py
+Automatic merge failed; fix conflicts and then commit the result.</code></pre>
+<p>Git vous prévient qu’il n’est pas arrivé à fusionner les commits automatiquement.</p>
 <p>Un conflit est généré quand les mêmes lignes d’un fichier sont modifiés par 2 commits de manière différente. Il doit être géré sur un dépôt local.</p>
-<p>Votre code ressemble à cela désormais à :</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelere(<span class="va">self</span>, increment) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> increment <span class="op">&gt;</span> <span class="dv">10</span>:</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>            increment <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="dv">110</span>, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="op">=======</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="dv">150</span>, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="dv">0</span><span class="er">5380ea70dbd5d4e49371af8da7c0ac1df13a010</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Votre code ressemble à cela désormais à ceci :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelere(<span class="va">self</span>, increment) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> increment <span class="op">&gt;</span> <span class="dv">10</span>:</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>            increment <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="dv">110</span>, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="op">=======</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="dv">150</span>, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="dv">0</span><span class="er">5380ea70dbd5d4e49371af8da7c0ac1df13a010</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
-<li>La première partie (entre <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> et <code>=======</code>) correspond au code en que vous aviez dans votre copie de travail</li>
+<li>La première partie (entre <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> et <code>=======</code>) correspond au code que vous aviez dans votre copie de travail</li>
 <li>La seconde partie est le code provenant du dépôt distant</li>
 </ul>
 <p>Plusieurs choix s’offrent à vous :</p>
 <ul>
-<li>Imposer votre version (110)</li>
-<li>Accepter la version de <span class="emoji" data-emoji="cat">🐱</span> (150)</li>
+<li>Imposer votre version 💪 (110)</li>
+<li>Accepter la version de 🐱 (150)</li>
 <li>Choisir une toute autre version (par exemple 120)</li>
 </ul>
 <p>Résolvons ce conflit :</p>
 <ul class="task-list">
-<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> conserve uniquement la ligne avec 110</label>
+<li><label><input type="checkbox">🐸 conserve uniquement la ligne avec 110</label>
 <ul>
 <li>et supprime toutes les autres lignes de <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> à <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code></li>
 <li>autre possibilité offerte par VSCode, cliquer sur <em>Accept Current Change</em></li>
 </ul></li>
-<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> sauvegarde le fichier</label></li>
-<li><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> commit et pousse son code (<em>add</em>, <em>commit -m “resolve merge”</em>, <em>push</em>)</label></li>
-<li><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> fait un <em>pull</em> pour mettre à jour son dépôt local</label></li>
+<li><label><input type="checkbox">🐸 sauvegarde le fichier</label></li>
+<li><label><input type="checkbox">🐸 commit et pousse son code (<em>add</em>, <em>commit -m “resolve merge”</em>, <em>push</em>)</label></li>
+<li><label><input type="checkbox">🐱 fait un <em>pull</em> pour mettre à jour son dépôt local</label></li>
 </ul>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1661,6 +1855,7 @@ Avoir un conflit, ce n’est pas grave !</p>
 <p>Cela arrive simplement quand Git rencontre deux versions et il n’a pas de <span class="emoji" data-emoji="crystal_ball">🔮</span>, ni de <span class="emoji" data-emoji="game_die">🎲</span> pour choisir laquelle est la bonne.</p>
 </div>
 </div>
+<p>Maintenant si nous pouvons éviter, c’est pas plus mal !</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Éviter les conflits">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1684,32 +1879,57 @@ Avoir un conflit, ce n’est pas grave !</p>
 <h3 data-number="6.5" class="anchored" data-anchor-id="exercice-dapplication-1"><span class="header-section-number">6.5</span> Exercice d’application</h3>
 <p>Dans le constructeur de la classe <em>Voiture</em> :</p>
 <ul class="task-list">
-<li><p><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> ajoute un attribut <em>vitesse_max</em> qui vaut par défaut 130</label></p>
+<li><p><label><input type="checkbox">🐱 ajoute un attribut <em>vitesse_max</em> qui vaut par défaut 130</label></p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>voiture.py</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, vitesse_max<span class="op">=</span><span class="dv">130</span>):</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>      <span class="co">"""Constructeur"""</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.nom <span class="op">=</span> nom</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.couleur <span class="op">=</span> couleur</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.vitesse_max <span class="op">=</span> vitesse_max</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div></li>
-<li><p><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> ajoute un attribut <em>carburant</em></label></p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>voiture.py</strong></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, carburant):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, vitesse_max<span class="op">=</span><span class="dv">130</span>):</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>      <span class="co">"""Constructeur"""</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.nom <span class="op">=</span> nom</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.couleur <span class="op">=</span> couleur</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.carburant <span class="op">=</span> carburant</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.vitesse_max <span class="op">=</span> vitesse_max</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></li>
+<li><p><label><input type="checkbox">🐸 ajoute un attribut <em>carburant</em></label></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>voiture.py</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, carburant):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>      <span class="co">"""Constructeur"""</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.nom <span class="op">=</span> nom</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.couleur <span class="op">=</span> couleur</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.carburant <span class="op">=</span> carburant</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></li>
 <li><p><label><input type="checkbox">Synchronisez vos dépôts et résolvez les conflits</label></p></li>
 </ul>
+<p>Vous avez maintenant tous les outils pour un usage simple de git.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="À retenir">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>À retenir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Git permet de versionner les fichiers d’un projet et de conserver leur historique.</li>
+<li>Le dépôt local contient une copie complète de l’historique du projet.</li>
+<li>Un dépôt distant permet de partager et de synchroniser le projet avec d’autres personnes.</li>
+<li><code>git status</code> permet de connaître l’état du dépôt.</li>
+<li><code>git add</code> prépare les modifications pour le prochain commit.</li>
+<li><code>git commit</code> enregistre les modifications dans l’historique local.</li>
+<li><code>git push</code> envoie les commits vers le dépôt distant.</li>
+<li><code>git pull</code> récupère les modifications du dépôt distant et les intègre au dépôt local.</li>
+<li>Les conflits apparaissent lorsque Git ne peut pas intégrer automatiquement des modifications concurrentes.</li>
+<li><code>.gitignore</code> permet d’indiquer à Git quels fichiers ne doivent pas être suivis.</li>
+</ul>
+</div>
+</div>
 </section>
 </section>
 <section id="ci" class="level2" data-number="7">
@@ -1743,36 +1963,36 @@ Avoir un conflit, ce n’est pas grave !</p>
 <div class="code-with-filename-file">
 <pre><strong>.github/workflows/ci.yml</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" data-filename=".github/workflows/ci.yml"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> pipeline</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">push</span><span class="kw">]</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">build</span><span class="kw">:</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">strategy</span><span class="kw">:</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">matrix</span><span class="kw">:</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"3.13"</span><span class="kw">]</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Python ${{ matrix.python-version }}</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v5</span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> ${{ matrix.python-version }}</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install dependencies</span></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>        python -m pip install --upgrade pip</span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>        pip install -r requirements.txt</span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Unit Tests with pytest</span></span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>        pytest</span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Analysing the code with pylint</span></span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>        pylint --output-format=colorized --disable=C0114,C0411,C0415,W0718 $(git ls-files '*.py') --fail-under=7.5</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" data-filename=".github/workflows/ci.yml"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> pipeline</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">push</span><span class="kw">]</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">build</span><span class="kw">:</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">strategy</span><span class="kw">:</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">matrix</span><span class="kw">:</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"3.13"</span><span class="kw">]</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Python ${{ matrix.python-version }}</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v5</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> ${{ matrix.python-version }}</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install dependencies</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>        python -m pip install --upgrade pip</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>        pip install -r requirements.txt</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Unit Tests with pytest</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>        pytest</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Analysing the code with pylint</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>        pylint --output-format=colorized --disable=C0114,C0411,C0415,W0718 $(git ls-files '*.py') --fail-under=7.5</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul class="task-list">
 <li><label><input type="checkbox">Créez un dossier <em>.github</em> puis dans celui-ci un dossier <em>workflows</em></label>
@@ -1784,7 +2004,7 @@ Avoir un conflit, ce n’est pas grave !</p>
 </ul>
 <p>Lors d’un push, cela va maintenant déclencher un pipeline sur GitHub.</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Sur la page du repo GitHub, allez dans l’onglet <em>Action</em></label></li>
+<li><label><input type="checkbox">Sur la page du repo GitHub, allez dans l’onglet <em>Actions</em></label></li>
 </ul>
 </section>
 </section>
@@ -1801,11 +2021,11 @@ Avoir un conflit, ce n’est pas grave !</p>
 <div class="code-with-filename-file">
 <pre><strong>setup-git.sh</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" data-filename="setup-git.sh"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"&lt;Prenom Nom&gt;"</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="op">&lt;</span>prenom.nom<span class="op">&gt;</span>@eleve.ensai.fr</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper store</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.mergeoptions <span class="at">--no-edit</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.editor <span class="st">"code -w"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15" data-filename="setup-git.sh"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"&lt;Prenom Nom&gt;"</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="op">&lt;</span>prenom.nom<span class="op">&gt;</span>@eleve.ensai.fr</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper store</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.mergeoptions <span class="at">--no-edit</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.editor <span class="st">"code -w"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="création-dune-clé-ssh" class="level3 unnumbered">
@@ -1825,7 +2045,7 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Ce paramètrage SSH est réalisé au niveau de la machine.</p>
+<p>Ce paramétrage SSH est réalisé au niveau de la machine.</p>
 <p>Si par exemple, vous souhaitez utiliser Git sur votre ordinateur personnel, il faudra faire également ce paramétrage.</p>
 </div>
 </div>
@@ -1847,7 +2067,7 @@ Warning
 </ul>
 <p>Déclarez votre clé publique à <em>GitHub</em>, pour pouvoir ensuite faire communiquer dépôts locaux avec les dépôts distants :</p>
 <ul class="task-list">
-<li><label><input type="checkbox">GitHub &gt; cliquez sur votre avatar &gt; Settings &gt; SSH and GPG keys</label>
+<li><label><input type="checkbox">GitHub ⏩ cliquez sur votre avatar ⏩ Settings ⏩ SSH and GPG keys</label>
 <ul>
 <li><a href="https://github.com/settings/keys" target="_blank">lien direct</a></li>
 </ul></li>
@@ -1859,7 +2079,7 @@ Warning
 </ul></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled" title="SSH : Comment ça marche ?">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1868,7 +2088,7 @@ Warning
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>SSH (Secure Shell) est un protocole permettant de se connecter à un autre ordinateur sur un réseau de manière sécurisée.</p>
 <p>SSH chiffre toutes les informations échangées afin de protéger les données.</p>
@@ -1877,7 +2097,7 @@ Warning
 <li><code>Clé privée</code> : C’est comme la clé de votre maison. Vous la gardez en sécurité avec vous et ne la partagez avec personne. Cette clé reste sur votre ordinateur et sert à prouver votre identité.</li>
 <li><code>Clé publique</code> : Elle serait comme votre adresse postale. Vous pouvez la partager avec d’autres. Dans SSH, vous placez votre clé publique sur les serveurs ou les ordinateurs auxquels vous souhaitez vous connecter.</li>
 </ul>
-<p>Ces deux clés sont liées. Un message chiffré par la clé publique n’est déchiffrable que par celui qui posséde la clé privée. Lorsque vous chiffrez un message avec votre clé privée, vous prouvez à tous votre identité car chacun peut déchiffrer ce message avec la clé publique.</p>
+<p>Ces deux clés sont liées. Un message chiffré par la clé publique n’est déchiffrable que par celui qui possède la clé privée. Lorsque vous chiffrez un message avec votre clé privée, vous prouvez à tous votre identité car chacun peut déchiffrer ce message avec la clé publique.</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/Y-S6GtdLaSU" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 </div>

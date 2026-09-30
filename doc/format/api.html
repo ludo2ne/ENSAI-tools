@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-edb6c92ac4857650852916241193df99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-ecff36e8869ebbc8362da441c997d0a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-edb6c92ac4857650852916241193df99.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-48afaec27bfe3050e097d8a4c60c27f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-8906adfb68f861914aea8ffb10afb9a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-48afaec27bfe3050e097d8a4c60c27f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -593,10 +593,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In practice, a Web API exposes resources (data) through URLs called endpoints.</p>
 <p>For example:</p>
 <ul>
-<li><code>GET https://myawsomeapi.io/users</code> <span class="emoji" data-emoji="arrow_right">➡️</span> list all users</li>
-<li><code>GET https://myawsomeapi.io/users/12</code> <span class="emoji" data-emoji="arrow_right">➡️</span> get user with id 12</li>
-<li><code>GET https://myawsomeapi.io/games</code> <span class="emoji" data-emoji="arrow_right">➡️</span> list games</li>
-<li><code>POST https://myawsomeapi.io/games</code> <span class="emoji" data-emoji="arrow_right">➡️</span> create a game</li>
+<li><code>GET https://myawsomeapi.io/users</code> ➡️ list all users</li>
+<li><code>GET https://myawsomeapi.io/users/12</code> ➡️ get user with id 12</li>
+<li><code>GET https://myawsomeapi.io/games</code> ➡️ list games</li>
+<li><code>POST https://myawsomeapi.io/games</code> ➡️ create a game</li>
 </ul>
 <p>A Web API typically uses:</p>
 <ul>
@@ -740,9 +740,9 @@ Note
 <p>Let’s imagine an api <code>http://pikapi.io</code> that offers an endpoint (/pokemon) where you can create a new Pokémon.</p>
 <p>Providing just a URL <code>http://pikapi.io/pokemon</code> isn’t enough. You need to specify:</p>
 <ul>
-<li>I want to create <span class="emoji" data-emoji="arrow_right">➡️</span> Method: POST</li>
-<li>The pokemon’s attributes <span class="emoji" data-emoji="arrow_right">➡️</span> Body</li>
-<li>Perhaps this endpoint is reserved for authenticated users <span class="emoji" data-emoji="arrow_right">➡️</span> Headers including a Token</li>
+<li>I want to create ➡️ Method: POST</li>
+<li>The pokemon’s attributes ➡️ Body</li>
+<li>Perhaps this endpoint is reserved for authenticated users ➡️ Headers including a Token</li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">POST</span> <span class="er">http://pikapi.io/pokemon</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -787,7 +787,7 @@ Note
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="st">    "level": 12,</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="st">    "hp": 35</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="st">  }'</span> <span class="kw">|</span> <span class="ex">jq</span> .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><span class="emoji" data-emoji="bulb">💡</span> add <code>| jq .</code> at the end, if you want a pretty-printed response.</p>
+<p>💡 add <code>| jq .</code> at the end, if you want a pretty-printed response.</p>
 </section>
 <section id="swagger" class="level3">
 <h3 class="anchored" data-anchor-id="swagger">Swagger</h3>
@@ -903,7 +903,7 @@ Note
 <section id="fastapi-hello-world" class="level3">
 <h3 class="anchored" data-anchor-id="fastapi-hello-world">FastAPI Hello World</h3>
 <p>Below is the code and command to create and launch the simplest possible API using FastAPI. A single endpoint that responds with “hello world”</p>
-<p><span class="emoji" data-emoji="arrow_right">➡️</span> <strong>Step1: Create the API</strong></p>
+<p>➡️ <strong>Step1: Create the API</strong></p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>main.py</strong></pre>
@@ -916,7 +916,7 @@ Note
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> read_root():</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"message"</span>: <span class="st">"Hello World"</span>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><span class="emoji" data-emoji="arrow_right">➡️</span> <strong>Step2: Launch the Server</strong></p>
+<p>➡️ <strong>Step2: Launch the Server</strong></p>
 <p>Launch it with command: <code>uvicorn main:app --host 0.0.0.0 --port 5000 --reload</code></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -937,7 +937,7 @@ Note
 </ul>
 </div>
 </div>
-<p><span class="emoji" data-emoji="arrow_right">➡️</span> <strong>Step3: Query the API</strong></p>
+<p>➡️ <strong>Step3: Query the API</strong></p>
 <p>Using <code>curl -X GET http://0.0.0.0:5000/ | jq .</code> or another client.</p>
 <p>Expected output:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="dt">"message"</span><span class="fu">:</span> <span class="st">"Hello World"</span><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -945,7 +945,7 @@ Note
 </section>
 <section id="fastapi-gear-second" class="level3">
 <h3 class="anchored" data-anchor-id="fastapi-gear-second">FastApi: gear second</h3>
-<p>Here we have an API that lets you manage a list of Pokemons (each Pokémon is identified only by its name)</p>
+<p>Here we have an API that lets you manage a list of Pokemons (each Pokémon is identified only by its name).</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> FastAPI, HTTPException</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> FastAPI()</span>
@@ -1132,10 +1132,10 @@ Note
 <section id="testing-the-api" class="level4">
 <h4 class="anchored" data-anchor-id="testing-the-api">Testing the API</h4>
 <p>You can interact with your new server using <strong>cURL</strong> or any professional API client like <strong>Bruno</strong> or <strong>Insomnia</strong>.</p>
-<p><span class="emoji" data-emoji="arrow_right">➡️</span> READ Operations</p>
+<p>➡️ READ Operations</p>
 <p>To retrieve the list of all games:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> GET http://localhost:5000/games</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><span class="emoji" data-emoji="arrow_right">➡️</span> WRITE Operations</p>
+<p>➡️ WRITE Operations</p>
 <p>To create a new game entry, send a <code>POST</code> request with a <strong>JSON</strong> body. <code>json-server</code> will automatically generate a unique <em>id</em> for the new entry.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> POST http://localhost:5000/games <span class="dt">\</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">-H</span> <span class="st">"Content-Type: application/json"</span> <span class="dt">\</span></span>
@@ -1147,7 +1147,7 @@ Note
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="st">           "duration_seconds": 300,</span></span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="st">           "mode_type": "dice"</span></span>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="st">         }'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><span class="emoji" data-emoji="arrow_right">➡️</span> UPDATE Operations</p>
+<p>➡️ UPDATE Operations</p>
 <p>To modify an existing resource, use <code>PUT</code>. You must specify the <em>id</em> of the resource in the URL path.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> PUT http://localhost:5000/games/1 <span class="dt">\</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">-H</span> <span class="st">"Content-Type: application/json"</span> <span class="dt">\</span></span>
@@ -1159,7 +1159,7 @@ Note
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="st">           "duration_seconds": 150,</span></span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="st">           "mode_type": "coinflip"</span></span>
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="st">         }'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><span class="emoji" data-emoji="arrow_right">➡️</span> DELETE Operations</p>
+<p>➡️ DELETE Operations</p>
 <p>To remove a resource from your mock database:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> DELETE http://localhost:5000/games/2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-warning callout-titled" title="Data Persistence">
