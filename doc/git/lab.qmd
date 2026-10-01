@@ -18,7 +18,7 @@ Il est possible de réaliser ce TP avec GitLab dont l'interface est très ressem
 ⚠️ Il y a tout de même quelques différences, par exemple : GitHub Repository = GitLab Projet
 :::
 
-## À faire à la maison{.unnumbered}
+## À faire à la maison {.unnumbered}
 
 - [ ] Lire l'introduction
 - [ ] Créer un compte sur [GitHub](https://github.com/){target="_blank"}

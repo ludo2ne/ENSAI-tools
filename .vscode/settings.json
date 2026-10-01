@@ -6,7 +6,7 @@
   "[quarto]": {
     "editor.wordWrap": "wordWrapColumn",
     "editor.wrappingIndent": "same",
-    "editor.wordWrapColumn": 120,
+    "editor.wordWrapColumn": 80,
     "editor.rulers": [
       120
     ],

@@ -4,9 +4,10 @@
 - [ ] R
 - [ ] Usages IAgen
 - [ ] Code quality
-- [ ] Git advanced
+- [ ] Git advanced (branch, PR, CI, Gitflow)
 - [ ] Quarto poster
 - [ ] Quarto site
+- [ ] Toml
 
 
 ## LaSuite
@@ -31,3 +32,42 @@ VISUALIZE bill_len AS x, bill_dep AS y
 FROM ggsql:penguins
 DRAW point
 ```
+
+
+## TP Projet
+
+:::{.notes}
+Fil rouge : gagner au Loto
+parler Prospect theory
+
+1. Bonnes pratiques de gestion de projet
+  •	Organisation des ressources :
+  o	code (GitHub)
+  o	données (S3)
+  o	suivi (Kanban GitHub, carnet de bord, fichier de suivi)
+2. Mise en place du dépôt de projet
+  •	Création d'un dépôt GitHub commun
+  •	Fourniture d'un template (arborescence + fichiers essentiels)
+  •	Rappels pratiques (clone, push/pull, travail collaboratif)
+3. Utilisation de RStudio sur SSPCloud
+  •	Bonnes pratiques de code (lisibilité, modularité, reproductibilité)
+  •	Gestion des packages et projet (.Rproj)
+  •	Créer un premier script R pour :
+  o	charger les données brutes (depuis S3)
+  o	nettoyage
+  o	sauvegarde des données propres (S3)
+  •	Création d'un premier document Quarto (statistiques descriptives simples)
+  •	Proposer également le même code en Python
+4. Outils de gestion de projet
+  •	Mise à disposition d'outils légers et centralisés (idéalement sur GitHub)
+  •	diagramme de Gantt
+  •	Kanban GitHub ?
+  •	suivi hebdomadaire / carnet de bord ? Adapter les outils déjà fournis
+5. Rédaction de rapports
+  •	Fourniture d'un template Quarto simple ENSAI-Report-Template
+  •	Mise à disposition d'un exemple complet (modèle de Gabriel/Christophe) pour que les élèves puissent piocher dedans
+  •	Rappels méthodologiques :
+  o	structure : recherche biblio, énoncé de problématique, expériences, bilan (est-ce que ça confirme/infirme), limites,  ouverture
+  o	la conclusion n'est pas une reformulation de l'introduction
+  o	qualité rédactionnelle (titres informatifs, figures commentées, conclusion argumentée)
+:::

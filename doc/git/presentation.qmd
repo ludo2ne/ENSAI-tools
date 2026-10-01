@@ -1,6 +1,6 @@
 ---
 title: "Introduction à Git"
-description: "[Slides](presentation-slides.html)"
+description: "👉 [Slides](presentation-slides.html)"
 author: "Ludovic Deneuville"
 format: 
   html: default
@@ -21,7 +21,6 @@ categories:
   - Workflow
   - Conflit
 ---
-
 
 ## Introduction
 

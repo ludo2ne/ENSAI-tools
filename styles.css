@@ -121,6 +121,27 @@ p{
   border-color: darkblue;
 }
 
+.blue-button {
+  display: inline-block;
+  padding: 2px 5px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3D5AFE;
+  background-color: white;
+  border: 2px solid #3D5AFE;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.blue-button:hover {
+  background-color: #3D5AFE;
+  color: white;
+}
+
+
 .keyboard {
   display: inline-block;
   padding: 1px 5px;

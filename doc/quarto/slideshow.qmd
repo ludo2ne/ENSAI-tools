@@ -1,6 +1,6 @@
 ---
 title: "Presentation example"
-description: "➡️ [Slides](slideshow.html) ⬅️"
+description: "👉 [Slides](slideshow.html)"
 subtitle: "Slideshow using Quarto and Reveal.js"
 author: "Ludovic Deneuville"
 number-sections: false
