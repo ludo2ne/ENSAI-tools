@@ -229,16 +229,18 @@ Ludovic Deneuville
 </ul>
 <aside class="notes">
 <ul>
-<li>Présentation perso en 1min</li>
+<li>Utilisé en projet</li>
 <li>Évalué en Compléments d’info 2A</li>
 <li>Suivi d’un TP</li>
-<li>⚠️ valable pour tous les TP
+</ul>
+<p>⚠️ valable pour tous les TP :</p>
 <ul>
+<li>lisez le sujet avant</li>
+<li>soyez prêts (pas 20 min pour se logger)</li>
 <li>n’allez pas trop vite</li>
 <li>suivez précisément les consignes</li>
 <li>réfléchissez (il peut y avoir des coquilles)</li>
 <li>&lt; … &gt; -&gt; remplacer</li>
-</ul></li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -263,6 +265,19 @@ Ludovic Deneuville
 <li>Vous créez un dossier commun</li>
 </ul>
 <p><span class="emoji" data-emoji="sweat_smile">😅</span> En cas d’erreur, comment revenir en arrière ?</p>
+<aside class="notes">
+<p>On va essayer de trouver un moyen pour bosser efficacement.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 
 <section id="au-programme" class="title-slide slide level2 center">
@@ -391,23 +406,6 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 </div>
 </div>
 </div>
-</section>
-<section id="un-exemple-à-ne-pas-suivre" class="slide level3">
-<h3>Un exemple à ne pas suivre</h3>
-
-<img data-src="img/revision-reglement-scola.png" class="r-stretch"><aside class="notes">
-<p>J’ai pris un exemple dans une école au hasard, c’est pas chez nous</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="ancien-code-commenté" class="slide level3 smaller">
 <h3>Ancien code commenté</h3>
@@ -871,12 +869,12 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <p>2 possibilités pour coller du texte :</p>
 <ul>
 <li>Clic droit</li>
-<li>MAJ + INSERT</li>
+<li><span class="keyboard">MAJ</span> + <span class="keyboard">INSERT</span></li>
 </ul>
 <aside class="notes">
 <p>Raccourcis indispensables:</p>
 <ul>
-<li>CTRL + A : select all</li>
+<li>CTRL+ A : select all</li>
 <li>TABULATION: autocomplete</li>
 <li>HISTORIQUE <span class="emoji" data-emoji="arrow_up">⬆️</span> et <span class="emoji" data-emoji="arrow_down">⬇️</span></li>
 </ul>
@@ -915,11 +913,11 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <section id="que-versionne-t-on" class="slide level3">
 <h3>Que versionne-t-on ?</h3>
 <ul>
-<li>☑ des fichiers de type texte (légers)</li>
-<li>☑ du code source</li>
-<li><span class="emoji" data-emoji="x">❌</span> fichiers de données</li>
-<li><span class="emoji" data-emoji="x">❌</span> mots de passe</li>
-<li><span class="emoji" data-emoji="x">❌</span> outputs : logs, .pdf, .doc</li>
+<li>✅ des fichiers de type texte (légers)</li>
+<li>✅ du code source</li>
+<li>❌ fichiers de données</li>
+<li>❌ mots de passe</li>
+<li>❌ outputs : logs, .pdf, .doc</li>
 </ul>
 <aside class="notes">
 <ul>
@@ -1050,7 +1048,7 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 </ul>
 </div>
 <div id="tabset-4-4">
-<p><a href="img/git-commit.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="img/git-commit.PNG" class="r-stretch"></a></p>
+<p><a href="img/git-commit.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="img/git-commit.PNG" class="r-stretch"></a></p>
 <ul>
 <li>vous venez de créer un nouveau commit</li>
 <li>il est possible de consulter les commits précédents
@@ -1260,6 +1258,143 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 </div>
 </section></section>
 <section>
+<section id="git-pas-git" class="title-slide slide level2 center">
+<h2>Git / pas Git ?</h2>
+<p>Un petit quizz !</p>
+</section>
+<section id="projet-info" class="slide level3 smaller">
+<h3>Projet info</h3>
+<pre><code>Projet info/
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── backend/
+│   ├── pyproject.toml
+│   └── src/
+│       ├── dao/
+│       ├── service/
+│       └── main.py
+├── data/
+│   ├── create_tables.sql
+│   └── insert_data.sql
+├── doc/
+│   ├── rapport.qmd
+│   └── suivi.md
+├── .env
+├── .gitignore
+├── docker-compose.yml
+└── README.md</code></pre>
+<aside class="notes">
+<p>Git mais attention :</p>
+<ul>
+<li>dossier data/ -&gt; bof</li>
+<li>fichier <em>.env</em> -&gt; mots de passe…</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="projet-éco" class="slide level3 smaller">
+<h3>Projet éco</h3>
+<pre><code>Les Nudges/
+├── Articles/
+│   ├── Sunstein_2014_Nudging.pdf
+│   ├── Kahneman_1990.pdf
+│   └── Nudges that dont nudge.pdf
+├── Notes/
+│   ├── idees.docx
+│   ├── bibliographie.docx
+│   └── données.csv
+└── Rapport/
+    ├── rapport.docx
+    ├── rapport_v2.docx
+    ├── rapport_v3_final.docx
+    ├── rapport_v3_final.pdf
+    └── rapport_v3_final_corrige.docx
+    ├── presentation.pptx
+    └── presentation_finale.pptx</code></pre>
+<aside class="notes">
+<p>Pas Git :</p>
+<ul>
+<li>versions gérées manuellement</li>
+<li>beaucoup de fichiers Word/PDF</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="projet-stat" class="slide level3 smaller">
+<h3>Projet stat</h3>
+<pre><code>Projet Loto/
+├── .gitignore
+├── README.md
+├── suivi.md
+├── data/
+│   ├── README.md
+│   └── loto.csv
+├── R/
+│   ├── 01_load.R
+│   ├── 02_clean.R
+│   ├── 03_explore.R
+│   ├── 04_analyze.R
+│   └── 05_visualize.R
+├── rapport/
+│   ├── rapport.qmd
+│   └── rapport.pdf
+└── presentation/
+    └── soutenance.qmd</code></pre>
+<aside class="notes">
+<p>Git :</p>
+<ul>
+<li>fichiers versionnés</li>
+<li>Repo bien organisé</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="réglement-de-scolarité" class="slide level3">
+<h3>Réglement de scolarité</h3>
+
+<img data-src="img/revision-reglement-scola.png" class="r-stretch"><aside class="notes">
+<p>J’ai pris un exemple dans une école au hasard, c’est pas chez nous</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
 <section id="travailler-en-équipe" class="title-slide slide level2 center">
 <h2>Travailler en équipe</h2>
 
@@ -1349,6 +1484,7 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 </div>
 </div>
 <aside class="notes">
+<p>Comme une cellule du corps humain.</p>
 <ul>
 <li>Si vous perdez un dépôt, il suffit de repartir d’un autre</li>
 </ul>
@@ -1370,19 +1506,6 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <li><code>git pull</code> : mettre à jour son dépôt local à partir du dépôt distant</li>
 <li><code>git push</code> : envoyer ses commits locaux sur le dépôt distant</li>
 </ul>
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Warning</strong></p>
-</div>
-<div class="callout-content">
-<p>Il est important de push et pull régulièrement son code pour garder son dépôt à jour.</p>
-</div>
-</div>
-</div>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1392,10 +1515,9 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <p><strong>Important</strong></p>
 </div>
 <div class="callout-content">
-<ul>
-<li>Vous faites toujours vos actions sur un dépôt local</li>
-<li>Vous ne modifiez jamais le dépôt distant.</li>
-</ul>
+<p>Il est important de push et pull régulièrement son code pour garder son dépôt à jour.</p>
+<p>Vous faites toujours vos actions sur un dépôt local.</p>
+<p>Vous ne modifiez jamais le dépôt distant.</p>
 </div>
 </div>
 </div>
@@ -1466,13 +1588,15 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 </section>
 <section id="git-push---si-votre-dépôt-local-nest-pas-à-jour" class="slide level3">
 <h3>git push - si votre dépôt local n’est pas à jour</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a aria-label="1"></a>! [rejected]        main -&gt; main (fetch first)</span>
-<span id="cb10-2"><a aria-label="2"></a>error: failed to push some refs</span>
-<span id="cb10-3"><a aria-label="3"></a>hint: Updates were rejected because the remote contains work that you do not</span>
-<span id="cb10-4"><a aria-label="4"></a>hint: have locally. This is usually caused by another repository pushing to</span>
-<span id="cb10-5"><a aria-label="5"></a>hint: the same ref. If you want to integrate the remote changes, use</span>
-<span id="cb10-6"><a aria-label="6"></a>hint: 'git pull' before pushing again.</span>
-<span id="cb10-7"><a aria-label="7"></a>hint: See the 'Note about fast-forwards' in 'git push --help' for details.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb13-1"><a aria-label="1"></a>! [rejected]        main -&gt; main (fetch first)</span>
+<span id="cb13-2"><a aria-label="2"></a>error: failed to push some refs</span>
+<span id="cb13-3"><a aria-label="3"></a>hint: Updates were rejected because the remote contains work that you do not</span>
+<span id="cb13-4"><a aria-label="4"></a>hint: have locally. This is usually caused by another repository pushing to</span>
+<span id="cb13-5"><a aria-label="5"></a>hint: the same ref. If you want to integrate the remote changes, use</span>
+<span id="cb13-6"><a aria-label="6"></a>hint: 'git pull' before pushing again.</span>
+<span id="cb13-7"><a aria-label="7"></a>hint: See the 'Note about fast-forwards' in 'git push --help' for details.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br>
+</p>
 <p>Le message est assez explicite.</p>
 </section>
 <section id="git-push---fichier-disparu" class="slide level3">
@@ -1579,9 +1703,9 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <div class="code-with-filename-file">
 <pre><strong>velo.py</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-filename="velo.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a aria-label="1"></a><span class="kw">class</span> Velo:</span>
-<span id="cb11-2"><a aria-label="2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
-<span id="cb11-3"><a aria-label="3"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"bleu"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" data-filename="velo.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-label="1"></a><span class="kw">class</span> Velo:</span>
+<span id="cb14-2"><a aria-label="2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
+<span id="cb14-3"><a aria-label="3"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"bleu"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-5-2">
@@ -1589,9 +1713,9 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <div class="code-with-filename-file">
 <pre><strong>velo.py</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-filename="velo.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-label="1"></a><span class="kw">class</span> Velo:</span>
-<span id="cb12-2"><a aria-label="2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
-<span id="cb12-3"><a aria-label="3"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"blanc"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15" data-filename="velo.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a aria-label="1"></a><span class="kw">class</span> Velo:</span>
+<span id="cb15-2"><a aria-label="2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
+<span id="cb15-3"><a aria-label="3"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"blanc"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-5-3">
@@ -1599,9 +1723,9 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <div class="code-with-filename-file">
 <pre><strong>velo.py</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" data-filename="velo.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a aria-label="1"></a><span class="kw">class</span> Velo:</span>
-<span id="cb13-2"><a aria-label="2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
-<span id="cb13-3"><a aria-label="3"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"noir"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16" data-filename="velo.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a aria-label="1"></a><span class="kw">class</span> Velo:</span>
+<span id="cb16-2"><a aria-label="2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
+<span id="cb16-3"><a aria-label="3"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"noir"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1653,7 +1777,7 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <ul>
 <li><code>self.couleur = "noir"</code> vs <code>self.couleur = "blanc"</code></li>
 </ul></li>
-<li>Git n’est pas capable de choisir laquelle est la bonne</li>
+<li>Git n’est pas capable de choisir laquelle est la bonne 🤷‍♀</li>
 </ul>
 </div>
 <div id="tabset-6-2">
@@ -1661,14 +1785,14 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <li>En haut : votre version</li>
 <li>En bas : celle provenant du dépôt distant</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-label="1"></a><span class="kw">class</span> Velo:</span>
-<span id="cb14-2"><a aria-label="2"></a><span class="op">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
-<span id="cb14-3"><a aria-label="3"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, vitesse_max):</span>
-<span id="cb14-4"><a aria-label="4"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"noir"</span></span>
-<span id="cb14-5"><a aria-label="5"></a><span class="op">=======</span></span>
-<span id="cb14-6"><a aria-label="6"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, marque):</span>
-<span id="cb14-7"><a aria-label="7"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"blanc"</span></span>
-<span id="cb14-8"><a aria-label="8"></a><span class="op">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> a57ae9120dbf97dbab78f82db81f5fc8f48f3821</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a aria-label="1"></a><span class="kw">class</span> Velo:</span>
+<span id="cb17-2"><a aria-label="2"></a><span class="op">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
+<span id="cb17-3"><a aria-label="3"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, vitesse_max):</span>
+<span id="cb17-4"><a aria-label="4"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"noir"</span></span>
+<span id="cb17-5"><a aria-label="5"></a><span class="op">=======</span></span>
+<span id="cb17-6"><a aria-label="6"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, marque):</span>
+<span id="cb17-7"><a aria-label="7"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"blanc"</span></span>
+<span id="cb17-8"><a aria-label="8"></a><span class="op">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> a57ae9120dbf97dbab78f82db81f5fc8f48f3821</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="tabset-6-3">
 <p>Pour résoudre ce conflit, 3 possibilités :</p>
@@ -1701,7 +1825,7 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 </div>
 <div class="callout-content">
 <p>La commande <code>git status</code> permet de répondre à ces questions.</p>
-<p>Elle peut être utilisée n’importe quand, sans modération !</p>
+<p>Elle peut être utilisée n’importe quand, sans modération ! 🍻</p>
 </div>
 </div>
 </div>
@@ -1937,8 +2061,9 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <h2>Travailler sur le Datalab</h2>
 <ul>
 <li>Services non pérennes</li>
-<li>Sauvegardez votre code</li>
+<li>Sauvegarder votre code</li>
 </ul>
+<p>↪ Indispensable d’utiliser Git !</p>
 <aside class="notes">
 <ul>
 <li>vous ne travaillerez pas toujours en local</li>

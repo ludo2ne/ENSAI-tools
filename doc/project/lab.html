@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Ludovic Deneuville">
 <meta name="description" content="Bonnes pratiques en projet">
 
 <title>TP Gérer son projet – ENSAI tools</title>
@@ -26,6 +27,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -78,6 +114,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -480,10 +519,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#créer-et-organiser-son-dépôt" id="toc-créer-et-organiser-son-dépôt" class="nav-link active" data-scroll-target="#créer-et-organiser-son-dépôt"><span class="header-section-number">1</span> Créer et organiser son dépôt</a></li>
-  <li><a href="#une-première-analyse" id="toc-une-première-analyse" class="nav-link" data-scroll-target="#une-première-analyse"><span class="header-section-number">2</span> Une première analyse</a></li>
-  <li><a href="#organisation-suivi-et-gestion" id="toc-organisation-suivi-et-gestion" class="nav-link" data-scroll-target="#organisation-suivi-et-gestion"><span class="header-section-number">3</span> Organisation, suivi et gestion</a></li>
-  <li><a href="#initier-son-rapport" id="toc-initier-son-rapport" class="nav-link" data-scroll-target="#initier-son-rapport"><span class="header-section-number">4</span> Initier son rapport</a></li>
+  <li><a href="#objectifs" id="toc-objectifs" class="nav-link active" data-scroll-target="#objectifs">Objectifs</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#données" id="toc-données" class="nav-link" data-scroll-target="#données"><span class="header-section-number">1</span> Données</a></li>
+  <li><a href="#créer-et-organiser-son-dépôt" id="toc-créer-et-organiser-son-dépôt" class="nav-link" data-scroll-target="#créer-et-organiser-son-dépôt"><span class="header-section-number">2</span> Créer et organiser son dépôt</a></li>
+  <li><a href="#charger-et-apurer" id="toc-charger-et-apurer" class="nav-link" data-scroll-target="#charger-et-apurer"><span class="header-section-number">3</span> Charger et apurer</a></li>
+  <li><a href="#une-première-analyse" id="toc-une-première-analyse" class="nav-link" data-scroll-target="#une-première-analyse"><span class="header-section-number">4</span> Une première analyse</a></li>
+  <li><a href="#organisation-suivi-et-gestion" id="toc-organisation-suivi-et-gestion" class="nav-link" data-scroll-target="#organisation-suivi-et-gestion"><span class="header-section-number">5</span> Organisation, suivi et gestion</a></li>
+  <li><a href="#préparer-les-livrables" id="toc-préparer-les-livrables" class="nav-link" data-scroll-target="#préparer-les-livrables"><span class="header-section-number">6</span> Préparer les livrables</a></li>
+  <li><a href="#liens-utiles" id="toc-liens-utiles" class="nav-link" data-scroll-target="#liens-utiles"><span class="header-section-number">7</span> Liens utiles</a></li>
   </ul>
 </nav>
     </div>
@@ -511,6 +555,12 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ludovic Deneuville </p>
+          </div>
+  </div>
     
   
     
@@ -523,35 +573,385 @@ ul.task-list li input[type="checkbox"] {
 
 <p>🚧</p>
 <div class="notes">
-<ol type="1">
-<li>Bonnes pratiques de gestion de projet • Organisation des ressources : o code (GitHub) o données (S3) o suivi (Kanban GitHub, carnet de bord, fichier de suivi)</li>
-<li>Mise en place du dépôt de projet • Création d’un dépôt GitHub commun • Fourniture d’un template (arborescence + fichiers essentiels) • Rappels pratiques (clone, push/pull, travail collaboratif)</li>
-<li>Utilisation de RStudio sur SSPCloud • Bonnes pratiques de code (lisibilité, modularité, reproductibilité) • Gestion des packages et projet (.Rproj) • Créer un premier script R pour : o charger les données brutes (depuis S3) o nettoyage o sauvegarde des données propres (S3) • Création d’un premier document Quarto (statistiques descriptives simples) • Proposer également le même code en Python</li>
-<li>Outils de gestion de projet • Mise à disposition d’outils légers et centralisés (idéalement sur GitHub) • diagramme de Gantt • Kanban GitHub ? • suivi hebdomadaire / carnet de bord ? Adapter les outils déjà fournis</li>
-<li>Rédaction de rapports • Fourniture d’un template Quarto simple ENSAI-Report-Template • Mise à disposition d’un exemple complet (modèle de Gabriel/Christophe) pour que les élèves puissent piocher dedans • Rappels méthodologiques : o structure : recherche biblio, énoncé de problématique, expériences, bilan (est-ce que ça confirme/infirme), limites, ouverture) o la conclusion n’est pas une reformulation de l’introduction o qualité rédactionnelle (titres informatifs, figures commentées, conclusion argumentée)</li>
-</ol>
+<ul class="task-list">
+<li><label><input type="checkbox">Alternative VSCode-python + Quarto</label></li>
+</ul>
 </div>
-<section id="créer-et-organiser-son-dépôt" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="créer-et-organiser-son-dépôt"><span class="header-section-number">1</span> Créer et organiser son dépôt</h2>
+<section id="objectifs" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="objectifs">Objectifs</h2>
 <ul>
-<li>README</li>
-<li>.Rproj</li>
-<li>Rappel git</li>
+<li>S’organiser en équipe</li>
+<li>Initialiser votre dépôt de code</li>
+<li>Importer et nettoyer vos données</li>
+<li>Mener les premières analyses</li>
+<li>Initier votre rapport de projet</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Fil rouge">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Fil rouge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous allez utiliser les données du Loto pour essayer de devenir millionaire.</p>
+</div>
+</div>
+</section>
+<section id="introduction" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="introduction">Introduction</h2>
+<section id="quest-ce-quun-projet" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="quest-ce-quun-projet">Qu’est-ce qu’un projet ?</h3>
+<p>Un projet peut être présenté comme un travail organisé, réalisé par une équipe, pour atteindre un objectif défini et produire un ou plusieurs livrables.</p>
+<p>Un projet comporte notamment :</p>
+<ul>
+<li><strong>une équipe</strong> : les personnes qui travaillent sur le projet</li>
+<li><strong>un sujet</strong> : ce sur quoi porte le projet</li>
+<li><strong>des objectifs</strong> : ce que l’on cherche à accomplir</li>
+<li><strong>des données</strong> : les informations nécessaires au projet</li>
+<li><strong>du code</strong> : les traitements et analyses réalisés</li>
+<li><strong>des méthodes</strong> : les choix méthodologiques permettant d’atteindre l’objectif</li>
+<li><strong>des livrables</strong> : les productions attendues à la fin du projet</li>
+<li><strong>un calendrier</strong> : les différentes étapes et échéances</li>
+<li><strong>une organisation</strong> : la répartition des tâches et le suivi de leur avancement</li>
 </ul>
 </section>
-<section id="une-première-analyse" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="une-première-analyse"><span class="header-section-number">2</span> Une première analyse</h2>
+<section id="démarrer-un-projet" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="démarrer-un-projet">Démarrer un projet</h3>
+<p>Avant de commencer, prenez le temps de faire connaissance avec les membres de votre groupe et de définir votre organisation.</p>
+<p>Discutez notamment :</p>
 <ul>
-<li>Lancer un service</li>
-<li>Cloner</li>
-<li>Charger les données brutes depuis S3/diffusion</li>
-<li>Script de nettoyage</li>
-<li>Exporter</li>
+<li>des forces et compétences de chacun : programmation, statistiques, rédaction, organisation</li>
+<li>des appétences de chacun : quelles tâches aimez-vous particulièrement ?</li>
+<li>de vos éventuelles contraintes d’organisation</li>
+<li>de vos modes de communication : outils utilisés, fréquence des échanges, réunions</li>
+<li>de la répartition des rôles et des premières tâches</li>
+<li>d’une première version macro de votre calendrier</li>
+</ul>
+<p>Les rôles ne sont pas nécessairement fixes : ils peuvent évoluer au cours du projet. L’objectif est que chacun participe aux différentes dimensions du projet et que le travail ne repose pas sur une seule personne.</p>
+</section>
+<section id="calendrier-et-livrables" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="calendrier-et-livrables">Calendrier et livrables</h3>
+<p>Un diagramme de Gantt permet de visualiser là où vous en êtes et quelles sont les prochaines échéances. Il est rapide à réaliser et très utile.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">gantt
+    title Calendrier prévisionnel du projet
+    dateFormat  YYYY-MM-DD
+    axisFormat  %d %b
+
+    section Cadrage
+    Sujet et problématique         :2026-12-01, 2026-12-18
+    Recherche bibliographique      :2026-12-03, 20d
+
+    section Données et analyses
+    Collecte et préparation des données :2026-12-15, 20d
+    Statistiques descriptives           :2027-01-05, 45d
+    Interprétation des résultats        :2027-02-01, 2027-03-26
+    Méthodes statistiques               :2027-02-15, 45d
+
+    section Rédaction
+    Rédaction                        :2027-01-15, 25d
+    Rapport intermédiaire            :milestone, 2027-02-12, 0d
+    Rédaction du rapport             :2027-02-22, 2027-04-02
+    Rapport V1                       :milestone, 2027-04-02, 0d
+    Corrections et finalisation      :2027-04-19, 2027-05-05
+    Relecture                        :2027-05-04, 3d
+    Rapport final                    :milestone, 2027-05-07, 0d
+
+    section Présentation
+    Préparation de la soutenance blanche :2027-04-05, 2027-04-16
+    Soutenance blanche                   :milestone, 2027-04-16, 0d
+    Préparation de la soutenance         :2027-05-03, 2027-05-14
+    Soutenance                           :milestone, 2027-05-14, 0d
+    
+    section Vacances
+    Noël                                 :crit, 2026-12-19, 15d
+    Hiver                                :crit, 2027-02-20, 7d
+    Paques                               :crit, 2027-04-17, 7d
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="suivre-les-tâches" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="suivre-les-tâches">Suivre les tâches</h3>
+<p>Au cours d’un projet, de nombreuses tâches doivent être réalisées. Il est facile d’en oublier certaines ou de ne plus savoir précisément ce qui a été fait, ce qui est en cours et ce qu’il reste à faire.</p>
+<p>Une <strong>liste de tâches</strong> ou un <strong>Kanban</strong> permet de centraliser le suivi du projet et de donner à toute l’équipe une vision commune de son avancement.</p>
+<p>Un Kanban simple peut par exemple comporter les colonnes suivantes :</p>
+<p>🚧 Schéma</p>
+<pre class="text"><code>À faire → En cours → À relire → Terminé</code></pre>
+<p>Chaque tâche est représentée par une carte que l’on déplace au fur et à mesure de son avancement.</p>
+<p>Cet outil permet notamment de :</p>
+<ul>
+<li>ne pas oublier les tâches à réaliser ;</li>
+<li>savoir qui travaille sur quelle tâche ;</li>
+<li>visualiser rapidement l’avancement du projet ;</li>
+<li>identifier les tâches bloquées ;</li>
+<li>répartir le travail au sein du groupe.</li>
+</ul>
+</section>
+<section id="les-outils-du-projet" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="les-outils-du-projet">Les outils du projet</h3>
+<p>Un projet statistique mobilise plusieurs outils, chacun répondant à un besoin particulier. Il est important de savoir où réaliser chaque tâche et où stocker chaque ressource.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Besoin</th>
+<th>Outil</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Environnement de travail</td>
+<td><strong>SSPCloud</strong></td>
+</tr>
+<tr class="even">
+<td>Code</td>
+<td><strong>R ou Python</strong></td>
+</tr>
+<tr class="odd">
+<td>Versionner et partager le code</td>
+<td><strong>Git / GitHub</strong></td>
+</tr>
+<tr class="even">
+<td>Stocker les données</td>
+<td><strong>S3</strong></td>
+</tr>
+<tr class="odd">
+<td>Produire des documents et rapports</td>
+<td><strong>Quarto</strong></td>
+</tr>
+<tr class="even">
+<td>Suivre les tâches</td>
+<td><strong>GitHub / Kanban</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Ces outils sont complémentaires. L’objectif du projet sera de les utiliser ensemble pour construire un travail <strong>organisé, collaboratif et reproductible</strong>.</p>
+</section>
+</section>
+<section id="données" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="données"><span class="header-section-number">1</span> Données</h2>
+<p>Commençons par une partie facile, déposons nos données dans un endroit sûr.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Récupérez sur internet l’historique des tirages du Loto depuis novembre 2019</label></li>
+</ul>
+<p>Vous allez ensuite vous connecter au Datalab pour le déposer sur votre stockage S3.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Connectez-vous sur <a href="https://datalab.sspcloud.fr" target="_blank">https://datalab.sspcloud.fr</a></label></li>
+<li><label><input type="checkbox">Allez dans stockage de données</label></li>
+<li><label><input type="checkbox">Créez un dossier nommé <strong>diffusion</strong></label></li>
+</ul>
+<p>🚧 Lien vers partage de données :</p>
+<ul>
+<li>diffusion : lecture seule</li>
+<li>partage de fichier : 1 semaine max</li>
+<li>rendre public un dossier : ecriture ?</li>
+</ul>
+<hr>
+<ul class="task-list">
+<li><label><input type="checkbox">Dans ce dossier, créez un dossier <strong>projet</strong>, puis un dossier <strong>input</strong></label></li>
+<li><label><input type="checkbox">Chargez le fichier du Loto</label></li>
+</ul>
+<p>Vous avez maintenant vos données prêtes à être utilisées.</p>
+</section>
+<section id="créer-et-organiser-son-dépôt" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="créer-et-organiser-son-dépôt"><span class="header-section-number">2</span> Créer et organiser son dépôt</h2>
+<blockquote class="blockquote">
+<p>Passons maintenant à la gestion de votre code.</p>
+</blockquote>
+<section id="dépôt-distant" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="dépôt-distant"><span class="header-section-number">2.1</span> Dépôt distant</h3>
+<blockquote class="blockquote">
+<p>Le <em>remote</em> est le dépôt commun à toute l’équipe. Il permet de vous synchroniser.</p>
+</blockquote>
+<p>Votre code sera stocké dans un dépôt GitHub.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Connectez-vous à <a href="https://github.com/" target="_blank">GitHub</a></label></li>
+<li><label><input type="checkbox">Créez un nouveau Repository : GitHub ⏩ Repositories ⏩ <a href="https://github.com/new" class="green-button" target="_blank">New</a></label>
+<ul>
+<li>Repository name : <em>ensai-projet-stat-1a</em></li>
+<li>Description: <em>Projet statistique de première année</em></li>
+<li>Visibility Level : <em>Private</em></li>
+<li>☑ Cochez <em>Add a README file</em></li>
+<li>Add .gitignore : <em>R</em></li>
+<li>Choose a license : <em>MIT Licence</em></li>
+<li>Cliquez sur <span class="green-button">Create Repository</span></li>
+</ul></li>
+</ul>
+<p>Ceci n’est à faire qu’une seule fois.</p>
+</section>
+<section id="dépot-local" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="dépot-local"><span class="header-section-number">2.2</span> Dépot local</h3>
+<blockquote class="blockquote">
+<p>Avant de créer votre dépôt local (code sur lequel vous allez travailler), il faut créer votre environnement de travail.</p>
+</blockquote>
+<ul class="task-list">
+<li><label><input type="checkbox">Allez dans le catalogue des service</label></li>
+<li><label><input type="checkbox">Lancez un service Rstudio <span class="blue-button">Lancer</span> <strong><u>une seule fois</u></strong></label></li>
+<li><label><input type="checkbox">Allez dans l’onglet Git</label>
+<ul>
+<li>Vérifiez que votre Token est présent</li>
+<li>Renseignez l’url de votre dépôt GitHub</li>
+</ul></li>
+<li><label><input type="checkbox">Cliquez sur <span class="blue-button">Lancer</span></label></li>
+<li><label><input type="checkbox">Ouvrez le service</label></li>
+</ul>
+<p>Si tout s’est bien passé, un clone de votre dépôt a été créé dans votre service. Vous voyez apparaitre votre dépôt et ses fichier dans l’explorateur en bas à droite.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Si votre dépôt n'a pas été créé">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Si votre dépôt n’a pas été créé
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Dans le terminal de votre service, clonez manuellement en utilisant le token :</p>
+<ul>
+<li><code>git clone https://$GIT_PERSONAL_ACCESS_TOKEN@github.com/&lt;username&gt;/&lt;repo_name&gt;.git</code></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="rappels-git" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="rappels-git"><span class="header-section-number">2.3</span> Rappels Git</h3>
+<p>Vous allez commencer par vérifier que vous arrivez bien à envoyer du code vers le remote.</p>
+<p>Toutes les actions ci-dessous sont à faire dans Rstudio.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Ouvrez le fichier <em>README.md</em></label></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled" title="README ça veut dire...">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>README ça veut dire…
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pas besoin d’être bilingue pour comprendre l’idée.</p>
+<p>Ce fichier est très important. Il doit comporter :</p>
+<ul>
+<li>une brève présentation de votre projet</li>
+<li>les instructions pour utiliser vos programmes (mode utilisateur)</li>
+<li>les instructions pour complétez votre code (mode développeur)</li>
+</ul>
+</div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Collez le contenu ci-dessous 👇 et enregistrez</label></li>
+<li><label><input type="checkbox">Avec Git, envoyez ces modifications vers le remote</label></li>
+</ul>
+</section>
+<section id="renv" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="renv"><span class="header-section-number">2.4</span> renv</h3>
+<p>Lorsque plusieurs personnes travaillent sur un même projet, il est important que tout le monde utilise les mêmes packages et les mêmes versions.</p>
+<p><a href="https://rstudio.github.io/renv/" target="_blank">renv</a> permet de créer un environnement R isolé et propre au projet et d’enregistrer les packages utilisés ainsi que leurs versions.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Exécutez dans la console la commande <code>renv::init()</code></label></li>
+</ul>
+<p>Cette commande crée un dossier <em>renv/</em> et un fichier <em>renv.lock</em> (qui stocke la version de R utilisée, les packages nécessaires et leurs versions).<br>
+Ne les supprimez pas !<br>
+Le fichier <em>renv.lock</em> doit être versionné dans Git.</p>
+<p>Commandes utiles :</p>
+<ul>
+<li><code>renv::install("&lt;package&gt;")</code> pour installer un package</li>
+<li><code>renv::dependencies()</code> : quels sont les packages utilisés dans le code</li>
+<li><code>renv::status()</code> : pour voir les différences entre les packages installés et <em>renv.lock</em></li>
+<li><code>renv::snapshot()</code> : enregistre l’état des packages dans <em>renv.lock</em></li>
+<li><code>renv::restore()</code> : applique <em>renv.lock</em> i.e.&nbsp;désinstalle les packages en trop, installe les packages manquants</li>
+</ul>
+<p>Vous allez avoir besoin des packages suivants :</p>
+<ul>
+<li><p>dplyr : manipulation de données (pipes, mutate, select…)</p></li>
+<li><p>stringr : manipulation de chaînes de caractères</p></li>
+<li><p><label><input type="checkbox">installez-les avec renv :</label></p></li>
+<li><p><label><input type="checkbox">Mettez à jour le renv.lock</label></p></li>
+<li><p><label><input type="checkbox">Créez un point de sauvegarde</label></p></li>
+</ul>
+</section>
+</section>
+<section id="charger-et-apurer" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="charger-et-apurer"><span class="header-section-number">3</span> Charger et apurer</h2>
+<section id="charger-les-données-brutes" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="charger-les-données-brutes"><span class="header-section-number">3.1</span> Charger les données brutes</h3>
+<blockquote class="blockquote">
+<p>Commençons par charger le fichier.</p>
+</blockquote>
+<p>Dans un dépôt git, il ne faut pas laisser tout trainer à la racine, sinon cela devient rapidement le bazar.</p>
+<p>Les fichiers contenant du code sont à placer dans un dossier <em>src</em> (sources).</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Créez un dossier <em>src</em></label></li>
+<li><label><input type="checkbox">Créez un script <em>import.R</em></label></li>
+<li><label><input type="checkbox">Collez le code ci-dessous</label></li>
+</ul>
+<p>🚧 Ne pas donner le code, dire de lire la doc usages basiques du datalab (et màj cette page)</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>import.R</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="import.R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(aws.s3)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>bucket <span class="ot">&lt;-</span> <span class="st">"ludo2ne"</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>filepath <span class="ot">&lt;-</span> <span class="st">"projet/input/loto_201911.csv"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>loto_raw <span class="ot">&lt;-</span> aws.s3<span class="sc">::</span><span class="fu">s3read_using</span>(</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> readr<span class="sc">::</span>read_delim,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">";"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">object =</span> filepath,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">bucket =</span> bucket,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">opts =</span> <span class="fu">list</span>(<span class="st">"region"</span> <span class="ot">=</span> <span class="st">""</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="mettre-les-données-au-propre" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="mettre-les-données-au-propre"><span class="header-section-number">3.2</span> Mettre les données au propre</h3>
+<blockquote class="blockquote">
+<p>Certaines colonnes ne nous interessent pas, certaines données sont mal formatées. Il faut mettre tout cela au propre avant de commencer les analyses.</p>
+</blockquote>
+<p>A partir du dataframe <em>loto_raw</em>, vous allez créer un nouveau dataframe propre que vous nommerez <em>loto</em></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Observez la colonne <em>annee_numero_de_tirage</em>, vous ne remarquez pas des problèmes ?</label></li>
+<li><label><input type="checkbox">Harmonisez cette colonne et renommez-la <em>id</em></label></li>
+<li><label><input type="checkbox">Vous allez uniquement étudier le premier tirage, supprimez les colonnes concernant le second</label></li>
+<li><label><input type="checkbox">Supprimez également les colonnes sur les <em>codes gagnants</em>, ainsi que celles nommées : <em>date_de_forclusion</em>, <em>numero_7</em>, <em>devise</em> et <em>…50</em></label></li>
+</ul>
+<p>Vous avez maintenant un jeu de données propre, exportez-le vers S3.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>aws.s3<span class="sc">::</span><span class="fu">s3write_using</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> loto,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">FUN =</span> readr<span class="sc">::</span>write_csv,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">object =</span> <span class="st">"projet/output/loto.csv"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">bucket =</span> bucket,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">opts =</span> <span class="fu">list</span>(<span class="st">"region"</span> <span class="ot">=</span> <span class="st">""</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="une-première-analyse" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="une-première-analyse"><span class="header-section-number">4</span> Une première analyse</h2>
+<p>Avec Quarto ? ou en R, puis on colle dans le rapport ?</p>
+<ul>
 <li>Stats desc</li>
+<li>Une figure</li>
 </ul>
 </section>
-<section id="organisation-suivi-et-gestion" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="organisation-suivi-et-gestion"><span class="header-section-number">3</span> Organisation, suivi et gestion</h2>
+<section id="organisation-suivi-et-gestion" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="organisation-suivi-et-gestion"><span class="header-section-number">5</span> Organisation, suivi et gestion</h2>
 <ul>
 <li>Gantt</li>
 <li>Carnet de bord</li>
@@ -561,14 +961,37 @@ ul.task-list li input[type="checkbox"] {
 <li>Gérer son temps</li>
 </ul>
 </section>
-<section id="initier-son-rapport" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="initier-son-rapport"><span class="header-section-number">4</span> Initier son rapport</h2>
+<section id="préparer-les-livrables" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="préparer-les-livrables"><span class="header-section-number">6</span> Préparer les livrables</h2>
+<ul>
+<li>Quarto
+<ul>
+<li>petit schéma simple : qmd -&gt; quarto -&gt; pdf, html…</li>
+</ul></li>
+<li>TP à venir</li>
+</ul>
+<section id="initialiser-son-rapport" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="initialiser-son-rapport"><span class="header-section-number">6.1</span> Initialiser son rapport</h3>
 <ul>
 <li>Template</li>
 <li>Structure</li>
 <li>Fond / Forme</li>
 <li>Erreurs à éviter</li>
 <li>Soigner les figures</li>
+</ul>
+</section>
+<section id="présentation" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="présentation"><span class="header-section-number">6.2</span> Présentation</h3>
+<ul>
+<li>Avec RevealJS</li>
+</ul>
+</section>
+</section>
+<section id="liens-utiles" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="liens-utiles"><span class="header-section-number">7</span> Liens utiles</h2>
+<ul>
+<li><a href="https://mtes-mct.github.io/parcours_r_socle_introduction/" class="uri">https://mtes-mct.github.io/parcours_r_socle_introduction/</a></li>
+<li><a href="https://mtes-mct.github.io/parcours_r_socle_preparation_des_donnees" class="uri">https://mtes-mct.github.io/parcours_r_socle_preparation_des_donnees</a></li>
 </ul>
 
 
