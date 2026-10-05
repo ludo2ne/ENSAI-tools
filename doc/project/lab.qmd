@@ -11,7 +11,11 @@ categories:
 
 🚧
 
-## Objectifs
+:::{.notes}
+- [ ] Alternative VSCode-python + Quarto
+:::
+
+## Objectifs {.unnumbered}
 
 - S'organiser en équipe
 - Initialiser votre dépôt de code
@@ -274,6 +278,8 @@ Les fichiers contenant du code sont à placer dans un dossier *src* (sources).
 - [ ] Créez un script *import.R*
 - [ ] Collez le code ci-dessous
 
+🚧 Ne pas donner le code, dire de lire la doc usages basiques du datalab (et màj cette page)
+
 ```{.r filename="import.R"}
 rm(list=ls())
 
@@ -330,7 +336,13 @@ Avec Quarto ? ou en R, puis on colle dans le rapport ?
 - Préparer une réunion (de suivi)
 - Gérer son temps
 
-## Initier son rapport
+## Préparer les livrables
+
+- Quarto
+  - petit schéma simple : qmd -> quarto -> pdf, html...
+- TP à venir
+
+### Initialiser son rapport
 
 - Template
 - Structure
@@ -338,10 +350,11 @@ Avec Quarto ? ou en R, puis on colle dans le rapport ?
 - Erreurs à éviter
 - Soigner les figures
 
+### Présentation
 
+- Avec RevealJS
 
+## Liens utiles
 
-# Liens utiles
-
-https://mtes-mct.github.io/parcours_r_socle_introduction/
-https://mtes-mct.github.io/parcours_r_socle_preparation_des_donnees
+- <https://mtes-mct.github.io/parcours_r_socle_introduction/>
+- <https://mtes-mct.github.io/parcours_r_socle_preparation_des_donnees>

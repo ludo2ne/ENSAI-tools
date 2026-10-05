@@ -101,14 +101,16 @@ Durant ce TP, vous allez transférer du code entre votre dépôt local (service 
 
 > Pour éviter de vous authentifier (user+password) à chaque commande Git, vous allez utiliser un jeton. :coin:
 
+::: {.callout-important}
+Si vous avez déjà créé et déclaré un jeton par exemple lors du TP Datalab, inutile de le refaire. Vous pouvez passer à la section suivante.
+
+Ce paramétrage n'est à faire qu'une seule fois, jusqu'à expiration du jeton.
+:::
+
 - [ ] Ouvrez [cette page](../datalab/basics.qmd) qui contient les instructions suivantes
 - [ ] Lisez le principe du Token
 - [ ] Créez un Token sur GitHub
 - [ ] Déclarez-le sur le SSPCloud
-
-::: {.callout-note}
-Ce paramétrage n'est à faire qu'une seule fois, jusqu'à expiration du jeton.
-:::
 
 ## VSCode
 

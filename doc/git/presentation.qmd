@@ -32,14 +32,18 @@ categories:
 
 
 ::: {.notes}
-- Présentation perso en 1min
+- Utilisé en projet
 - Évalué en Compléments d'info 2A
 - Suivi d'un TP
-- ⚠️ valable pour tous les TP
-  - n'allez pas trop vite
-  - suivez précisément les consignes
-  - réfléchissez (il peut y avoir des coquilles)
-  - < ... > -> remplacer
+
+⚠️ valable pour tous les TP :
+
+- lisez le sujet avant
+- soyez prêts (pas 20 min pour se logger)
+- n'allez pas trop vite
+- suivez précisément les consignes
+- réfléchissez (il peut y avoir des coquilles)
+- < ... > -> remplacer
 :::
 
 
@@ -55,6 +59,9 @@ Vous faites partie d'une équipe de 5 personnes qui doit coder une application d
 
 :sweat_smile: En cas d'erreur, comment revenir en arrière ?
 
+::: {.notes}
+On va essayer de trouver un moyen pour bosser efficacement.
+:::
 
 ## Au programme
 
@@ -145,15 +152,6 @@ Source : [ThinkR](https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionne
 ::: 
 
 :::
-
-### Un exemple à ne pas suivre
-
-![](img/revision-reglement-scola.png){.r-stretch}
-
-:::{.notes}
-J'ai pris un exemple dans une école au hasard, c'est pas chez nous
-:::
-
 
 ### Ancien code commenté{.smaller}
 
@@ -400,12 +398,12 @@ La ligne de commande reste très utilisée :
 2 possibilités pour coller du texte :
 
 - Clic droit
-- MAJ + INSERT
+- [MAJ]{.keyboard} + [INSERT]{.keyboard}
 
 ::: {.notes}
 Raccourcis indispensables:
 
-- CTRL + A : select all
+- CTRL+ A : select all
 - TABULATION: autocomplete
 - HISTORIQUE :arrow_up: et :arrow_down:
 :::
@@ -419,11 +417,11 @@ Raccourcis indispensables:
 
 ### Que versionne-t-on ?
 
-- ☑ des fichiers de type texte (légers)
-- ☑ du code source
-- :x: fichiers de données
-- :x: mots de passe
-- :x: outputs : logs, .pdf, .doc
+- ✅ des fichiers de type texte (légers)
+- ✅ du code source
+- ❌ fichiers de données
+- ❌ mots de passe
+- ❌ outputs : logs, .pdf, .doc
 
 ::: {.notes}
 - un dépôt doit rester léger
@@ -622,6 +620,109 @@ __pycache__/
 doc/exams/**/*2026*
 ```
 
+## Git / pas Git ?
+
+Un petit quizz !
+
+### Projet info {.smaller}
+
+```
+Projet info/
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── backend/
+│   ├── pyproject.toml
+│   └── src/
+│       ├── dao/
+│       ├── service/
+│       └── main.py
+├── data/
+│   ├── create_tables.sql
+│   └── insert_data.sql
+├── doc/
+│   ├── rapport.qmd
+│   └── suivi.md
+├── .env
+├── .gitignore
+├── docker-compose.yml
+└── README.md
+```
+
+:::{.notes}
+Git mais attention :
+
+- dossier data/ -> bof
+- fichier *.env* -> mots de passe...
+:::
+
+### Projet éco {.smaller}
+
+```
+Les Nudges/
+├── Articles/
+│   ├── Sunstein_2014_Nudging.pdf
+│   ├── Kahneman_1990.pdf
+│   └── Nudges that dont nudge.pdf
+├── Notes/
+│   ├── idees.docx
+│   ├── bibliographie.docx
+│   └── données.csv
+└── Rapport/
+    ├── rapport.docx
+    ├── rapport_v2.docx
+    ├── rapport_v3_final.docx
+    ├── rapport_v3_final.pdf
+    └── rapport_v3_final_corrige.docx
+    ├── presentation.pptx
+    └── presentation_finale.pptx
+```
+
+:::{.notes}
+Pas Git :
+
+- versions gérées manuellement
+- beaucoup de fichiers Word/PDF
+:::
+
+### Projet stat {.smaller}
+
+```
+Projet Loto/
+├── .gitignore
+├── README.md
+├── suivi.md
+├── data/
+│   ├── README.md
+│   └── loto.csv
+├── R/
+│   ├── 01_load.R
+│   ├── 02_clean.R
+│   ├── 03_explore.R
+│   ├── 04_analyze.R
+│   └── 05_visualize.R
+├── rapport/
+│   ├── rapport.qmd
+│   └── rapport.pdf
+└── presentation/
+    └── soutenance.qmd
+```
+
+:::{.notes}
+Git :
+
+- fichiers versionnés
+- Repo bien organisé
+:::
+
+### Réglement de scolarité
+
+![](img/revision-reglement-scola.png){.r-stretch}
+
+:::{.notes}
+J'ai pris un exemple dans une école au hasard, c'est pas chez nous
+:::
+
 
 ## Travailler en équipe
 
@@ -665,6 +766,8 @@ flowchart
 ```
 
 ::: {.notes}
+Comme une cellule du corps humain.
+
 - Si vous perdez un dépôt, il suffit de repartir d'un autre
 :::
 
@@ -673,13 +776,12 @@ flowchart
 - `git pull` : mettre à jour son dépôt local à partir du dépôt distant
 - `git push` : envoyer ses commits locaux sur le dépôt distant
 
-::: {.callout-warning}
-Il est important de push et pull régulièrement son code pour garder son dépôt à jour.
-:::
-
 ::: {.callout-important}
-- Vous faites toujours vos actions sur un dépôt local
-- Vous ne modifiez jamais le dépôt distant.
+Il est important de push et pull régulièrement son code pour garder son dépôt à jour.
+
+Vous faites toujours vos actions sur un dépôt local.
+
+Vous ne modifiez jamais le dépôt distant.
 :::
 
 ::: {.notes}
@@ -725,6 +827,8 @@ hint: the same ref. If you want to integrate the remote changes, use
 hint: 'git pull' before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 ```
+
+\
 
 Le message est assez explicite.
 
@@ -835,7 +939,7 @@ Le conflit se résout sur son dépôt local !
   - En effet, vous devez impérativement mettre à jour votre dépôt local avant de pousser votre code
 - 2 versions s'opposent sur votre dépôt local
   - `self.couleur = "noir"` vs `self.couleur = "blanc"`
-- Git n'est pas capable de choisir laquelle est la bonne
+- Git n'est pas capable de choisir laquelle est la bonne 🤷‍♀
 
 #### Le conflit
 
@@ -876,7 +980,7 @@ Est-ce qu'il y a des fichiers :
 ::: {.callout-important}
 La commande `git status` permet de répondre à ces questions.
 
-Elle peut être utilisée n'importe quand, sans modération !
+Elle peut être utilisée n'importe quand, sans modération ! 🍻
 :::
 
 ### git status
@@ -1004,7 +1108,9 @@ clone : bouton vert code sur GitHub, GitLab
 ## Travailler sur le Datalab
 
 - Services non pérennes
-- Sauvegardez votre code
+- Sauvegarder votre code
+
+↪ Indispensable d'utiliser Git !
 
 ::: {.notes}
 - vous ne travaillerez pas toujours en local

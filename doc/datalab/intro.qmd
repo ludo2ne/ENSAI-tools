@@ -21,6 +21,7 @@ Liens utiles :
   - [Healthcheck](https://status.lab.sspcloud.fr){target="_blank"}
 - [Datalab de l'ENSAE-ENSAI](https://onyxia.lab.groupe-genes.fr/){target="_blank"}
 - <https://www.onyxia.sh/>{target="_blank"} : l'application qui permet à n'importe qui de déployer des services, sans avoir besoin de connaissances techniques de l'infrastructure.
+  - [Doc Admin](https://docs.onyxia.sh/){target="_blank"} : si vous voulez installer chez vous
 - [Le SSPCloud : une fabrique créative pour accompagner les expérimentations des statisticiens publics](https://www.insee.fr/fr/information/6035940?sommaire=6035950){target="_blank"}, Courrier des statistiques N7 - 2022
 
 ::: {.callout-tip}
