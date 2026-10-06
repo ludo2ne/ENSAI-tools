@@ -583,7 +583,7 @@
     "href": "doc/git/presentation.html#git",
     "title": "Introduction à Git",
     "section": "Git",
-    "text": "Git\n\n\n\n\n\ngit : connard en argot britannique\n\n\n\nHistorique\n\nCréé par Linus Torvalds en 2005\nPour gérer le développement du noyau Linux\nLe standard incontournable de la gestion de versions\nAnciens outils : CVS, SVN\n\n\n\nStandard : produit qui s’est imposé par l’usage (ex : Moteur de recherche Google, TCP/IP)\n\npeu causer des problèmes de monopole…\n\n\n\n\n\nLogiciel\n\nLogiciel Libre, Open source\nGratuit\nDécentralisé\n\n\n\n\n\n\n\nNote\n\n\n\n😨 Git s’utilise majoritairement en ligne de commande dans un terminal Git Bash.\n😅 Pas de panique, quelques commandes suffisent pour travailler avec Git.\nIl existe aussi des interfaces graphiques mais elles sont souvent imparfaites et sources d’erreur.\n\n\n\n\nLogiciel libre\n\ncode source est ouvert et disponible\npermettant à quiconque de l’utiliser, le modifier, et le distribuer librement\ndifférent de gratuit\nlégèrement différent de Open source\n\nOpen Source : avantages pratiques et collaboratifs\nLibre : libertés et les droits éthiques des utilisateurs\n\n\nDécentralisé\n\nchaque utilisateur dispose d’une copie complète de l’historique de tout le projet\n\n\n\n\n\nKésako\n\nGit ➡️ Logiciel de gestion de versions\nGit Bash ➡️ Terminal pour écrire des commandes git\nGitHub / GitLab ➡️ Plateforme de développement collaboratif\n\nHéberge des dépôts Git\nPropose d’autres fonctionnalités (CI/CD, wiki, gestion des incidents…)\n\n\n\n\nGitHub racheté par Microsoft en 2018\nGitLab, Libre, possible d’avoir son propre GitLab interne",
+    "text": "Git\n\n\n\n\n\ngit : connard en argot britannique\n\nObjectifs :\n\n1A apprentissage\n2A fluent\n3A maitrise\n\n\n\nHistorique\n\nCréé par Linus Torvalds en 2005\nPour gérer le développement du noyau Linux\nLe standard incontournable de la gestion de versions\nAnciens outils : CVS, SVN\n\n\n\nStandard : produit qui s’est imposé par l’usage (ex : Moteur de recherche Google, TCP/IP)\n\npeu causer des problèmes de monopole…\n\n\n\n\n\nLogiciel\n\nLogiciel Libre, Open source\nGratuit\nDécentralisé\n\n\n\n\n\n\n\nNote\n\n\n\n😨 Git s’utilise majoritairement en ligne de commande dans un terminal Git Bash.\n😅 Pas de panique, quelques commandes suffisent pour travailler avec Git.\nIl existe aussi des interfaces graphiques mais elles sont souvent imparfaites et sources d’erreur.\n\n\n\n\nLogiciel libre\n\ncode source est ouvert et disponible\npermettant à quiconque de l’utiliser, le modifier, et le distribuer librement\ndifférent de gratuit\nlégèrement différent de Open source\n\nOpen Source : avantages pratiques et collaboratifs\nLibre : libertés et les droits éthiques des utilisateurs\n\n\nDécentralisé\n\nchaque utilisateur dispose d’une copie complète de l’historique de tout le projet\n\n\n\n\n\nKésako\n\nGit ➡️ Logiciel de gestion de versions\nGit Bash ➡️ Terminal pour écrire des commandes git\nGitHub / GitLab ➡️ Plateforme de développement collaboratif\n\nHéberge des dépôts Git\nPropose d’autres fonctionnalités (CI/CD, wiki, gestion des incidents…)\n\n\n\n\nGitHub racheté par Microsoft en 2018\nGitLab, Libre, possible d’avoir son propre GitLab interne",
     "crumbs": [
       "Versionner avec Git",
       "Présentation"
@@ -772,7 +772,7 @@
     "href": "doc/git/presentation-slides.html#git",
     "title": "Introduction à Git",
     "section": "Git",
-    "text": "Git\n\n\n\ngit : connard en argot britannique"
+    "text": "Git\n\n\n\ngit : connard en argot britannique\n\nObjectifs :\n\n1A apprentissage\n2A fluent\n3A maitrise"
   },
   {
     "objectID": "doc/git/presentation-slides.html#git-bash",
@@ -1023,7 +1023,7 @@
     "href": "index.html#quarto",
     "title": "Outils pour les élèves et enseignants de l’ENSAI",
     "section": "Quarto",
-    "text": "Quarto\n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\nIntroduction\n\n\n \n\n\n\n\n\n\nMardown\n\n\nMarkdown\n\n\n\n\n\n\nPoster\n\n\n \n\n\n\n\n\n\nPresentation example\n\n\n \n\n\n\n\n\n\nQuarto\n\n\n \n\n\n\n\n\n\nQuarto avec Rstudio\n\n\n \n\n\n\n\n\n\nSite statique\n\n\n \n\n\n\n\n\n\nNo matching items",
+    "text": "Quarto\n\n\n\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\nIntroduction\n\n\n \n\n\n\n\n\n\nMardown\n\n\nMarkdown\n\n\n\n\n\n\nPoster\n\n\n \n\n\n\n\n\n\nPresentation example\n\n\n \n\n\n\n\n\n\nQuarto\n\n\nMarkdown, Contenu, Rendu\n\n\n\n\n\n\nQuarto avec Rstudio\n\n\n \n\n\n\n\n\n\nSite statique\n\n\n \n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Home"
     ]
@@ -1468,7 +1468,51 @@
     "href": "doc/quarto/quarto.html",
     "title": "Quarto",
     "section": "",
-    "text": "🚧\n\nhistorique, Pourquoi Quarto :\n\nR avec commentaire\nCopier coller les figures\nRmd\n\nFichier qmd Métadonnées Yaml render, comment ça fonctionne\n\n\n\n\n\n\n\nNote\n\n\n\nCe site est réalisé avec Quarto.\n\n\n\nHello Quarto\nQuarto-tuto",
+    "text": "Note\n\n\n\nCe site est réalisé avec Quarto.\n\nle contenu de chacune des pages de ce site est dans des fichiers qmd (voir dépôt GitHub)\nle rendu html est généré avec Quarto\nles pages html sont ensuite hébergée sur un site internet statique (via GitHub pages)",
+    "crumbs": [
+      "Restituer avec Quarto",
+      "Introduction à Quarto"
+    ]
+  },
+  {
+    "objectID": "doc/quarto/quarto.html#quarto-cest-quoi",
+    "href": "doc/quarto/quarto.html#quarto-cest-quoi",
+    "title": "Quarto",
+    "section": "1 Quarto, c’est quoi ?",
+    "text": "1 Quarto, c’est quoi ?\nQuarto est un outil permettant de produire des documents à partir d’un fichier source.\nDans un même fichier, nous pouvons mélanger :\n\ndes métadonnées permettant de définir le rendu souhaité\ndu texte en Markdown\ndu code, par exemple en R ou en Python\nles résultats produits par ce code\n\nLe fichier source est généralement un fichier .qmd (Quarto Markdown).\n\n1.1 Un même fichier, plusieurs rendus\nÀ partir d’un même fichier .qmd, Quarto peut produire différents types de documents, par exemple :\n                  fichier source\n                      .qmd\n                       │\n                       ▼\n                 ┌───────────┐\n                 │   Quarto  │\n                 └─────┬─────┘\n                       │\n          ┌────────────┼────────────┐\n          ▼            ▼            ▼\n        HTML          PDF       diaporama\nL’intérêt est donc de séparer le contenu de sa mise en forme finale.\nNous écrivons une seule fois le contenu, puis nous choisissons les formats dans lequels on souhaite le publier.\n\n\n1.2 Exemple\n\nÀ gauche, vous avez le contenu rédigé, à droite la mise ne forme gérée par Quarto.\n\n\nContenu (fichier .qmd)Mise en forme (html)\n\n\n- Vous êtes en train de lire le rendu html\n- Le code pour générer cette page est visible via le bouton `&lt;/&gt; Code` en haut à droite\n\n\n\nVous êtes en train de lire le rendu html\nLe code pour générer cette page est visible via le bouton &lt;/&gt; Code en haut à droite",
+    "crumbs": [
+      "Restituer avec Quarto",
+      "Introduction à Quarto"
+    ]
+  },
+  {
+    "objectID": "doc/quarto/quarto.html#doù-vient-cette-idée",
+    "href": "doc/quarto/quarto.html#doù-vient-cette-idée",
+    "title": "Quarto",
+    "section": "2 D’où vient cette idée ?",
+    "text": "2 D’où vient cette idée ?\n\nD’un script R à un document R + Markdown\n\nPrenons un exemple simple. Nous souhaitons analyser les notes d’une classe.\n\n2.1 Étape 1 — Un fichier R\nNous pouvons commencer par créer un fichier analyse.R :\n\n\nanalyse.R\n\nnotes &lt;- c(12, 15, 9, 14, 18, 11, 12, 12, 14)\n\n# Calcul de la moyenne\nmoyenne &lt;- mean(notes)\n\n# Diagramme en barre\nhist(notes, breaks = seq(8, 18))\n\nLe fichier contient principalement du code.\nLes commentaires permettent d’expliquer le code. Mais ils ne sont pas réellement destinés à constituer un document à destination du lecteur.\n\n\n2.2 Ajouter du texte : le R Markdown\nNous souhaitons maintenant produire un petit rapport. Utilisons un fichier .Rmd :\n\nContenuRendu\n\n\n\n\nanalyse.Rmd\n\n**Résultats :**\n\nNous avons relevé les notes suivantes :\n\n```{r}\nnotes &lt;- c(12, 15, 9, 14, 18, 11, 12, 12, 14)\nmoyenne &lt;- mean(notes)\nhist(notes, breaks = seq(8, 18))\n```\n\nLa moyenne de la classe (`{r} moyenne`) est donc calculée à partir des données ci-dessus.\n\n\n\nRésultats :\nNous avons relevé les notes suivantes :\n\nnotes &lt;- c(12, 15, 9, 14, 18, 11, 12, 12, 14)\nmoyenne &lt;- mean(notes)\nhist(notes, breaks = seq(8, 18))\n\n\n\n\n\n\n\n\nLa moyenne de la classe (13) est donc calculée à partir des données ci-dessus.\n\n\n\nLe fichier contient maintenant :\n\ndu texte destiné au lecteur\ndu code R\nles résultats produits par le code\n\nNous pouvons ainsi produire automatiquement un rapport à partir de l’analyse. 🎉\n\n\n\n\n\n\nTip\n\n\n\nAinsi il est possible d’avoir directement ses figures dans son rapport. Plus besoin de :\n\ngénérer sa figure\nexporter l’image\nla réimporter dans son rapport\net devoir tout recommencer au moindre changement 😡\n\n\n\n\n\n2.3 Puis Quarto\nQuarto reprend cette idée, mais la généralise.\nLa grande différence est que Quarto n’est pas limité à R, mais il est possible d’utiliser Python, Julia et d’autres langages.\nLes fichiers .Rmd deviennent des .qmd. Mais le principe reste le même, c’est un mélange de texte, code et résultats.",
+    "crumbs": [
+      "Restituer avec Quarto",
+      "Introduction à Quarto"
+    ]
+  },
+  {
+    "objectID": "doc/quarto/quarto.html#la-moulinette-quarto",
+    "href": "doc/quarto/quarto.html#la-moulinette-quarto",
+    "title": "Quarto",
+    "section": "3 La « moulinette » Quarto",
+    "text": "3 La « moulinette » Quarto\nLe fichier .qmd constitue le fichier source.\nQuarto va le transformer en document final.\nOn peut voir Quarto comme une moulinette :\n\nQuarto lit le fichier .qmd\nil exécute les morceaux de code\nil récupère les résultats\nil applique la mise en forme\nil produit le document final\n\n\n3.1 Les métadonnées du document\nLes premières lignes d’un fichier .qmd permettent de définir des métadonnées.\nElles permettent d’indiquer par exemple :\n\nle titre\nl’autrice\nle ou les formats de rendu avec des options spécifiques à chaque format\n\nElles sont placées dans l’en-tête du fichier, entre ---.\n\n\nExemple\n\n---\ntitle: \"Analyse des résultats\"\nauthor: \"Alyssa\"\nformat:\n  html:\n    number-sections: true\n    toc: true\n  typst:\n    papersize: a4\n    fontsize: 11pt\n  revealjs: default\n---\n\n\n\n3.2 Principe général\nNous pouvons résumer le fonctionnement de Quarto ainsi :\n┌─────────────────────────────────┐\n│          fichier .qmd           │\n│  • métadonnées                  │\n│  • texte                        │\n│  • code                         │\n└────────────────┬────────────────┘\n                 │\n                 │ Quarto\n                 ▼\n       ┌─────────────────────┐\n       │  Exécution du code  │\n       │         +           │\n       │  mise en forme      │\n       └──────────┬──────────┘\n                  │\n        ┌─────────┼─────────┐\n        ▼         ▼         ▼\n      HTML       PDF      slides",
+    "crumbs": [
+      "Restituer avec Quarto",
+      "Introduction à Quarto"
+    ]
+  },
+  {
+    "objectID": "doc/quarto/quarto.html#ressources",
+    "href": "doc/quarto/quarto.html#ressources",
+    "title": "Quarto",
+    "section": "4 Ressources",
+    "text": "4 Ressources\n\nHello Quarto\nQuarto-tuto",
     "crumbs": [
       "Restituer avec Quarto",
       "Introduction à Quarto"
