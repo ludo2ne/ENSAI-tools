@@ -2,29 +2,238 @@
 title: "Quarto"
 description: "Introduction à Quarto"
 author: "Ludovic Deneuville"
+format:
+  html:
+    code-tools: true
+categories:
+  - Markdown
+  - Contenu
+  - Rendu
 ---
-
-🚧
-
-:::{.notes}
-historique, Pourquoi Quarto  :
-
-- R avec commentaire
-- Copier coller les figures
-- Rmd
-
-Fichier qmd
-Métadonnées Yaml
-render, comment ça fonctionne
-:::
-
 
 ::: {.callout-note}
 Ce site est réalisé avec Quarto.
+
+- le contenu de chacune des pages de ce site est dans des fichiers qmd (voir [dépôt GitHub]({{< meta var.url-repo >}}){target="_blank"})
+- le rendu html est généré avec Quarto
+- les pages html sont ensuite hébergée sur un site internet statique (via GitHub pages)
+:::
+
+## Quarto, c'est quoi ?
+
+[Quarto](https://quarto.org/){target="_blank"} est un outil permettant de produire des documents à partir d'un fichier source.
+
+Dans un même fichier, nous pouvons mélanger :
+
+- des métadonnées permettant de définir le rendu souhaité
+- du texte en **Markdown**
+- du code, par exemple en **R** ou en **Python**
+- les résultats produits par ce code
+
+Le fichier source est généralement un fichier `.qmd` (*Quarto Markdown*).
+
+### Un même fichier, plusieurs rendus
+
+À partir d'un même fichier `.qmd`, Quarto peut produire différents types de documents, par exemple :
+
+```
+                  fichier source
+                      .qmd
+                       │
+                       ▼
+                 ┌───────────┐
+                 │   Quarto  │
+                 └─────┬─────┘
+                       │
+          ┌────────────┼────────────┐
+          ▼            ▼            ▼
+        HTML          PDF       diaporama
+```
+
+L'intérêt est donc de séparer le **contenu** de sa **mise en forme** finale.
+
+Nous écrivons une seule fois le contenu, puis nous choisissons les formats dans lequels on souhaite le publier.
+
+### Exemple
+
+> À gauche, vous avez le contenu rédigé, à droite la mise ne forme gérée par Quarto.
+
+
+::: {.panel-tabset .nav-pills}
+#### Contenu (fichier .qmd)
+
+```
+- Vous êtes en train de lire le rendu html
+- Le code pour générer cette page est visible via le bouton `</> Code` en haut à droite
+```
+
+#### Mise en forme (html)
+
+- Vous êtes en train de lire le rendu html
+- Le code pour générer cette page est visible via le bouton `</> Code` en haut à droite
 :::
 
 
+## D'où vient cette idée ? 
+
+> D'un script R à un document R + Markdown
+
+Prenons un exemple simple. Nous souhaitons analyser les notes d'une classe.
+
+### Étape 1 — Un fichier R
+
+Nous pouvons commencer par créer un fichier `analyse.R` :
+
+```{.r filename="analyse.R"}
+notes <- c(12, 15, 9, 14, 18, 11, 12, 12, 14)
+
+# Calcul de la moyenne
+moyenne <- mean(notes)
+
+# Diagramme en barre
+hist(notes, breaks = seq(8, 18))
+```
+
+Le fichier contient principalement du **code**.
+
+Les commentaires permettent d'expliquer le code. Mais ils ne sont pas réellement destinés à constituer un document à destination du lecteur.
+
+### Ajouter du texte : le R Markdown
+
+Nous souhaitons maintenant produire un petit rapport. Utilisons un fichier `.Rmd` :
+
+
+::: {.panel-tabset .nav-pills}
+
+#### Contenu
+
+````{.markdown filename="analyse.Rmd"}
+**Résultats :**
+
+Nous avons relevé les notes suivantes :
+
+```{{r}}
+notes <- c(12, 15, 9, 14, 18, 11, 12, 12, 14)
+moyenne <- mean(notes)
+hist(notes, breaks = seq(8, 18))
+```
+
+La moyenne de la classe (`{{r}} moyenne`) est donc calculée à partir des données ci-dessus.
+````
+
+#### Rendu
+
+**Résultats :**
+
+Nous avons relevé les notes suivantes :
+
+```{r}
+notes <- c(12, 15, 9, 14, 18, 11, 12, 12, 14)
+moyenne <- mean(notes)
+hist(notes, breaks = seq(8, 18))
+```
+
+La moyenne de la classe (`r mean(notes)`) est donc calculée à partir des données ci-dessus.
+:::
+
+Le fichier contient maintenant :
+
+- du **texte** destiné au lecteur
+- du **code R**
+- les **résultats** produits par le code
+
+Nous pouvons ainsi produire automatiquement un rapport à partir de l'analyse. 🎉
+
+
+::: {.callout-tip}
+Ainsi il est possible d'avoir directement ses figures dans son rapport. Plus besoin de :
+
+- générer sa figure
+- exporter l'image
+- la réimporter dans son rapport
+- et devoir tout recommencer au moindre changement 😡
+:::
+
+
+
+### Puis Quarto
+
+Quarto reprend cette idée, mais la généralise. 
+
+La grande différence est que Quarto n'est pas limité à R, mais il est possible d'utiliser Python, Julia et d'autres langages.
+
+Les fichiers `.Rmd` deviennent des `.qmd`. Mais le principe reste le même, c'est un mélange de texte, code et résultats.
+
+
+## La « moulinette » Quarto
+
+Le fichier `.qmd` constitue le **fichier source**.
+
+Quarto va le transformer en document final.
+
+On peut voir Quarto comme une **moulinette** :
+
+1. Quarto lit le fichier `.qmd`
+2. il exécute les morceaux de code
+3. il récupère les résultats
+4. il applique la mise en forme
+5. il produit le document final
+
+
+### Les métadonnées du document
+
+Les premières lignes d'un fichier `.qmd` permettent de définir des **métadonnées**.
+
+Elles permettent d'indiquer par exemple :
+
+- le titre
+- l'autrice
+- le ou les formats de rendu avec des options spécifiques à chaque format
+
+Elles sont placées dans l'en-tête du fichier, entre `---`.
+
+```{.yaml filename="Exemple"}
+---
+title: "Analyse des résultats"
+author: "Alyssa"
+format:
+  html:
+    number-sections: true
+    toc: true
+  typst:
+    papersize: a4
+    fontsize: 11pt
+  revealjs: default
+---
+```
+
+
+### Principe général
+
+Nous pouvons résumer le fonctionnement de Quarto ainsi :
+
+```
+┌─────────────────────────────────┐
+│          fichier .qmd           │
+│  • métadonnées                  │
+│  • texte                        │
+│  • code                         │
+└────────────────┬────────────────┘
+                 │
+                 │ Quarto
+                 ▼
+       ┌─────────────────────┐
+       │  Exécution du code  │
+       │         +           │
+       │  mise en forme      │
+       └──────────┬──────────┘
+                  │
+        ┌─────────┼─────────┐
+        ▼         ▼         ▼
+      HTML       PDF      slides
+```
+
+## Ressources
+
 - [Hello Quarto](https://quarto.org/docs/get-started/hello/vscode.html){target="_blank"}
 - [Quarto-tuto](https://ludo2ne.github.io/Quarto-tuto/){target="_blank"}
-
-

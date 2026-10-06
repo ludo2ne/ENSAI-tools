@@ -234,6 +234,12 @@ La solution, tous en choeur, c'est ...
 
 ::: {.notes}
 - **git** : connard en argot britannique
+
+Objectifs :
+
+- 1A apprentissage
+- 2A fluent
+- 3A maitrise
 :::
 
 ### Historique
