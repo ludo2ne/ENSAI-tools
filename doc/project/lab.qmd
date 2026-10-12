@@ -1,6 +1,6 @@
 ---
-title: "TP Gérer son projet"
-description: "Bonnes pratiques en projet"
+title: "TP Bien démarrer son projet"
+description: "Bonnes pratiques pour débuter un projet"
 author: Ludovic Deneuville
 categories:
   - Dépôts
@@ -9,7 +9,7 @@ categories:
   - Reproductibilité
 ---
 
-🚧
+🚧 En cours d'écriture
 
 :::{.notes}
 - [ ] Alternative VSCode-python + Quarto
@@ -106,6 +106,15 @@ gantt
 
 ### Suivre les tâches {.unnumbered}
 
+:::{.notes}
+- Gantt
+- Carnet de bord
+- Kanban
+- Ecrire un mail
+- Préparer une réunion (de suivi)
+- Gérer son temps
+:::
+
 Au cours d'un projet, de nombreuses tâches doivent être réalisées. Il est facile d'en oublier certaines ou de ne plus savoir précisément ce qui a été fait, ce qui est en cours et ce qu'il reste à faire.
 
 Une **liste de tâches** ou un **Kanban** permet de centraliser le suivi du projet et de donner à toute l'équipe une vision commune de son avancement.
@@ -139,7 +148,7 @@ Un projet statistique mobilise plusieurs outils, chacun répondant à un besoin 
 | Code                               | **R ou Python**        |
 | Versionner et partager le code     | **Git / GitHub**       |
 | Stocker les données                | **S3**                 |
-| Produire des documents et rapports | **Quarto**             |
+| Produire des documents et rapports | **Quarto / Typst**     |
 | Suivre les tâches                  | **GitHub / Kanban**    |
 
 Ces outils sont complémentaires. L'objectif du projet sera de les utiliser ensemble pour construire un travail **organisé, collaboratif et reproductible**.
@@ -233,6 +242,8 @@ Ce fichier est très important. Il doit comporter :
 - [ ] Collez le contenu ci-dessous 👇 et enregistrez
 - [ ] Avec Git, envoyez ces modifications vers le remote
 
+🚧 Exo pratique de gestion de conflit
+
 ### renv
 
 
@@ -259,7 +270,9 @@ Vous allez avoir besoin des packages suivants :
 - dplyr : manipulation de données (pipes, mutate, select...)
 - stringr : manipulation de chaînes de caractères
 
-- [ ] installez-les avec renv :
+---
+
+- [ ] installez-les avec renv
 - [ ] Mettez à jour le renv.lock
 - [ ] Créez un point de sauvegarde
 
@@ -322,21 +335,17 @@ aws.s3::s3write_using(
 
 ## Une première analyse
 
+🚧
+
 Avec Quarto ? ou en R, puis on colle dans le rapport ?
 
 - Stats desc
 - Une figure
 
-## Organisation, suivi et gestion
-
-- Gantt
-- Carnet de bord
-- Kanban
-- Ecrire un mail
-- Préparer une réunion (de suivi)
-- Gérer son temps
 
 ## Préparer les livrables
+
+🚧
 
 - Quarto
   - petit schéma simple : qmd -> quarto -> pdf, html...
@@ -344,17 +353,59 @@ Avec Quarto ? ou en R, puis on colle dans le rapport ?
 
 ### Initialiser son rapport
 
-- Template
-- Structure
-- Fond / Forme
-- Erreurs à éviter
-- Soigner les figures
+> Vous allez utiliser Quarto et Typst pour rédiger votre rapport. Un modèle vous est fourni.
+
+Vous trouverez sur ce site un [exemple de rapport](../quarto/report.qmd){target="_blank"}.
+
+- [ ] Cliquez sur le lien ci-dessus
+- [ ] Cliquez sur le bouton `</> Code` pour voir le contenu du rapport
+- [ ] Cliquez sur le bouton `Typst` pour voir le rendu pdf
+
+Vous remarquerez dans le code du rapport qu'il y a une partie du code rédigée directement en Typst.
+
+C'est nécessaire pour avoir une page de garde et une table des matières propre. Ce code utilise un fichier `model.typ` qui vous est fourni. Vous avez simplement à renseigner quelques infos : titre, membres de l'équipe...
+
+Initions maintenant votre rapport :
+
+- [ ] Créez un dossier *doc*
+- [ ] Dans ce dossier, créez un dossier `img` qui servira à stocker d'éventuelles images
+- [ ] Créez un fichier *rapport.qmd*
+- [ ] Collez le modèle typst
+- [ ] `quarto render doc/rapport.qmd`
+
+::: {.callout-tip title="Comment bien bâcler son rapport"}
+1. Je m'y mets au dernier moment. Avec un peu de chance, les autres auront déjà fait une partie de mon boulot.
+2. Je demande à une IA de me l'écrire : je ne veux pas rater mon cours d'aqua-poney.
+3. **Introduction :** je n'utilise pas d'accroche, je ne présente ni problématique ni plan.
+4. Je ne me préoccupe pas de la cohérence du rapport, ni sur le fond ni sur la forme.
+5. Je ne fais pas de phrases de transition entre mes parties et sous-parties. De toute façon, mes parties ne suivent aucun ordre logique.
+6. Je n'utilise pas de titres informatifs. « 1. Contexte, 2. Analyse, 3. Résultats », ça ira très bien.
+7. J'utilise « on » et la forme passive : « on a noté », « on a vu », « on a remarqué que », etc.
+8. J'essaie de battre le record de la phrase la plus longue. Ça permet au lecteur de s'entraîner pour l'apnée.
+9. Je ne soigne pas mes figures (pas de titre, ni de source, ni de note de lecture). Les lecteurs n'ont qu'à deviner.
+10. Je ne commente pas mes figures. Je les dépose simplement au milieu de nulle part : ça fait une demi-page de moins à rédiger.
+11. J'oublie les statistiques descriptives. De toute manière, une moyenne ça ne veut rien dire.
+12. Je fais une ACP sans préciser pourquoi j'ai choisi ces variables et ces individus. De toute façon, le logiciel sait ce qu'il fait.
+13. Je lance un clustering sans trop réfléchir. Il paraît qu'on a eu un cours là-dessus, alors autant s'en servir !
+14. Je ne me soucie pas de la mise en page. Les titres seuls en bas de page, les figures coupées et les pages presque vides donnent du caractère au document.
+15. Je ne relis pas ce qui a été rédigé par les autres. D'ailleurs, je ne relis pas non plus ce que j'ai rédigé.
+16. **Conclusion :** je demande à l'IA de reformuler mon introduction. Facile ! Je ne parle ni des limites ni des pistes d'amélioration.
+17. Je ne cite aucun article de la bibliographie dans le rapport. D'ailleurs, je n'ai pas lu ce qui a déjà été fait sur le sujet.
+:::
+
 
 ### Présentation
 
+> Optionnel, à faire plus tard en autonomie
+
 - Avec RevealJS
+- Répéter avant
+- Backup
+- Numéroter ses diapo
+- Avoir son rapport ouvert s'il y a des questions
 
 ## Liens utiles
 
 - <https://mtes-mct.github.io/parcours_r_socle_introduction/>
 - <https://mtes-mct.github.io/parcours_r_socle_preparation_des_donnees>
+- <https://book.utilitr.org/>

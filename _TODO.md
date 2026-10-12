@@ -1,6 +1,6 @@
 # TODO
 
-- [ ] TP Projet
+- [ ] TP Projet WIP
 - [ ] R
 - [ ] Usages IAgen
 - [ ] Code quality

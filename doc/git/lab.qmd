@@ -10,6 +10,14 @@ categories:
   - CI
 ---
 
+:::{.notes}
+Todo:
+
+- schéma de commits o-o-o-o entre remote et local pour montrer ou on en est sur chaque repo
+- CI: pylint, bandit -> fail
+:::
+
+
 ::: {.callout-note}
 Les consignes de ce TP sont données pour une utilisation de GitHub. 
 
@@ -107,10 +115,16 @@ Si vous avez déjà créé et déclaré un jeton par exemple lors du TP Datalab,
 Ce paramétrage n'est à faire qu'une seule fois, jusqu'à expiration du jeton.
 :::
 
-- [ ] Ouvrez [cette page](../datalab/basics.qmd) qui contient les instructions suivantes
-- [ ] Lisez le principe du Token
-- [ ] Créez un Token sur GitHub
-- [ ] Déclarez-le sur le SSPCloud
+Vous trouverez sur [cette page](../datalab/basics.qmd){target="_blank"} les instructions pour :
+
+- [ ] Comprendre principe du Token
+- [ ] Créer un Token sur GitHub
+- [ ] Déclarer le Token sur le SSPCloud
+
+::: {.callout-caution}
+Suivez uniquement les instructions demandées.
+:::
+
 
 ## VSCode
 
@@ -583,6 +597,7 @@ def test_accelere_limite_increment():
 bandit
 duckdb
 polars
+pylint
 pytest
 ruff
 ```
@@ -657,6 +672,7 @@ Un des deux membres va créer un dépôt local à partir du dépôt distant de l
 - [ ] 🐸 donne accès à 🐱 à son repo
   - page GitHub du repo ⏩ Settings ⏩ Collaborators
   - [Add people]{.green-button}
+- [ ] 🐱 accepte l'invitation (mail)
 - [ ] 🐱 clone le dépôt distant
   - `cd /home/onyxia/work/clone2`
   - `git clone https://$GIT_PERSONAL_ACCESS_TOKEN@github.com/<username_frog>/tp-git.git`

@@ -135,8 +135,6 @@ Pour sauvegarder vos programmes, la bonne pratique est d'envoyer son code vers u
 
 Pour suivre la démarche, il faut disposer d'un compte [GitHub](https://github.com/){target="_blank"}.
 
-Il est possible de suivre une démarche similaire avec [GitLab](https://about.gitlab.com/){target="_blank"}.
-
 ### Token : principe
 
 Vous travaillez actuellement sur votre service du Datalab (votre dépôt local) et vous souhaitez envoyer vos modifications vers GitHub (le dépôt distant).

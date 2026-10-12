@@ -57,7 +57,7 @@ website:
       - section: Gérer son Projet
         contents:
           - href: doc/project/lab.qmd
-            text: "TP Gestion de projet"
+            text: "TP Démarrer son projet"
       - section: Restituer avec Quarto
         contents:
           - href: doc/quarto/markdown.qmd
