@@ -105,11 +105,55 @@ Sur la page d'accueil du Datalab :
 
 Vous trouverez ici des informations pour vous connecter au stockage selon le language que vous utilisez : Python, R...
 
-D'ailleurs pour chaque langage, il y a même plusieurs packages qui font le job. Par exemple *s3fs* ou *boto3* pour Python.
+D'ailleurs pour chaque langage, il y a même plusieurs clients qui font le job. Par exemple *s3fs* ou *boto3* pour Python, *aws.s3* pour R.
 
+::: {.panel-tabset .nav-pills}
 
-🚧 Scripts faciles R & Python pour accéder aux données
+#### Exemple en R
 
+```{.r}
+library(aws.s3)
+
+bucket_name <- "donnees-insee"
+file_path <- "diffusion/GEOGRAPHIE/2019/COG_COMMUNE.csv"
+
+communes <- aws.s3::s3read_using(
+  FUN = readr::read_delim,
+  delim = ";",
+  object = file_path,
+  bucket = bucket_name,
+  opts = list("region" = "")
+)
+```
+
+#### Exemple en Python
+
+```{.python}
+import pandas as pd
+import s3fs
+
+# Configuration
+bucket = "donnees-insee"
+file_path = "diffusion/GEOGRAPHIE/2019/COG_COMMUNE.csv"
+endpoint_url = "https://minio.lab.sspcloud.fr"
+region_name = "us-east-1"
+
+# Connexion au client S3
+s3 = s3fs.S3FileSystem(
+    client_kwargs={
+        "endpoint_url": endpoint_url,
+        "region_name": region_name,
+    },
+)
+
+# Ouverture et chargement du fichier
+with s3.open(f"{bucket}/{file_path}", "rb") as f:
+    communes = pd.read_csv(f, sep=";")
+
+head(communes)
+```
+
+:::
 
 ### Données d'autres utilisateurs
 
@@ -122,7 +166,56 @@ Enfin, en parcourant le stockage, vous noterez la présence de données INSEE.
 
 ### Exportez vos résultats vers MinIO
 
-🚧
+> Les exemples utilisent les mêmes client S3 que pour l'import.
+
+::: {.panel-tabset .nav-pills}
+
+#### Exemple en R
+
+```{.r}
+# Export df communes
+aws.s3::s3write_using(
+  communes,
+  FUN = readr::write_csv,
+  object = "my_folder/BPE_ENS.csv",
+  bucket = bucket,
+  opts = list("region" = "")
+)
+```
+
+#### Exemple avec Python
+
+```{.python}
+# Export df communes
+personal_bucket = "ludo2ne"
+
+with s3.open(f"{personal_bucket}/export/COG_COMMUNE.csv", "wb") as f:
+    f.write(communes.to_csv(sep=";", index=False).encode("utf-8"))
+```
+
+:::
+
+
+### Credentials
+
+> Error 403 Forbidden
+
+::: {.callout-important}
+Les identifiants de connexion au stockage S3 expirent au bout de quelques jours.
+:::
+
+Pour les renouveler :
+
+- [ ] Allez dans stockage de données ⏩ ⚙
+
+```{.r}
+Sys.setenv(
+  AWS_S3_ENDPOINT = "minio.lab.sspcloud.fr",
+  AWS_ACCESS_KEY_ID = "...",
+  AWS_SECRET_ACCESS_KEY = "...",
+  AWS_SESSION_TOKEN = "ey..."
+)
+```
 
 
 ## Git

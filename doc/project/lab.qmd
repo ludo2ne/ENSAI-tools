@@ -107,6 +107,8 @@ gantt
 ### Suivre les tâches {.unnumbered}
 
 :::{.notes}
+🚧
+- Backlog
 - Gantt
 - Carnet de bord
 - Kanban
@@ -144,9 +146,11 @@ Un projet statistique mobilise plusieurs outils, chacun répondant à un besoin 
 
 | Besoin                             | Outil                  |
 | ---------------------------------- | ---------------------- |
-| Environnement de travail           | **SSPCloud**           |
-| Code                               | **R ou Python**        |
-| Versionner et partager le code     | **Git / GitHub**       |
+| Environnement de travail           | **SSP Cloud**          |
+| Logiciel (IDE)                     | **RStudio / VSCode / Jupyter** |
+| Code                               | **R / Python / SQL**   |
+| Versionner le code                 | **Git**                |
+| Dépôt distant                      | **GitHub**             |
 | Stocker les données                | **S3**                 |
 | Produire des documents et rapports | **Quarto / Typst**     |
 | Suivre les tâches                  | **GitHub / Kanban**    |
@@ -289,26 +293,17 @@ Les fichiers contenant du code sont à placer dans un dossier *src* (sources).
 
 - [ ] Créez un dossier *src*
 - [ ] Créez un script *import.R*
-- [ ] Collez le code ci-dessous
+- [ ] Récupérez vos données depuis S3
+  - Vous trouverez comment faire sur [cette page](./../datalab/basics.qmd){target="_blank"}
 
-🚧 Ne pas donner le code, dire de lire la doc usages basiques du datalab (et màj cette page)
+En projet stat, pour charger un fichier `.rds`, utilisez la fonction `readRDS`.
 
-```{.r filename="import.R"}
-rm(list=ls())
+::: {.callout-important}
+Si lors du chargement, vous rencontrez une erreur 403 (Forbidden), il est probable que vos credentials S3 soient expirés.
 
-library(aws.s3)
+La solution est expliquée sur la même page que ci-dessus.
+:::
 
-bucket <- "ludo2ne"
-filepath <- "projet/input/loto_201911.csv"
-
-loto_raw <- aws.s3::s3read_using(
-    FUN = readr::read_delim,
-    delim = ";",
-    object = filepath,
-    bucket = bucket,
-    opts = list("region" = "")
-)
-```
 
 ### Mettre les données au propre
 
@@ -321,23 +316,16 @@ A partir du dataframe *loto_raw*, vous allez créer un nouveau dataframe propre 
 - [ ] Vous allez uniquement étudier le premier tirage, supprimez les colonnes concernant le second
 - [ ] Supprimez également les colonnes sur les *codes gagnants*, ainsi que celles nommées : *date_de_forclusion*, *numero_7*, *devise* et *...50* 
 
-Vous avez maintenant un jeu de données propre, exportez-le vers S3.
+Vous avez maintenant un jeu de données propre.
 
-```{.r}
-aws.s3::s3write_using(
-  x = loto,
-  FUN = readr::write_csv,
-  object = "projet/output/loto.csv",
-  bucket = bucket,
-  opts = list("region" = "")
-)
-```
+- [ ] Exportez-le vers votre bucket S3
+
 
 ## Une première analyse
 
 🚧
 
-Avec Quarto ? ou en R, puis on colle dans le rapport ?
+En R :
 
 - Stats desc
 - Une figure
@@ -349,7 +337,7 @@ Avec Quarto ? ou en R, puis on colle dans le rapport ?
 
 - Quarto
   - petit schéma simple : qmd -> quarto -> pdf, html...
-- TP à venir
+- TP à venir en Stats avec R
 
 ### Initialiser son rapport
 
@@ -380,7 +368,7 @@ Initions maintenant votre rapport :
 4. Je ne me préoccupe pas de la cohérence du rapport, ni sur le fond ni sur la forme.
 5. Je ne fais pas de phrases de transition entre mes parties et sous-parties. De toute façon, mes parties ne suivent aucun ordre logique.
 6. Je n'utilise pas de titres informatifs. « 1. Contexte, 2. Analyse, 3. Résultats », ça ira très bien.
-7. J'utilise « on » et la forme passive : « on a noté », « on a vu », « on a remarqué que », etc.
+7. J'utilise « on » et la forme passive : « on a noté », « on a vu », « on a remarqué que », etc. C'est ce qu'on m'a dit en techniques rédactionnelles. Ou c'était l'inverse !? Bref, je me souviens plus y'avait Chartres la veille.
 8. J'essaie de battre le record de la phrase la plus longue. Ça permet au lecteur de s'entraîner pour l'apnée.
 9. Je ne soigne pas mes figures (pas de titre, ni de source, ni de note de lecture). Les lecteurs n'ont qu'à deviner.
 10. Je ne commente pas mes figures. Je les dépose simplement au milieu de nulle part : ça fait une demi-page de moins à rédiger.

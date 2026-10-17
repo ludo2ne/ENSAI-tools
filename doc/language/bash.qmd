@@ -9,6 +9,10 @@ categories:
   - Variables d'environnement
 ---
 
+:::{.notes}
+🚧
+- Bref topo sur grep
+:::
 
 
 ## Introduction

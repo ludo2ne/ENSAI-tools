@@ -21,6 +21,7 @@ website:
         href: index.qmd
         text: Home
       - section: Formats et échanges de données
+        icon: database-fill
         contents:
           - href: doc/format/parquet-csv.qmd
             text: "Parquet, CSV"
@@ -29,12 +30,14 @@ website:
           - href: doc/format/api.qmd
             text: "API"
       - section: Coder
+        icon: tux
         contents:
           - href: doc/language/bash.qmd
             text: "Bash"
           - href: doc/language/python.qmd
             text: "Python"
       - section: Versionner avec Git
+        icon: git
         contents:
           - href: doc/git/presentation.qmd
             text: "Présentation"
@@ -43,6 +46,7 @@ website:
           - href: doc/git/lab.qmd
             text: "TP Git"
       - section: Utiliser le Datalab
+        icon: gear-fill
         contents:
           - href: doc/datalab/intro.qmd
             text: "Introduction"
@@ -55,10 +59,12 @@ website:
           - href: doc/datalab/lab.qmd
             text: "TP Datalab"
       - section: Gérer son Projet
+        icon: cone-striped
         contents:
           - href: doc/project/lab.qmd
             text: "TP Démarrer son projet"
       - section: Restituer avec Quarto
+        icon: file-earmark-bar-graph
         contents:
           - href: doc/quarto/markdown.qmd
             text: "Markdown"

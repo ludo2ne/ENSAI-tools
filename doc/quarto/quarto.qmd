@@ -16,7 +16,7 @@ Ce site est réalisé avec Quarto.
 
 - le contenu de chacune des pages de ce site est dans des fichiers qmd (voir [dépôt GitHub]({{< meta var.url-repo >}}){target="_blank"})
 - le rendu html est généré avec Quarto
-- les pages html sont ensuite hébergée sur un site internet statique (via GitHub pages)
+- les pages html sont ensuite hébergées sur un site internet statique (via GitHub pages)
 :::
 
 ## Quarto, c'est quoi ?
@@ -139,8 +139,8 @@ La moyenne de la classe (`r mean(notes)`) est donc calculée à partir des donn�
 Le fichier contient maintenant :
 
 - du **texte** destiné au lecteur
-- du **code R**
-- les **résultats** produits par le code
+- du **code R** regroupé dans des blocs de code appelés *chunk*
+- les **résultats** produits par ce code
 
 Nous pouvons ainsi produire automatiquement un rapport à partir de l'analyse. 🎉
 
@@ -207,6 +207,10 @@ format:
 ---
 ```
 
+Le document ci-dessus va générer à la fois :
+
+- un fichier *html* pour un site web
+- un fichier *typst* (pdf) 
 
 ### Principe général
 
