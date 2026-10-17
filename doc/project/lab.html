@@ -28,41 +28,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -331,7 +296,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true"><i class="bi bi-database-fill" role="img">
+</i> 
  <span class="menu-text">Formats et échanges de données</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -360,7 +326,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true"><i class="bi bi-tux" role="img">
+</i> 
  <span class="menu-text">Coder</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -383,7 +350,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true"><i class="bi bi-git" role="img">
+</i> 
  <span class="menu-text">Versionner avec Git</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -412,7 +380,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true"><i class="bi bi-gear-fill" role="img">
+</i> 
  <span class="menu-text">Utiliser le Datalab</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -453,7 +422,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true"><i class="bi bi-cone-striped" role="img">
+</i> 
  <span class="menu-text">Gérer son Projet</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -470,7 +440,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true"><i class="bi bi-file-earmark-bar-graph" role="img">
+</i> 
  <span class="menu-text">Restituer avec Quarto</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -683,14 +654,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="suivre-les-tâches" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="suivre-les-tâches">Suivre les tâches</h3>
 <div class="notes">
-<ul>
-<li>Gantt</li>
-<li>Carnet de bord</li>
-<li>Kanban</li>
-<li>Ecrire un mail</li>
-<li>Préparer une réunion (de suivi)</li>
-<li>Gérer son temps</li>
-</ul>
+<p>🚧 - Backlog - Gantt - Carnet de bord - Kanban - Ecrire un mail - Préparer une réunion (de suivi) - Gérer son temps</p>
 </div>
 <p>Au cours d’un projet, de nombreuses tâches doivent être réalisées. Il est facile d’en oublier certaines ou de ne plus savoir précisément ce qui a été fait, ce qui est en cours et ce qu’il reste à faire.</p>
 <p>Une <strong>liste de tâches</strong> ou un <strong>Kanban</strong> permet de centraliser le suivi du projet et de donner à toute l’équipe une vision commune de son avancement.</p>
@@ -720,15 +684,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>Environnement de travail</td>
-<td><strong>SSPCloud</strong></td>
+<td><strong>SSP Cloud</strong></td>
 </tr>
 <tr class="even">
-<td>Code</td>
-<td><strong>R ou Python</strong></td>
+<td>Logiciel (IDE)</td>
+<td><strong>RStudio / VSCode / Jupyter</strong></td>
 </tr>
 <tr class="odd">
-<td>Versionner et partager le code</td>
-<td><strong>Git / GitHub</strong></td>
+<td>Code</td>
+<td><strong>R / Python / SQL</strong></td>
+</tr>
+<tr class="even">
+<td>Versionner le code</td>
+<td><strong>Git</strong></td>
+</tr>
+<tr class="odd">
+<td>Dépôt distant</td>
+<td><strong>GitHub</strong></td>
 </tr>
 <tr class="even">
 <td>Stocker les données</td>
@@ -910,27 +882,25 @@ Le fichier <em>renv.lock</em> doit être versionné dans Git.</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Créez un dossier <em>src</em></label></li>
 <li><label><input type="checkbox">Créez un script <em>import.R</em></label></li>
-<li><label><input type="checkbox">Collez le code ci-dessous</label></li>
+<li><label><input type="checkbox">Récupérez vos données depuis S3</label>
+<ul>
+<li>Vous trouverez comment faire sur <a href="../../doc/datalab/basics.html" target="_blank">cette page</a></li>
+</ul></li>
 </ul>
-<p>🚧 Ne pas donner le code, dire de lire la doc usages basiques du datalab (et màj cette page)</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>import.R</strong></pre>
+<p>En projet stat, pour charger un fichier <code>.rds</code>, utilisez la fonction <code>readRDS</code>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="import.R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(aws.s3)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>bucket <span class="ot">&lt;-</span> <span class="st">"ludo2ne"</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>filepath <span class="ot">&lt;-</span> <span class="st">"projet/input/loto_201911.csv"</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>loto_raw <span class="ot">&lt;-</span> aws.s3<span class="sc">::</span><span class="fu">s3read_using</span>(</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> readr<span class="sc">::</span>read_delim,</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">";"</span>,</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">object =</span> filepath,</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">bucket =</span> bucket,</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">opts =</span> <span class="fu">list</span>(<span class="st">"region"</span> <span class="ot">=</span> <span class="st">""</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si lors du chargement, vous rencontrez une erreur 403 (Forbidden), il est probable que vos credentials S3 soient expirés.</p>
+<p>La solution est expliquée sur la même page que ci-dessus.</p>
+</div>
 </div>
 </section>
 <section id="mettre-les-données-au-propre" class="level3" data-number="3.2">
@@ -945,20 +915,16 @@ Le fichier <em>renv.lock</em> doit être versionné dans Git.</p>
 <li><label><input type="checkbox">Vous allez uniquement étudier le premier tirage, supprimez les colonnes concernant le second</label></li>
 <li><label><input type="checkbox">Supprimez également les colonnes sur les <em>codes gagnants</em>, ainsi que celles nommées : <em>date_de_forclusion</em>, <em>numero_7</em>, <em>devise</em> et <em>…50</em></label></li>
 </ul>
-<p>Vous avez maintenant un jeu de données propre, exportez-le vers S3.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>aws.s3<span class="sc">::</span><span class="fu">s3write_using</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> loto,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">FUN =</span> readr<span class="sc">::</span>write_csv,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">object =</span> <span class="st">"projet/output/loto.csv"</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">bucket =</span> bucket,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">opts =</span> <span class="fu">list</span>(<span class="st">"region"</span> <span class="ot">=</span> <span class="st">""</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Vous avez maintenant un jeu de données propre.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Exportez-le vers votre bucket S3</label></li>
+</ul>
 </section>
 </section>
 <section id="une-première-analyse" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="une-première-analyse"><span class="header-section-number">4</span> Une première analyse</h2>
 <p>🚧</p>
-<p>Avec Quarto ? ou en R, puis on colle dans le rapport ?</p>
+<p>En R :</p>
 <ul>
 <li>Stats desc</li>
 <li>Une figure</li>
@@ -972,7 +938,7 @@ Le fichier <em>renv.lock</em> doit être versionné dans Git.</p>
 <ul>
 <li>petit schéma simple : qmd -&gt; quarto -&gt; pdf, html…</li>
 </ul></li>
-<li>TP à venir</li>
+<li>TP à venir en Stats avec R</li>
 </ul>
 <section id="initialiser-son-rapport" class="level3" data-number="5.1">
 <h3 data-number="5.1" class="anchored" data-anchor-id="initialiser-son-rapport"><span class="header-section-number">5.1</span> Initialiser son rapport</h3>
@@ -1012,7 +978,7 @@ Le fichier <em>renv.lock</em> doit être versionné dans Git.</p>
 <li>Je ne me préoccupe pas de la cohérence du rapport, ni sur le fond ni sur la forme.</li>
 <li>Je ne fais pas de phrases de transition entre mes parties et sous-parties. De toute façon, mes parties ne suivent aucun ordre logique.</li>
 <li>Je n’utilise pas de titres informatifs. « 1. Contexte, 2. Analyse, 3. Résultats », ça ira très bien.</li>
-<li>J’utilise « on » et la forme passive : « on a noté », « on a vu », « on a remarqué que », etc.</li>
+<li>J’utilise « on » et la forme passive : « on a noté », « on a vu », « on a remarqué que », etc. C’est ce qu’on m’a dit en techniques rédactionnelles. Ou c’était l’inverse !? Bref, je me souviens plus y’avait Chartres la veille.</li>
 <li>J’essaie de battre le record de la phrase la plus longue. Ça permet au lecteur de s’entraîner pour l’apnée.</li>
 <li>Je ne soigne pas mes figures (pas de titre, ni de source, ni de note de lecture). Les lecteurs n’ont qu’à deviner.</li>
 <li>Je ne commente pas mes figures. Je les dépose simplement au milieu de nulle part : ça fait une demi-page de moins à rédiger.</li>
