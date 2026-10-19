@@ -1,0 +1,22 @@
+---
+title: Comment faire fructifier son patrimoine
+author: Picsou
+format:
+  html: default
+---
+
+## Ne rien dépenser
+
+La première règle de Picsou est simple : **dépenser le moins possible**.
+
+```{r}
+depense <- 0
+revenu <- 1000
+epargne <- revenu - depense
+```
+
+Avec cette méthode, Picsou économise `r epargne` pièces d'or !
+
+## Conclusion {.unnumbered}
+
+> Chaque pièce compte !

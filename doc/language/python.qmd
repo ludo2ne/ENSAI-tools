@@ -2,13 +2,30 @@
 title: "Python"
 description: "Quelques ressources sur Python"
 author: "Ludovic Deneuville"
+number-sections: false
 ---
 
 ## Apprendre le langage
 
-- <https://inseefrlab.github.io/formation-python-initiation/>{target="_blank"}
-- <https://ludo2ne.github.io/ENSAI-2A-remise-a-niveau/doc/python/python-notebooks.html>{target="_blank"}
+> De nombreuses ressources sont disponibles pour apprendre le langage.
 
+- [Formation SSPy](https://inseefrlab.github.io/formation-python-initiation/){target="_blank"}
+- [Apprendre Python de A à Z](https://www.stephane-robert.info/docs/developper/programmation/python/){target="_blank"}
+- [Un zeste de Python](https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/){target="_blank"}
+- [Apprendre à programmer avec Python](https://inforef.be/swi/python.htm){target="_blank"}
+- [Notebooks pour la remise à niveau 2A](https://ludo2ne.github.io/ENSAI-2A-remise-a-niveau/doc/python/python-notebooks.html){target="_blank"}
+
+### Fiches
+
+> Quelques fiches pour expliquer rapidement certains concepts.
+
+- [Listes et dictionnaires](./python/liste-dico.qmd){target="_blank"}
+- [Les fonctions](./python/fonctions.qmd){target="_blank"}
+- [La fonction print](./python/print.qmd){target="_blank"}
+- [La fonction range](./python/range.qmd){target="_blank"}
+- [Les exceptions](./python/exceptions.qmd){target="_blank"}
+- [Les tests unitaires](./python/tu.qmd){target="_blank"}
+- [La Programmation Orientée Objet (POO)](./python/poo.qmd){target="_blank"}
 
 ## Glossaire
 

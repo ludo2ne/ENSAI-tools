@@ -1,0 +1,123 @@
+---
+title: "Listes et Dictionnaires"
+description: "Aides pour utiliser les listes et dictionnaires"
+author: "Ludovic Deneuville"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+number-depth: 3
+---
+
+
+## Listes
+
+### Méthodes utiles
+
+La 3e colonne (valeur de retour) indique la valeur obtenue si l'on stocke le résultat de la méthode, par exemple dans une variable.
+
+De nombreuses autres méthodes existent.
+
+| Méthode appliquée                                  | État de la liste après                      | Valeur de retour               |
+|----------------------------------------------------|---------------------------------------------|--------------------------------|
+| [:mouse:, :mouse:, :pig:].**append**(:mouse:)      | [:mouse:, :mouse:, :pig:, :mouse:]          | None                           |
+| [:mouse:, :mouse:, :pig:].**pop**()                | [:mouse:, :mouse:]                          | :pig:                          |
+| **len**([:mouse:, :mouse:, :pig:])                 | [:mouse:, :mouse:, :pig:]                   | **3**                          |
+| [:mouse:, :mouse:, :pig:].**count**(:mouse:)       | [:mouse:, :mouse:, :pig:]                   | **2**                          |
+| [:mouse:, :mouse:, :pig:].**reverse**()            | [:pig:, :mouse:, :mouse:]                   | None                           |
+| **reversed**([:mouse:, :mouse:, :pig:])            | [:mouse:, :mouse:, :pig:]                   | [:pig:, :mouse:, :mouse:]      |
+| [:mouse:, :mouse:, :pig:].**index**(:pig:)         | [:mouse:, :mouse:, :pig:]                   | **2**                          |
+| :frog: **in** [:mouse:, :mouse:, :pig:]            | [:mouse:, :mouse:, :pig:]                   | **False**                      |
+| [:mouse:, :mouse:, :pig:]**[-1]**                  | [:mouse:, :mouse:, :pig:]                   | :pig:                          |
+| [:mouse:, :frog:, :pig:]**[1]**                    | [:mouse:, :frog:, :pig:]                    | :frog:                         | 
+
+
+
+### Parcours de liste
+
+```{.python}
+liste = ["Anaïs", "Benoit", "Camille"]
+
+# Par valeurs
+for v in liste:
+    print(v)
+
+# Par index
+for i in range(len(liste)):
+    print(liste[i])
+
+# Index et valeurs
+for i, v in enumerate(liste):
+    print(f"index {i} : valeur {v}")
+```
+
+### Compréhension de liste
+
+La compréhension de liste en Python est une syntaxe concise permettant de créer une nouvelle liste en appliquant une expression à chaque élément d'un itérable.
+
+#### i² pour i allant de 0 à 9
+
+Vous souhaitez générer la liste des carrés des entiers de 0 à 9.
+
+::: {.callout-note title="Code classique" collapse="true"}
+
+Un code classique serait :
+
+```{python}
+entiers = list(range(10))   # [0, 1, 2, ..., 9]
+carres = []
+
+for el in entiers:
+    carres.append(el ** 2)
+```
+:::
+
+La compréhension de liste permet de faire la même chose avec une écriture plus concise.
+
+```{python}
+[i**2 for i in range(10)]
+```
+
+#### i pour i allant de 0 à 9 si i est pair
+
+Il est également possible d'ajouter une condition.
+
+```{python}
+[i for i in range(10) if i % 2 == 0]
+```
+
+### Slicing
+
+:construction:
+
+<https://koor.fr/Python/Tutorial/python_type_list.wp>
+
+
+## Dictionnaire
+
+### Parcours de dictionnaires
+
+```{.python}
+dico = {"d":"Dominique", "e":"Eva", "f":"Fernande"}
+
+# Par clés
+for k in dico.keys():
+    print(f"{k} : {dico[k]}")
+
+# Par valeurs
+for v in dico.values():
+    print(v)
+
+# Clés et valeurs
+for k, v in dico.items():
+    print(f"clé {k} : valeur {v}")
+```
+
+
+## Liens {.unnumbered}
+
+- [Structures interessantes](https://blog.amigoscode.com/p/11-data-structures-every-developer){target="_blank"}
+

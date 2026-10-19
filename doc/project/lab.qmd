@@ -333,17 +333,87 @@ En R :
 
 ## Préparer les livrables
 
-🚧
+Vous allez utiliser l'écosystème [Quarto](https://quarto.org/){target="_blank"} pour préparer vos livrables.
 
-- Quarto
-  - petit schéma simple : qmd -> quarto -> pdf, html...
-- TP à venir en Stats avec R
+::: {.callout-tip}
+Vous allez explorer Quarto prochainement dans le cadre d'une TP de Stats avec R.
+:::
+
+### Quarto ?
+
+Vous allez créer des fichiers avec l'extension `qmd` qui contiennent :
+
+- Des métadonnées pour expliquer le format de sortie souhaité
+- Votre texte
+- Votre code à exécuter
+
+::: {.panel-tabset .nav-pills}
+
+#### Fonctionnement
+
+```
+                                                     ┌───────────┐
+┌───────────────┐       ┌──────────────────┐   ┌──►  │   HTML    │
+│ Fichier .qmd  │       │      Quarto      │   │     └───────────┘
+│               │       │                  │   │     ┌───────────┐
+│ • Métadonnées │ ────► │ • Exécution code │ ──+──►  │    PDF    │
+│ • Texte       │       │ • Mise en forme  │   │     └───────────┘
+│ • Code        │       │ • Conversion     │   │     ┌───────────┐ 
+└───────────────┘       └──────────────────┘   └──►  │  Slides   │
+                                                     └───────────┘
+```
+
+#### Exemple de qmd
+
+- Vous commencez en entêtes par décrire le fichier que vous souhaitez générer (entre les `---`)
+- Puis vous écrivez votre contenu et votre code
+
+````{.markdown filename="exemple.qmd"}
+---
+title: Comment faire fructifier son patrimoine
+author: Picsou
+format:
+  html: default   
+---
+
+## Ne rien dépenser
+
+La première règle de Picsou est simple : **dépenser le moins possible**.
+
+```{{r}}
+depense <- 0
+revenu <- 1000
+epargne <- revenu - depense
+```
+
+Avec cette méthode, Picsou économise `r epargne` pièces d'or !
+
+## Conclusion {.unnumbered}
+
+> Chaque pièce compte !
+````
+
+#### Exemple de rendu
+
+<iframe
+  src="assets/example.html"
+  width="100%"
+  height="500"
+  style="border: 1px solid #ddd;">
+</iframe>
+
+
+:::
 
 ### Initialiser son rapport
 
-> Vous allez utiliser Quarto et Typst pour rédiger votre rapport. Un modèle vous est fourni.
+> Vous allez utiliser [Typst](https://typst.app/){target="_blank"} pour rédiger votre rapport. 
 
-Vous trouverez sur ce site un [exemple de rapport](../quarto/report.qmd){target="_blank"}.
+Typst ?? Mais c'est écrit Quarto juste au dessus !? 😵
+
+En fait Quarto utilise Typst comme moteur de mise en page, qui transforme le contenu en un document PDF. 😅
+
+Un modèle vous est fourni. Vous trouverez sur ce site un [exemple de rapport](../quarto/report.qmd){target="_blank"}.
 
 - [ ] Cliquez sur le lien ci-dessus
 - [ ] Cliquez sur le bouton `</> Code` pour voir le contenu du rapport

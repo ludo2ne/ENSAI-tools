@@ -1,0 +1,448 @@
+---
+title: "Les tests unitaires"
+description: "Introduction aux TU avec pytest"
+author: "Ludovic Deneuville"
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+number-depth: 3
+---
+
+::: {.callout-note title="Pourquoi tester ?"}
+- pour vérifier que le programme fonctionne
+- pour éviter les bugs
+- pour éviter les régressions
+:::
+
+
+Les **tests unitaires (TU)** sont des tests automatisés qui vérifient le comportement d'une petite unité de code, de manière isolée. Leur objectif est de s'assurer que chaque composant du programme fonctionne comme prévu.
+
+::: {.callout-tip}
+Un bon test unitaire doit être :
+
+- **Isolé** : tester uniquement une unité spécifique de code et ne doit pas dépendre d'autres composants du système.
+- **Automatisé** : pour pouvoir être exécuté à chaque modification du code, assurant ainsi la détection rapide des régressions.
+- **Clair et lisible** : facile à comprendre, avec un nom explicite et une logique qui décrit clairement ce qui est testé
+- **Déterministe** : produire les mêmes résultats chaque fois qu'il est exécuté dans les mêmes conditions
+:::
+
+
+## La fonction à tester
+
+Commençons par écrire la fonction à tester.
+
+Prenons l'exemple d'une fonction qui :
+
+- vérifie que le paramètre est un entier
+- retourne s'il est impair
+
+```{python filename="est_impair.py"}
+def est_impair(n) -> bool:
+    if not isinstance(n, int):
+        raise TypeError("Le paramètre doit être un entier.")
+    return n % 2 != 0
+```
+
+Parfait, maintenant comment tester ?
+
+### La méthode naïve
+
+::: {.callout-note}
+Ce que l'on fait tous naturellement !
+
+Nous appelons la fonction et affichons le résultat pour vérifier.
+:::
+
+```{python}
+print(est_impair(1))
+```
+
+
+```{python}
+print(est_impair(2))
+```
+
+
+```{python}
+try:
+    est_impair("toto")
+except TypeError as e:
+    print(f"Erreur : {e}")
+```
+
+::: {.callout-tip title="Pourquoi ce n'est pas la bonne méthode"}
+- Pas automatisé : Nécessite une intervention manuelle pour vérifier les résultats
+- Non reproductible : Chaque test doit être relancé à la main
+- Temps perdu : Refaire les tests manuellement est chronophage
+- Oublis possibles : Facile de négliger des cas limites ou des scénarios d'erreur
+:::
+
+
+### La doc
+
+Il ne manque pas quelque chose dans notre fonction ???
+
+Mais oui bien sûr la doc ! Profitons-en pour écrire des doctests (bloc *Examples*)
+
+```{.python filename="est_impair.py"}
+def est_impair(n) -> bool:
+    """
+    Détermine si un nombre est impair. 
+
+    Parameters
+    ----------
+    n : int
+        Un entier à vérifier.
+
+    Returns
+    -------
+    bool
+        True si `n` est impair, False sinon.
+        Raises TypeError si n n'est pas un entier.
+
+    Examples
+    --------
+    >>> est_impair(5)
+    True
+    >>> est_impair(4)
+    False
+    """
+    if not isinstance(n, int):
+        raise TypeError("Le paramètre doit être un entier.")
+    return n % 2 != 0
+```
+
+Les [doctests](https://docs.python.org/3/library/doctest.html){target="_blank"} c'est pas mal mais il y a des outils beaucoup plus puissants pour réaliser des tests unitaires en Python, par exemple [pytest](https://docs.pytest.org/){target="_blank"}. Une alternative est d'utiliser [unittest](https://docs.python.org/3/library/unittest.html){target="_blank"}.
+
+
+
+## Un premier test unitaire avec pytest
+
+Testons par exemple un cas nominal :arrow_right: vérifions que `est_impair(3)` retourne *True*.
+
+Créons dans le même dossier, un fichier *test_est_impair.py*. 
+
+Nous importons le fichier *est_impair.py* qui contient la méthode à tester.
+
+`from est_impair import est_impair` signifie : 
+
+- depuis (from) le *fichier est_impair.py* 
+- importons la fonction *est_impair()*
+
+```{.python filename="test_est_impair.py"}
+from est_impair import est_impair
+
+def test_nombre_impair():
+    # GIVEN
+    nombre = 3
+
+    # WHEN
+    resultat = est_impair(nombre)
+
+    # THEN
+    assert resultat is True
+```
+
+Un test unitaire se déroule en 3 étapes :
+
+- *GIVEN* : nous donnons les paramètres à tester
+- *WHEN* : nous appelons la fonction
+- *THEN* : nous vérifions que le résultat attendu est le même que celui obtenu
+
+De la même manière, il faut créer [un test unitaire pour chacun des retours possibles]{.underline} :
+
+- *True*
+- *False*
+- *Exception TypeError*
+
+```{.python filename="test_est_impair.py"}
+import pytest
+from est_impair import est_impair
+
+def test_nombre_impair():
+    # GIVEN
+    nombre = 3
+
+    # WHEN
+    resultat = est_impair(nombre)
+
+    # THEN
+    assert resultat is True
+
+def test_nombre_pair():
+    # GIVEN
+    nombre = 2
+
+    # WHEN
+    resultat = est_impair(nombre)
+
+    # THEN
+    assert resultat is False
+
+def test_type_erreur_string():
+    # GIVEN
+    valeur = "5"
+
+    # WHEN/THEN
+    with pytest.raises(TypeError, match="Le paramètre doit être un entier."):
+        est_impair(valeur)
+```
+
+::: {.callout-caution title="Remarques"}
+- Pour tester qu'une exception est levée, la syntaxe est légérement différente
+- Nous avons besoin d'importer le package *pytest*
+:::
+
+## Lancer les TU
+
+Avant de commencer, il faut installer *pytest* qui n'est pas inclus nativement : `pip install pytest`
+
+Il y a plusieurs possibilités pour lancer les tests unitaires :
+
+- en ligne de commande
+  - `pytest`
+  - `pytest -v` :arrow_right: v : verbose, pour avoir plus de détails
+  - `pytest --tb=short` pour afficher une trace courte et résumée (utile pour débugguer)
+  - `pytest --maxfail=1` pour s'arrêter dès le premier échec
+  - `python -m pytest` si *pytest* n'a pas été ajouté au *PATH*
+  - `python -m pytest --doctest-modules`, pour inclure les doctests
+- Via l'interface de VSCode avec l'icone en forme de fiole à gauche
+
+
+## TU avancés 
+
+### pytest.mark.parametrize
+
+*pytest.mark.parametrize* est une fonctionnalité de pytest qui permet d'exécuter un même test plusieurs fois avec différents ensembles de données d'entrée. 
+
+Cela remplace la section *GIVEN* et permet d'éviter la duplication de code pour des cas de test similaires.
+
+```{.python filename="test_est_impair.py"}
+import pytest
+from est_impair import est_impair
+
+@pytest.mark.parametrize(
+    "nombre, resultat_attendu",
+    [
+        (3, True),
+        (2, False),
+    ],
+)
+def test_est_impair_valeurs_valides(nombre, resultat_attendu):
+    # WHEN
+    resultat_obtenu = est_impair(nombre) 
+
+    # THEN
+    assert resultat_obtenu == resultat_attendu
+
+@pytest.mark.parametrize(
+    "valeur_invalide, type_exception, message",
+    [
+        ("5", TypeError, "Le paramètre doit être un entier."),
+        (3.5, TypeError, "Le paramètre doit être un entier."),
+    ],
+)
+def test_est_impair_valeurs_invalides(valeur_invalide, type_exception, message):
+    # WHEN / THEN
+    with pytest.raises(type_exception, match=message):
+        est_impair(valeur_invalide)
+```
+
+Pour comprendre le code ci-dessus, imaginez que pour chaque élément du tableau ci-dessous, vous allez tester `assert est_impair(nombre) == resultat_attendu`
+
+| **Nombre** | **Résultat attendu** |
+|------------|----------------------|
+| 3          | True                 |
+| 2          | False                |
+
+Et de même pour chacune des exceptions :
+
+```{.python}
+    with pytest.raises(type_exception, match=message):
+        est_impair(valeur_invalide)
+```
+
+| **Valeur invalide** | **Type d'exception** | **Message**                          |
+|---------------------|----------------------|--------------------------------------|
+| "5"                 | `TypeError`          | Le paramètre doit être un entier.    |
+| 3.5                 | `TypeError`          | Le paramètre doit être un entier.    |
+
+
+### Fixtures
+
+Si des valeurs sont utilisées plusieurs fois dans les tests, les fixtures permettent de les définir une seule fois et de les réutiliser facilement.
+
+Par exemple, si nous voulons éviter de recopier à chaque fois ce message, nous le stockons et pouvons l'utiliser pour toutes les fonctions de notre fichier de test.
+
+```{.python}
+@pytest.fixture
+def message_erreur():
+    return "Le paramètre doit être un entier."
+```
+
+```{.python}
+@pytest.mark.parametrize(
+    "valeur_invalide, type_exception",
+    [
+        ("5", TypeError),
+        (3.5, TypeError),
+    ],
+)
+def test_est_impair_valeurs_invalides(valeur_invalide, type_exception, message_erreur):
+    # WHEN / THEN
+    with pytest.raises(type_exception, match=message_erreur):
+        est_impair(valeur_invalide)
+```
+
+Et si l'on veut définir des fixtures communes pour tous les fichiers de test ?
+
+Dans ce cas positionnez vos fixtures partagées dans un fichier nommé *conftest.py*
+
+```{.python filename="conftest.py"}
+@pytest.fixture
+def ma_liste():
+    return [0, 1, 2, 3]
+```
+
+
+## Les Mocks
+
+::: {.callout-warning}
+Et si tous les tests unitaires effectués jusqu'ici étaient faux...
+
+Vraiment ??? :astonished:
+
+Oui ils sont tous incorrects, mais pourquoi ?
+:::
+
+Rappelons-nous le code de notre fonction :
+
+```{.python filename="est_impair.py"}
+def est_impair(n) -> bool:
+    if not isinstance(n, int):
+        raise TypeError("Le paramètre doit être un entier.")
+    return n % 2 != 0
+```
+
+- Avez-vous confiance en la fonction `isinstance()` ?
+- À priori oui, c'est une fonction native de Python, mais quand même...
+- Si jamais elle disfonctionnait ?
+    - les TU sur notre fonction `est_impair()` seraient en erreur
+    - pourtant ce n'est pas le code de notre fonction qui est faux
+    - c'est simplement qu'elle appelle une autre fonction qui serait incorrecte
+
+::: {.callout-important}
+Un test unitaire sur une fonction ne doit pas dépendre du bon fonctionnement des autres fonctions qu'elle utilise.
+:::
+
+- Comment faire pour tester uniquement notre fonction ?
+- Nous allons figer le résultat renvoyé par `isinstance()` grâce aux Mocks
+
+```{.python filename="test_est_impair.py"}
+def test_nombre_impair_avec_mock(mocker):
+    # GIVEN
+    mocker.patch("est_impair.isinstance", return_value=True)
+    nombre = 3
+
+    # WHEN
+    resultat = est_impair(nombre)
+
+    # THEN
+    assert resultat is True
+```
+
+Dans le test unitaire ci-dessus, le patch signifie que chaque fois que la méthode `isinstance()` sera appelée dans le module *est_impair*, elle renverra *True*, quelque soit ses arguments.
+
+
+::: {.callout-tip title="Remarque"}
+Mocker *isinstance()* c'est sans doute être un peu trop perfectionniste. Est-ce qu'il faut aussi mocker `1 + 1` car nous ne sommes pas sur que cela renverra 2 ?
+
+L'exemple ci-dessus était principalement à vertu pédagogique pour montrer comment isoler la partie du code que l'on souhaite tester.
+
+Les mocks peuvent également servir par exemple pour :
+
+- simuler une API externe sans faire de requêtes réelles
+- remplacer une base de données ou un fichier
+- vérifier qu'une fonction qui envoie des mails est bien déclenchée sans envoyer réellement de mails
+:::
+
+## Before / After
+
+Il peut être utile, pour configurer ou mettre au propre, d'exécuter du code :
+
+- Avant ou après tous les tests
+- Avant ou après tous les tests de ce module
+- Avant ou après chaque test de ce module
+
+Dans le module de test, vous pouvez ajouter ce code en remplaçant les prints par les opérations à réaliser.
+
+```{.python}
+@pytest.fixture(scope="session", autouse=True)
+def before_after_all():
+    print("Avant tous les tests")
+    yield
+    print("Après tous les tests")
+
+
+@pytest.fixture(scope="module", autouse=True)
+def before_after_module():
+    print("Avant tous les tests de ce fichier")
+    yield
+    print("Après tous les tests de ce fichier")
+
+
+@pytest.fixture(scope="function", autouse=True)
+def before_after_each():
+    print("Avant chaque test")
+    yield
+    print("Après chaque test")
+```
+
+## Couverture de test
+
+La **couverture de tests** (ou *test coverage*) est une mesure qui évalue dans quelle proportion le code d'un programme est exécuté pendant l'exécution des tests. Elle permet de vérifier si les tests couvrent toutes les parties critiques du code. 
+
+Une couverture élevée (proche de 100 %) est généralement un indicateur positif, mais elle ne garantit pas que les tests sont de bonne qualité. 
+
+Il est essentiel de combiner une couverture élevée avec des tests pertinents pour détecter les bugs.
+
+Générer la couverture de tests avec *pytest-cov* (possible également avec le package *coverage*).
+
+```{.bash}
+# Installer les packages necessaires
+pip install pytest pytest-cov
+
+# Générer un rapport de couverture
+pytest --cov
+
+# Générer un rapport html (plus complet)
+pytest --cov --cov-report=html
+```
+
+## Exercice {.unnumbered}
+
+Imaginons que vous souhaitez faire évoluer votre fonction *est_impair()*, maintenant elle doit accepter les nombres flottants dont la partie décimale est nulle.
+
+Par exemple :
+
+- `est_impair(2.0)` :arrow_right: True
+- `est_impair(3.0)` :arrow_right: False
+- `est_impair(4.5)` léve toujours une exception TypeError
+
+---
+
+- [ ] Modifiez la fonction *est_impair()*
+- [ ] Vérifiez la couverture de test (elle ne doit plus être à 100 %)
+- [ ] Écrivez le nouveau test unitaire
+- [ ] Vérifiez que la couverture de test est repassée à 100 %
+
+
+## Liens {.unnumbered}
+
+- [Python, the right way : Tester son code et le TDD](https://datacrafting.substack.com/p/jour-24-ii-python-the-right-way-tester){target="_blank"}
+- [Python, the right way : Pytest](https://datacrafting.substack.com/p/jour-25-ii-python-the-right-way-pytest){target="_blank"}
+
