@@ -61,6 +61,8 @@ website:
       - section: Gérer son Projet
         icon: cone-striped
         contents:
+          - href: doc/project/presentation.qmd
+            text: "Présentation"
           - href: doc/project/lab.qmd
             text: "TP Démarrer son projet"
       - section: Restituer avec Quarto

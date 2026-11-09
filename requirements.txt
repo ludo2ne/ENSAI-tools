@@ -1,0 +1,5 @@
+duckdb
+jupyter
+numpy
+pandas
+polars

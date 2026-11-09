@@ -17,36 +17,21 @@ categories:
 
 ## Objectifs {.unnumbered}
 
+Les objectifs de cette séance sont :
+
 - S'organiser en équipe
 - Initialiser votre dépôt de code
 - Importer et nettoyer vos données
 - Mener les premières analyses
 - Initier votre rapport de projet
 
+Vous aurez besoin de vos comptes SSP Cloud et GitHub.
+
 ::: {.callout-note title="Fil rouge"}
-Vous allez utiliser les données du Loto pour essayer de devenir millionaire.
+Vous allez utiliser les données du Loto pour essayer de devenir millionaire. 💰 🪎 💵
 :::
 
-
-## Introduction {.unnumbered}
-
-### Qu'est-ce qu'un projet ? {.unnumbered}
-
-Un projet peut être présenté comme un travail organisé, réalisé par une équipe, pour atteindre un objectif défini et produire un ou plusieurs livrables.
-
-Un projet comporte notamment :
-
-- **une équipe** : les personnes qui travaillent sur le projet
-- **un sujet** : ce sur quoi porte le projet
-- **des objectifs** : ce que l'on cherche à accomplir
-- **des données** : les informations nécessaires au projet
-- **du code** : les traitements et analyses réalisés
-- **des méthodes** : les choix méthodologiques permettant d'atteindre l'objectif
-- **des livrables** : les productions attendues à la fin du projet
-- **un calendrier** : les différentes étapes et échéances
-- **une organisation** : la répartition des tâches et le suivi de leur avancement
-
-### Démarrer un projet {.unnumbered}
+## Démarrer un projet
 
 Avant de commencer, prenez le temps de faire connaissance avec les membres de votre groupe et de définir votre organisation.
 
@@ -62,104 +47,16 @@ Discutez notamment :
 Les rôles ne sont pas nécessairement fixes : ils peuvent évoluer au cours du projet. L'objectif est que chacun participe aux différentes dimensions du projet et que le travail ne repose pas sur une seule personne.
 
 
-### Calendrier et livrables {.unnumbered}
+::: {.callout-tip title="Osez prendre des initiatives !"}
+Un projet est aussi l'occasion de faire preuve de curiosité et d'autonomie. N'hésitez pas à proposer des idées, à explorer des pistes qui n'ont pas été évoquées en cours, à tester de nouveaux outils ou à chercher des solutions par vous-mêmes.
 
-Un diagramme de Gantt permet de visualiser là où vous en êtes et quelles sont les prochaines échéances. Il est rapide à réaliser et très utile.
-
-```{mermaid}
-gantt
-    title Calendrier prévisionnel du projet
-    dateFormat  YYYY-MM-DD
-    axisFormat  %d %b
-
-    section Cadrage
-    Sujet et problématique         :2026-12-01, 2026-12-18
-    Recherche bibliographique      :2026-12-03, 20d
-
-    section Données et analyses
-    Collecte et préparation des données :2026-12-15, 20d
-    Statistiques descriptives           :2027-01-05, 45d
-    Interprétation des résultats        :2027-02-01, 2027-03-26
-    Méthodes statistiques               :2027-02-15, 45d
-
-    section Rédaction
-    Rédaction                        :2027-01-15, 25d
-    Rapport intermédiaire            :milestone, 2027-02-12, 0d
-    Rédaction du rapport             :2027-02-22, 2027-04-02
-    Rapport V1                       :milestone, 2027-04-02, 0d
-    Corrections et finalisation      :2027-04-19, 2027-05-05
-    Relecture                        :2027-05-04, 3d
-    Rapport final                    :milestone, 2027-05-07, 0d
-
-    section Présentation
-    Préparation de la soutenance blanche :2027-04-05, 2027-04-16
-    Soutenance blanche                   :milestone, 2027-04-16, 0d
-    Préparation de la soutenance         :2027-05-03, 2027-05-14
-    Soutenance                           :milestone, 2027-05-14, 0d
-    
-    section Vacances
-    Noël                                 :crit, 2026-12-19, 15d
-    Hiver                                :crit, 2027-02-20, 7d
-    Paques                               :crit, 2027-04-17, 7d
-```
-
-
-### Suivre les tâches {.unnumbered}
-
-:::{.notes}
-🚧
-- Backlog
-- Gantt
-- Carnet de bord
-- Kanban
-- Ecrire un mail
-- Préparer une réunion (de suivi)
-- Gérer son temps
+Toutes les initiatives ne seront pas nécessairement concluantes, et ce n'est pas un problème : expérimenter, se tromper et ajuster sa démarche font pleinement partie du travail de projet. L'essentiel est de rester **force de proposition** et de **partager vos découvertes** avec le reste de l'équipe.
 :::
 
-Au cours d'un projet, de nombreuses tâches doivent être réalisées. Il est facile d'en oublier certaines ou de ne plus savoir précisément ce qui a été fait, ce qui est en cours et ce qu'il reste à faire.
-
-Une **liste de tâches** ou un **Kanban** permet de centraliser le suivi du projet et de donner à toute l'équipe une vision commune de son avancement.
-
-Un Kanban simple peut par exemple comporter les colonnes suivantes :
-
-🚧 Schéma
-
-```text
-À faire → En cours → À relire → Terminé
-```
-
-Chaque tâche est représentée par une carte que l'on déplace au fur et à mesure de son avancement.
-
-Cet outil permet notamment de :
-
-- ne pas oublier les tâches à réaliser ;
-- savoir qui travaille sur quelle tâche ;
-- visualiser rapidement l'avancement du projet ;
-- identifier les tâches bloquées ;
-- répartir le travail au sein du groupe.
-
-
-### Les outils du projet {.unnumbered}
-
-Un projet statistique mobilise plusieurs outils, chacun répondant à un besoin particulier. Il est important de savoir où réaliser chaque tâche et où stocker chaque ressource.
-
-| Besoin                             | Outil                  |
-| ---------------------------------- | ---------------------- |
-| Environnement de travail           | **SSP Cloud**          |
-| Logiciel (IDE)                     | **RStudio / VSCode / Jupyter** |
-| Code                               | **R / Python / SQL**   |
-| Versionner le code                 | **Git**                |
-| Dépôt distant                      | **GitHub**             |
-| Stocker les données                | **S3**                 |
-| Produire des documents et rapports | **Quarto / Typst**     |
-| Suivre les tâches                  | **GitHub / Kanban**    |
-
-Ces outils sont complémentaires. L'objectif du projet sera de les utiliser ensemble pour construire un travail **organisé, collaboratif et reproductible**.
 
 ## Données
 
-Commençons par une partie facile, déposons nos données dans un endroit sûr.
+> Commençons par une partie facile, déposons nos données dans un endroit sûr.
 
 - [ ] Récupérez sur internet l'historique des tirages du Loto depuis novembre 2019
 
@@ -184,11 +81,11 @@ Vous avez maintenant vos données prêtes à être utilisées.
 
 ## Créer et organiser son dépôt
 
-> Passons maintenant à la gestion de votre code.
+Passons maintenant à la gestion de votre code avec Git.
 
 ### Dépôt distant
 
-> Le *remote* est le dépôt commun à toute l'équipe. Il permet de vous synchroniser.
+> Le dépôt distant (*remote*) est le dépôt commun à toute l'équipe. Il permet de vous synchroniser.
 
 Votre code sera stocké dans un dépôt GitHub.
 
@@ -208,7 +105,7 @@ Ceci n'est à faire qu'une seule fois.
 
 > Avant de créer votre dépôt local (code sur lequel vous allez travailler), il faut créer votre environnement de travail.
 
-- [ ] Allez dans le catalogue des service
+- [ ] Allez dans le catalogue des services
 - [ ] Lancez un service Rstudio [Lancer]{.blue-button} **[une seule fois]{.underline}**
 - [ ] Allez dans l'onglet Git
   - Vérifiez que votre Token est présent
@@ -216,7 +113,7 @@ Ceci n'est à faire qu'une seule fois.
 - [ ] Cliquez sur [Lancer]{.blue-button}
 - [ ] Ouvrez le service
 
-Si tout s'est bien passé, un clone de votre dépôt a été créé dans votre service. Vous voyez apparaitre votre dépôt et ses fichier dans l'explorateur en bas à droite.
+Si tout s'est bien passé, un clone de votre dépôt a été créé dans votre service. Vous voyez apparaitre votre dépôt et ses fichiers dans l'explorateur en bas à droite.
 
 ::: {.callout-note title="Si votre dépôt n'a pas été créé" collapse="true"}
 Dans le terminal de votre service, clonez manuellement en utilisant le token :
@@ -244,57 +141,132 @@ Ce fichier est très important. Il doit comporter :
 :::
 
 - [ ] Collez le contenu ci-dessous 👇 et enregistrez
-- [ ] Avec Git, envoyez ces modifications vers le remote
 
+```{.md filename="README.md"}
+# Devenir millionnaire grâce au Loto ! 🍀
+
+## Présentation
+Analyser les résultats du Loto pour tenter de découvrir les combinaisons gagnantes !
+
+## Fonctionnalités
+- **Charger** : récupérer les données depuis S3.
+- **Nettoyer** : apurer et préparer les données.
+- **Analyser** : produire des statistiques et visualisations.
+
+## Utilisation
+1. Cloner le dépôt Git.
+2. Ouvrir le projet dans RStudio.
+3. Exécuter `renv::restore()` pour installer les dépendances.
+4. Lancer les scripts d'analyse.
+```
+
+::: {.callout-important title="README"}
+Le fichier `README.md` est essentiel pour présenter le contenu et l'utilisation d'un dépôt.
+
+Il doit contenir au minimum :
+
+- **Présentation** : objectif et contenu du projet.
+- **Fonctionnalités** : principales opérations réalisées.
+- **Environnement** : outils et packages nécessaires.
+- **Lancement rapide** : instructions pour installer les dépendances et exécuter le projet.
+:::
+
+- [ ] Avec Git, envoyez ces modifications vers le remote
+  - Faîtes un petit détour par la section Git si besoin
+- [ ] Sur GitHub, vérifiez que le README est à jour
+
+:::{.notes}
 🚧 Exo pratique de gestion de conflit
+:::
+
+### Fichier .Rproj 
+
+> .Rproj est le fichier de configuration de votre projet RStudio.
+
+Il permet à RStudio de reconnaître votre dossier comme un projet et de conserver certains paramètres de travail.
+
+::: {.callout-note title="Si le fichier n'a pas été créé" collapse="true"}
+- [ ] File ⏩ New Project ⏩ Existing Directory
+- [ ] Sélectionnez `ensai-projet-stat-1a` ⏩ Create project
+:::
+
+Il permet notamment de :
+
+- Définir le répertoire de travail : à l'ouverture du projet, RStudio se place automatiquement à sa racine
+- Centraliser les paramètres : encodage des fichiers, indentation du code, etc.
+- Faciliter la navigation : RStudio reconnaît les fichiers et les dossiers appartenant au projet.
+
+Ce fichier est à versionner avec Git.
 
 ### renv
 
+> Avant de commencer à coder, interessons-nous à la gestion des packages.
 
-Lorsque plusieurs personnes travaillent sur un même projet, il est important que tout le monde utilise les mêmes packages et les mêmes versions.
+Lorsque plusieurs personnes travaillent sur un même projet, il est important que tout le monde utilise les mêmes packages avec les mêmes versions.
 
 [renv](https://rstudio.github.io/renv/){target="_blank"} permet de créer un environnement R isolé et propre au projet et d'enregistrer les packages utilisés ainsi que leurs versions.
 
 - [ ] Exécutez dans la console la commande `renv::init()`
+  - Do you want to proceed? ➡️ `y`
 
 Cette commande crée un dossier *renv/* et un fichier *renv.lock* (qui stocke la version de R utilisée, les packages nécessaires et leurs versions). \
-Ne les supprimez pas !\
-Le fichier *renv.lock* doit être versionné dans Git.
+Ne les supprimez pas ! Il doivent être versionnés dans votre dépôt.
 
-Commandes utiles :
 
+::: {.callout-tip title="Commandes utiles"}
 - `renv::install("<package>")` pour installer un package
 - `renv::dependencies()` : quels sont les packages utilisés dans le code
 - `renv::status()` : pour voir les différences entre les packages installés et *renv.lock*
 - `renv::snapshot()` : enregistre l'état des packages dans *renv.lock*
 - `renv::restore()` : applique *renv.lock* i.e. désinstalle les packages en trop, installe les packages manquants
+:::
+
 
 Vous allez avoir besoin des packages suivants :
 
-- dplyr : manipulation de données (pipes, mutate, select...)
-- stringr : manipulation de chaînes de caractères
+- **dplyr** : manipulation de données (pipes, mutate, select...)
+- **stringr** : manipulation de chaînes de caractères
 
 ---
 
 - [ ] installez-les avec renv
-- [ ] Mettez à jour le renv.lock
-- [ ] Créez un point de sauvegarde
+- [ ] Vérifiez que les packages installés sont dans le renv.lock
+- [ ] Créez un commit et poussez vos modifications
 
 
 ## Charger et apurer
+
+> Il est maintenant temps de coder !
 
 ### Charger les données brutes
 
 > Commençons par charger le fichier.
 
-Dans un dépôt git, il ne faut pas laisser tout trainer à la racine, sinon cela devient rapidement le bazar.
-
-Les fichiers contenant du code sont à placer dans un dossier *src* (sources).
+Vous l'avez sans doute remarqué, ça commence à devenir le bazar à la racine du dépôt. Pour bien ranger les fichiers contenant du code, vous allez créer un dossier *src* (sources).
 
 - [ ] Créez un dossier *src*
-- [ ] Créez un script *import.R*
-- [ ] Récupérez vos données depuis S3
-  - Vous trouverez comment faire sur [cette page](./../datalab/basics.qmd){target="_blank"}
+- [ ] Créez à l'intérieur un script *import.R*
+- [ ] Récupérez vos données depuis S3 et chargez-les dans un dataframe que vous nommerez `loto_raw`
+  - Vous trouverez comment faire sur 👉 [cette page](./../datalab/basics.qmd){target="_blank"} 👈
+  - Il manque des packages ? Installez-les !
+
+:::{.notes}
+```{.r}
+# renv::install("aws.s3")
+library(aws.s3)
+
+bucket_name <- "ludo2ne"
+file_path <- "diffusion/projet/input/loto_201911.csv"
+
+communes <- aws.s3::s3read_using(
+  FUN = readr::read_delim,
+  delim = ";",
+  object = file_path,
+  bucket = bucket_name,
+  opts = list("region" = "")
+)
+```
+:::
 
 En projet stat, pour charger un fichier `.rds`, utilisez la fonction `readRDS`.
 
@@ -309,14 +281,14 @@ La solution est expliquée sur la même page que ci-dessus.
 
 > Certaines colonnes ne nous interessent pas, certaines données sont mal formatées. Il faut mettre tout cela au propre avant de commencer les analyses.
 
-A partir du dataframe *loto_raw*, vous allez créer un nouveau dataframe propre que vous nommerez *loto*
+A partir du dataframe *loto_raw*, vous allez créer un nouveau dataframe propre que vous nommerez *loto* :
 
 - [ ] Observez la colonne *annee_numero_de_tirage*, vous ne remarquez pas des problèmes ?
 - [ ] Harmonisez cette colonne et renommez-la *id*
 - [ ] Vous allez uniquement étudier le premier tirage, supprimez les colonnes concernant le second
 - [ ] Supprimez également les colonnes sur les *codes gagnants*, ainsi que celles nommées : *date_de_forclusion*, *numero_7*, *devise* et *...50* 
 
-Vous avez maintenant un jeu de données propre.
+Vous avez maintenant un jeu de données propre. 🧼 🧹
 
 - [ ] Exportez-le vers votre bucket S3
 
@@ -419,9 +391,12 @@ Un modèle vous est fourni. Vous trouverez sur ce site un [exemple de rapport](.
 - [ ] Cliquez sur le bouton `</> Code` pour voir le contenu du rapport
 - [ ] Cliquez sur le bouton `Typst` pour voir le rendu pdf
 
+
+::: {.callout-note title="Remarque"}
 Vous remarquerez dans le code du rapport qu'il y a une partie du code rédigée directement en Typst.
 
 C'est nécessaire pour avoir une page de garde et une table des matières propre. Ce code utilise un fichier `model.typ` qui vous est fourni. Vous avez simplement à renseigner quelques infos : titre, membres de l'équipe...
+:::
 
 Initions maintenant votre rapport :
 
@@ -431,7 +406,10 @@ Initions maintenant votre rapport :
 - [ ] Collez le modèle typst
 - [ ] `quarto render doc/rapport.qmd`
 
-::: {.callout-tip title="Comment bien bâcler son rapport"}
+::: {.callout-tip title="Quelques conseils pour le rapport" collapse="true"}
+**Comment bien bâcler son rapport ?** \
+*(pas besoin de nous remercier, c'est gratuit)*
+
 1. Je m'y mets au dernier moment. Avec un peu de chance, les autres auront déjà fait une partie de mon boulot.
 2. Je demande à une IA de me l'écrire : je ne veux pas rater mon cours d'aqua-poney.
 3. **Introduction :** je n'utilise pas d'accroche, je ne présente ni problématique ni plan.

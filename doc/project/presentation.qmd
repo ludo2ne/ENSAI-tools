@@ -1,0 +1,126 @@
+---
+title: "Réussir son projet"
+description: "Bonnes pratiques pour aider dans la gestion d'un projet"
+author: "Ludovic Deneuville"
+number-sections: false
+categories:
+  - Outils
+  - Calendrier
+  - Suivi
+---
+
+:::{.notes}
+cf. Manuel de Gestion de projet
+:::
+
+## Qu'est-ce qu'un projet ?
+
+Un projet peut être présenté comme un travail organisé, réalisé par une équipe, pour atteindre un objectif défini et produire un ou plusieurs livrables.
+
+Un projet comporte notamment :
+
+- **une équipe** : les personnes qui travaillent sur le projet
+- **un sujet** : ce sur quoi porte le projet
+- **des objectifs** : ce que l'on cherche à accomplir
+- **des données** : les informations nécessaires au projet
+- **du code** : les traitements et analyses réalisés
+- **des méthodes** : les choix méthodologiques permettant d'atteindre l'objectif
+- **des livrables** : les productions attendues à la fin du projet
+- **un calendrier** : les différentes étapes et échéances
+- **une organisation** : la répartition des tâches et le suivi de leur avancement
+
+
+## Calendrier et livrables
+
+Un diagramme de Gantt permet de visualiser là où vous en êtes et quelles sont les prochaines échéances. Il est rapide à réaliser et très utile.
+
+```{mermaid}
+gantt
+    title Calendrier prévisionnel du projet
+    dateFormat  YYYY-MM-DD
+    axisFormat  %d %b
+
+    section Cadrage
+    Sujet et problématique         :2026-12-01, 2026-12-18
+    Recherche bibliographique      :2026-12-03, 20d
+
+    section Données et analyses
+    Collecte et préparation des données :2026-12-15, 20d
+    Statistiques descriptives           :2027-01-05, 45d
+    Interprétation des résultats        :2027-02-01, 2027-03-26
+    Méthodes statistiques               :2027-02-15, 45d
+
+    section Rédaction
+    Rédaction                        :2027-01-15, 25d
+    Rapport intermédiaire            :milestone, 2027-02-12, 0d
+    Rédaction du rapport             :2027-02-22, 2027-04-02
+    Rapport V1                       :milestone, 2027-04-02, 0d
+    Corrections et finalisation      :2027-04-19, 2027-05-05
+    Relecture                        :2027-05-04, 3d
+    Rapport final                    :milestone, 2027-05-07, 0d
+
+    section Présentation
+    Préparation de la soutenance blanche :2027-04-05, 2027-04-16
+    Soutenance blanche                   :milestone, 2027-04-16, 0d
+    Préparation de la soutenance         :2027-05-03, 2027-05-14
+    Soutenance                           :milestone, 2027-05-14, 0d
+    
+    section Vacances
+    Noël                                 :crit, 2026-12-19, 15d
+    Hiver                                :crit, 2027-02-20, 7d
+    Paques                               :crit, 2027-04-17, 7d
+```
+
+
+## Suivre les tâches
+
+:::{.notes}
+🚧
+- Backlog
+- Gantt
+- Carnet de bord
+- Kanban
+- Ecrire un mail
+- Préparer une réunion (de suivi)
+- Gérer son temps
+:::
+
+Au cours d'un projet, de nombreuses tâches doivent être réalisées. Il est facile d'en oublier certaines ou de ne plus savoir précisément ce qui a été fait, ce qui est en cours et ce qu'il reste à faire.
+
+Une **liste de tâches** ou un **Kanban** permet de centraliser le suivi du projet et de donner à toute l'équipe une vision commune de son avancement.
+
+Un Kanban simple peut par exemple comporter les colonnes suivantes :
+
+🚧 Schéma
+
+```text
+À faire → En cours → À relire → Terminé
+```
+
+Chaque tâche est représentée par une carte que l'on déplace au fur et à mesure de son avancement.
+
+Cet outil permet notamment de :
+
+- ne pas oublier les tâches à réaliser ;
+- savoir qui travaille sur quelle tâche ;
+- visualiser rapidement l'avancement du projet ;
+- identifier les tâches bloquées ;
+- répartir le travail au sein du groupe.
+
+
+## Les outils du projet
+
+Un projet statistique mobilise plusieurs outils, chacun répondant à un besoin particulier. Il est important de savoir où réaliser chaque tâche et où stocker chaque ressource.
+
+| Besoin                             | Outil                  |
+| ---------------------------------- | ---------------------- |
+| Environnement de travail           | **SSP Cloud**          |
+| Logiciel (IDE)                     | **RStudio / VSCode / Jupyter** |
+| Code                               | **R / Python / SQL**   |
+| Versionner le code                 | **Git**                |
+| Dépôt distant                      | **GitHub**             |
+| Stocker les données                | **S3**                 |
+| Produire des documents et rapports | **Quarto / Typst**     |
+| Suivre les tâches                  | **GitHub / Kanban**    |
+
+Ces outils sont complémentaires. L'objectif du projet sera de les utiliser ensemble pour construire un travail **organisé, collaboratif et reproductible**.
