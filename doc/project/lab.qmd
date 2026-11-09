@@ -15,7 +15,7 @@ categories:
 - [ ] Alternative VSCode-python + Quarto
 :::
 
-## Objectifs {.unnumbered}
+## Objectifs 🎯 {.unnumbered}
 
 Les objectifs de cette séance sont :
 
@@ -407,7 +407,7 @@ Initions maintenant votre rapport :
 - [ ] `quarto render doc/rapport.qmd`
 
 ::: {.callout-tip title="Quelques conseils pour le rapport" collapse="true"}
-**Comment bien bâcler son rapport ?** \
+**Comment bien bâcler son rapport ?** 💣 \
 *(pas besoin de nous remercier, c'est gratuit)*
 
 1. Je m'y mets au dernier moment. Avec un peu de chance, les autres auront déjà fait une partie de mon boulot.
