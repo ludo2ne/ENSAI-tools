@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.19">
+<meta name="generator" content="quarto-1.11.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -28,6 +28,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -40,18 +75,19 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-447e42e69aaa9833c0ba1b986f430b20.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-48afaec27bfe3050e097d8a4c60c27f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-8906adfb68f861914aea8ffb10afb9a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-48afaec27bfe3050e097d8a4c60c27f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-596081f1617e1b187d835ee10b3210fb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-271d0bdf0373e6f9aa0338c129a7023f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-596081f1617e1b187d835ee10b3210fb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -79,15 +115,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -110,6 +143,7 @@ ul.task-list li input[type="checkbox"] {
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
         if (toggle) {
+          toggle.setAttribute("aria-checked", alternate ? "true" : "false");
           if (alternate) {
             toggle.classList.add("alternate");
           } else {
@@ -139,13 +173,19 @@ ul.task-list li input[type="checkbox"] {
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
       setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455).
+    // Not run on load: stylesheets are set before first paint there, and
+    // scrolling would undo the scroll to a URL fragment (#14973).
+    // The one pixel nudge keeps the reader where they were.
+    const refreshSafariScrollbar = () => {
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
         manageTransitions("body", false);
-        window.scrollTo(0, 1);
+        const scrollY = window.scrollY;
+        window.scrollTo(0, scrollY > 0 ? scrollY - 1 : 1);
         setTimeout(() => {
-          window.scrollTo(0, 0);
+          window.scrollTo(0, scrollY);
           manageTransitions("body", true);
         }, 40);
       }
@@ -239,6 +279,7 @@ ul.task-list li input[type="checkbox"] {
       // Read the current dark / light value
       let toAlternate = !hasAlternateSentinel();
       toggleColorMode(toAlternate);
+      refreshSafariScrollbar();
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
@@ -253,13 +294,13 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../doc/project/lab.html">Gérer son Projet</a></li><li class="breadcrumb-item"><a href="../../doc/project/lab.html">TP Démarrer son projet</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../doc/project/presentation.html">Gérer son Projet</a></li><li class="breadcrumb-item"><a href="../../doc/project/lab.html">TP Démarrer son projet</a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -270,13 +311,13 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto" aria-label="Site">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../../">ENSAI tools</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/ludo2ne/ENSAI-tools" title="" class="quarto-navigation-tool px-1" aria-label="" target="_blank"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <button type="button" role="switch" aria-checked="false" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode" aria-label="Toggle dark mode"><i class="bi"></i></button>
 </div>
     </div>
       </div>
@@ -296,14 +337,11 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true"><i class="bi bi-database-fill" role="img">
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true"><i class="bi bi-database-fill" role="img">
 </i> 
- <span class="menu-text">Formats et échanges de données</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Formats et échanges de données</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../doc/format/parquet-csv.html" class="sidebar-item-text sidebar-link">
@@ -326,14 +364,11 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true"><i class="bi bi-tux" role="img">
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true"><i class="bi bi-tux" role="img">
 </i> 
- <span class="menu-text">Coder</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Coder</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../doc/language/bash.html" class="sidebar-item-text sidebar-link">
@@ -350,14 +385,11 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true"><i class="bi bi-git" role="img">
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true"><i class="bi bi-git" role="img">
 </i> 
- <span class="menu-text">Versionner avec Git</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Versionner avec Git</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../doc/git/presentation.html" class="sidebar-item-text sidebar-link">
@@ -380,14 +412,11 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true"><i class="bi bi-gear-fill" role="img">
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true"><i class="bi bi-gear-fill" role="img">
 </i> 
- <span class="menu-text">Utiliser le Datalab</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Utiliser le Datalab</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../doc/datalab/intro.html" class="sidebar-item-text sidebar-link">
@@ -422,14 +451,17 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true"><i class="bi bi-cone-striped" role="img">
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="true"><i class="bi bi-cone-striped" role="img">
 </i> 
- <span class="menu-text">Gérer son Projet</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Gérer son Projet</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../doc/project/presentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Présentation</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../doc/project/lab.html" class="sidebar-item-text sidebar-link active">
@@ -440,14 +472,11 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true"><i class="bi bi-file-earmark-bar-graph" role="img">
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="true"><i class="bi bi-file-earmark-bar-graph" role="img">
 </i> 
- <span class="menu-text">Restituer avec Quarto</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-6-label">Restituer avec Quarto</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../doc/quarto/markdown.html" class="sidebar-item-text sidebar-link">
@@ -486,26 +515,26 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
   <li><a href="#objectifs" id="toc-objectifs" class="nav-link active" data-scroll-target="#objectifs">Objectifs</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#données" id="toc-données" class="nav-link" data-scroll-target="#données"><span class="header-section-number">1</span> Données</a></li>
-  <li><a href="#créer-et-organiser-son-dépôt" id="toc-créer-et-organiser-son-dépôt" class="nav-link" data-scroll-target="#créer-et-organiser-son-dépôt"><span class="header-section-number">2</span> Créer et organiser son dépôt</a></li>
-  <li><a href="#charger-et-apurer" id="toc-charger-et-apurer" class="nav-link" data-scroll-target="#charger-et-apurer"><span class="header-section-number">3</span> Charger et apurer</a></li>
-  <li><a href="#une-première-analyse" id="toc-une-première-analyse" class="nav-link" data-scroll-target="#une-première-analyse"><span class="header-section-number">4</span> Une première analyse</a></li>
-  <li><a href="#préparer-les-livrables" id="toc-préparer-les-livrables" class="nav-link" data-scroll-target="#préparer-les-livrables"><span class="header-section-number">5</span> Préparer les livrables</a></li>
-  <li><a href="#liens-utiles" id="toc-liens-utiles" class="nav-link" data-scroll-target="#liens-utiles"><span class="header-section-number">6</span> Liens utiles</a></li>
+  <li><a href="#démarrer-un-projet" id="toc-démarrer-un-projet" class="nav-link" data-scroll-target="#démarrer-un-projet"><span class="header-section-number">1</span> Démarrer un projet</a></li>
+  <li><a href="#données" id="toc-données" class="nav-link" data-scroll-target="#données"><span class="header-section-number">2</span> Données</a></li>
+  <li><a href="#créer-et-organiser-son-dépôt" id="toc-créer-et-organiser-son-dépôt" class="nav-link" data-scroll-target="#créer-et-organiser-son-dépôt"><span class="header-section-number">3</span> Créer et organiser son dépôt</a></li>
+  <li><a href="#charger-et-apurer" id="toc-charger-et-apurer" class="nav-link" data-scroll-target="#charger-et-apurer"><span class="header-section-number">4</span> Charger et apurer</a></li>
+  <li><a href="#une-première-analyse" id="toc-une-première-analyse" class="nav-link" data-scroll-target="#une-première-analyse"><span class="header-section-number">5</span> Une première analyse</a></li>
+  <li><a href="#préparer-les-livrables" id="toc-préparer-les-livrables" class="nav-link" data-scroll-target="#préparer-les-livrables"><span class="header-section-number">6</span> Préparer les livrables</a></li>
+  <li><a href="#liens-utiles" id="toc-liens-utiles" class="nav-link" data-scroll-target="#liens-utiles"><span class="header-section-number">7</span> Liens utiles</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content" tabindex="-1">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../doc/project/lab.html">Gérer son Projet</a></li><li class="breadcrumb-item"><a href="../../doc/project/lab.html">TP Démarrer son projet</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../doc/project/presentation.html">Gérer son Projet</a></li><li class="breadcrumb-item"><a href="../../doc/project/lab.html">TP Démarrer son projet</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">TP Bien démarrer son projet</h1>
   <div class="quarto-categories">
@@ -549,6 +578,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="objectifs" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="objectifs">Objectifs</h2>
+<p>Les objectifs de cette séance sont :</p>
 <ul>
 <li>S’organiser en équipe</li>
 <li>Initialiser votre dépôt de code</li>
@@ -556,7 +586,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Mener les premières analyses</li>
 <li>Initier votre rapport de projet</li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled" title="Fil rouge">
+<p>Vous aurez besoin de vos comptes SSP Cloud et GitHub.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -566,30 +597,12 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Vous allez utiliser les données du Loto pour essayer de devenir millionaire.</p>
+<p>Vous allez utiliser les données du Loto pour essayer de devenir millionaire. 💰 🪎 💵</p>
 </div>
 </div>
 </section>
-<section id="introduction" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="introduction">Introduction</h2>
-<section id="quest-ce-quun-projet" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="quest-ce-quun-projet">Qu’est-ce qu’un projet ?</h3>
-<p>Un projet peut être présenté comme un travail organisé, réalisé par une équipe, pour atteindre un objectif défini et produire un ou plusieurs livrables.</p>
-<p>Un projet comporte notamment :</p>
-<ul>
-<li><strong>une équipe</strong> : les personnes qui travaillent sur le projet</li>
-<li><strong>un sujet</strong> : ce sur quoi porte le projet</li>
-<li><strong>des objectifs</strong> : ce que l’on cherche à accomplir</li>
-<li><strong>des données</strong> : les informations nécessaires au projet</li>
-<li><strong>du code</strong> : les traitements et analyses réalisés</li>
-<li><strong>des méthodes</strong> : les choix méthodologiques permettant d’atteindre l’objectif</li>
-<li><strong>des livrables</strong> : les productions attendues à la fin du projet</li>
-<li><strong>un calendrier</strong> : les différentes étapes et échéances</li>
-<li><strong>une organisation</strong> : la répartition des tâches et le suivi de leur avancement</li>
-</ul>
-</section>
-<section id="démarrer-un-projet" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="démarrer-un-projet">Démarrer un projet</h3>
+<section id="démarrer-un-projet" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="démarrer-un-projet"><span class="header-section-number">1</span> Démarrer un projet</h2>
 <p>Avant de commencer, prenez le temps de faire connaissance avec les membres de votre groupe et de définir votre organisation.</p>
 <p>Discutez notamment :</p>
 <ul>
@@ -601,127 +614,26 @@ ul.task-list li input[type="checkbox"] {
 <li>d’une première version macro de votre calendrier</li>
 </ul>
 <p>Les rôles ne sont pas nécessairement fixes : ils peuvent évoluer au cours du projet. L’objectif est que chacun participe aux différentes dimensions du projet et que le travail ne repose pas sur une seule personne.</p>
-</section>
-<section id="calendrier-et-livrables" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="calendrier-et-livrables">Calendrier et livrables</h3>
-<p>Un diagramme de Gantt permet de visualiser là où vous en êtes et quelles sont les prochaines échéances. Il est rapide à réaliser et très utile.</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">gantt
-    title Calendrier prévisionnel du projet
-    dateFormat  YYYY-MM-DD
-    axisFormat  %d %b
-
-    section Cadrage
-    Sujet et problématique         :2026-12-01, 2026-12-18
-    Recherche bibliographique      :2026-12-03, 20d
-
-    section Données et analyses
-    Collecte et préparation des données :2026-12-15, 20d
-    Statistiques descriptives           :2027-01-05, 45d
-    Interprétation des résultats        :2027-02-01, 2027-03-26
-    Méthodes statistiques               :2027-02-15, 45d
-
-    section Rédaction
-    Rédaction                        :2027-01-15, 25d
-    Rapport intermédiaire            :milestone, 2027-02-12, 0d
-    Rédaction du rapport             :2027-02-22, 2027-04-02
-    Rapport V1                       :milestone, 2027-04-02, 0d
-    Corrections et finalisation      :2027-04-19, 2027-05-05
-    Relecture                        :2027-05-04, 3d
-    Rapport final                    :milestone, 2027-05-07, 0d
-
-    section Présentation
-    Préparation de la soutenance blanche :2027-04-05, 2027-04-16
-    Soutenance blanche                   :milestone, 2027-04-16, 0d
-    Préparation de la soutenance         :2027-05-03, 2027-05-14
-    Soutenance                           :milestone, 2027-05-14, 0d
-    
-    section Vacances
-    Noël                                 :crit, 2026-12-19, 15d
-    Hiver                                :crit, 2027-02-20, 7d
-    Paques                               :crit, 2027-04-17, 7d
-</pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p></p></figure><p></p>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Osez prendre des initiatives !
 </div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un projet est aussi l’occasion de faire preuve de curiosité et d’autonomie. N’hésitez pas à proposer des idées, à explorer des pistes qui n’ont pas été évoquées en cours, à tester de nouveaux outils ou à chercher des solutions par vous-mêmes.</p>
+<p>Toutes les initiatives ne seront pas nécessairement concluantes, et ce n’est pas un problème : expérimenter, se tromper et ajuster sa démarche font pleinement partie du travail de projet. L’essentiel est de rester <strong>force de proposition</strong> et de <strong>partager vos découvertes</strong> avec le reste de l’équipe.</p>
 </div>
 </div>
 </section>
-<section id="suivre-les-tâches" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="suivre-les-tâches">Suivre les tâches</h3>
-<div class="notes">
-<p>🚧 - Backlog - Gantt - Carnet de bord - Kanban - Ecrire un mail - Préparer une réunion (de suivi) - Gérer son temps</p>
-</div>
-<p>Au cours d’un projet, de nombreuses tâches doivent être réalisées. Il est facile d’en oublier certaines ou de ne plus savoir précisément ce qui a été fait, ce qui est en cours et ce qu’il reste à faire.</p>
-<p>Une <strong>liste de tâches</strong> ou un <strong>Kanban</strong> permet de centraliser le suivi du projet et de donner à toute l’équipe une vision commune de son avancement.</p>
-<p>Un Kanban simple peut par exemple comporter les colonnes suivantes :</p>
-<p>🚧 Schéma</p>
-<pre class="text"><code>À faire → En cours → À relire → Terminé</code></pre>
-<p>Chaque tâche est représentée par une carte que l’on déplace au fur et à mesure de son avancement.</p>
-<p>Cet outil permet notamment de :</p>
-<ul>
-<li>ne pas oublier les tâches à réaliser ;</li>
-<li>savoir qui travaille sur quelle tâche ;</li>
-<li>visualiser rapidement l’avancement du projet ;</li>
-<li>identifier les tâches bloquées ;</li>
-<li>répartir le travail au sein du groupe.</li>
-</ul>
-</section>
-<section id="les-outils-du-projet" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="les-outils-du-projet">Les outils du projet</h3>
-<p>Un projet statistique mobilise plusieurs outils, chacun répondant à un besoin particulier. Il est important de savoir où réaliser chaque tâche et où stocker chaque ressource.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Besoin</th>
-<th>Outil</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Environnement de travail</td>
-<td><strong>SSP Cloud</strong></td>
-</tr>
-<tr class="even">
-<td>Logiciel (IDE)</td>
-<td><strong>RStudio / VSCode / Jupyter</strong></td>
-</tr>
-<tr class="odd">
-<td>Code</td>
-<td><strong>R / Python / SQL</strong></td>
-</tr>
-<tr class="even">
-<td>Versionner le code</td>
-<td><strong>Git</strong></td>
-</tr>
-<tr class="odd">
-<td>Dépôt distant</td>
-<td><strong>GitHub</strong></td>
-</tr>
-<tr class="even">
-<td>Stocker les données</td>
-<td><strong>S3</strong></td>
-</tr>
-<tr class="odd">
-<td>Produire des documents et rapports</td>
-<td><strong>Quarto / Typst</strong></td>
-</tr>
-<tr class="even">
-<td>Suivre les tâches</td>
-<td><strong>GitHub / Kanban</strong></td>
-</tr>
-</tbody>
-</table>
-<p>Ces outils sont complémentaires. L’objectif du projet sera de les utiliser ensemble pour construire un travail <strong>organisé, collaboratif et reproductible</strong>.</p>
-</section>
-</section>
-<section id="données" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="données"><span class="header-section-number">1</span> Données</h2>
+<section id="données" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="données"><span class="header-section-number">2</span> Données</h2>
+<blockquote class="blockquote">
 <p>Commençons par une partie facile, déposons nos données dans un endroit sûr.</p>
+</blockquote>
 <ul class="task-list">
 <li><label><input type="checkbox">Récupérez sur internet l’historique des tirages du Loto depuis novembre 2019</label></li>
 </ul>
@@ -744,15 +656,13 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>Vous avez maintenant vos données prêtes à être utilisées.</p>
 </section>
-<section id="créer-et-organiser-son-dépôt" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="créer-et-organiser-son-dépôt"><span class="header-section-number">2</span> Créer et organiser son dépôt</h2>
+<section id="créer-et-organiser-son-dépôt" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="créer-et-organiser-son-dépôt"><span class="header-section-number">3</span> Créer et organiser son dépôt</h2>
+<p>Passons maintenant à la gestion de votre code avec Git.</p>
+<section id="dépôt-distant" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="dépôt-distant"><span class="header-section-number">3.1</span> Dépôt distant</h3>
 <blockquote class="blockquote">
-<p>Passons maintenant à la gestion de votre code.</p>
-</blockquote>
-<section id="dépôt-distant" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="dépôt-distant"><span class="header-section-number">2.1</span> Dépôt distant</h3>
-<blockquote class="blockquote">
-<p>Le <em>remote</em> est le dépôt commun à toute l’équipe. Il permet de vous synchroniser.</p>
+<p>Le dépôt distant (<em>remote</em>) est le dépôt commun à toute l’équipe. Il permet de vous synchroniser.</p>
 </blockquote>
 <p>Votre code sera stocké dans un dépôt GitHub.</p>
 <ul class="task-list">
@@ -770,13 +680,13 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>Ceci n’est à faire qu’une seule fois.</p>
 </section>
-<section id="dépot-local" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="dépot-local"><span class="header-section-number">2.2</span> Dépot local</h3>
+<section id="dépot-local" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="dépot-local"><span class="header-section-number">3.2</span> Dépot local</h3>
 <blockquote class="blockquote">
 <p>Avant de créer votre dépôt local (code sur lequel vous allez travailler), il faut créer votre environnement de travail.</p>
 </blockquote>
 <ul class="task-list">
-<li><label><input type="checkbox">Allez dans le catalogue des service</label></li>
+<li><label><input type="checkbox">Allez dans le catalogue des services</label></li>
 <li><label><input type="checkbox">Lancez un service Rstudio <span class="blue-button">Lancer</span> <strong><u>une seule fois</u></strong></label></li>
 <li><label><input type="checkbox">Allez dans l’onglet Git</label>
 <ul>
@@ -786,9 +696,9 @@ ul.task-list li input[type="checkbox"] {
 <li><label><input type="checkbox">Cliquez sur <span class="blue-button">Lancer</span></label></li>
 <li><label><input type="checkbox">Ouvrez le service</label></li>
 </ul>
-<p>Si tout s’est bien passé, un clone de votre dépôt a été créé dans votre service. Vous voyez apparaitre votre dépôt et ses fichier dans l’explorateur en bas à droite.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Si votre dépôt n'a pas été créé">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<p>Si tout s’est bien passé, un clone de votre dépôt a été créé dans votre service. Vous voyez apparaitre votre dépôt et ses fichiers dans l’explorateur en bas à droite.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -797,7 +707,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Dans le terminal de votre service, clonez manuellement en utilisant le token :</p>
 <ul>
@@ -807,14 +717,14 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="rappels-git" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="rappels-git"><span class="header-section-number">2.3</span> Rappels Git</h3>
+<section id="rappels-git" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="rappels-git"><span class="header-section-number">3.3</span> Rappels Git</h3>
 <p>Vous allez commencer par vérifier que vous arrivez bien à envoyer du code vers le remote.</p>
 <p>Toutes les actions ci-dessous sont à faire dans Rstudio.</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Ouvrez le fichier <em>README.md</em></label></li>
 </ul>
-<div class="callout callout-style-default callout-important callout-titled" title="README ça veut dire...">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -835,21 +745,116 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <ul class="task-list">
 <li><label><input type="checkbox">Collez le contenu ci-dessous 👇 et enregistrez</label></li>
-<li><label><input type="checkbox">Avec Git, envoyez ces modifications vers le remote</label></li>
 </ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>README.md</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="README.md"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Devenir millionnaire grâce au Loto ! 🍀</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Présentation</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Analyser les résultats du Loto pour tenter de découvrir les combinaisons gagnantes !</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fonctionnalités</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Charger** : récupérer les données depuis S3.</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Nettoyer** : apurer et préparer les données.</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Analyser** : produire des statistiques et visualisations.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Utilisation</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Cloner le dépôt Git.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Ouvrir le projet dans RStudio.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Exécuter <span class="in">`renv::restore()`</span> pour installer les dépendances.</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Lancer les scripts d'analyse.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>README
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le fichier <code>README.md</code> est essentiel pour présenter le contenu et l’utilisation d’un dépôt.</p>
+<p>Il doit contenir au minimum :</p>
+<ul>
+<li><strong>Présentation</strong> : objectif et contenu du projet.</li>
+<li><strong>Fonctionnalités</strong> : principales opérations réalisées.</li>
+<li><strong>Environnement</strong> : outils et packages nécessaires.</li>
+<li><strong>Lancement rapide</strong> : instructions pour installer les dépendances et exécuter le projet.</li>
+</ul>
+</div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Avec Git, envoyez ces modifications vers le remote</label>
+<ul>
+<li>Faîtes un petit détour par la section Git si besoin</li>
+</ul></li>
+<li><label><input type="checkbox">Sur GitHub, vérifiez que le README est à jour</label></li>
+</ul>
+<div class="notes">
 <p>🚧 Exo pratique de gestion de conflit</p>
+</div>
 </section>
-<section id="renv" class="level3" data-number="2.4">
-<h3 data-number="2.4" class="anchored" data-anchor-id="renv"><span class="header-section-number">2.4</span> renv</h3>
-<p>Lorsque plusieurs personnes travaillent sur un même projet, il est important que tout le monde utilise les mêmes packages et les mêmes versions.</p>
+<section id="fichier-.rproj" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="fichier-.rproj"><span class="header-section-number">3.4</span> Fichier .Rproj</h3>
+<blockquote class="blockquote">
+<p>.Rproj est le fichier de configuration de votre projet RStudio.</p>
+</blockquote>
+<p>Il permet à RStudio de reconnaître votre dossier comme un projet et de conserver certains paramètres de travail.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Si le fichier n’a pas été créé
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul class="task-list">
+<li><label><input type="checkbox">File ⏩ New Project ⏩ Existing Directory</label></li>
+<li><label><input type="checkbox">Sélectionnez <code>ensai-projet-stat-1a</code> ⏩ Create project</label></li>
+</ul>
+</div>
+</div>
+</div>
+<p>Il permet notamment de :</p>
+<ul>
+<li>Définir le répertoire de travail : à l’ouverture du projet, RStudio se place automatiquement à sa racine</li>
+<li>Centraliser les paramètres : encodage des fichiers, indentation du code, etc.</li>
+<li>Faciliter la navigation : RStudio reconnaît les fichiers et les dossiers appartenant au projet.</li>
+</ul>
+<p>Ce fichier est à versionner avec Git.</p>
+</section>
+<section id="renv" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="renv"><span class="header-section-number">3.5</span> renv</h3>
+<blockquote class="blockquote">
+<p>Avant de commencer à coder, interessons-nous à la gestion des packages.</p>
+</blockquote>
+<p>Lorsque plusieurs personnes travaillent sur un même projet, il est important que tout le monde utilise les mêmes packages avec les mêmes versions.</p>
 <p><a href="https://rstudio.github.io/renv/" target="_blank">renv</a> permet de créer un environnement R isolé et propre au projet et d’enregistrer les packages utilisés ainsi que leurs versions.</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Exécutez dans la console la commande <code>renv::init()</code></label></li>
+<li><label><input type="checkbox">Exécutez dans la console la commande <code>renv::init()</code></label>
+<ul>
+<li>Do you want to proceed? ➡️ <code>y</code></li>
+</ul></li>
 </ul>
 <p>Cette commande crée un dossier <em>renv/</em> et un fichier <em>renv.lock</em> (qui stocke la version de R utilisée, les packages nécessaires et leurs versions).<br>
-Ne les supprimez pas !<br>
-Le fichier <em>renv.lock</em> doit être versionné dans Git.</p>
-<p>Commandes utiles :</p>
+Ne les supprimez pas ! Il doivent être versionnés dans votre dépôt.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Commandes utiles
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
 <li><code>renv::install("&lt;package&gt;")</code> pour installer un package</li>
 <li><code>renv::dependencies()</code> : quels sont les packages utilisés dans le code</li>
@@ -857,36 +862,56 @@ Le fichier <em>renv.lock</em> doit être versionné dans Git.</p>
 <li><code>renv::snapshot()</code> : enregistre l’état des packages dans <em>renv.lock</em></li>
 <li><code>renv::restore()</code> : applique <em>renv.lock</em> i.e.&nbsp;désinstalle les packages en trop, installe les packages manquants</li>
 </ul>
+</div>
+</div>
 <p>Vous allez avoir besoin des packages suivants :</p>
 <ul>
-<li>dplyr : manipulation de données (pipes, mutate, select…)</li>
-<li>stringr : manipulation de chaînes de caractères</li>
+<li><strong>dplyr</strong> : manipulation de données (pipes, mutate, select…)</li>
+<li><strong>stringr</strong> : manipulation de chaînes de caractères</li>
 </ul>
 <hr>
 <ul class="task-list">
 <li><label><input type="checkbox">installez-les avec renv</label></li>
-<li><label><input type="checkbox">Mettez à jour le renv.lock</label></li>
-<li><label><input type="checkbox">Créez un point de sauvegarde</label></li>
+<li><label><input type="checkbox">Vérifiez que les packages installés sont dans le renv.lock</label></li>
+<li><label><input type="checkbox">Créez un commit et poussez vos modifications</label></li>
 </ul>
 </section>
 </section>
-<section id="charger-et-apurer" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="charger-et-apurer"><span class="header-section-number">3</span> Charger et apurer</h2>
-<section id="charger-les-données-brutes" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="charger-les-données-brutes"><span class="header-section-number">3.1</span> Charger les données brutes</h3>
+<section id="charger-et-apurer" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="charger-et-apurer"><span class="header-section-number">4</span> Charger et apurer</h2>
+<blockquote class="blockquote">
+<p>Il est maintenant temps de coder !</p>
+</blockquote>
+<section id="charger-les-données-brutes" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="charger-les-données-brutes"><span class="header-section-number">4.1</span> Charger les données brutes</h3>
 <blockquote class="blockquote">
 <p>Commençons par charger le fichier.</p>
 </blockquote>
-<p>Dans un dépôt git, il ne faut pas laisser tout trainer à la racine, sinon cela devient rapidement le bazar.</p>
-<p>Les fichiers contenant du code sont à placer dans un dossier <em>src</em> (sources).</p>
+<p>Vous l’avez sans doute remarqué, ça commence à devenir le bazar à la racine du dépôt. Pour bien ranger les fichiers contenant du code, vous allez créer un dossier <em>src</em> (sources).</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Créez un dossier <em>src</em></label></li>
-<li><label><input type="checkbox">Créez un script <em>import.R</em></label></li>
-<li><label><input type="checkbox">Récupérez vos données depuis S3</label>
+<li><label><input type="checkbox">Créez à l’intérieur un script <em>import.R</em></label></li>
+<li><label><input type="checkbox">Récupérez vos données depuis S3 et chargez-les dans un dataframe que vous nommerez <code>loto_raw</code></label>
 <ul>
-<li>Vous trouverez comment faire sur <a href="../../doc/datalab/basics.html" target="_blank">cette page</a></li>
+<li>Vous trouverez comment faire sur 👉 <a href="../../doc/datalab/basics.html" target="_blank">cette page</a> 👈</li>
+<li>Il manque des packages ? Installez-les !</li>
 </ul></li>
 </ul>
+<div class="notes">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># renv::install("aws.s3")</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(aws.s3)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>bucket_name <span class="ot">&lt;-</span> <span class="st">"ludo2ne"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>file_path <span class="ot">&lt;-</span> <span class="st">"diffusion/projet/input/loto_201911.csv"</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>communes <span class="ot">&lt;-</span> aws.s3<span class="sc">::</span><span class="fu">s3read_using</span>(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">FUN =</span> readr<span class="sc">::</span>read_delim,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">delim =</span> <span class="st">";"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">object =</span> file_path,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">bucket =</span> bucket_name,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">opts =</span> <span class="fu">list</span>(<span class="st">"region"</span> <span class="ot">=</span> <span class="st">""</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <p>En projet stat, pour charger un fichier <code>.rds</code>, utilisez la fonction <code>readRDS</code>.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -903,26 +928,26 @@ Important
 </div>
 </div>
 </section>
-<section id="mettre-les-données-au-propre" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="mettre-les-données-au-propre"><span class="header-section-number">3.2</span> Mettre les données au propre</h3>
+<section id="mettre-les-données-au-propre" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="mettre-les-données-au-propre"><span class="header-section-number">4.2</span> Mettre les données au propre</h3>
 <blockquote class="blockquote">
 <p>Certaines colonnes ne nous interessent pas, certaines données sont mal formatées. Il faut mettre tout cela au propre avant de commencer les analyses.</p>
 </blockquote>
-<p>A partir du dataframe <em>loto_raw</em>, vous allez créer un nouveau dataframe propre que vous nommerez <em>loto</em></p>
+<p>A partir du dataframe <em>loto_raw</em>, vous allez créer un nouveau dataframe propre que vous nommerez <em>loto</em> :</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Observez la colonne <em>annee_numero_de_tirage</em>, vous ne remarquez pas des problèmes ?</label></li>
 <li><label><input type="checkbox">Harmonisez cette colonne et renommez-la <em>id</em></label></li>
 <li><label><input type="checkbox">Vous allez uniquement étudier le premier tirage, supprimez les colonnes concernant le second</label></li>
 <li><label><input type="checkbox">Supprimez également les colonnes sur les <em>codes gagnants</em>, ainsi que celles nommées : <em>date_de_forclusion</em>, <em>numero_7</em>, <em>devise</em> et <em>…50</em></label></li>
 </ul>
-<p>Vous avez maintenant un jeu de données propre.</p>
+<p>Vous avez maintenant un jeu de données propre. 🧼 🧹</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Exportez-le vers votre bucket S3</label></li>
 </ul>
 </section>
 </section>
-<section id="une-première-analyse" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="une-première-analyse"><span class="header-section-number">4</span> Une première analyse</h2>
+<section id="une-première-analyse" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="une-première-analyse"><span class="header-section-number">5</span> Une première analyse</h2>
 <p>🚧</p>
 <p>En R :</p>
 <ul>
@@ -930,29 +955,111 @@ Important
 <li>Une figure</li>
 </ul>
 </section>
-<section id="préparer-les-livrables" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="préparer-les-livrables"><span class="header-section-number">5</span> Préparer les livrables</h2>
-<p>🚧</p>
+<section id="préparer-les-livrables" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="préparer-les-livrables"><span class="header-section-number">6</span> Préparer les livrables</h2>
+<p>Vous allez utiliser l’écosystème <a href="https://quarto.org/" target="_blank">Quarto</a> pour préparer vos livrables.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous allez explorer Quarto prochainement dans le cadre d’une TP de Stats avec R.</p>
+</div>
+</div>
+<section id="quarto" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="quarto"><span class="header-section-number">6.1</span> Quarto ?</h3>
+<p>Vous allez créer des fichiers avec l’extension <code>qmd</code> qui contiennent :</p>
 <ul>
-<li>Quarto
-<ul>
-<li>petit schéma simple : qmd -&gt; quarto -&gt; pdf, html…</li>
-</ul></li>
-<li>TP à venir en Stats avec R</li>
+<li>Des métadonnées pour expliquer le format de sortie souhaité</li>
+<li>Votre texte</li>
+<li>Votre code à exécuter</li>
 </ul>
-<section id="initialiser-son-rapport" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="initialiser-son-rapport"><span class="header-section-number">5.1</span> Initialiser son rapport</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Fonctionnement</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Exemple de qmd</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Exemple de rendu</a></li></ul>
+<div class="tab-content nav-pills">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<pre><code>                                                     ┌───────────┐
+┌───────────────┐       ┌──────────────────┐   ┌──►  │   HTML    │
+│ Fichier .qmd  │       │      Quarto      │   │     └───────────┘
+│               │       │                  │   │     ┌───────────┐
+│ • Métadonnées │ ────► │ • Exécution code │ ──+──►  │    PDF    │
+│ • Texte       │       │ • Mise en forme  │   │     └───────────┘
+│ • Code        │       │ • Conversion     │   │     ┌───────────┐ 
+└───────────────┘       └──────────────────┘   └──►  │  Slides   │
+                                                     └───────────┘</code></pre>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<ul>
+<li>Vous commencez en entêtes par décrire le fichier que vous souhaitez générer (entre les <code>---</code>)</li>
+<li>Puis vous écrivez votre contenu et votre code</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>exemple.qmd</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="exemple.qmd"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Comment faire fructifier son patrimoine</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> Picsou</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default   </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ne rien dépenser</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>La première règle de Picsou est simple : **dépenser le moins possible**.</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>depense <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>revenu <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>epargne <span class="ot">&lt;-</span> revenu <span class="sc">-</span> depense</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>Avec cette méthode, Picsou économise <span class="in">`r epargne`</span> pièces d'or !</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion {.unnumbered}</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Chaque pièce compte !</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<iframe src="assets/example.html" width="100%" height="500" style="border: 1px solid #ddd;">
+</iframe>
+</div>
+</div>
+</div>
+</section>
+<section id="initialiser-son-rapport" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="initialiser-son-rapport"><span class="header-section-number">6.2</span> Initialiser son rapport</h3>
 <blockquote class="blockquote">
-<p>Vous allez utiliser Quarto et Typst pour rédiger votre rapport. Un modèle vous est fourni.</p>
+<p>Vous allez utiliser <a href="https://typst.app/" target="_blank">Typst</a> pour rédiger votre rapport.</p>
 </blockquote>
-<p>Vous trouverez sur ce site un <a href="../../doc/quarto/report.html" target="_blank">exemple de rapport</a>.</p>
+<p>Typst ?? Mais c’est écrit Quarto juste au dessus !? 😵</p>
+<p>En fait Quarto utilise Typst comme moteur de mise en page, qui transforme le contenu en un document PDF. 😅</p>
+<p>Un modèle vous est fourni. Vous trouverez sur ce site un <a href="../../doc/quarto/report.html" target="_blank">exemple de rapport</a>.</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Cliquez sur le lien ci-dessus</label></li>
 <li><label><input type="checkbox">Cliquez sur le bouton <code>&lt;/&gt; Code</code> pour voir le contenu du rapport</label></li>
 <li><label><input type="checkbox">Cliquez sur le bouton <code>Typst</code> pour voir le rendu pdf</label></li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remarque
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Vous remarquerez dans le code du rapport qu’il y a une partie du code rédigée directement en Typst.</p>
 <p>C’est nécessaire pour avoir une page de garde et une table des matières propre. Ce code utilise un fichier <code>model.typ</code> qui vous est fourni. Vous avez simplement à renseigner quelques infos : titre, membres de l’équipe…</p>
+</div>
+</div>
 <p>Initions maintenant votre rapport :</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Créez un dossier <em>doc</em></label></li>
@@ -961,16 +1068,20 @@ Important
 <li><label><input type="checkbox">Collez le modèle typst</label></li>
 <li><label><input type="checkbox"><code>quarto render doc/rapport.qmd</code></label></li>
 </ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="Comment bien bâcler son rapport">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Comment bien bâcler son rapport
+<span class="screen-reader-only">Tip</span>Quelques conseils pour le rapport
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p><strong>Comment bien bâcler son rapport ?</strong><br>
+<em>(pas besoin de nous remercier, c’est gratuit)</em></p>
 <ol type="1">
 <li>Je m’y mets au dernier moment. Avec un peu de chance, les autres auront déjà fait une partie de mon boulot.</li>
 <li>Je demande à une IA de me l’écrire : je ne veux pas rater mon cours d’aqua-poney.</li>
@@ -992,9 +1103,10 @@ Important
 </ol>
 </div>
 </div>
+</div>
 </section>
-<section id="présentation" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="présentation"><span class="header-section-number">5.2</span> Présentation</h3>
+<section id="présentation" class="level3" data-number="6.3">
+<h3 data-number="6.3" class="anchored" data-anchor-id="présentation"><span class="header-section-number">6.3</span> Présentation</h3>
 <blockquote class="blockquote">
 <p>Optionnel, à faire plus tard en autonomie</p>
 </blockquote>
@@ -1007,8 +1119,8 @@ Important
 </ul>
 </section>
 </section>
-<section id="liens-utiles" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="liens-utiles"><span class="header-section-number">6</span> Liens utiles</h2>
+<section id="liens-utiles" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="liens-utiles"><span class="header-section-number">7</span> Liens utiles</h2>
 <ul>
 <li><a href="https://mtes-mct.github.io/parcours_r_socle_introduction/" class="uri">https://mtes-mct.github.io/parcours_r_socle_introduction/</a></li>
 <li><a href="https://mtes-mct.github.io/parcours_r_socle_preparation_des_donnees" class="uri">https://mtes-mct.github.io/parcours_r_socle_preparation_des_donnees</a></li>
@@ -1023,15 +1135,50 @@ Important
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const toggle = window.document.createElement('button');
+      toggle.type = "button";
+      toggle.setAttribute("role", "switch");
+      toggle.setAttribute("aria-checked", "false");
+      toggle.classList.add('top-right');
+      toggle.classList.add('quarto-color-scheme-toggle');
+      toggle.setAttribute("aria-label", "Toggle dark mode");
+      toggle.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
       const i = window.document.createElement("i");
       i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
+      toggle.appendChild(i);
+      // Put the toggle in a landmark of its own, so that landmark navigation
+      // can reach it.
+      //
+      // The container is always a fresh direct child of body, and the toggle is
+      // never moved into page furniture that the theme or the author controls.
+      // The toggle is positioned against the page, so any ancestor that
+      // establishes a containing block captures it: a positioned element or a
+      // grid for position: absolute, and transform, filter, will-change or
+      // contain for position: fixed. A direct child of body has none of these
+      // to inherit, and the shift when one appears is silent and visual.
+      //
+      // ARIA says a document should have at most one banner, and axe reports a
+      // duplicate whether or not the banners carry distinct labels. So use a
+      // header when the page has no banner yet, and a named region otherwise.
+      //
+      // A header is a banner wherever it sits, unless it is inside sectioning
+      // content, so this cannot just look at the children of body: a custom
+      // page layout wraps the title block header in a plain div. An explicit
+      // role="banner" always counts.
+      const sectioning = 'article, aside, main, nav, section, [role="article"], [role="complementary"], [role="main"], [role="navigation"], [role="region"]';
+      const hasBanner = Array.from(
+        window.document.querySelectorAll('header:not([role]), [role="banner"]')
+      ).some(function(el) {
+        return el.hasAttribute("role") || el.closest(sectioning) === null;
+      });
+      const container = window.document.createElement(hasBanner ? "div" : "header");
+      if (hasBanner) {
+        container.setAttribute("role", "region");
+        container.setAttribute("aria-label", "Toggle dark mode");
+      }
+      container.classList.add('quarto-color-scheme-toggle-container');
+      container.appendChild(toggle);
+      window.document.body.appendChild(container);
     }
     setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
@@ -1110,7 +1257,8 @@ Important
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -1119,8 +1267,69 @@ Important
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+          if (!link.classList.contains('no-external-icon')) {
+          }
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -1134,6 +1343,7 @@ Important
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -1296,44 +1506,54 @@ Important
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -1431,6 +1651,9 @@ Important
       }
     }
   });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
   </script>
 </div> <!-- /content -->
 <footer class="footer">
