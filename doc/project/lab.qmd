@@ -28,7 +28,7 @@ Les objectifs de cette séance sont :
 Vous aurez besoin de vos comptes SSP Cloud et GitHub.
 
 ::: {.callout-note title="Fil rouge"}
-Vous allez utiliser les données du Loto pour essayer de devenir millionaire. 💰 🪎 💵
+Vous allez utiliser les données du Loto pour essayer de devenir millionnaire. 💰 🪎 💵
 :::
 
 ## Démarrer un projet
@@ -48,7 +48,7 @@ Les rôles ne sont pas nécessairement fixes : ils peuvent évoluer au cours du 
 
 
 ::: {.callout-tip title="Osez prendre des initiatives !"}
-Un projet est aussi l'occasion de faire preuve de curiosité et d'autonomie. N'hésitez pas à proposer des idées, à explorer des pistes qui n'ont pas été évoquées en cours, à tester de nouveaux outils ou à chercher des solutions par vous-mêmes.
+Un projet est aussi l'occasion de faire preuve de curiosité et d'autonomie. N'hésitez pas à proposer des idées, à explorer des pistes qui n'ont pas été évoquées en cours, à tester de nouveaux outils ou à chercher des solutions par vous-même.
 
 Toutes les initiatives ne seront pas nécessairement concluantes, et ce n'est pas un problème : expérimenter, se tromper et ajuster sa démarche font pleinement partie du travail de projet. L'essentiel est de rester **force de proposition** et de **partager vos découvertes** avec le reste de l'équipe.
 :::
@@ -70,7 +70,7 @@ Vous allez ensuite vous connecter au Datalab pour le déposer sur votre stockage
 
 - diffusion : lecture seule
 - partage de fichier : 1 semaine max
-- rendre public un dossier : ecriture ?
+- rendre public un dossier : écriture ?
 
 ---
 
@@ -91,17 +91,17 @@ Votre code sera stocké dans un dépôt GitHub.
 
 - [ ] Connectez-vous à [GitHub](https://github.com/){target="_blank"}
 - [ ] Créez un nouveau Repository : GitHub ⏩ Repositories ⏩ [New](https://github.com/new){.green-button target="_blank"}
-  - Repository name : *ensai-projet-stat-1a*
+  - Repository name : `projet-stat-1a-groupe<N>`
   - Description: *Projet statistique de première année*
   - Visibility Level : *Private*
   - ☑ Cochez *Add a README file*
   - Add .gitignore : *R*
-  - Choose a license : *MIT Licence*
+  - Choose a license : *MIT Licence* (ou une autre)
   - Cliquez sur [Create Repository]{.green-button}
 
 Ceci n'est à faire qu'une seule fois.
 
-### Dépot local
+### Dépôt local
 
 > Avant de créer votre dépôt local (code sur lequel vous allez travailler), il faut créer votre environnement de travail.
 
@@ -137,7 +137,7 @@ Ce fichier est très important. Il doit comporter :
 
 - une brève présentation de votre projet
 - les instructions pour utiliser vos programmes (mode utilisateur)
-- les instructions pour complétez votre code (mode développeur)
+- les instructions pour compléter votre code (mode développeur)
 :::
 
 - [ ] Collez le contenu ci-dessous 👇 et enregistrez
@@ -172,7 +172,7 @@ Il doit contenir au minimum :
 :::
 
 - [ ] Avec Git, envoyez ces modifications vers le remote
-  - Faîtes un petit détour par la section Git si besoin
+  - Faites un petit détour par la section Git si besoin
 - [ ] Sur GitHub, vérifiez que le README est à jour
 
 :::{.notes}
@@ -200,7 +200,7 @@ Ce fichier est à versionner avec Git.
 
 ### renv
 
-> Avant de commencer à coder, interessons-nous à la gestion des packages.
+> Avant de commencer à coder, intéressons-nous à la gestion des packages.
 
 Lorsque plusieurs personnes travaillent sur un même projet, il est important que tout le monde utilise les mêmes packages avec les mêmes versions.
 
@@ -210,7 +210,7 @@ Lorsque plusieurs personnes travaillent sur un même projet, il est important qu
   - Do you want to proceed? ➡️ `y`
 
 Cette commande crée un dossier *renv/* et un fichier *renv.lock* (qui stocke la version de R utilisée, les packages nécessaires et leurs versions). \
-Ne les supprimez pas ! Il doivent être versionnés dans votre dépôt.
+Ne les supprimez pas ! Ils doivent être versionnés dans votre dépôt.
 
 
 ::: {.callout-tip title="Commandes utiles"}
@@ -245,7 +245,7 @@ Vous allez avoir besoin des packages suivants :
 Vous l'avez sans doute remarqué, ça commence à devenir le bazar à la racine du dépôt. Pour bien ranger les fichiers contenant du code, vous allez créer un dossier *src* (sources).
 
 - [ ] Créez un dossier *src*
-- [ ] Créez à l'intérieur un script *import.R*
+- [ ] Créez à l'intérieur un script `01_import.R`
 - [ ] Récupérez vos données depuis S3 et chargez-les dans un dataframe que vous nommerez `loto_raw`
   - Vous trouverez comment faire sur 👉 [cette page](./../datalab/basics.qmd){target="_blank"} 👈
   - Il manque des packages ? Installez-les !
@@ -279,9 +279,11 @@ La solution est expliquée sur la même page que ci-dessus.
 
 ### Mettre les données au propre
 
-> Certaines colonnes ne nous interessent pas, certaines données sont mal formatées. Il faut mettre tout cela au propre avant de commencer les analyses.
+> Certaines colonnes ne nous intéressent pas, certaines données sont mal formatées. Il faut mettre tout cela au propre avant de commencer les analyses.
 
-A partir du dataframe *loto_raw*, vous allez créer un nouveau dataframe propre que vous nommerez *loto* :
+- [ ] Créez un nouveau script que vous nommerez `02_nettoyage.R`
+
+À partir du dataframe *loto_raw*, vous allez créer un nouveau dataframe propre que vous nommerez *loto* :
 
 - [ ] Observez la colonne *annee_numero_de_tirage*, vous ne remarquez pas des problèmes ?
 - [ ] Harmonisez cette colonne et renommez-la *id*
@@ -297,18 +299,22 @@ Vous avez maintenant un jeu de données propre. 🧼 🧹
 
 🚧
 
+- [ ] Créez un script nommé `03_stats_desc.R`
+
 En R :
 
 - Stats desc
 - Une figure
 
+- [ ] Créez d'autres scripts pour vos futures analyses
+  - exemples : `04_analyse_multivariee.R`, `05_acp.R`, `99_sandbox.R`
 
 ## Préparer les livrables
 
 Vous allez utiliser l'écosystème [Quarto](https://quarto.org/){target="_blank"} pour préparer vos livrables.
 
 ::: {.callout-tip}
-Vous allez explorer Quarto prochainement dans le cadre d'une TP de Stats avec R.
+Vous allez explorer Quarto prochainement dans le cadre d'un TP de Stats avec R.
 :::
 
 ### Quarto ?
@@ -395,13 +401,13 @@ Un modèle vous est fourni. Vous trouverez sur ce site un [exemple de rapport](.
 ::: {.callout-note title="Remarque"}
 Vous remarquerez dans le code du rapport qu'il y a une partie du code rédigée directement en Typst.
 
-C'est nécessaire pour avoir une page de garde et une table des matières propre. Ce code utilise un fichier `model.typ` qui vous est fourni. Vous avez simplement à renseigner quelques infos : titre, membres de l'équipe...
+C'est nécessaire pour avoir une page de garde et une table des matières propre. Ce code utilise un fichier `model.typ` qui vous est fourni. Vous avez simplement à renseigner quelques informations : titre, membres de l'équipe...
 :::
 
-Initions maintenant votre rapport :
+Initialisons maintenant votre rapport :
 
 - [ ] Créez un dossier *doc*
-- [ ] Dans ce dossier, créez un dossier `img` qui servira à stocker d'éventuelles images
+- [ ] Dans ce dossier, créez un dossier *img* qui servira à stocker d'éventuelles images
 - [ ] Créez un fichier *rapport.qmd*
 - [ ] Collez le modèle typst
 - [ ] `quarto render doc/rapport.qmd`
