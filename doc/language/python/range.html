@@ -622,7 +622,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="avec-un-seul-paramètre" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="avec-un-seul-paramètre"><span class="header-section-number">1</span> Avec un seul paramètre</h2>
 <p><code>range(n)</code> génère une suite de nombres de <em>0</em> à <em>n-1</em>.</p>
-<div id="9fbc3816" class="cell" data-execution_count="1">
+<div id="c6ae62a7" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -637,7 +637,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="avec-deux-paramètres" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="avec-deux-paramètres"><span class="header-section-number">2</span> Avec deux paramètres</h2>
 <p><code>range(n, p)</code> génère une suite de nombres de <em>n</em> à <em>p-1</em>.</p>
-<div id="750ab43f" class="cell" data-execution_count="2">
+<div id="fcb24bbf" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>, <span class="dv">8</span>):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -651,7 +651,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="troisième-paramètre-le-pas" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="troisième-paramètre-le-pas"><span class="header-section-number">3</span> Troisième paramètre : le pas</h2>
-<div id="f2b106b3" class="cell" data-execution_count="3">
+<div id="75ea05f7" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -673,7 +673,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container callout-body">
 <p>Vous pouvez utiliser un pas négatif.</p>
-<div id="23eb477f" class="cell" data-execution_count="4">
+<div id="601011d3" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -691,14 +691,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="convertir-en-liste" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="convertir-en-liste"><span class="header-section-number">4</span> Convertir en liste</h2>
 <p><code>range()</code> ne crée pas une liste directement.</p>
-<div id="382ab5d2" class="cell" data-execution_count="5">
+<div id="57db3c01" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(<span class="bu">range</span>(<span class="dv">5</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'range'&gt;</code></pre>
 </div>
 </div>
 <p>Mais nous pouvons simplement créer une liste avec :</p>
-<div id="61a2a275" class="cell" data-execution_count="6">
+<div id="bd05d27f" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>[0, 1, 2, 3, 4]</code></pre>
@@ -725,7 +725,7 @@ Tip
 <h2 data-number="5" class="anchored" data-anchor-id="autres-utilisations"><span class="header-section-number">5</span> Autres utilisations</h2>
 <section id="tester-lappartenance" class="level3" data-number="5.1">
 <h3 data-number="5.1" class="anchored" data-anchor-id="tester-lappartenance"><span class="header-section-number">5.1</span> Tester l’appartenance</h3>
-<div id="ee16cf3e" class="cell" data-execution_count="7">
+<div id="cdedc1b1" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>True</code></pre>
@@ -735,7 +735,7 @@ Tip
 </section>
 <section id="répéter-une-action" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="répéter-une-action"><span class="header-section-number">6</span> Répéter une action</h2>
-<div id="04abda67" class="cell" data-execution_count="8">
+<div id="2412be56" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Bonjour"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
