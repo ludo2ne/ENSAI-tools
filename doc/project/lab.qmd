@@ -15,9 +15,17 @@ categories:
 - [ ] Alternative VSCode-python + Quarto
 :::
 
-## Objectifs 🎯 {.unnumbered}
+## Introduction {.unnumbered}
 
-Les objectifs de cette séance sont :
+### Contexte {.unnumbered}
+
+Vous allez démarrer votre projet statistique de première année.
+
+Vous avez déjà été sensibilisés à la gestion de projet et à l'utilisation de l'intelligence artificielle. Aujourd'hui, nous allons voir comment bien démarrer un projet en nous appuyant sur des outils et des bonnes pratiques que vous pourrez réutiliser tout au long de votre formation et lors de vos stages.
+
+### Objectifs {.unnumbered}
+
+Les objectifs 🎯 de cette séance sont :
 
 - S'organiser en équipe
 - Initialiser votre dépôt de code
@@ -66,13 +74,13 @@ Vous allez ensuite vous connecter au Datalab pour le déposer sur votre stockage
 - [ ] Allez dans stockage de données
 - [ ] Créez un dossier nommé **diffusion**
 
+:::{.notes}
 🚧 Lien vers partage de données :
 
 - diffusion : lecture seule
 - partage de fichier : 1 semaine max
 - rendre public un dossier : écriture ?
-
----
+:::
 
 - [ ] Dans ce dossier, créez un dossier **projet**, puis un dossier **input**
 - [ ] Chargez le fichier du Loto
@@ -105,8 +113,11 @@ Ceci n'est à faire qu'une seule fois.
 
 > Avant de créer votre dépôt local (code sur lequel vous allez travailler), il faut créer votre environnement de travail.
 
+Vous allez ci-dessous utiliser les paramètres de lancement pour créer votre clone :
+
 - [ ] Allez dans le catalogue des services
-- [ ] Lancez un service Rstudio [Lancer]{.blue-button} **[une seule fois]{.underline}**
+- [ ] Lancez un service Rstudio 
+  - Cliquez sur [Lancer]{.blue-button} **[une seule fois]{.underline}**
 - [ ] Allez dans l'onglet Git
   - Vérifiez que votre Token est présent
   - Renseignez l'url de votre dépôt GitHub
@@ -413,7 +424,7 @@ Initialisons maintenant votre rapport :
 - [ ] `quarto render doc/rapport.qmd`
 
 ::: {.callout-tip title="Quelques conseils pour le rapport" collapse="true"}
-**Comment bien bâcler son rapport ?** 💣 \
+**Comment bien bâcler son rapport ?** 💀 💣 \
 *(pas besoin de nous remercier, c'est gratuit)*
 
 1. Je m'y mets au dernier moment. Avec un peu de chance, les autres auront déjà fait une partie de mon boulot.

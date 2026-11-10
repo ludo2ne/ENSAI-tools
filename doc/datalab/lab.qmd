@@ -13,7 +13,7 @@ Vous allez utiliser les services du Datalab dans de nombreux TP, par exemple :
 - PostgreSQL et cloudBeaver pour les TP de bases de données relationnelles
 :::
 
-> ➡️ **[Sujet du TP](https://ihiverlet.github.io/Ensai-1A-initiation-datalab/){target="_blank"}**
+> 👉 **[Sujet du TP](https://ihiverlet.github.io/Ensai-1A-initiation-datalab/){target="_blank"}** 👈
 
 
 ## Créer un compte {.unnumbered}
