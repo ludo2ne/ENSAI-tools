@@ -274,6 +274,7 @@ communes <- aws.s3::s3read_using(
   delim = ";",
   object = file_path,
   bucket = bucket_name,
+  locale = readr::locale(decimal_mark = ","),
   opts = list("region" = "")
 )
 ```
@@ -294,28 +295,197 @@ La solution est expliquée sur la même page que ci-dessus.
 
 - [ ] Créez un nouveau script que vous nommerez `02_nettoyage.R`
 
+::: {.callout-tip title="Pourquoi créer un nouveau fichier ?"}
+Imaginez un unique script de 2000 lignes qui charge les données, les nettoie, réalise toutes les analyses et produit le rapport. Pour retrouver une instruction, bon courage ! Et si vous souhaitez modifier le nettoyage, gare aux effets de bord sur le reste du projet !
+
+En séparant les différentes étapes, vous rendez votre code plus lisible, plus facile à maintenir et à faire évoluer. Votre futur vous (et vos coéquipiers) vous remercieront !
+:::
+
+
 À partir du dataframe *loto_raw*, vous allez créer un nouveau dataframe propre que vous nommerez *loto* :
 
+:::{.notes}
+summary(loto_raw$annee_numero_de_tirage)
+:::
+
 - [ ] Observez la colonne *annee_numero_de_tirage*, vous ne remarquez pas des problèmes ?
-- [ ] Harmonisez cette colonne et renommez-la *id*
-- [ ] Vous allez uniquement étudier le premier tirage, supprimez les colonnes concernant le second
-- [ ] Supprimez également les colonnes sur les *codes gagnants*, ainsi que celles nommées : *date_de_forclusion*, *numero_7*, *devise* et *...50* 
+- [ ] Utilisez le code ci-dessous 👇 pour harmoniser cet identifiant
+
+```{.r}
+library(dplyr)
+library(stringr)
+library(lubridate)
+
+loto <- loto_raw |>
+  mutate(
+    date_de_tirage = dmy(date_de_tirage), # conversion en format date
+    annee_numero_de_tirage = paste0(
+      year(date_de_tirage),
+      str_sub(as.character(annee_numero_de_tirage), -3)
+    )
+  ) |>
+  rename(id = annee_numero_de_tirage)
+```
+
+- [ ] Examinez les différentes valeurs présentes dans la colonne *jour_de_tirage*
+  - Que constatez-vous ?
+- [ ] Utilisez la fonction `str_trim()` pour corriger
+- [ ] Vérifiez le résultat obtenu
+
+:::{.notes}
+```{.r}
+loto <- loto_raw |>
+  mutate(
+    jour_de_tirage = str_trim(jour_de_tirage)
+  )
+
+table(loto$jour_de_tirage)
+
+loto <- loto |>
+  mutate(jour_de_tirage = str_trim(jour_de_tirage))
+```
+:::
+
+Certaines colonnes du jeu de données ne seront pas utiles pour notre analyse.
+
+- [ ] Supprimez les colonnes concernant le second tirage, celles sur les *codes gagnants*, ainsi que celles nommées : *date_de_forclusion*, *numero_7*, *devise* et *...50*
+
+::: {.callout-tip collapse="true"}
+```{.r}
+loto |>
+  select(
+    -contains("picsou"),
+    -boule2
+  )
+```
+:::
+
+:::{.notes}
+```r
+loto <- loto |>
+  select(
+    -contains("second_tirage"),
+    -contains("code"),
+    -date_de_forclusion,
+    -numero_7,
+    -devise,
+    -`...50`
+  )
+```
+:::
+
 
 Vous avez maintenant un jeu de données propre. 🧼 🧹
 
-- [ ] Exportez-le vers votre bucket S3
+- [ ] Exportez-le vers votre bucket S3 en créant un fichier *loto.csv*
 
+:::{.notes}
+```r
+aws.s3::s3write_using(
+  loto,
+  FUN = readr::write_delim,
+  object = "diffusion/projet/input/loto.csv",
+  bucket = bucket_name,
+  opts = list("region" = ""),
+  delim = ";"
+)
+```
+:::
+
+Nous allons ensuite nous interesser également aux numéros.
+
+- [ ] Créez ce dataframe
+
+```{.r}
+numeros <- loto |>
+  tidyr::pivot_longer(
+    cols = starts_with("boule_"),
+    values_to = "numero"
+  ) |>
+  group_by(numero) |>
+  summarise(
+    nombre_sorties = n(),
+    derniere_sortie = max(date_de_tirage)
+  )
+```
 
 ## Une première analyse
 
-🚧
+Commençons par quelques statistiques descriptives.
+
+Vous pouvez continuez à coder dans le fichier `02_nettoyage.R`
+
+::: {.callout-warning collapse="true"}
+Bien sûr que NON, c'est juste pour voir si vous suivez !
 
 - [ ] Créez un script nommé `03_stats_desc.R`
+:::
 
-En R :
+- [ ] Quels sont la moyenne, le min, le max de gains au rang 1
+  - i.e. si l'on trouve les 5 numéros, ainsi que le numéro chance
+- [ ] Quelle proportion des tirages a vu le jackpot remporté ?
 
-- Stats desc
-- Une figure
+Il n'est pas possible de connaître directement le nombre de grilles jouées. Nous allons en proposer une estimation à partir des résultats du rang 9. La probabilité de gagner au rang 9 est d'environ 5,7 %.
+
+- [ ] Estimez le nombre de grilles jouées pour chaque tirage
+  - vous pouvez ajouter une colonne *nb_grilles_estime* au dataframe
+- [ ] Quel jour de la semaine semble attirer le plus de joueurs ?
+  - calculez le nombre moyen de grilles estimé pour chaque jour de la semaine
+  - comme en SQL, regroupez puis calculez la moyenne
+
+:::{.notes}
+```{.r}
+loto |>
+  filter(nombre_de_gagnant_au_rang1 > 0) |>
+  summarise(
+    moyenne = mean(rapport_du_rang1, na.rm = TRUE),
+    minimum = min(rapport_du_rang1, na.rm = TRUE),
+    maximum = max(rapport_du_rang1, na.rm = TRUE)
+  )
+
+# Proportion de jackpots remportés
+loto |>
+  summarise(
+    proportion = mean(nombre_de_gagnant_au_rang1 > 0) * 100
+  )
+
+# Estimez le nombre de grilles jouées pour chaque tirage
+loto <- loto |>
+  mutate(
+    nb_grilles_estime =
+      nombre_de_gagnant_au_rang9 / p_rang9
+  )
+
+# nombre de joueurs moyens par jour de la semaine
+loto |>
+  group_by(jour_de_tirage) |>
+  summarise(
+    moyenne_grilles = mean(nb_grilles_estime)
+  )
+
+```
+:::
+
+- [ ] Affichez la distribution de la moyenne des cinq numéros
+
+```{.r}
+loto |>
+  mutate(
+    moyenne_numeros = rowMeans(across(starts_with("boule_")))
+  ) |>
+  ggplot(aes(x = moyenne_numeros)) +
+  geom_histogram(
+    bins = 50,
+    fill = "steelblue",
+    color = "white"
+  ) +
+  labs(
+    title = "Distribution de la moyenne des cinq numéros tirés",
+    x = "Moyenne des cinq numéros",
+    y = "Nombre de tirages"
+  ) +
+  theme_minimal()
+```
 
 - [ ] Créez d'autres scripts pour vos futures analyses
   - exemples : `04_analyse_multivariee.R`, `05_acp.R`, `99_sandbox.R`
@@ -408,7 +578,6 @@ Un modèle vous est fourni. Vous trouverez sur ce site un [exemple de rapport](.
 - [ ] Cliquez sur le bouton `</> Code` pour voir le contenu du rapport
 - [ ] Cliquez sur le bouton `Typst` pour voir le rendu pdf
 
-
 ::: {.callout-note title="Remarque"}
 Vous remarquerez dans le code du rapport qu'il y a une partie du code rédigée directement en Typst.
 
@@ -418,10 +587,234 @@ C'est nécessaire pour avoir une page de garde et une table des matières propre
 Initialisons maintenant votre rapport :
 
 - [ ] Créez un dossier *doc*
-- [ ] Dans ce dossier, créez un dossier *img* qui servira à stocker d'éventuelles images
-- [ ] Créez un fichier *rapport.qmd*
-- [ ] Collez le modèle typst
+- [ ] Dans ce dossier, créez un dossier *img*
+- [ ] Ajoutez-y ce [logo de l'ENSAI](https://raw.githubusercontent.com/ludo2ne/ENSAI-tools/refs/heads/main/doc/quarto/img/ensai_logo.png){target="_blank"}
+  - Upload ⏩ Choisir un fichier ⏩ Collez l'url de l'image ⏩ Ouvrir
+  - ⚠️ Important : renommez ce fichier `ensai_logo.png`
+- [ ] Créer le fichier *model.typ* et collez-y le contenu ci-dessous 👇
+
+::: {.callout-note title="model.typ" collapse="true"}
+```{.typ filename="model.typ"}
+// =====================================================================
+// Global Setup
+// =====================================================================
+#let global_styles(body) = {
+  show link: set text(fill: rgb("#1a73e8"))  
+  
+  show heading: it => {
+    block(above: 2em, below: 1em, it)
+  }
+
+  set bibliography(title: [Bibliographie], full: true)
+
+  body
+}
+
+// =====================================================================
+// Cover page
+// =====================================================================
+#let cover_page(title:[], team:[], authors:[], tutor: [], project: [], logo_path: "img/ensai_logo.png") = {
+  align(horizon + center)[
+    #image(logo_path, width: 65%)
+    #v(3em)
+    #line(start: (0cm, 0cm), end: (17cm, 0%), stroke: (thickness: 2pt))
+    #text(size: 24pt, weight: "bold", title)\
+    #line(start: (0cm, 0cm), end: (17cm, 0%), stroke: (thickness: 2pt))
+    #v(1em)
+    #text(size: 14pt, team)
+    #v(2em)
+  ]
+
+  grid(
+    columns: (1fr, 1fr),
+    align: (left, right),
+    [
+      *Étudiants :* \
+      #authors.map(a => [#a]).join("\n")
+    ],
+    [
+      *Encadrant :* \
+      #tutor
+    ]
+  )
+
+  align(bottom + center)[
+    #v(5em)
+    #text(project)
+  ]
+}
+
+// =====================================================================
+// Template
+// =====================================================================
+#let project_template(
+  title: [], team: [], authors: [], tutor: [], project: [], 
+  logo_path: "img/ensai_logo.png",
+  body 
+) = {
+  show: global_styles
+
+  set page(footer: none)
+
+  cover_page(
+    title: title, team: team, authors: authors, 
+    tutor: tutor, project: project, logo_path: logo_path
+  )
+
+  // Table of contents
+  pagebreak()
+  set page(fill: none, margin: auto)
+  align(horizon, outline(indent: auto, title: [Table des matières]))
+
+  // Page numbering begins after the table of contents
+  pagebreak()
+  counter(page).update(1)
+  set page(footer: context { set align(center); counter(page).display() })
+
+  body
+}
+```
+:::
+
+- [ ] Créez un fichier *rapport.qmd*`
+- [ ] Pour initier votre rapport, collez le code ci-dessous 👇 qui contient : 
+  - métadonnées : décrit le fichier pdf à générer
+  - chargement des données en R
+  - utilisation du modèle typst pour générer la page de garde
+  - corps du rapport en markdown
+
+::: {.callout-note title="rapport.qmd" collapse="true"}
+````
+---
+format:
+  typst:
+    papersize: a4
+    margin:
+      x: 1.5cm
+      y: 2.0cm
+    section-numbering: 1.1.a
+    mainfont: "Libertinus Serif"
+    fontsize: 11pt
+---
+
+```{{r}}
+#| label: librairies
+#| message: false
+#| echo: false
+#| warning: false
+
+library(aws.s3)
+library(dplyr)
+library(stringr)
+library(lubridate)
+library(tidyr)
+library(ggplot2)
+```
+
+```{{r}}
+#| label: import
+#| message: false
+#| echo: false
+#| warning: false
+
+bucket_name <- "ludo2ne"
+file_path <- "diffusion/projet/input/loto_201911.csv"
+
+loto_raw <- aws.s3::s3read_using(
+  FUN = readr::read_delim,
+  delim = ";",
+  object = file_path,
+  bucket = bucket_name,
+  locale = readr::locale(decimal_mark = ","),
+  opts = list("region" = "")
+)
+```
+
+```{{r}}
+#| label: nettoyage
+#| message: false
+#| echo: false
+#| warning: false
+
+loto <- loto_raw |>
+  mutate(
+    date_de_tirage = dmy(date_de_tirage), # conversion en format date
+    jour_de_tirage = str_trim(jour_de_tirage),
+    annee_numero_de_tirage = paste0(
+      year(date_de_tirage),
+      str_sub(as.character(annee_numero_de_tirage), -3)
+    )
+  ) |>
+  rename(id = annee_numero_de_tirage)
+
+loto <- loto |>
+  select(
+    -contains("second_tirage"),
+    -contains("code"),
+    -date_de_forclusion,
+    -numero_7,
+    -devise,
+    -...50
+  )
+```
+
+```{=typst}
+#import "model.typ": project_template
+
+#show: body => project_template(
+  title: [Créer un rapport de projet\ avec Quarto et Typst],
+  team: [Équipe 8],
+  authors: ([Jean-Guy Badiane], [Serena Williams], [François Pignon], [Anne Hathaway]),
+  tutor: [Philippe Lucas],
+  project: [Projet Statistique de 1ère année - Année 2025-2026],
+  body
+)
+```
+
+## Introduction
+
+lorem
+
+## Partie 1
+
+````
+:::
+
+Dans la partie 1 :
+
+- [ ] Affichez la distribution de la moyenne des gains au rang 1
+
+```{.r}
+loto |>
+  ggplot(aes(x = rapport_du_rang1)) +
+  geom_histogram(
+    bins = 20,
+    fill = "steelblue",
+    color = "white"
+  ) +
+  scale_x_continuous(
+    labels = scales::label_number(big.mark = " ", decimal.mark = ",")
+  ) +
+  labs(
+    title = "Distribution des gains au rang 1",
+    x = "Gain au rang 1 (€)",
+    y = "Nombre de tirages"
+  ) +
+  theme_minimal()
+```
+
+::: {.callout-caution title="Qui veut gagner de l'argent en masse"}
+Vous voyez des gains en milliard ?
+
+Vous n'auriez pas oublié un petit truc, par exemple de préciser le séparateur de décimale au chargement du fichier ?
+:::
+
+Dans le **terminal** de RStudio :
+
+- [ ] Positionnez-vous dans le dossier *doc*
 - [ ] `quarto render doc/rapport.qmd`
+- [ ] Ouvrez le pdf généré
+
 
 ::: {.callout-tip title="Quelques conseils pour le rapport" collapse="true"}
 **Comment bien bâcler son rapport ?** 💀 💣 \
