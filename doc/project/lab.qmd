@@ -2,18 +2,22 @@
 title: "TP Bien démarrer son projet"
 description: "Bonnes pratiques pour débuter un projet"
 author: Ludovic Deneuville
+format:
+  html: default
+  typst:
+    papersize: a4
+    margin:
+      x: 1.5cm
+      y: 2.0cm
+    section-numbering: 1.1.a
+    mainfont: "Libertinus Serif"
+    fontsize: 11pt
 categories:
   - Dépôts
   - Planification
   - Qualité
   - Reproductibilité
 ---
-
-🚧 En cours d'écriture
-
-:::{.notes}
-- [ ] Alternative VSCode-python + Quarto
-:::
 
 ## Introduction {.unnumbered}
 
@@ -22,6 +26,10 @@ categories:
 Vous allez démarrer votre projet statistique de première année.
 
 Vous avez déjà été sensibilisés à la gestion de projet et à l'utilisation de l'intelligence artificielle. Aujourd'hui, nous allons voir comment bien démarrer un projet en nous appuyant sur des outils et des bonnes pratiques que vous pourrez réutiliser tout au long de votre formation et lors de vos stages.
+
+::: {.callout-note}
+Même si le but est de travailler en équipe, ce TP est à réaliser de préférence individuellement. L'objectif est que chacun puisse comprendre les principes, utiliser les outils et manipuler les données.
+:::
 
 ### Objectifs {.unnumbered}
 
@@ -66,7 +74,7 @@ Toutes les initiatives ne seront pas nécessairement concluantes, et ce n'est pa
 
 > Commençons par une partie facile, déposons nos données dans un endroit sûr.
 
-- [ ] Récupérez sur internet l'historique des tirages du Loto depuis novembre 2019
+- [ ] Récupérez sur internet [l'historique des tirages du Loto](https://www.fdj.fr/jeux-de-tirage/loto/historique){target="_blank"} depuis novembre 2019
 
 Vous allez ensuite vous connecter au Datalab pour le déposer sur votre stockage S3.
 
@@ -109,6 +117,13 @@ Votre code sera stocké dans un dépôt GitHub.
 
 Ceci n'est à faire qu'une seule fois.
 
+::: {.callout-important}
+Pour le véritable projet, vous choisirez un seul des trois dépôts GitHub créés individuellement et l'utiliser comme dépôt commun à toute l'équipe. 
+
+Son propriétaire devra alors inviter les deux autres membres comme collaborateurs (*Settings ⏩ Collaborators*). Vous pourrez ainsi tous travailler sur le même dépôt.
+:::
+
+
 ### Dépôt local
 
 > Avant de créer votre dépôt local (code sur lequel vous allez travailler), il faut créer votre environnement de travail.
@@ -129,7 +144,7 @@ Si tout s'est bien passé, un clone de votre dépôt a été créé dans votre s
 ::: {.callout-note title="Si votre dépôt n'a pas été créé" collapse="true"}
 Dans le terminal de votre service, clonez manuellement en utilisant le token :
 
-- `git clone https://$GIT_PERSONAL_ACCESS_TOKEN@github.com/<username>/<repo_name>.git`
+- exemple : `git clone https://$GIT_PERSONAL_ACCESS_TOKEN@github.com/<username>/<repo_name>.git`
 :::
 
 ### Rappels Git
@@ -141,14 +156,20 @@ Toutes les actions ci-dessous sont à faire dans Rstudio.
 - [ ] Ouvrez le fichier *README.md*
 
 
-::: {.callout-important title="README ça veut dire..."}
-Pas besoin d'être bilingue pour comprendre l'idée.
+::: {.callout-important title="README, What do you think that means?"}
+Le fichier README.md est le mode d'emploi de votre projet.
 
-Ce fichier est très important. Il doit comporter :
+Il est essentiel : c'est la première porte d'entrée de votre dépôt. Il doit permettre à quelqu'un qui découvre votre projet de comprendre rapidement son objectif et de savoir comment l'utiliser ou y contribuer.
 
-- une brève présentation de votre projet
-- les instructions pour utiliser vos programmes (mode utilisateur)
-- les instructions pour compléter votre code (mode développeur)
+Il doit comporter au minimum :
+
+- Présentation : objectif du projet et description de son contenu
+- Fonctionnalités : principales possibilités offertes
+- Environnement : outils, logiciels et packages nécessaires
+- Mode utilisateur : instructions pour utiliser facilement et rapidement
+- Mode développeur : instructions pour comprendre l'organisation du code et le compléter
+
+Pensez à rédiger votre README comme si vous présentiez votre travail à une personne qui ne connaît pas votre projet !
 :::
 
 - [ ] Collez le contenu ci-dessous 👇 et enregistrez
@@ -171,17 +192,6 @@ Analyser les résultats du Loto pour tenter de découvrir les combinaisons gagna
 4. Lancer les scripts d'analyse.
 ```
 
-::: {.callout-important title="README"}
-Le fichier `README.md` est essentiel pour présenter le contenu et l'utilisation d'un dépôt.
-
-Il doit contenir au minimum :
-
-- **Présentation** : objectif et contenu du projet.
-- **Fonctionnalités** : principales opérations réalisées.
-- **Environnement** : outils et packages nécessaires.
-- **Lancement rapide** : instructions pour installer les dépendances et exécuter le projet.
-:::
-
 - [ ] Avec Git, envoyez ces modifications vers le remote
   - Faites un petit détour par la section Git si besoin
 - [ ] Sur GitHub, vérifiez que le README est à jour
@@ -198,7 +208,7 @@ Il permet à RStudio de reconnaître votre dossier comme un projet et de conserv
 
 ::: {.callout-note title="Si le fichier n'a pas été créé" collapse="true"}
 - [ ] File ⏩ New Project ⏩ Existing Directory
-- [ ] Sélectionnez `ensai-projet-stat-1a` ⏩ Create project
+- [ ] Sélectionnez `projet-stat-1a-groupe<N>` ⏩ Create project
 :::
 
 Il permet notamment de :
@@ -244,6 +254,30 @@ Vous allez avoir besoin des packages suivants :
 - [ ] Vérifiez que les packages installés sont dans le renv.lock
 - [ ] Créez un commit et poussez vos modifications
 
+### Charger les librairies
+
+> Installer un package ne suffit pas pour pouvoir l'utiliser dans un script R.
+
+Il faut également le charger avec `library()`. Pour éviter de répéter ces appels dans tous les scripts, nous les regroupons dans un fichier `01_initialisation.R`.
+
+::: {.callout-note}
+Vous l'avez sans doute remarqué, ça commence à devenir le bazar à la racine du dépôt. Pour bien ranger les fichiers contenant du code, vous allez créer un dossier *src* (sources).
+:::
+
+- [ ] Créez un dossier *src*
+- [ ] Dans ce dossier, créez un fichier nommé *01_initialisation.R*
+- [ ] Collez-y quelques librairies dont vous aurez besoin
+  - À compléter par la suite si nécesssaire
+
+```{.r filename="01_initialisation.R"}
+# renv::install("aws.s3")
+library(aws.s3)
+
+library(dplyr)
+library(stringr)
+library(lubridate)
+library(tidyr)
+```
 
 ## Charger et apurer
 
@@ -253,19 +287,13 @@ Vous allez avoir besoin des packages suivants :
 
 > Commençons par charger le fichier.
 
-Vous l'avez sans doute remarqué, ça commence à devenir le bazar à la racine du dépôt. Pour bien ranger les fichiers contenant du code, vous allez créer un dossier *src* (sources).
-
-- [ ] Créez un dossier *src*
-- [ ] Créez à l'intérieur un script `01_import.R`
+- [ ] Créez à l'intérieur un script `02_import.R`
 - [ ] Récupérez vos données depuis S3 et chargez-les dans un dataframe que vous nommerez `loto_raw`
   - Vous trouverez comment faire sur 👉 [cette page](./../datalab/basics.qmd){target="_blank"} 👈
   - Il manque des packages ? Installez-les !
 
 :::{.notes}
 ```{.r}
-# renv::install("aws.s3")
-library(aws.s3)
-
 bucket_name <- "ludo2ne"
 file_path <- "diffusion/projet/input/loto_201911.csv"
 
@@ -293,7 +321,7 @@ La solution est expliquée sur la même page que ci-dessus.
 
 > Certaines colonnes ne nous intéressent pas, certaines données sont mal formatées. Il faut mettre tout cela au propre avant de commencer les analyses.
 
-- [ ] Créez un nouveau script que vous nommerez `02_nettoyage.R`
+- [ ] Créez un nouveau script que vous nommerez `03_nettoyage.R`
 
 ::: {.callout-tip title="Pourquoi créer un nouveau fichier ?"}
 Imaginez un unique script de 2000 lignes qui charge les données, les nettoie, réalise toutes les analyses et produit le rapport. Pour retrouver une instruction, bon courage ! Et si vous souhaitez modifier le nettoyage, gare aux effets de bord sur le reste du projet !
@@ -312,10 +340,6 @@ summary(loto_raw$annee_numero_de_tirage)
 - [ ] Utilisez le code ci-dessous 👇 pour harmoniser cet identifiant
 
 ```{.r}
-library(dplyr)
-library(stringr)
-library(lubridate)
-
 loto <- loto_raw |>
   mutate(
     date_de_tirage = dmy(date_de_tirage), # conversion en format date
@@ -351,6 +375,8 @@ Certaines colonnes du jeu de données ne seront pas utiles pour notre analyse.
 - [ ] Supprimez les colonnes concernant le second tirage, celles sur les *codes gagnants*, ainsi que celles nommées : *date_de_forclusion*, *numero_7*, *devise* et *...50*
 
 ::: {.callout-tip collapse="true"}
+Pour retirer des colonnes :
+
 ```{.r}
 loto |>
   select(
@@ -392,7 +418,7 @@ aws.s3::s3write_using(
 ```
 :::
 
-Nous allons ensuite nous interesser également aux numéros.
+Nous allons également nous interesser aux numéros.
 
 - [ ] Créez ce dataframe
 
@@ -411,17 +437,17 @@ numeros <- loto |>
 
 ## Une première analyse
 
-Commençons par quelques statistiques descriptives.
+> Commençons par quelques statistiques descriptives.
 
-Vous pouvez continuez à coder dans le fichier `02_nettoyage.R`
+Vous pouvez continuez à coder dans le fichier `03_nettoyage.R`
 
 ::: {.callout-warning collapse="true"}
 Bien sûr que NON, c'est juste pour voir si vous suivez !
 
-- [ ] Créez un script nommé `03_stats_desc.R`
+- [ ] Créez un script nommé `04_stats_desc.R`
 :::
 
-- [ ] Quels sont la moyenne, le min, le max de gains au rang 1
+- [ ] Quels sont la moyenne, le min, le max de gains au rang 1 ?
   - i.e. si l'on trouve les 5 numéros, ainsi que le numéro chance
 - [ ] Quelle proportion des tirages a vu le jackpot remporté ?
 
@@ -488,7 +514,7 @@ loto |>
 ```
 
 - [ ] Créez d'autres scripts pour vos futures analyses
-  - exemples : `04_analyse_multivariee.R`, `05_acp.R`, `99_sandbox.R`
+  - exemples : `05_analyse_multivariee.R`, `06_acp.R`, `99_sandbox.R`
 
 ## Préparer les livrables
 
@@ -521,6 +547,8 @@ Vous allez créer des fichiers avec l'extension `qmd` qui contiennent :
 └───────────────┘       └──────────────────┘   └──►  │  Slides   │
                                                      └───────────┘
 ```
+
+Il est possible de générer plusieurs types de rendu avec Quarto. Ici vous générerez uniquement un fichier pdf.
 
 #### Exemple de qmd
 
@@ -561,7 +589,6 @@ Avec cette méthode, Picsou économise `r epargne` pièces d'or !
   style="border: 1px solid #ddd;">
 </iframe>
 
-
 :::
 
 ### Initialiser son rapport
@@ -581,7 +608,7 @@ Un modèle vous est fourni. Vous trouverez sur ce site un [exemple de rapport](.
 ::: {.callout-note title="Remarque"}
 Vous remarquerez dans le code du rapport qu'il y a une partie du code rédigée directement en Typst.
 
-C'est nécessaire pour avoir une page de garde et une table des matières propre. Ce code utilise un fichier `model.typ` qui vous est fourni. Vous avez simplement à renseigner quelques informations : titre, membres de l'équipe...
+C'est nécessaire pour avoir une page de garde et une table des matières propre. Ce code utilise un fichier [model.typ](./../quarto/model.typ){target="_blank"} qui vous est fourni. Vous avez simplement à renseigner quelques informations : titre, membres de l'équipe...
 :::
 
 Initialisons maintenant votre rapport :
@@ -591,91 +618,7 @@ Initialisons maintenant votre rapport :
 - [ ] Ajoutez-y ce [logo de l'ENSAI](https://raw.githubusercontent.com/ludo2ne/ENSAI-tools/refs/heads/main/doc/quarto/img/ensai_logo.png){target="_blank"}
   - Upload ⏩ Choisir un fichier ⏩ Collez l'url de l'image ⏩ Ouvrir
   - ⚠️ Important : renommez ce fichier `ensai_logo.png`
-- [ ] Créer le fichier *model.typ* et collez-y le contenu ci-dessous 👇
-
-::: {.callout-note title="model.typ" collapse="true"}
-```{.typ filename="model.typ"}
-// =====================================================================
-// Global Setup
-// =====================================================================
-#let global_styles(body) = {
-  show link: set text(fill: rgb("#1a73e8"))  
-  
-  show heading: it => {
-    block(above: 2em, below: 1em, it)
-  }
-
-  set bibliography(title: [Bibliographie], full: true)
-
-  body
-}
-
-// =====================================================================
-// Cover page
-// =====================================================================
-#let cover_page(title:[], team:[], authors:[], tutor: [], project: [], logo_path: "img/ensai_logo.png") = {
-  align(horizon + center)[
-    #image(logo_path, width: 65%)
-    #v(3em)
-    #line(start: (0cm, 0cm), end: (17cm, 0%), stroke: (thickness: 2pt))
-    #text(size: 24pt, weight: "bold", title)\
-    #line(start: (0cm, 0cm), end: (17cm, 0%), stroke: (thickness: 2pt))
-    #v(1em)
-    #text(size: 14pt, team)
-    #v(2em)
-  ]
-
-  grid(
-    columns: (1fr, 1fr),
-    align: (left, right),
-    [
-      *Étudiants :* \
-      #authors.map(a => [#a]).join("\n")
-    ],
-    [
-      *Encadrant :* \
-      #tutor
-    ]
-  )
-
-  align(bottom + center)[
-    #v(5em)
-    #text(project)
-  ]
-}
-
-// =====================================================================
-// Template
-// =====================================================================
-#let project_template(
-  title: [], team: [], authors: [], tutor: [], project: [], 
-  logo_path: "img/ensai_logo.png",
-  body 
-) = {
-  show: global_styles
-
-  set page(footer: none)
-
-  cover_page(
-    title: title, team: team, authors: authors, 
-    tutor: tutor, project: project, logo_path: logo_path
-  )
-
-  // Table of contents
-  pagebreak()
-  set page(fill: none, margin: auto)
-  align(horizon, outline(indent: auto, title: [Table des matières]))
-
-  // Page numbering begins after the table of contents
-  pagebreak()
-  counter(page).update(1)
-  set page(footer: context { set align(center); counter(page).display() })
-
-  body
-}
-```
-:::
-
+- [ ] Revenez dans le dossier *doc* et créez le fichier *model.typ* et collez-y son contenu
 - [ ] Créez un fichier *rapport.qmd*`
 - [ ] Pour initier votre rapport, collez le code ci-dessous 👇 qui contient : 
   - métadonnées : décrit le fichier pdf à générer
@@ -695,67 +638,18 @@ format:
     section-numbering: 1.1.a
     mainfont: "Libertinus Serif"
     fontsize: 11pt
+execute:
+  message: false
+  echo: false
+  warning: false  
 ---
 
 ```{{r}}
-#| label: librairies
-#| message: false
-#| echo: false
-#| warning: false
+#| label: librairies-and-load
 
-library(aws.s3)
-library(dplyr)
-library(stringr)
-library(lubridate)
-library(tidyr)
-library(ggplot2)
-```
-
-```{{r}}
-#| label: import
-#| message: false
-#| echo: false
-#| warning: false
-
-bucket_name <- "ludo2ne"
-file_path <- "diffusion/projet/input/loto_201911.csv"
-
-loto_raw <- aws.s3::s3read_using(
-  FUN = readr::read_delim,
-  delim = ";",
-  object = file_path,
-  bucket = bucket_name,
-  locale = readr::locale(decimal_mark = ","),
-  opts = list("region" = "")
-)
-```
-
-```{{r}}
-#| label: nettoyage
-#| message: false
-#| echo: false
-#| warning: false
-
-loto <- loto_raw |>
-  mutate(
-    date_de_tirage = dmy(date_de_tirage), # conversion en format date
-    jour_de_tirage = str_trim(jour_de_tirage),
-    annee_numero_de_tirage = paste0(
-      year(date_de_tirage),
-      str_sub(as.character(annee_numero_de_tirage), -3)
-    )
-  ) |>
-  rename(id = annee_numero_de_tirage)
-
-loto <- loto |>
-  select(
-    -contains("second_tirage"),
-    -contains("code"),
-    -date_de_forclusion,
-    -numero_7,
-    -devise,
-    -...50
-  )
+source("../src/01_initialisation.R")
+source("../src/02_import.R")
+source("../src/03_nettoyage.R")
 ```
 
 ```{=typst}
@@ -773,14 +667,15 @@ loto <- loto |>
 
 ## Introduction
 
-lorem
+```{=typst}
+#lorem(100)
+```
 
 ## Partie 1
-
 ````
 :::
 
-Dans la partie 1 :
+Ajoutons une petite figure, dans la partie 1 :
 
 - [ ] Affichez la distribution de la moyenne des gains au rang 1
 
@@ -813,8 +708,9 @@ Dans le **terminal** de RStudio :
 
 - [ ] Positionnez-vous dans le dossier *doc*
 - [ ] `quarto render doc/rapport.qmd`
-- [ ] Ouvrez le pdf généré
+- [ ] Ouvrez le pdf généré ✨ 🤩 🍾
 
+Vous avez maintenant toutes les cartes en main pour mener à bien votre projet : à vous de jouer !
 
 ::: {.callout-tip title="Quelques conseils pour le rapport" collapse="true"}
 **Comment bien bâcler son rapport ?** 💀 💣 \

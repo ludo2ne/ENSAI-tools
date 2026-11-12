@@ -122,6 +122,7 @@ communes <- aws.s3::s3read_using(
   delim = ";",
   object = file_path,
   bucket = bucket_name,
+  locale = readr::locale(decimal_mark = ","),
   opts = list("region" = "")
 )
 ```
